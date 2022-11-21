@@ -6,6 +6,7 @@ public class Test
   {
     Scanner k=new Scanner(System.in);
     System.out.println("Test merging from pull request");
+    System.out.println("Version 3");
   }
 
 }
