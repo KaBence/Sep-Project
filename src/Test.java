@@ -1,4 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
 
 public class Test
 {
@@ -7,6 +6,7 @@ public class Test
     System.out.println("Test");
     System.out.println("Test2");
     System.out.println("Testasd");
+
 
     System.out.println("Michaela");
     System.out.println("Bence");
