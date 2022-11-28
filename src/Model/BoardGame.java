@@ -21,7 +21,6 @@ public class BoardGame
     reservationList=new ReservationList();
     borrow=new Borrow();
     rankList=new RankList();
-    voteList=new VoteList();
   }
 
 }
