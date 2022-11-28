@@ -9,6 +9,11 @@ public class Voting
     return vote;
   }
 
+  public void setVote(int vote)
+  {
+    this.vote = vote;
+  }
+
   public void addVote()
   {
     vote++;
@@ -26,6 +31,7 @@ public class Voting
 
   public Voting copy(){
     Voting copy = new Voting();
+    copy.setVote(vote);
     return copy;
   }
 }
