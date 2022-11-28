@@ -21,7 +21,7 @@ public class RankList
 
     for(int i=0; i<ranks.size();i++){
       ranks.get(index).getRank();
-      counter++;
+      counter+=counter;
     }
  return counter;
   }
