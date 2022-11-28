@@ -17,7 +17,5 @@ public class BoardGameList
      boardGames.remove(boardGame);
    }
 
-   public void editBoardGame(int index,BoardGame boardGame){
 
-   }
 }

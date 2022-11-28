@@ -12,6 +12,11 @@ public class Borrow
 
   }
 
+  public Borrow(){
+    borrower=null;
+    returnDate=null;
+  }
+
   public void setReturnDate(MyDate returnDate)
   {
     this.returnDate = returnDate;
