@@ -4,13 +4,12 @@ public class Borrow
 {
   private Member borrower;
   private MyDate returnDate;
-  private MyDate pickUpDate;
 
-  public Borrow(Member borrower, MyDate returnDate, MyDate pickUpDate)
+  public Borrow(Member borrower, MyDate returnDate)
   {
     this.borrower = borrower;
     this.returnDate = returnDate;
-    this.pickUpDate = pickUpDate;
+
   }
 
   public void setReturnDate(MyDate returnDate)
@@ -23,19 +22,9 @@ public class Borrow
     this.borrower = borrower;
   }
 
-  public void setPickUpDate(MyDate pickUpDate)
-  {
-    this.pickUpDate = pickUpDate;
-  }
-
   public MyDate getReturnDate()
   {
     return returnDate;
-  }
-
-  public MyDate getPickUpDate()
-  {
-    return pickUpDate;
   }
 
   public Member getBorrower()
@@ -50,13 +39,11 @@ public class Borrow
       return false;
     }
     Borrow other = (Borrow) obj;
-    return borrower.equals(borrower) && returnDate.equals(other.returnDate)
-        && pickUpDate.equals(other.pickUpDate);
+    return borrower.equals(borrower) && returnDate.equals(other.returnDate);
   }
 
   public String toString()
   {
-    return "MEMBER:" + borrower + "RETURN DATE" + returnDate + "PICKUP DATE"
-        + pickUpDate;
+    return "MEMBER:" + borrower + "RETURN DATE" + returnDate + "PICKUP DATE";
   }
 }
