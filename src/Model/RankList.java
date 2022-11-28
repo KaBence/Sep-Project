@@ -11,22 +11,25 @@ public class RankList
   public void addRank(Rank rank){
     ranks.add(rank);
   }
-  public void removeRank(int index){
-    ranks.remove(index);
+  public void removeRank(Rank rank){
+    ranks.remove(rank);
+  }
+  public Rank showRank(int index){
+    return ranks.get(index);
   }
 
 
-  int counter=0;
-  public int getTotal(int index){
 
+  public int getTotal(){
+    int sum=0;
     for(int i=0; i<ranks.size();i++){
-      ranks.get(index).getRank();
-      counter+=counter;
+     sum+= ranks.get(i).getRank();
+
     }
- return counter;
+ return sum;
   }
   public double getAverage(){
-    return counter/ranks.size();
+    return getTotal()/ranks.size();
   }
   public boolean equals(Object obj)
   {
