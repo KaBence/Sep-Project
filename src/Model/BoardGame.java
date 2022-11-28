@@ -74,7 +74,10 @@ public class BoardGame
     return reservationList!=null;
   }
 
-
+  public Voting getVoteList()
+  {
+    return voteList;
+  }
 
   public boolean equals(Object obj){
     if (obj==null||getClass()!=obj.getClass()) return false;
