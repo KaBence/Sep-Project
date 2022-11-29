@@ -26,6 +26,6 @@
       <RadioButton fx:id="RBName" layoutX="194.0" layoutY="28.0" mnemonicParsing="false" onAction="#actionHandler" text="Name" />
       <RadioButton fx:id="RBNoP" layoutX="446.0" layoutY="28.0" mnemonicParsing="false" onAction="#actionHandler" text="Number of Players" />
       <RadioButton fx:id="RBType" layoutX="317.0" layoutY="28.0" mnemonicParsing="false" onAction="#actionHandler" text="Type" />
-      <Button layoutX="26.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="26.0" prefWidth="74.0" text="Back" />
+      <Button fx:id="back" layoutX="26.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="26.0" prefWidth="74.0" text="Back" />
    </children>
 </AnchorPane>
