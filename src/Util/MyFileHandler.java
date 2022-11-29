@@ -29,7 +29,7 @@ public class MyFileHandler
       FileOutputStream fileOutStream = new FileOutputStream(fileName, append);
       writeToFile = new PrintWriter(fileOutStream);
       writeToFile.println(str);
-    }k
+    }
     finally
     {
       if (writeToFile != null)
