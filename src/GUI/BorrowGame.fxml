@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="GUI.BorrowGame"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BorrowGame">
+   <children>
+      <Separator layoutX="-4.0" layoutY="54.0" prefHeight="134.0" prefWidth="646.0" />
+      <Button layoutX="566.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="Save" />
+      <Button layoutX="114.0" layoutY="359.0" mnemonicParsing="false" text="Home" />
+      <Button layoutX="26.0" layoutY="359.0" mnemonicParsing="false" text="Back" />
+      <ComboBox layoutX="25.0" layoutY="72.0" prefWidth="150.0" />
+      <Text layoutX="76.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrower" />
+      <Text layoutX="284.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick up date" />
+      <Text layoutX="491.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return date" />
+      <DatePicker layoutX="231.0" layoutY="72.0" />
+      <DatePicker layoutX="435.0" layoutY="72.0" />
+      <TableView layoutX="21.0" layoutY="163.0" prefHeight="182.0" prefWidth="591.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
