@@ -6,15 +6,22 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class BorrowGameController
 {
-@FXML RadioButton name;
+@FXML RadioButton name,type,numOfPlayers;
+@FXML RadioButton available,reserved, borrowed,allGames;
+@FXML TextField searchField;
+@FXML Button searchButton;
+@FXML TableView games;
+@FXML Button back;
 
   private ViewHandler viewHandler;
   private BoardGameClub clubmanager;
   private Scene scene;
-  @FXML Button back;
+
 
   public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
   {
