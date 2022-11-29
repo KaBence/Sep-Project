@@ -73,7 +73,7 @@ public class ViewHandler
       case "borrow":
         stage.setScene(borrowGameController.getScene());
         break;
-      case "return":
+      case "returnGame":
         stage.setScene(returnGameController.getScene());
         break;
       case "reservation":
