@@ -13,7 +13,7 @@ public class ManageMemberController
 {
 
   private ViewHandler viewHandler;
-  private BoardGameClub clubmanager;
+  private BoardGameClub clubManager;
   private Scene scene;
 
   @FXML
@@ -35,7 +35,7 @@ public class ManageMemberController
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
-    this.clubmanager = clubmanager;
+    this.clubManager = clubManager;
   }
 
   public Scene getScene(){

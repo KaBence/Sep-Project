@@ -27,11 +27,11 @@ public class MemberList {
         return null;
     }
 
-    public Member getMemberByName(String name)
+    public Member getMemberByName(String firstName)
     {
         for(int i=0; i<list.size(); i++)
         {
-            if(list.get(i).getName().equals(name))
+            if(list.get(i).getFirstName().equals(firstName))
             {
                 return list.get(i);
             }
