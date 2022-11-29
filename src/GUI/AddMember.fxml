@@ -35,7 +35,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="fName" layoutX="231.0" layoutY="46.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="274.0" />
+      <TextField fx:id="firstName" layoutX="231.0" layoutY="46.0" onAction="#fName" prefHeight="26.0" prefWidth="274.0" />
       <TextField fx:id="lastName" layoutX="231.0" layoutY="97.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="274.0" />
       <TextField fx:id="phone" layoutX="231.0" layoutY="145.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="274.0" />
       <TextField fx:id="email" layoutX="231.0" layoutY="193.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="274.0" />
@@ -51,5 +51,10 @@
       </RadioButton>
       <Button fx:id="back" layoutX="43.0" layoutY="352.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
       <Button fx:id="addTheMember" layoutX="451.0" layoutY="352.0" mnemonicParsing="false" onAction="#actionHandler" text="Add The Member" />
+      <Label layoutX="194.0" layoutY="148.0" text="+45">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
