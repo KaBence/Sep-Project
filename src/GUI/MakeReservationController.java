@@ -40,5 +40,6 @@ public class MakeReservationController
 
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back) viewHandler.openView("Menu");
+
   }
 }
