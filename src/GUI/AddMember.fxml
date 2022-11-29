@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddMember">
    <children>
       <TextField layoutY="-3.0" prefHeight="400.0" prefWidth="600.0" />
@@ -35,26 +34,26 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="231.0" layoutY="46.0" prefHeight="26.0" prefWidth="274.0" />
-      <TextField layoutX="231.0" layoutY="97.0" prefHeight="26.0" prefWidth="274.0" />
-      <TextField layoutX="231.0" layoutY="145.0" prefHeight="26.0" prefWidth="274.0" />
-      <TextField layoutX="231.0" layoutY="193.0" prefHeight="26.0" prefWidth="274.0" />
-      <RadioButton layoutX="95.0" layoutY="286.0" mnemonicParsing="false" text="Yes">
+      <TextField fx:id="fName" layoutX="231.0" layoutY="46.0" prefHeight="26.0" prefWidth="274.0" />
+      <TextField fx:id="lastName" layoutX="231.0" layoutY="97.0" prefHeight="26.0" prefWidth="274.0" />
+      <TextField fx:id="phone" layoutX="231.0" layoutY="145.0" prefHeight="26.0" prefWidth="274.0" />
+      <TextField fx:id="email" layoutX="231.0" layoutY="193.0" prefHeight="26.0" prefWidth="274.0" />
+      <RadioButton fx:id="yesButton" layoutX="95.0" layoutY="286.0" mnemonicParsing="false" text="Yes">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="326.0" layoutY="286.0" mnemonicParsing="false" text="No">
+      <RadioButton fx:id="noButton" layoutX="326.0" layoutY="286.0" mnemonicParsing="false" text="No">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </RadioButton>
-      <TextField layoutX="25.0" layoutY="347.0" prefHeight="26.0" prefWidth="70.0" text="Back">
+      <TextField fx:id="back" layoutX="25.0" layoutY="347.0" onAction="#backClick" prefHeight="26.0" prefWidth="70.0" text="Back">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </TextField>
-      <TextField layoutX="432.0" layoutY="347.0" prefHeight="27.0" prefWidth="131.0" text="Add the Member">
+      <TextField fx:id="addTheMember" layoutX="432.0" layoutY="347.0" prefHeight="27.0" prefWidth="131.0" text="Add the Member">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
