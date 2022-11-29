@@ -37,6 +37,6 @@ public class AddMemberController
   }
 
   public void actionHandler(ActionEvent e){
-
+    if (e.getSource()==back) viewHandler.openView("Menu");
   }
 }
