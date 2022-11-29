@@ -44,7 +44,6 @@ public class ViewHandler
     loadViewReturnGame();
     loadViewBorrowGame();
     loadViewBorrowGame2();
-    loadViewTemp();
     openView("Menu");
   }
 
@@ -88,20 +87,7 @@ public class ViewHandler
     stage.show();
   }
 
-  private void loadViewTemp() {
-    try
-    {
-      FXMLLoader loader = new FXMLLoader();
-      loader.setLocation(getClass().getResource("ManageBoardGames2.fxml"));
-      Region root = loader.load();
-      manageBoardGamesController = loader.getController();
-      manageBoardGamesController.init(this, new Scene(root), ClubManager);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-  }
+
 
   private void loadViewMenu() {
     try

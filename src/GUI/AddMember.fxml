@@ -35,7 +35,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="firstName" layoutX="231.0" layoutY="46.0" onAction="#fName" prefHeight="26.0" prefWidth="274.0" />
+      <TextField fx:id="fName" layoutX="231.0" layoutY="46.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="274.0" />
       <TextField fx:id="lastName" layoutX="231.0" layoutY="97.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="274.0" />
       <TextField fx:id="phone" layoutX="231.0" layoutY="145.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="274.0" />
       <TextField fx:id="email" layoutX="231.0" layoutY="193.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="274.0" />
