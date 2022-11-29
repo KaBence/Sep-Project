@@ -15,7 +15,7 @@ public class AddMemberController
   private BoardGameClub clubmanager;
   private Scene scene;
 
-  @FXML TextField fName;
+  @FXML TextField firstName;
 
   @FXML TextField lastName;
   @FXML TextField phone;
@@ -38,5 +38,6 @@ public class AddMemberController
 
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back) viewHandler.openView("Menu");
+    //String fName = firstName.getText();
   }
 }
