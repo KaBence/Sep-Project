@@ -5,15 +5,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableView;
 
 public class ManageBoardGamesController
 {
 
+
+
+  @FXML Button back;
   private ViewHandler viewHandler;
   private BoardGameClub clubmanager;
   private Scene scene;
 
-  @FXML Button back;
+
 
   public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
   {
