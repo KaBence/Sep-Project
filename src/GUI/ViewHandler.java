@@ -83,6 +83,7 @@ public class ViewHandler
         stage.setScene(voteController.getScene());
         break;
     }
+    stage.setResizable(false);
     stage.setTitle("Test");
     stage.show();
   }
