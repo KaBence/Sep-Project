@@ -12,6 +12,7 @@ public class ViewHandler
 {
   private BoardGameClub ClubManager;
   private MenuController menuController;
+  private AddBoardGameController addBoardGameController;
   private Stage stage;
   public ViewHandler(Stage stage, BoardGameClub ClubManager)
   {
@@ -29,6 +30,8 @@ public class ViewHandler
       case "Menu":
         stage.setScene(menuController.getScene());
         break;
+      case "addBoardGame":
+        stage.setScene(addBoardGameController.getScene());
     }
     stage.setTitle("Test");
     stage.show();
