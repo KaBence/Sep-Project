@@ -2,7 +2,9 @@ package GUI;
 
 import Model.BoardGameClub;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 
 public class ManageBoardGamesController
 {
@@ -10,6 +12,8 @@ public class ManageBoardGamesController
   private ViewHandler viewHandler;
   private BoardGameClub clubmanager;
   private Scene scene;
+
+  @FXML Button back;
 
   public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
   {
@@ -23,6 +27,6 @@ public class ManageBoardGamesController
   }
 
   public void actionHandler(ActionEvent e){
-
+    if (e.getSource()==back) viewHandler.openView("Menu");
   }
 }

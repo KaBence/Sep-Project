@@ -28,8 +28,7 @@ public class ManageMemberController
   Button searchButton;
   @FXML
   TableView tableView;
-  @FXML
-  Button back;
+  @FXML Button back;
 
 
   public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
@@ -44,6 +43,6 @@ public class ManageMemberController
   }
 
   public void actionHandler(ActionEvent e){
-
+    if (e.getSource()==back) viewHandler.openView("Menu");
   }
 }

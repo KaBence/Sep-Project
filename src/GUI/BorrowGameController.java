@@ -4,15 +4,17 @@ import Model.BoardGameClub;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 
 public class BorrowGameController
 {
-@FXML RadioButton name,
+@FXML RadioButton name;
 
   private ViewHandler viewHandler;
   private BoardGameClub clubmanager;
   private Scene scene;
+  @FXML Button back;
 
   public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
   {
@@ -26,6 +28,6 @@ public class BorrowGameController
   }
 
   public void actionHandler(ActionEvent e){
-
+    if (e.getSource()==back) viewHandler.openView("Menu");
   }
 }
