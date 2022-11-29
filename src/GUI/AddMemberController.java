@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AddMemberController
 {
@@ -38,5 +39,6 @@ public class AddMemberController
 
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back) viewHandler.openView("Menu");
+
   }
 }

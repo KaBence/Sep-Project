@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class ManageBoardGamesController
 {
@@ -13,7 +14,7 @@ public class ManageBoardGamesController
   private BoardGameClub clubmanager;
   private Scene scene;
 
-  @FXML Button back;
+  @FXML Button back,temporary;
 
   public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
   {
@@ -28,5 +29,10 @@ public class ManageBoardGamesController
 
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back) viewHandler.openView("Menu");
+    if (e.getSource()==temporary){
+      Stage temp=new Stage();
+      temp.setScene(getScene());
+      temp.show();
+    }
   }
 }

@@ -11,31 +11,24 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageBoardGamesController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
-         <children>
-            <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
-               <children>
-                  <Separator layoutX="-2.0" layoutY="69.0" prefHeight="134.0" prefWidth="646.0" />
-                  <Button layoutX="550.0" layoutY="87.0" mnemonicParsing="false" text="Search" />
-                  <Button layoutX="26.0" layoutY="359.0" mnemonicParsing="false" text="Back" />
-                  <TableView layoutX="24.0" layoutY="148.0" prefHeight="210.0" prefWidth="591.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                     </columns>
-                  </TableView>
-                  <Text layoutX="36.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a game by:" wrappingWidth="127.0543212890625" />
-                  <RadioButton layoutX="163.0" layoutY="60.0" mnemonicParsing="false" text="Reserved" />
-                  <RadioButton layoutX="298.0" layoutY="60.0" mnemonicParsing="false" text="Borowed" />
-                  <RadioButton layoutX="163.0" layoutY="23.0" mnemonicParsing="false" text="Name" />
-                  <RadioButton layoutX="418.0" layoutY="23.0" mnemonicParsing="false" text="Number of players" />
-                  <RadioButton layoutX="299.0" layoutY="23.0" mnemonicParsing="false" text="Type" />
-                  <RadioButton layoutX="418.0" layoutY="60.0" mnemonicParsing="false" text="All games" />
-                  <RadioButton layoutX="36.0" layoutY="60.0" mnemonicParsing="false" text="Available" />
-                  <TextField layoutX="36.0" layoutY="87.0" prefHeight="26.0" prefWidth="482.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
+      <Separator layoutX="5.0" layoutY="110.0" prefHeight="17.0" prefWidth="646.0" />
+      <Button layoutX="557.0" layoutY="85.0" mnemonicParsing="false" text="Search" />
+      <Button layoutX="16.0" layoutY="368.0" mnemonicParsing="false" text="Back" />
+      <TableView layoutX="13.0" layoutY="124.0" prefHeight="244.0" prefWidth="626.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
+      <Text layoutX="36.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a game by:" wrappingWidth="127.0543212890625" />
+      <RadioButton layoutX="173.0" layoutY="53.0" mnemonicParsing="false" text="Reserved" />
+      <RadioButton layoutX="308.0" layoutY="53.0" mnemonicParsing="false" text="Borowed" />
+      <RadioButton layoutX="173.0" layoutY="17.0" mnemonicParsing="false" text="Name" />
+      <RadioButton layoutX="428.0" layoutY="17.0" mnemonicParsing="false" text="Number of players" />
+      <RadioButton layoutX="308.0" layoutY="17.0" mnemonicParsing="false" text="Type" />
+      <RadioButton layoutX="428.0" layoutY="53.0" mnemonicParsing="false" text="All games" />
+      <RadioButton layoutX="43.0" layoutY="53.0" mnemonicParsing="false" text="Available" />
+      <TextField layoutX="43.0" layoutY="84.0" prefHeight="26.0" prefWidth="482.0" />
+      <Button fx:id="temporary" layoutX="208.0" layoutY="368.0" mnemonicParsing="false" onAction="#actionHandler" text="Temporary" />
    </children>
 </AnchorPane>
