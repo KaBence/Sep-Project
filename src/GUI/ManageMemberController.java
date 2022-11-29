@@ -5,6 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class ManageMemberController
 {
@@ -14,11 +17,21 @@ public class ManageMemberController
   private Scene scene;
 
   @FXML
-  Button n;
+  RadioButton name;
   @FXML
-  Button noButton;
+  RadioButton phone;
+  @FXML
+  RadioButton email;
+  @FXML
+  TextField search;
+  @FXML
+  Button searchButton;
+  @FXML
+  TableView tableView;
   @FXML
   Button back;
+
+
   public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
   {
     this.viewHandler = viewHandler;

@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageMember">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageMemberController">
    <children>
-      <RadioButton layoutX="205.0" layoutY="37.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="62.0" text=" Name">
+      <RadioButton fx:id="n" layoutX="205.0" layoutY="37.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="62.0" text=" Name">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
