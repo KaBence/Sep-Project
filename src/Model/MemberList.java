@@ -16,12 +16,6 @@ public class MemberList {
         list.add(member);
     }
 
-    public void editMember(int index, String name, String phone, String email)
-    {
-        list.get(index).setName(name);
-        list.get(index).setPhoneNumber(phone);
-        list.get(index).setEmail(email);
-    }
 
     public Member getMemberByEmail(String email)
     {
