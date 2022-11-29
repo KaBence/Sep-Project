@@ -11,6 +11,7 @@ public class Member {
     {
         email = "";
         name = "";
+        phoneNumber="";
     }
 
     public Member(String name, String phoneNumber, String email)
