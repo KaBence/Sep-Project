@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MakeReservation">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MakeReservationController">
    <children>
-      <Text layoutX="24.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the Board game">
-         <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Text>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <AnchorPane layoutY="-12.0" prefHeight="400.0" prefWidth="600.0">
+                     <children>
+                        <Separator layoutY="131.0" prefHeight="39.0" prefWidth="602.0" />
+                        <Button fx:id="save" layoutX="496.0" layoutY="22.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="26.0" prefWidth="74.0" text="Save" />
+                        <Button fx:id="back" layoutX="29.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
+                        <Button fx:id="home" layoutX="86.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="Home" />
+                        <TableView fx:id="reservations" layoutX="29.0" layoutY="161.0" onSort="#actionHandler" prefHeight="184.0" prefWidth="539.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                        <Text layoutX="86.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrower" />
+                        <Text layoutX="456.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return date" />
+                        <Text layoutX="258.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick up date" />
+                        <DatePicker fx:id="pickUpDate" layoutX="211.0" layoutY="98.0" onAction="#actionHandler" />
+                        <DatePicker fx:id="returnDate" layoutX="400.0" layoutY="98.0" onAction="#actionHandler" />
+                        <ComboBox fx:id="borrower" layoutX="35.0" layoutY="98.0" onAction="#actionHandler" prefWidth="150.0" />
+                        <Text layoutX="215.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAKE A NEW RESERVATION" />
+                        <Button fx:id="edit" layoutX="436.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="EDIT" />
+                        <Button fx:id="remove" layoutX="501.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="REMOVE" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

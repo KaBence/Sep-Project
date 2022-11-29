@@ -2,11 +2,13 @@ package GUI;
 
 import Model.BoardGameClub;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.RadioButton;
 
 public class BorrowGameController
 {
-
+@FXML RadioButton name,
 
   private ViewHandler viewHandler;
   private BoardGameClub clubmanager;
