@@ -4,23 +4,26 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReturnGame2">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReturnGameController">
    <children>
-      <Separator layoutY="98.0" prefHeight="0.0" prefWidth="600.0" />
-      <Text layoutX="35.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate the boeard game" />
-      <RadioButton layoutX="216.0" layoutY="48.0" mnemonicParsing="false" prefWidth="126.0" text="1" />
-      <RadioButton layoutX="521.0" layoutY="48.0" mnemonicParsing="false" text="5" />
-      <RadioButton layoutX="300.0" layoutY="48.0" mnemonicParsing="false" text="2" />
-      <RadioButton layoutX="436.0" layoutY="48.0" mnemonicParsing="false" text="4" />
-      <RadioButton layoutX="364.0" layoutY="48.0" mnemonicParsing="false" text="3" />
-      <Text layoutX="59.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(5 is the best)" />
-      <Button layoutX="33.0" layoutY="355.0" mnemonicParsing="false" text="Cancel" />
-      <Button layoutX="500.0" layoutY="355.0" mnemonicParsing="false" text="Submit" />
-      <TextArea layoutX="35.0" layoutY="149.0" prefHeight="187.0" prefWidth="519.0" promptText="Ender your review here..." />
-      <Text layoutX="276.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review" />
+      <Separator layoutY="62.0" prefHeight="0.0" prefWidth="600.0" />
+      <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate the board game" />
+      <RadioButton fx:id="RB1" layoutX="161.0" layoutY="22.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="17.0" prefWidth="37.0" text="1">
+         <toggleGroup>
+            <ToggleGroup fx:id="Rating" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="RB5" layoutX="519.0" layoutY="22.0" mnemonicParsing="false" onAction="#actionHandler" text="5" toggleGroup="$Rating" />
+      <RadioButton fx:id="RB2" layoutX="248.0" layoutY="22.0" mnemonicParsing="false" onAction="#actionHandler" text="2" toggleGroup="$Rating" />
+      <RadioButton fx:id="RB4" layoutX="436.0" layoutY="22.0" mnemonicParsing="false" onAction="#actionHandler" text="4" toggleGroup="$Rating" />
+      <Button fx:id="cancel" layoutX="33.0" layoutY="355.0" mnemonicParsing="false" onAction="#actionHandler" text="Cancel" />
+      <RadioButton fx:id="RB3" layoutX="348.0" layoutY="22.0" mnemonicParsing="false" onAction="#actionHandler" text="3" toggleGroup="$Rating" />
+      <Text layoutX="37.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(5 is the best)" />
+      <Button fx:id="submit" layoutX="500.0" layoutY="355.0" mnemonicParsing="false" onAction="#actionHandler" text="Submit" />
+      <TextArea fx:id="TextArea" layoutX="22.0" layoutY="96.0" prefHeight="240.0" prefWidth="559.0" promptText="Enter your review here..." />
+      <Text layoutX="276.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Review" />
    </children>
 </AnchorPane>

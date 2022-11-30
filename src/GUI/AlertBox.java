@@ -8,9 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- * @author Sachin Baral
- */
+
 public class AlertBox
 {
     public static void display(String message)

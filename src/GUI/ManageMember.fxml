@@ -39,12 +39,12 @@
 
         </columns>
       </TableView>
-      <Button fx:id="searchButton" layoutX="448.0" layoutY="80.0" mnemonicParsing="false" onAction="#searchClicked" text="Search">
+      <Button fx:id="searchButton" layoutX="448.0" layoutY="80.0" mnemonicParsing="false" onAction="#actionHandler" text="Search">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="37.0" layoutY="340.0" mnemonicParsing="false" onAction="#backClicked" text="Back">
+      <Button fx:id="back" layoutX="37.0" layoutY="340.0" mnemonicParsing="false" onAction="#actionHandler" text="Back">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

@@ -56,7 +56,7 @@ public class Reservation
         return returnDate.equals(other.rentDate) && rentDate.equals(other.rentDate) && memberName.equals(other.memberName) && boardGame.equals(other.boardGame);
     }
 
-    public String toString() {
-        return "Reservation of "+boardGame.getName()+" by "+memberName.getName()+" on " + rentDate.toString()+" till "+returnDate.toString();
-    }
+//    public String toString() {
+//        return "Reservation of "+boardGame.getName()+" by "+memberName.getMemberName()+" on " + rentDate.toString()+" till "+returnDate.toString();
+//    }
 }
