@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuController">
+   <children>
+      <Button fx:id="addBoardGame" layoutX="51.0" layoutY="35.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="25.0" prefWidth="168.0" text="Add a BoardGame" />
+      <Button fx:id="addMember" layoutX="51.0" layoutY="111.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="25.0" prefWidth="168.0" text="Add a Member" />
+      <Button fx:id="addEvent" layoutX="51.0" layoutY="188.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="25.0" prefWidth="168.0" text="Add an Event" />
+      <Button fx:id="manageBoardGame" layoutX="369.0" layoutY="35.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="25.0" prefWidth="168.0" text="Manage BoardGame" />
+      <Button fx:id="manageMember" layoutX="369.0" layoutY="111.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="25.0" prefWidth="168.0" text="Manage Members" />
+      <Button fx:id="manageEvent" layoutX="369.0" layoutY="188.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="25.0" prefWidth="168.0" text="Manage Events" />
+      <Button fx:id="reservation" layoutX="51.0" layoutY="266.0" mnemonicParsing="false" onAction="#actionHandler" text="Make/Manage a Reservation" />
+      <Button fx:id="vote" layoutX="369.0" layoutY="266.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="25.0" prefWidth="168.0" text="Vote for the next Game" />
+      <Button fx:id="borrow" layoutX="51.0" layoutY="341.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="25.0" prefWidth="168.0" text="Borrow a Game" />
+      <Button fx:id="returnGame" layoutX="369.0" layoutY="341.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="25.0" prefWidth="168.0" text="Return a Game" />
+   </children>
+</AnchorPane>
