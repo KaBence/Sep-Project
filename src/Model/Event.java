@@ -8,13 +8,13 @@ public class Event implements Serializable
     private String name;
     private ArrayList<String> guests;
     private MyDate date;
-    private BoardGame game;
+    private BoardGameList games;
 
-    public Event(int time, String location, String name, ArrayList<String> guests){
+    public Event(int time, String location, String name){
         this.time = time;
         this.location = location;
         this.name = name;
-        this.guests = guests;
+        guests=new ArrayList<>();
     }
 
     public int getTime(){
@@ -56,19 +56,20 @@ public class Event implements Serializable
                 location.equals(other.location) &&
                 name.equals(other.name);
     }
-    public void setBoardGame(BoardGame boardGame){
-        this.game = boardGame;
-    }
 
     public MyDate getDate() {
         return date;
     }
     public Event copy(){
-        return new Event(time,location,name,guests);
+        return new Event(time,location,name);
     }
 
-    public BoardGame getGame() {
-        return game;
+    public BoardGameList getGames() {
+        return games;
+    }
+
+    public void addGames(BoardGame boardGame){
+        games.addBoardGame(boardGame);
     }
     public String getLocation(){
         return location;

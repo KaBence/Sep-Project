@@ -43,14 +43,7 @@ public class EventList implements Serializable
 //        }
 //        return null;
 //    }
-    public Event getEventByBoardGame(BoardGame boardgame){
-        for (int i = 0; i<list.size(); i++){
-            if (list.get(i).getGame().equals(boardgame)){
-                return list.get(i);
-            }
-        }
-        return null;
-    }
+
     public Event getEventByName(String name){
         for (int i = 0; i<list.size(); i++){
             if (list.get(i).getName().equals(name)){
