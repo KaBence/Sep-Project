@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RankList
+public class RankList implements Serializable
 {
   private ArrayList<Rank> ranks;
   public RankList(){

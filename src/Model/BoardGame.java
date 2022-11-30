@@ -1,6 +1,8 @@
 package Model;
 
-public class BoardGame
+import java.io.Serializable;
+
+public class BoardGame implements Serializable
 {
   private String type,name;
   private boolean availability;

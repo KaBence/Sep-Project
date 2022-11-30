@@ -1,35 +1,61 @@
 package Model;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable {
 
 
-    private String name;
+    private String firstName;
+    private String lastName;
     private String phoneNumber;
     private String email;
+    private String selection;
 
-    public Member()
-    {
-        email = "";
-        name = "";
-        phoneNumber="";
-    }
 
-    public Member(String name, String phoneNumber, String email)
+    public Member(String firstName, String lastName, String phoneNumber, String email, String selection)
     {
-        this.name = name;
+
+        this.firstName = firstName;
+        this.lastName= lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.selection = selection;
+
     }
 
     //Getting and setting names
-    public String getName()
-    {
-        return name;
+
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName()
-    {
-        this.name = name;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getSelection() {
+        return selection;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSelection(String selection) {
+        this.selection = selection;
     }
 
     //Getting and setting phoneNumber
@@ -57,7 +83,7 @@ public class Member {
     //The toString method
     public String toString()
     {
-        return name + "" +phoneNumber +"" + email;
+        return firstName + " " + lastName + " " +phoneNumber +" " + email + " " + selection;
     }
 
     //Comparing with equals
@@ -68,16 +94,23 @@ public class Member {
             return false;
         }
         Member other = (Member) obj;
-        return name.equals(other.name) && phoneNumber.equals(other.phoneNumber) &&email.equals(other.email);
+        return firstName.equals(other.firstName) && lastName.equals(other.lastName) && phoneNumber.equals(other.phoneNumber) &&email.equals(other.email) && selection.equals(selection);
     }
 
     public Member copy()
     {
-        return new Member(name, phoneNumber, email);
+        return new Member(firstName,lastName, phoneNumber, email, selection);
 
         //Member copyMember = new Member(name, phoneNumber, email);
         // return copyMember;
     }
+
+    public String getFullName(){
+
+        return firstName + " " + lastName;
+    }
+
+
 
 
 

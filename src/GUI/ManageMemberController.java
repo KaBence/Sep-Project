@@ -1,48 +1,127 @@
 package GUI;
 
 import Model.BoardGameClub;
+import Model.Member;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class ManageMemberController
-{
+import java.util.ArrayList;
+import java.util.List;
 
-  private ViewHandler viewHandler;
-  private BoardGameClub clubmanager;
-  private Scene scene;
+public class ManageMemberController {
 
-  @FXML
-  RadioButton name;
-  @FXML
-  RadioButton phone;
-  @FXML
-  RadioButton email;
-  @FXML
-  TextField search;
-  @FXML
-  Button searchButton;
-  @FXML
-  TableView tableView;
-  @FXML Button back;
+    private ViewHandler viewHandler;
+    private BoardGameClub clubManager;
+    private Scene scene;
+
+    @FXML
+     RadioButton name;
+    @FXML
+    RadioButton phone;
+
+    @FXML
+    TableColumn<Member, String> memberName;
+
+    @FXML
+    TableColumn<Member, String> memberEmail;
+    @FXML
+    TableColumn<Member, String> memberPhone;
 
 
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
-  {
-    this.viewHandler = viewHandler;
-    this.scene = scene;
-    this.clubmanager = clubmanager;
-  }
+    @FXML
+    RadioButton email;
+    @FXML
+    TextField search;
+    @FXML
+    Button searchButton;
+    @FXML
+    TableView<Member> tableView;
+    @FXML
+    Button back;
 
-  public Scene getScene(){
-    return scene;
-  }
 
-  public void actionHandler(ActionEvent e){
-    if (e.getSource()==back) viewHandler.openView("Menu");
-  }
+    ObservableList<Member> searchedMember;
+
+    public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager) {
+        this.viewHandler = viewHandler;
+        this.scene = scene;
+        this.clubManager = clubManager;
+
+        // making groups of radio buttons
+        initRadioGrp();
+
+        // intializing table
+        initializeTable();
+    }
+
+    /**
+     * > The function initializes the radio buttons by setting the toggle group and selecting the first radio button
+     */
+    private void initRadioGrp() {
+        ToggleGroup group = new ToggleGroup();
+        name.setToggleGroup(group);
+        name.setSelected(true);
+        phone.setToggleGroup(group);
+        email.setToggleGroup(group);
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    private void initializeTable() {
+        // Creating an observable list of members (this list is needed when we want to show list to gui)
+        searchedMember = FXCollections.observableArrayList();
+
+
+        // Setting the value of the table columns to the values of the member object.
+        memberName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        memberEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        memberPhone.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        tableView.setItems(searchedMember);
+    }
+
+
+    public void actionHandler(ActionEvent event){
+
+        if (event.getSource() == search){
+            searchMember();
+        }
+        else if (event.getSource() ==back){
+            viewHandler.openView("Menu");
+        }
+
+    }
+
+//    @FXML
+//    private void searchClicked(){
+//        searchMember();
+//    }
+//
+//    @FXML
+//    private void backClicked()
+//    {
+//        viewHandler.openView("Menu");
+//    }
+
+
+    private void searchMember() {
+        ArrayList<Member> searchedMemberFromDb = new ArrayList<>();
+        if (name.isSelected()) {
+            searchedMemberFromDb = clubManager.searchByName(search.getText().trim());
+        } else if (phone.isSelected()) {
+            searchedMemberFromDb = clubManager.searchByPhone(search.getText().trim());
+
+        } else if (email.isSelected()) {
+            searchedMemberFromDb = clubManager.searchByEmail(search.getText().trim());
+
+        }
+
+        searchedMember.setAll(searchedMemberFromDb);
+    }
 }

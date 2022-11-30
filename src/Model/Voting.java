@@ -1,6 +1,8 @@
 package Model;
 
-public class Voting
+import java.io.Serializable;
+
+public class Voting implements Serializable
 {
   private int vote;
 

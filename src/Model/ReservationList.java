@@ -1,5 +1,7 @@
 package Model;
 
-public class ReservationList
+import java.io.Serializable;
+
+public class ReservationList implements Serializable
 {
 }
