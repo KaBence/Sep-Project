@@ -4,10 +4,7 @@ import Model.BoardGameClub;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class BorrowGameController
 {
@@ -16,6 +13,13 @@ public class BorrowGameController
 @FXML TextField searchField;
 @FXML Button searchButton;
 @FXML TableView games;
+@FXML Button save;
+@FXML ComboBox borrower;
+@FXML DatePicker pickUpDate;
+@FXML DatePicker returnDate;
+@FXML TableView reservations;
+@FXML Button home;
+
 @FXML Button back;
 
   private ViewHandler viewHandler;

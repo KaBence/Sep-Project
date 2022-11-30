@@ -73,7 +73,7 @@ public class ViewHandler
       case "borrow":
         stage.setScene(borrowGameController.getScene());
         break;
-      case "return":
+      case "returnGame":
         stage.setScene(returnGameController.getScene());
         break;
       case "reservation":
@@ -83,9 +83,12 @@ public class ViewHandler
         stage.setScene(voteController.getScene());
         break;
     }
+    stage.setResizable(false);
     stage.setTitle("Test");
     stage.show();
   }
+
+
 
   private void loadViewMenu() {
     try
