@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MemberList {
+public class MemberList implements Serializable {
     private ArrayList<Member> list;
 
     //Creating default Constructor
@@ -62,8 +63,14 @@ public class MemberList {
     }
 
 
+    @Override
+    public String toString() {
 
-
-
-
+        String temp ="";
+        for (int i = 0; i < list.size(); i++) {
+            Member member = list.get(i);
+            temp += member.getFirstName() +"\n";
+        }
+        return temp;
+    }
 }

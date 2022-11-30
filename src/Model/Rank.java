@@ -1,6 +1,8 @@
 package Model;
 
-public class Rank
+import java.io.Serializable;
+
+public class Rank implements Serializable
 {
   private String review;
   private int rank;

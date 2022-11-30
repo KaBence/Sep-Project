@@ -1,6 +1,8 @@
 package Model;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable {
 
 
     private String firstName;
@@ -102,6 +104,13 @@ public class Member {
         //Member copyMember = new Member(name, phoneNumber, email);
         // return copyMember;
     }
+
+    public String getFullName(){
+
+        return firstName + " " + lastName;
+    }
+
+
 
 
 

@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MyDate
+public class MyDate implements Serializable
 {
  private int day;
  private int month;

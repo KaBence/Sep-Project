@@ -1,6 +1,8 @@
 package Model;
 
-public class Borrow
+import java.io.Serializable;
+
+public class Borrow implements Serializable
 {
   private Member borrower;
   private MyDate returnDate;

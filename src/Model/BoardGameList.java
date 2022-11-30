@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BoardGameList
+public class BoardGameList implements Serializable
 {
    private ArrayList<BoardGame> boardGames;
    public BoardGameList(){
