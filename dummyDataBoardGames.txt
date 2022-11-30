@@ -1,0 +1,13 @@
+Treasure_Hunter,Adventure,2,6,Bence,true
+Kingdomino,Building,2,4,null,false
+Schotten_Totten,Card_Game,2,2,Harley,true
+Sheriff_of_Nottingham,Bluffing,3,5,Bence,true
+Exploding_Kittens,Card_Game,2,5,null,false
+Bang,Card_Game,4,7,Michaela,true
+Betrayal_at_House_on_the_Hill,Adventure,3,6,Michaela,true
+Colt_Express,Fighting,2,6,null,false
+Here_to_Slay,Card_Game,2,6,Rohit,true
+Cash_n_Guns,Bluffing,4,8,Igor,true
+Concept,Deduction,4,12,Vlad,true
+Elder_Sign,Adventure,1,8,Ludovit,true
+Imhotep,Family,2,4,Natasha,true
