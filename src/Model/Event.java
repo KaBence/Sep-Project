@@ -3,14 +3,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 public class Event implements Serializable
 {
-    private int time;
+    private MyDate time;
     private String location;
     private String name;
     private ArrayList<String> guests;
     private MyDate date;
     private BoardGame game;
 
-    public Event(int time, String location, String name, ArrayList<String> guests){
+    public Event(MyDate date,MyDate time, String location, String name, ArrayList<String> guests){
         this.time = time;
         this.location = location;
         this.name = name;
