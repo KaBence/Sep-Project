@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Reservation
+public class Reservation implements Serializable
 {
     private BoardGame boardGame;
     private Member memberName;

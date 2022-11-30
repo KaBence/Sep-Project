@@ -1,13 +1,11 @@
 package GUI;
 
-import Model.BoardGameClub;
+import Model.BoardGameManager;
 import Model.Member;
-import Util.MyFileHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
@@ -17,7 +15,7 @@ import javafx.scene.control.TextField;
 public class AddMemberController {
 
   private ViewHandler viewHandler;
-  private BoardGameClub clubmanager;
+  private BoardGameManager clubmanager;
   private Scene scene;
 
   @FXML
@@ -38,7 +36,7 @@ public class AddMemberController {
   RadioButton yesButton, noButton;
 
 
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager) {
+  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager) {
     this.viewHandler = viewHandler;
     this.scene = scene;
     clubmanager = clubManager;

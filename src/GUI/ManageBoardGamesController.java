@@ -1,6 +1,6 @@
 package GUI;
 
-import Model.BoardGameClub;
+import Model.BoardGameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,11 +49,11 @@ public class ManageBoardGamesController
 
 
   private ViewHandler viewHandler;
-  private BoardGameClub clubManager;
+  private BoardGameManager clubManager;
   private Scene scene;
 
   public void init(ViewHandler viewHandler, Scene scene,
-      BoardGameClub clubManager)
+      BoardGameManager clubManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;

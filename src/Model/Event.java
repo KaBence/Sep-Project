@@ -1,18 +1,20 @@
 package Model;
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Event {
+public class Event implements Serializable
+{
     private int time;
     private String location;
     private String name;
     private ArrayList<String> guests;
     private MyDate date;
-    private BoardGame game;
+    private BoardGameList games;
 
-    public Event(int time, String location, String name, ArrayList<String> guests){
+    public Event(int time, String location, String name){
         this.time = time;
         this.location = location;
         this.name = name;
-        this.guests = guests;
+        guests=new ArrayList<>();
     }
 
     public int getTime(){
@@ -54,19 +56,20 @@ public class Event {
                 location.equals(other.location) &&
                 name.equals(other.name);
     }
-    public void setBoardGame(BoardGame boardGame){
-        this.game = boardGame;
-    }
 
     public MyDate getDate() {
         return date;
     }
     public Event copy(){
-        return new Event(time,location,name,guests);
+        return new Event(time,location,name);
     }
 
-    public BoardGame getGame() {
-        return game;
+    public BoardGameList getGames() {
+        return games;
+    }
+
+    public void addGames(BoardGame boardGame){
+        games.addBoardGame(boardGame);
     }
     public String getLocation(){
         return location;

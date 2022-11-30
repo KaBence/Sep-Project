@@ -1,17 +1,16 @@
 package GUI;
 
-import Model.BoardGameClub;
+import Model.BoardGameManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Locale;
 
 public class ViewHandler
 {
-  private BoardGameClub ClubManager;
+  private BoardGameManager ClubManager;
   private MenuController menuController;
   private AddBoardGameController addBoardGameController;
   private AddEventController addEventController;
@@ -25,7 +24,7 @@ public class ViewHandler
   private ReturnGameController returnGameController;
 
   private Stage stage;
-  public ViewHandler(Stage stage, BoardGameClub ClubManager)
+  public ViewHandler(Stage stage, BoardGameManager ClubManager)
   {
     this.stage = stage;
     this.ClubManager = ClubManager;

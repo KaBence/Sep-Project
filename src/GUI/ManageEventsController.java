@@ -1,6 +1,6 @@
 package GUI;
 
-import Model.BoardGameClub;
+import Model.BoardGameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -8,13 +8,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleGroup;
 public class ManageEventsController
 {
 
   private ViewHandler viewHandler;
-  private BoardGameClub clubmanager;
+  private BoardGameManager clubmanager;
   private Scene scene;
   @FXML Button back;
+  @FXML ToggleGroup toggle;
   @FXML Button edit;
   @FXML Button delete;
   @FXML Button search;
@@ -25,7 +27,7 @@ public class ManageEventsController
   @FXML TextField fSearch;
   @FXML TextArea aList;
 
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
+  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;

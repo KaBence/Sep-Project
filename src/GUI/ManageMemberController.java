@@ -1,6 +1,6 @@
 package GUI;
 
-import Model.BoardGameClub;
+import Model.BoardGameManager;
 import Model.Member;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,12 +11,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ManageMemberController {
 
     private ViewHandler viewHandler;
-    private BoardGameClub clubManager;
+    private BoardGameManager clubManager;
     private Scene scene;
 
     @FXML
@@ -47,7 +46,7 @@ public class ManageMemberController {
 
     ObservableList<Member> searchedMember;
 
-    public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager) {
+    public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager) {
         this.viewHandler = viewHandler;
         this.scene = scene;
         this.clubManager = clubManager;

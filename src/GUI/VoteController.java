@@ -1,6 +1,6 @@
 package GUI;
 
-import Model.BoardGameClub;
+import Model.BoardGameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -12,13 +12,13 @@ public class VoteController
 {
 
   private ViewHandler viewHandler;
-  private BoardGameClub clubmanager;
+  private BoardGameManager clubmanager;
   private Scene scene;
   @FXML Button back, addVote,removeVote,search;
   @FXML TextField textField;
   @FXML RadioButton RBName,RBType,RBNoP;
 
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameClub clubManager)
+  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
