@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddEventController">
-   <children>
-      <Label layoutX="40.0" layoutY="97.0" text="Location" />
-      <Label layoutX="47.0" layoutY="63.0" text="Name" />
-      <Label layoutX="50.0" layoutY="135.0" text="Date" />
-      <Label layoutX="47.0" layoutY="170.0" text="Max capacity" />
-      <TextField fx:id="name" layoutX="169.0" layoutY="58.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="262.0" />
-      <TextField fx:id="maxCapacity" layoutX="169.0" layoutY="165.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="262.0" />
-      <Button fx:id="back" layoutX="37.0" layoutY="340.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
-      <Button fx:id="addEvent" layoutX="491.0" layoutY="340.0" mnemonicParsing="false" onAction="#actionHandler" text="Add event" />
-      <DatePicker fx:id="date" layoutX="170.0" layoutY="131.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="262.0" showWeekNumbers="true" />
-      <Label layoutX="43.0" layoutY="200.0" text="Board Game" />
-      <ComboBox fx:id="chooseGame" layoutX="169.0" layoutY="196.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="262.0" />
-      <TextField fx:id="fLocation" layoutX="169.0" layoutY="92.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="262.0" />
-   </children>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="GUI.AddEventController"
+            prefHeight="400.0" prefWidth="600.0">
+
 </AnchorPane>
