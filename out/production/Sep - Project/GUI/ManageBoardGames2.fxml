@@ -4,10 +4,10 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageBoardGamesController">
    <children>
@@ -43,41 +43,44 @@
                   <Font name="Arial" size="12.0" />
                </font>
             </Text>
-            <Button layoutX="381.0" layoutY="349.0" mnemonicParsing="false" text="RESERVE">
+            <Button fx:id="reserve" layoutX="381.0" layoutY="349.0" mnemonicParsing="false" onAction="#actionHandler" text="RESERVE">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="495.0" layoutY="349.0" mnemonicParsing="false" text="BORROW">
+            <Button fx:id="borrow" layoutX="495.0" layoutY="349.0" mnemonicParsing="false" onAction="#actionHandler" text="BORROW">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="42.0" layoutY="349.0" mnemonicParsing="false" text="EDIT">
+            <Button fx:id="edit" layoutX="42.0" layoutY="349.0" mnemonicParsing="false" onAction="#actionHandler" text="EDIT">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Button>
-            <TextField layoutX="143.0" layoutY="32.0" prefHeight="26.0" prefWidth="398.0" />
-            <TextField layoutX="433.0" layoutY="75.0" prefHeight="26.0" prefWidth="105.0" />
-            <TextField layoutX="230.0" layoutY="75.0" prefHeight="26.0" prefWidth="80.0" />
-            <TextField layoutX="143.0" layoutY="113.0" prefHeight="26.0" prefWidth="398.0" />
-            <ComboBox layoutX="143.0" layoutY="153.0" prefHeight="26.0" prefWidth="398.0" />
-            <Button layoutX="135.0" layoutY="349.0" mnemonicParsing="false" text="REMOVE">
+            <TextField fx:id="nameOfGame" layoutX="143.0" layoutY="32.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
+            <TextField fx:id="max" layoutX="433.0" layoutY="75.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="105.0" />
+            <TextField fx:id="min" layoutX="230.0" layoutY="75.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="80.0" />
+            <TextField fx:id="typeOfBoardGame" layoutX="143.0" layoutY="113.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
+            <ComboBox fx:id="owner" layoutX="143.0" layoutY="153.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
+            <Button fx:id="remove" layoutX="135.0" layoutY="349.0" mnemonicParsing="false" onAction="#actionHandler" text="REMOVE">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="242.0" layoutY="349.0" mnemonicParsing="false" text="SEE REVIEWS">
+            <Button fx:id="seeReviews" layoutX="242.0" layoutY="349.0" mnemonicParsing="false" onAction="#actionHandler" text="SEE REVIEWS">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Button>
             <Text layoutX="42.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability" />
-            <RadioButton layoutX="159.0" layoutY="259.0" mnemonicParsing="false" text="Non-available" />
-            <RadioButton layoutX="159.0" layoutY="220.0" mnemonicParsing="false" text="Available" />
-            <RadioButton layoutX="323.0" layoutY="220.0" mnemonicParsing="false" text="Reserved" />
-            <RadioButton layoutX="323.0" layoutY="259.0" mnemonicParsing="false" text="Borrowed" />
+            <RadioButton fx:id="nonAvailable2" layoutX="159.0" layoutY="259.0" mnemonicParsing="false" onAction="#actionHandler" text="Non-available">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group1" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="available2" layoutX="159.0" layoutY="220.0" mnemonicParsing="false" onAction="#actionHandler" selected="true" text="Available" toggleGroup="$group1" />
+            <RadioButton fx:id="reserved2" layoutX="323.0" layoutY="220.0" mnemonicParsing="false" onAction="#actionHandler" text="Reserved" toggleGroup="$group1" />
+            <RadioButton fx:id="borrowed2" layoutX="323.0" layoutY="259.0" mnemonicParsing="false" onAction="#actionHandler" text="Borrowed" toggleGroup="$group1" />
          </children>
       </AnchorPane>
    </children>

@@ -1,7 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-public class EventList {
+public class EventList implements Serializable
+{
     private ArrayList<Event> list;
     public EventList(){
         list = new ArrayList<Event>();

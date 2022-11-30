@@ -9,35 +9,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageBoardGamesController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
-         <children>
-            <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
-               <children>
-                  <Separator layoutY="131.0" prefHeight="39.0" prefWidth="602.0" />
-                  <Button layoutX="496.0" layoutY="22.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Save" />
-                  <Button layoutX="29.0" layoutY="360.0" mnemonicParsing="false" text="Back" />
-                  <Button layoutX="86.0" layoutY="360.0" mnemonicParsing="false" text="Home" />
-                  <TableView layoutX="29.0" layoutY="161.0" prefHeight="184.0" prefWidth="539.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                     </columns>
-                  </TableView>
-                  <Text layoutX="86.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrower" />
-                  <Text layoutX="456.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return date" />
-                  <Text layoutX="258.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick up date" />
-                  <DatePicker layoutX="211.0" layoutY="98.0" />
-                  <DatePicker layoutX="400.0" layoutY="98.0" />
-                  <ComboBox layoutX="35.0" layoutY="98.0" prefWidth="150.0" />
-                  <Text layoutX="215.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAKE A NEW RESERVATION" />
-                  <Button layoutX="436.0" layoutY="360.0" mnemonicParsing="false" text="EDIT" />
-                  <Button layoutX="501.0" layoutY="360.0" mnemonicParsing="false" text="REMOVE" />
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
+      <Separator layoutY="131.0" prefHeight="39.0" prefWidth="600.0" />
+      <Button fx:id="save3" layoutX="496.0" layoutY="22.0" mnemonicParsing="false" onAction="#actionHandler" prefHeight="26.0" prefWidth="74.0" text="Save" />
+      <Button fx:id="back" layoutX="29.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
+      <Button fx:id="home" layoutX="86.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="Home" />
+      <TableView fx:id="reservations3" layoutX="29.0" layoutY="161.0" onSort="#actionHandler" prefHeight="184.0" prefWidth="539.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="C1" />
+            <TableColumn prefWidth="75.0" text="C2" />
+         </columns>
+      </TableView>
+      <Text layoutX="86.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrower" />
+      <Text layoutX="456.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return date" />
+      <Text layoutX="258.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick up date" />
+      <DatePicker fx:id="pickupdate3" layoutX="211.0" layoutY="98.0" onAction="#actionHandler" />
+      <DatePicker fx:id="returnDate3" layoutX="400.0" layoutY="98.0" onAction="#actionHandler" />
+      <ComboBox fx:id="borrower3" layoutX="35.0" layoutY="98.0" onAction="#actionHandler" prefWidth="150.0" />
+      <Text layoutX="215.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAKE A NEW RESERVATION" />
+      <Button fx:id="edit3" layoutX="436.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="EDIT" />
+      <Button fx:id="remove3" layoutX="501.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="REMOVE" />
    </children>
 </AnchorPane>

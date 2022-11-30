@@ -1,6 +1,8 @@
 package Model;
+import java.io.Serializable;
 import java.util.ArrayList;
-public class Event {
+public class Event implements Serializable
+{
     private int time;
     private String location;
     private String name;

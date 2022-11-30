@@ -11,10 +11,10 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageBoardGamesController">
    <children>
-      <Separator layoutX="8.0" layoutY="79.0" prefHeight="134.0" prefWidth="646.0" />
-      <Button fx:id="search" layoutX="560.0" layoutY="97.0" mnemonicParsing="false" onAction="#actionHandler" text="Search" />
-      <Button fx:id="back" layoutX="36.0" layoutY="369.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
-      <TableView fx:id="games" layoutX="34.0" layoutY="158.0" onSort="#actionHandler" prefHeight="210.0" prefWidth="591.0">
+      <Separator layoutX="8.0" layoutY="79.0" prefHeight="134.0" prefWidth="573.0" />
+      <Button fx:id="search" layoutX="529.0" layoutY="97.0" mnemonicParsing="false" onAction="#actionHandler" text="Search" />
+      <Button fx:id="back" layoutX="34.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
+      <TableView fx:id="games" layoutX="32.0" layoutY="158.0" onSort="#actionHandler" prefHeight="203.0" prefWidth="534.0">
          <columns>
             <TableColumn prefWidth="75.0" text="C1" />
             <TableColumn prefWidth="75.0" text="C2" />
@@ -28,7 +28,7 @@
       <RadioButton fx:id="type" layoutX="309.0" layoutY="33.0" mnemonicParsing="false" onAction="#actionHandler" text="Type" />
       <RadioButton fx:id="allGames" layoutX="428.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="All games" />
       <RadioButton fx:id="available" layoutX="46.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="Available" />
-      <TextField fx:id="searchField" layoutX="46.0" layoutY="97.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="482.0" />
-      <Button fx:id="temporary" layoutX="256.0" layoutY="369.0" mnemonicParsing="false" onAction="#actionHandler" text="Temporary" />
+      <TextField fx:id="searchField" layoutX="34.0" layoutY="96.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="482.0" />
+      <Button fx:id="temporary" layoutX="258.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="Temporary" />
    </children>
 </AnchorPane>
