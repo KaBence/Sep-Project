@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleGroup;
 public class ManageEventsController
 {
 
@@ -15,6 +16,7 @@ public class ManageEventsController
   private BoardGameManager clubmanager;
   private Scene scene;
   @FXML Button back;
+  @FXML ToggleGroup toggle;
   @FXML Button edit;
   @FXML Button delete;
   @FXML Button search;
