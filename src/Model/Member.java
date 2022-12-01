@@ -9,17 +9,17 @@ public class Member implements Serializable {
     private String lastName;
     private String phoneNumber;
     private String email;
-    private String selection;
 
 
-    public Member(String firstName, String lastName, String phoneNumber, String email, String selection)
+
+    public Member(String firstName, String lastName, String phoneNumber, String email)
     {
 
         this.firstName = firstName;
         this.lastName= lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.selection = selection;
+
 
     }
 
@@ -34,9 +34,6 @@ public class Member implements Serializable {
         return lastName;
     }
 
-    public String getSelection() {
-        return selection;
-    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -54,9 +51,7 @@ public class Member implements Serializable {
         this.email = email;
     }
 
-    public void setSelection(String selection) {
-        this.selection = selection;
-    }
+
 
     //Getting and setting phoneNumber
     public String getPhoneNumber()
@@ -64,10 +59,6 @@ public class Member implements Serializable {
         return phoneNumber;
     }
 
-    public void setPhoneNumber()
-    {
-        this.phoneNumber = phoneNumber;
-    }
 
     //Getting and setting emails
     public String getEmail()
@@ -75,15 +66,11 @@ public class Member implements Serializable {
         return email;
     }
 
-    public void setEmail()
-    {
-        this.email = email;
-    }
 
     //The toString method
     public String toString()
     {
-        return firstName + " " + lastName + " " +phoneNumber +" " + email + " " + selection;
+        return firstName + " " + lastName + " " +phoneNumber +" " + email;
     }
 
     //Comparing with equals
@@ -94,22 +81,16 @@ public class Member implements Serializable {
             return false;
         }
         Member other = (Member) obj;
-        return firstName.equals(other.firstName) && lastName.equals(other.lastName) && phoneNumber.equals(other.phoneNumber) &&email.equals(other.email) && selection.equals(selection);
+        return firstName.equals(other.firstName) && lastName.equals(other.lastName) && phoneNumber.equals(other.phoneNumber) &&email.equals(other.email);
     }
 
     public Member copy()
     {
-        return new Member(firstName,lastName, phoneNumber, email, selection);
+        return new Member(firstName,lastName, phoneNumber, email);
 
         //Member copyMember = new Member(name, phoneNumber, email);
         // return copyMember;
     }
-
-    public String getFullName(){
-
-        return firstName + " " + lastName;
-    }
-
 
 
 

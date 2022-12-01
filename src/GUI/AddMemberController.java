@@ -50,14 +50,14 @@ public class AddMemberController {
     if (e.getSource()==back) viewHandler.openView("Menu");
 
     // when add member button is clicked
-    if(e.getSource() == btnAddTheMember){
+    /*if(e.getSource() == btnAddTheMember){
       // adding member to file by calling add member to club in club manager
       clubmanager.addMemberToClub(newMember());
       clearFields();
       // displaying new alert box when member is added. display method is static method
       AlertBox.display("Member has been added");
     }
-
+*/
   }
 
   /**
@@ -76,7 +76,7 @@ public class AddMemberController {
    *
    * @return A new member object is being returned.
    */
-  public Member newMember() {
+ /* public Member newMember() {
     // getting values of all text field
     String firstName = txtFirstName.getText();
     String familyName = lastName.getText();
@@ -92,7 +92,7 @@ public class AddMemberController {
     // creating new member object
     Member member = new Member(firstName,familyName,phoneNumber,emailAdd,selection);
     return member;
-  }
+  }*/
 }
 
 

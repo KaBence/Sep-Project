@@ -88,10 +88,10 @@ public class ManageMemberController {
 
     public void actionHandler(ActionEvent event){
 
-        if (event.getSource() == search){
+        /*if (event.getSource() == search){
             searchMember();
-        }
-        else if (event.getSource() ==back){
+        }*/
+        if (event.getSource() ==back){
             viewHandler.openView("Menu");
         }
 
@@ -109,7 +109,7 @@ public class ManageMemberController {
 //    }
 
 
-    private void searchMember() {
+   /* private void searchMember() {
         ArrayList<Member> searchedMemberFromDb = new ArrayList<>();
         if (name.isSelected()) {
             searchedMemberFromDb = clubManager.searchByName(search.getText().trim());
@@ -122,5 +122,5 @@ public class ManageMemberController {
         }
 
         searchedMember.setAll(searchedMemberFromDb);
-    }
+    }*/
 }
