@@ -51,6 +51,8 @@ public class ManageBoardGamesController
   private ViewHandler viewHandler;
   private BoardGameManager clubManager;
   private Scene scene;
+  private Stage temp;
+
 
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager clubManager)
@@ -67,10 +69,12 @@ public class ManageBoardGamesController
 
   public void actionHandler(ActionEvent e)
   {
+    temp=new Stage();
     if (e.getSource() == back)
       viewHandler.start();
     if (e.getSource() == temporary)
     {
+
       try
       {
         FXMLLoader loader = new FXMLLoader();
@@ -82,10 +86,31 @@ public class ManageBoardGamesController
       {
         ed.printStackTrace();
       }
-      Stage temp = new Stage();
+
       temp.setTitle("Test");
       temp.setScene(getScene());
       temp.show();
     }
+    if (e.getSource() == reserve)
+    {
+
+      try
+      {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ManageBoardGames3.fxml"));
+        Region root = loader.load();
+        init(viewHandler, new Scene(root), clubManager);
+      }
+      catch (IOException ed)
+      {
+        ed.printStackTrace();
+      }
+      temp.setTitle("Test2");
+      temp.setScene(getScene());
+      temp.show();
+    }
   }
+
+  //just trying
+
 }

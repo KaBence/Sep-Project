@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
+//WILL BE DELETED
 public class AlertBox
 {
     public static void display(String message)

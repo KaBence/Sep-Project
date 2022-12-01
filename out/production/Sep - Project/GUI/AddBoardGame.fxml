@@ -8,19 +8,19 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddBoardGameController">
    <children>
-      <Text layoutX="62.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-      <Text layoutX="406.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="max" />
-      <Text layoutX="209.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="min" />
-      <Text layoutX="62.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner" />
-      <Text layoutX="65.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
-      <Text layoutX="62.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of players" />
-      <Button fx:id="addForVoting" layoutX="325.0" layoutY="339.0" mnemonicParsing="false" onAction="#actionHandler" text="Add for voting" />
-      <Button fx:id="AddToTheRegistry" layoutX="458.0" layoutY="339.0" mnemonicParsing="false" onAction="#actionHandler" text="Add to the registry" />
-      <Button fx:id="back" layoutX="62.0" layoutY="339.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
-      <TextField fx:id="name" layoutX="168.0" layoutY="78.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
-      <TextField fx:id="max" layoutX="458.0" layoutY="121.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="105.0" />
-      <TextField fx:id="min" layoutX="255.0" layoutY="121.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="80.0" />
-      <TextField fx:id="type" layoutX="168.0" layoutY="159.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
-      <ComboBox fx:id="owner" layoutX="168.0" layoutY="199.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
+      <Text layoutX="44.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <Text layoutX="388.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="max" />
+      <Text layoutX="191.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="min" />
+      <Text layoutX="44.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owner" />
+      <Text layoutX="47.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
+      <Text layoutX="44.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of players" />
+      <Button fx:id="addForVoting" layoutX="307.0" layoutY="326.0" mnemonicParsing="false" onAction="#actionHandler" text="Add for voting" />
+      <Button fx:id="AddToTheRegistry" layoutX="440.0" layoutY="326.0" mnemonicParsing="false" onAction="#actionHandler" text="Add to the registry" />
+      <Button fx:id="back" layoutX="44.0" layoutY="326.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
+      <TextField fx:id="name" layoutX="150.0" layoutY="65.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
+      <TextField fx:id="max" layoutX="440.0" layoutY="108.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="105.0" />
+      <TextField fx:id="min" layoutX="237.0" layoutY="108.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="80.0" />
+      <TextField fx:id="type" layoutX="150.0" layoutY="146.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
+      <ComboBox fx:id="owner" layoutX="150.0" layoutY="186.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
    </children>
 </AnchorPane>
