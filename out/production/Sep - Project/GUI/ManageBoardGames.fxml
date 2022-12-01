@@ -16,11 +16,11 @@
       <Button fx:id="back" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
       <TableView fx:id="games" layoutY="146.0" onSort="#actionHandler" prefHeight="216.0" prefWidth="594.0">
          <columns>
-            <TableColumn fx:id="tableColName" prefWidth="224.0" text="Name" />
-            <TableColumn fx:id="tableColType" prefWidth="112.0" text="Type" />
-            <TableColumn fx:id="tableColMinNoP" prefWidth="69.0" text="Min" />
-            <TableColumn fx:id="tableColMaxNoP" prefWidth="67.0" text="Max" />
-            <TableColumn fx:id="tableColOwner" prefWidth="104.0" text="Owner" />
+            <TableColumn fx:id="tableColName" prefWidth="194.0" text="Name" />
+            <TableColumn fx:id="tableColType" prefWidth="111.0" text="Type" />
+            <TableColumn fx:id="tableColMinNoP" prefWidth="72.0" text="Min" />
+            <TableColumn fx:id="tableColMaxNoP" prefWidth="58.0" text="Max" />
+            <TableColumn fx:id="tableColOwner" prefWidth="138.0" text="Owner" />
          </columns>
       </TableView>
       <Text layoutX="46.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a game by:" wrappingWidth="127.0543212890625" />

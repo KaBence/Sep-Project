@@ -2,13 +2,9 @@ package GUI;
 
 import Model.BoardGameManager;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 
-public class LeaveReviewController
+public class ShowBoardGameController
 {
 
   private ViewHandler viewHandler;

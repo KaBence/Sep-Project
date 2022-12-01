@@ -22,6 +22,8 @@ public class ViewHandler
   private VoteController voteController;
   private BorrowGameController borrowGameController;
   private ReturnGameController returnGameController;
+  private ShowBoardGameController showBoardGameController;
+  private LeaveReviewController leaveReviewController;
 
   private Stage stage;
   public ViewHandler(Stage stage, BoardGameManager ClubManager)
@@ -42,7 +44,8 @@ public class ViewHandler
     loadViewMakeReservation();
     loadViewReturnGame();
     loadViewBorrowGame();
-    loadViewBorrowGame2();
+    loadViewLeaveReview();
+    loadViewShowBoardGame();
     openView("Menu");
   }
 
@@ -76,18 +79,22 @@ public class ViewHandler
       case "manageEvent":
         stage.setScene(manageEventsController.getScene());
         stage.setTitle("Manage events");
+
         break;
       case "borrow":
-        stage.setScene(borrowGameController.getScene());
+        stage.setScene(manageBoardGamesController.getScene());
         stage.setTitle("Borrow a game");
+        manageBoardGamesController.update();
         break;
       case "returnGame":
-        stage.setScene(returnGameController.getScene());
+        stage.setScene(manageBoardGamesController.getScene());
         stage.setTitle("Return a game");
+        manageBoardGamesController.update();
         break;
       case "reservation":
-        stage.setScene(makeReservationController.getScene());
+        stage.setScene(manageBoardGamesController.getScene());
         stage.setTitle("Make a reservation");
+        manageBoardGamesController.update();
         break;
       case "vote":
         stage.setScene(voteController.getScene());
@@ -214,20 +221,6 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
-  private void loadViewBorrowGame2() {
-    try
-    {
-      FXMLLoader loader = new FXMLLoader();
-      loader.setLocation(getClass().getResource("BorrowGame2.fxml"));
-      Region root = loader.load();
-      borrowGameController = loader.getController();
-      borrowGameController.init(this, new Scene(root), ClubManager);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-  }
 
   private void loadViewReturnGame() {
     try
@@ -265,6 +258,36 @@ public class ViewHandler
       Region root = loader.load();
       makeReservationController = loader.getController();
       makeReservationController.init(this, new Scene(root), ClubManager);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  private void loadViewShowBoardGame() {
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource("ShowBoardGame.fxml"));
+      Region root = loader.load();
+      showBoardGameController= loader.getController();
+      showBoardGameController.init(this, new Scene(root), ClubManager);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  private void loadViewLeaveReview() {
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource("LeaveReview.fxml"));
+      Region root = loader.load();
+      leaveReviewController = loader.getController();
+      leaveReviewController.init(this, new Scene(root), ClubManager);
     }
     catch (IOException e)
     {
