@@ -1,15 +1,14 @@
 package GUI;
 
+import Model.BoardGame;
+import Model.BoardGameList;
 import Model.BoardGameManager;
+import Model.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Region;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ManageBoardGamesController
 {
@@ -17,8 +16,8 @@ public class ManageBoardGamesController
   @FXML RadioButton available, reserved, borrowed, allGames;
   @FXML TextField searchField;
   @FXML Button search;
-  @FXML TableView games;
-  @FXML Button back, temporary;
+  @FXML TableView<BoardGame> games;
+  @FXML Button back;
   @FXML TextField nameOfGame;
   @FXML TextField min;
   @FXML TextField max;
@@ -42,24 +41,41 @@ public class ManageBoardGamesController
   @FXML TextField rank;
   @FXML ListView reviews;
 
-
-
-
-
+  @FXML TableColumn<BoardGame,String> tableColName;
+  @FXML TableColumn<BoardGame,String> tableColType;
+  @FXML TableColumn<BoardGame,Integer> tableColMinNoP;
+  @FXML TableColumn<BoardGame,Integer> tableColMaxNoP;
+  @FXML TableColumn<BoardGame, Member> tableColOwner;
 
 
   private ViewHandler viewHandler;
-  private BoardGameManager clubManager;
+  private BoardGameManager boardGameManager;
   private Scene scene;
-  private Stage temp;
 
 
-  public void init(ViewHandler viewHandler, Scene scene,
-      BoardGameManager clubManager)
+  public void initialize()
+  {
+    tableColName.setCellValueFactory(new PropertyValueFactory<BoardGame, String>("name"));
+    tableColType.setCellValueFactory(new PropertyValueFactory<BoardGame, String>("type"));
+    tableColMinNoP.setCellValueFactory(new PropertyValueFactory<BoardGame, Integer>("minNoP"));
+    tableColMaxNoP.setCellValueFactory(new PropertyValueFactory<BoardGame, Integer>("maxNoP"));
+    tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame, Member>("owner"));
+  }
+
+  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
-    this.clubManager = clubManager;
+    this.boardGameManager = boardGameManager;
+  }
+
+  public void update(){
+
+    BoardGameList boardGameList=boardGameManager.getAllBoardGames();
+    for (int i = 0; i < boardGameList.size(); i++)
+    {
+      games.getItems().add(boardGameList.get(i));
+    }
   }
 
   public Scene getScene()
@@ -69,48 +85,12 @@ public class ManageBoardGamesController
 
   public void actionHandler(ActionEvent e)
   {
-    temp=new Stage();
     if (e.getSource() == back)
       viewHandler.start();
-    if (e.getSource() == temporary)
-    {
-
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ManageBoardGames2.fxml"));
-        Region root = loader.load();
-        init(viewHandler, new Scene(root), clubManager);
-      }
-      catch (IOException ed)
-      {
-        ed.printStackTrace();
-      }
-
-      temp.setTitle("Test");
-      temp.setScene(getScene());
-      temp.show();
-    }
     if (e.getSource() == reserve)
     {
 
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ManageBoardGames3.fxml"));
-        Region root = loader.load();
-        init(viewHandler, new Scene(root), clubManager);
-      }
-      catch (IOException ed)
-      {
-        ed.printStackTrace();
-      }
-      temp.setTitle("Test2");
-      temp.setScene(getScene());
-      temp.show();
     }
   }
-
-  //just trying
 
 }

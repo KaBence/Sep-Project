@@ -59,6 +59,7 @@ public class ViewHandler
       case "manageBoardGame":
         stage.setScene(manageBoardGamesController.getScene());
         stage.setTitle("Manage board games");
+        manageBoardGamesController.update();
         break;
       case "addMember":
         stage.setScene(addMemberController.getScene());

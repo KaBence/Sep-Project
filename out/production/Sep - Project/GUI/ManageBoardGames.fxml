@@ -13,11 +13,14 @@
    <children>
       <Separator layoutX="8.0" layoutY="79.0" prefHeight="134.0" prefWidth="573.0" />
       <Button fx:id="search" layoutX="529.0" layoutY="97.0" mnemonicParsing="false" onAction="#actionHandler" text="Search" />
-      <Button fx:id="back" layoutX="34.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
-      <TableView fx:id="games" layoutX="32.0" layoutY="158.0" onSort="#actionHandler" prefHeight="203.0" prefWidth="534.0">
+      <Button fx:id="back" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
+      <TableView fx:id="games" layoutY="146.0" onSort="#actionHandler" prefHeight="216.0" prefWidth="594.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="tableColName" prefWidth="224.0" text="Name" />
+            <TableColumn fx:id="tableColType" prefWidth="112.0" text="Type" />
+            <TableColumn fx:id="tableColMinNoP" prefWidth="69.0" text="Min" />
+            <TableColumn fx:id="tableColMaxNoP" prefWidth="67.0" text="Max" />
+            <TableColumn fx:id="tableColOwner" prefWidth="104.0" text="Owner" />
          </columns>
       </TableView>
       <Text layoutX="46.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a game by:" wrappingWidth="127.0543212890625" />
@@ -29,6 +32,5 @@
       <RadioButton fx:id="allGames" layoutX="428.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="All games" />
       <RadioButton fx:id="available" layoutX="46.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="Available" />
       <TextField fx:id="searchField" layoutX="34.0" layoutY="96.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="482.0" />
-      <Button fx:id="temporary" layoutX="258.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="Temporary" />
    </children>
 </AnchorPane>
