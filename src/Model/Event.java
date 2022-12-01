@@ -3,21 +3,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 public class Event implements Serializable
 {
-    private int time;
+    private MyDate time;
     private String location;
     private String name;
     private ArrayList<String> guests;
     private MyDate date;
     private BoardGameList games;
 
-    public Event(int time, String location, String name){
+    public Event(MyDate date,MyDate time, String location, String name, ArrayList<String> guests){
+
         this.time = time;
         this.location = location;
         this.name = name;
         guests=new ArrayList<>();
     }
 
-    public int getTime(){
+    public MyDate getTime(){
         return time;
     }
     public String getName(){
@@ -38,7 +39,7 @@ public class Event implements Serializable
         this.name = name;
     }
 
-    public void setTime(int time) {
+    public void setTime(MyDate time) {
         this.time = time;
     }
 
@@ -61,7 +62,7 @@ public class Event implements Serializable
         return date;
     }
     public Event copy(){
-        return new Event(time,location,name);
+        return new Event(date,time,location,name, guests);
     }
 
     public BoardGameList getGames() {
