@@ -83,7 +83,7 @@ public class LoadInitialData
       System.out.println("IO Error writing to file ");
     }
 
-    System.out.println("Done");
+    System.out.println("Members Done");
 
     //Writing the bin file for boardgames
     try
@@ -97,6 +97,6 @@ public class LoadInitialData
       System.out.println("IO error writing to the file");
     }
 
-    System.out.println("Done");
+    System.out.println("Board Games Done");
   }
 }

@@ -93,6 +93,7 @@ public class ViewHandler
         stage.setTitle("Vote for the next game");
         break;
     }
+
     stage.setResizable(false);
 
     stage.show();
