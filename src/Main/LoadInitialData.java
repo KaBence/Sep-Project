@@ -24,6 +24,8 @@ public class LoadInitialData
     String[] boardgamesarray=null;
     String[] memberArray = null;
 
+    // reading the dummydata for members
+
     try
     {
       memberArray = MyFileHandler.readArrayFromTextFile("dummyDataMembers.txt");
@@ -45,6 +47,8 @@ public class LoadInitialData
       System.out.println("File was not found, or could not be opened");
     }
 
+    //reading the dummydata for the boardgames
+
     try
     {
       boardgamesarray= MyFileHandler.readArrayFromTextFile("dummydataboardgames.txt");
@@ -65,7 +69,7 @@ public class LoadInitialData
       System.out.println("File not found");
     }
 
-
+    //Writing the bin file for members
     try
     {
       MyFileHandler.writeToBinaryFile("members.bin", members);
@@ -81,6 +85,7 @@ public class LoadInitialData
 
     System.out.println("Done");
 
+    //Writing the bin file for boardgames
     try
     {
       MyFileHandler.writeToBinaryFile("Boardgames.bin",boardgames);
