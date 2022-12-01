@@ -8,10 +8,20 @@ public class MyDate implements Serializable
  private int day;
  private int month;
  private int year;
+ private int min;
+ private int hour;
+
  public MyDate(int day, int month, int year){
    this.day=day;
    this.month=month;
    this.year=year;
+ }
+ public MyDate(int day, int month, int year, int min, int hour){
+   this.day=day;
+   this.month=month;
+   this.year=year;
+   this.min=min;
+   this.hour=hour;
  }
  public MyDate(){};
 
@@ -45,6 +55,27 @@ public class MyDate implements Serializable
     this.year = year;
   }
 
+  public int getHour()
+  {
+    return hour;
+  }
+
+  public void setHour(int hour)
+  {
+    this.hour = hour;
+  }
+
+  public int getMin()
+  {
+    return min;
+  }
+
+  public void setMin(int min)
+  {
+    this.min = min;
+  }
+
+
   public boolean equals(Object obj)
   {
     if (obj == null || getClass() != obj.getClass())
@@ -52,18 +83,24 @@ public class MyDate implements Serializable
       return false;
     }
     MyDate other =(MyDate) obj;
-    return day== other.day && month== other.month && year== other.year;
+    return day== other.day && month== other.month && year== other.year && min== other.min && hour== other.hour;
 
   }
 
   public String toString()
   {
     return "DATE:" + day +"/"+ month + "/"+ year;
-  }
+  } //what about the min and hour
+
 
   public static MyDate today()
   {
     LocalDate currentDate=LocalDate.now();
     return new MyDate(currentDate.getDayOfMonth(),currentDate.getMonthValue(),currentDate.getYear());
+
   }
+  //for setting the events (time)
+public MyDate newDate(){
+    return  new MyDate(day,month,year,min,hour);
+}
 }
