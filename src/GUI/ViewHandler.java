@@ -79,7 +79,6 @@ public class ViewHandler
       case "manageEvent":
         stage.setScene(manageEventsController.getScene());
         stage.setTitle("Manage events");
-
         break;
       case "borrow":
         stage.setScene(manageBoardGamesController.getScene());
@@ -103,7 +102,6 @@ public class ViewHandler
     }
 
     stage.setResizable(false);
-
     stage.show();
   }
 
@@ -221,7 +219,6 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
-
   private void loadViewReturnGame() {
     try
     {

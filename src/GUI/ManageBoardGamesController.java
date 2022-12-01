@@ -18,28 +18,12 @@ public class ManageBoardGamesController
   @FXML Button search;
   @FXML TableView<BoardGame> games;
   @FXML Button back;
-  @FXML TextField nameOfGame;
-  @FXML TextField min;
-  @FXML TextField max;
-  @FXML TextField typeOfBoardGame;
-  @FXML ComboBox owner;
-  @FXML RadioButton available2, nonAvailable2, reserved2, borrowed2;
-  @FXML Button edit;
-  @FXML Button remove;
-  @FXML Button seeReviews;
+
+
   @FXML Button reserve;
   @FXML Button borrow;
-  @FXML Button save3;
-  @FXML ComboBox borrower3;
-  @FXML DatePicker pickupdate3;
-  @FXML DatePicker returnDate3;
-  @FXML TableView reservations3;
-  @FXML Button home;
-  @FXML Button edit3;
-  @FXML Button remove3;
-  @FXML TextField name4;
-  @FXML TextField rank;
-  @FXML ListView reviews;
+
+
 
   @FXML TableColumn<BoardGame,String> tableColName;
   @FXML TableColumn<BoardGame,String> tableColType;

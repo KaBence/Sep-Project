@@ -14,7 +14,7 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Text>
-      <TextField fx:id="name4" layoutX="170.0" layoutY="34.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
+      <TextField fx:id="name" layoutX="170.0" layoutY="34.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
       <Button fx:id="home" layoutX="109.0" layoutY="349.0" mnemonicParsing="false" onAction="#actionHandler" text="Home">
          <font>
             <Font name="Arial" size="12.0" />
