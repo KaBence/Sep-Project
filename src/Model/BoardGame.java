@@ -13,7 +13,7 @@ public class BoardGame implements Serializable
   private RankList rankList;
   private Voting voteList;
 
-  public BoardGame(String name,String type,boolean availability,int minNoP,int maxNoP,Member owner){
+  public BoardGame(String name,String type,int minNoP,int maxNoP,Member owner,boolean availability){
     this.name=name;
     this.availability=availability;
     this.type=type;
