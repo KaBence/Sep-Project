@@ -50,40 +50,51 @@ public class ViewHandler
     switch (id){
       case "Menu":
         stage.setScene(menuController.getScene());
+        stage.setTitle("Menu");
         break;
       case "addBoardGame":
         stage.setScene(addBoardGameController.getScene());
+        stage.setTitle("Add a board game");
         break;
       case "manageBoardGame":
         stage.setScene(manageBoardGamesController.getScene());
+        stage.setTitle("Manage board games");
         break;
       case "addMember":
         stage.setScene(addMemberController.getScene());
+        stage.setTitle("Add member");
         break;
       case "manageMember":
         stage.setScene(manageMemberController.getScene());
+        stage.setTitle("Manage members");
         break;
       case "addEvent":
         stage.setScene(addEventController.getScene());
+        stage.setTitle("Add events");
         break;
       case "manageEvent":
         stage.setScene(manageEventsController.getScene());
+        stage.setTitle("Manage events");
         break;
       case "borrow":
         stage.setScene(borrowGameController.getScene());
+        stage.setTitle("Borrow a game");
         break;
       case "returnGame":
         stage.setScene(returnGameController.getScene());
+        stage.setTitle("Return a game");
         break;
       case "reservation":
         stage.setScene(makeReservationController.getScene());
+        stage.setTitle("Make a reservation");
         break;
       case "vote":
         stage.setScene(voteController.getScene());
+        stage.setTitle("Vote for the next game");
         break;
     }
     stage.setResizable(false);
-    stage.setTitle("Test");
+
     stage.show();
   }
 
