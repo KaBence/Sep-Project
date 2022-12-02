@@ -64,6 +64,11 @@ public class ViewHandler
         stage.setTitle("Manage board games");
         manageBoardGamesController.update();
         break;
+      case "showBoardGame":
+        stage.setScene(showBoardGameController.getScene());
+        stage.setTitle(showBoardGameController.getShowBoardGame().getName());
+        showBoardGameController.update();
+        break;
       case "addMember":
         stage.setScene(addMemberController.getScene());
         stage.setTitle("Add member");
@@ -103,6 +108,10 @@ public class ViewHandler
 
     stage.setResizable(false);
     stage.show();
+  }
+
+  public ShowBoardGameController getShowBoardGameController(){
+    return showBoardGameController;
   }
 
 

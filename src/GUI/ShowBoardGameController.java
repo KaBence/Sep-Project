@@ -1,5 +1,6 @@
 package GUI;
 
+import Model.BoardGame;
 import Model.BoardGameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,10 +21,12 @@ public class ShowBoardGameController
   @FXML Button edit;
   @FXML Button remove;
   @FXML Button seeReviews;
+  @FXML Button back;
 
   private ViewHandler viewHandler;
   private BoardGameManager boardGameManager;
   private Scene scene;
+  private BoardGame showBoardGame;
 
 
   public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
@@ -37,7 +40,26 @@ public class ShowBoardGameController
     return scene;
   }
 
-  public void actionHandler(ActionEvent e){
+  public BoardGame getShowBoardGame()
+  {
+    return showBoardGame;
+  }
 
+  public void setShowBoardGame(BoardGame showBoardGame)
+  {
+    this.showBoardGame = showBoardGame;
+  }
+
+  public void update(){
+    nameOfGame.setText(showBoardGame.getName());
+    typeOfBoardGame.setText(showBoardGame.getType());
+    min.setText(String.valueOf(showBoardGame.getMinNoP()));
+    max.setText(String.valueOf(showBoardGame.getMaxNoP()));
+  }
+
+  public void actionHandler(ActionEvent e){
+    if (e.getSource()==back){
+      viewHandler.openView("manageBoardGame");
+    }
   }
 }

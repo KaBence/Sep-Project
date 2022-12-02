@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.skin.TableRowSkinBase;
+import javafx.scene.input.MouseEvent;
 
 public class ManageBoardGamesController
 {
@@ -75,6 +77,15 @@ public class ManageBoardGamesController
     {
 
     }
+  }
+
+  public void tableAction(MouseEvent event){
+    BoardGame row=games.getSelectionModel().getSelectedItem();
+    if (event.getClickCount()==2&&!(row==null)){
+      viewHandler.getShowBoardGameController().setShowBoardGame(row);
+      viewHandler.openView("showBoardGame");
+    }
+
   }
 
 }
