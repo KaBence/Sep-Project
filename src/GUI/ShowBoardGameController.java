@@ -19,6 +19,7 @@ public class ShowBoardGameController
   @FXML ComboBox owner;
   @FXML RadioButton available2, nonAvailable2, reserved2, borrowed2;
   @FXML Button edit;
+  @FXML Button reserve;
   @FXML Button remove;
   @FXML Button seeReviews;
   @FXML Button back;
@@ -61,5 +62,9 @@ public class ShowBoardGameController
     if (e.getSource()==back){
       viewHandler.openView("manageBoardGame");
     }
+    if (e.getSource()==seeReviews){
+      viewHandler.openView("seeReviews");
+    }
+    if (e.getSource()==reserve) viewHandler.openView("");
   }
 }

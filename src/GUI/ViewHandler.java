@@ -24,6 +24,7 @@ public class ViewHandler
   private ReturnGameController returnGameController;
   private ShowBoardGameController showBoardGameController;
   private LeaveReviewController leaveReviewController;
+  private SeeReviewController seeReviewController;
 
   private Stage stage;
   public ViewHandler(Stage stage, BoardGameManager ClubManager)
@@ -45,6 +46,7 @@ public class ViewHandler
     loadViewReturnGame();
     loadViewBorrowGame();
     loadViewLeaveReview();
+    loadViewSeeReview();
     loadViewShowBoardGame();
     openView("Menu");
   }
@@ -87,23 +89,24 @@ public class ViewHandler
         stage.setTitle("Manage events");
         break;
       case "borrow":
-        stage.setScene(manageBoardGamesController.getScene());
+        stage.setScene(borrowGameController.getScene());
         stage.setTitle("Borrow a game");
-        manageBoardGamesController.update();
         break;
       case "returnGame":
-        stage.setScene(manageBoardGamesController.getScene());
+        stage.setScene(returnGameController.getScene());
         stage.setTitle("Return a game");
-        manageBoardGamesController.update();
         break;
       case "reservation":
-        stage.setScene(manageBoardGamesController.getScene());
+        stage.setScene(makeReservationController.getScene());
         stage.setTitle("Make a reservation");
-        manageBoardGamesController.update();
         break;
       case "vote":
         stage.setScene(voteController.getScene());
         stage.setTitle("Vote for the next game");
+        break;
+      case "seeReviews":
+        stage.setScene(seeReviewController.getScene());
+        stage.setTitle("Reviews");
         break;
     }
 
@@ -113,6 +116,10 @@ public class ViewHandler
 
   public ShowBoardGameController getShowBoardGameController(){
     return showBoardGameController;
+  }
+
+  public MenuController getMenuController(){
+    return menuController;
   }
 
 
@@ -295,6 +302,21 @@ public class ViewHandler
       Region root = loader.load();
       leaveReviewController = loader.getController();
       leaveReviewController.init(this, new Scene(root), ClubManager);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  private void loadViewSeeReview(){
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource("SeeReview.fxml"));
+      Region root = loader.load();
+      seeReviewController = loader.getController();
+      seeReviewController.init(this, new Scene(root), ClubManager);
     }
     catch (IOException e)
     {

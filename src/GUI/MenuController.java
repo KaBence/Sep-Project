@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 
 public class MenuController
 {
+  private int value;
   private ViewHandler viewHandler;
   private BoardGameManager clubManager;
   private Scene scene;
@@ -33,16 +34,37 @@ public class MenuController
     return scene;
   }
 
+  public int getValue()
+  {
+    return value;
+  }
+  public void setValue(int value)
+  {
+    this.value = value;
+  }
+
   public void actionHandler(ActionEvent e){
     if (e.getSource()==addBoardGame) viewHandler.openView("addBoardGame");
-    if (e.getSource()==manageBoardGame) viewHandler.openView("manageBoardGame");
+    if (e.getSource()==manageBoardGame){
+      viewHandler.openView("manageBoardGame");
+      value=0;
+    }
     if (e.getSource()==addEvent) viewHandler.openView("addEvent");
     if (e.getSource()==manageEvent) viewHandler.openView("manageEvent");
     if (e.getSource()==addMember) viewHandler.openView("addMember");
     if (e.getSource()==manageMember) viewHandler.openView("manageMember");
     if (e.getSource()==vote) viewHandler.openView("vote");
-    if (e.getSource()==reservation) viewHandler.openView("reservation");
-    if (e.getSource()==borrow) viewHandler.openView("borrow");
-    if (e.getSource()==returnGame) viewHandler.openView("returnGame");
+    if (e.getSource()==reservation) {
+      viewHandler.openView("manageBoardGame");
+      value=1;
+    }
+    if (e.getSource()==borrow) {
+      viewHandler.openView("manageBoardGame");
+      value=2;
+    }
+    if (e.getSource()==returnGame) {
+      viewHandler.openView("manageBoardGame");
+      value=3;
+    }
   }
 }

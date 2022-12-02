@@ -83,7 +83,10 @@ public class ManageBoardGamesController
     BoardGame row=games.getSelectionModel().getSelectedItem();
     if (event.getClickCount()==2&&!(row==null)){
       viewHandler.getShowBoardGameController().setShowBoardGame(row);
-      viewHandler.openView("showBoardGame");
+      if (viewHandler.getMenuController().getValue()==1)viewHandler.openView("reservation");
+      else if (viewHandler.getMenuController().getValue()==2)viewHandler.openView("borrow");
+      else if (viewHandler.getMenuController().getValue()==3)viewHandler.openView("returnGame");
+      else viewHandler.openView("showBoardGame");
     }
 
   }

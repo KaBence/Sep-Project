@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class seeReviewController
+public class SeeReviewController
 {
   @FXML TextField nameOfBoardGame;
   @FXML TableView reviews;
