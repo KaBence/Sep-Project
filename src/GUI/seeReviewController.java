@@ -4,23 +4,18 @@ import Model.BoardGameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
-public class BorrowGameController
+public class seeReviewController
 {
-@FXML RadioButton name,type,numOfPlayers;
-@FXML RadioButton available,reserved, borrowed,allGames;
-@FXML TextField searchField;
-@FXML Button searchButton;
-@FXML TableView games;
-
-@FXML Button back;
-
+  @FXML TextField nameOfBoardGame;
+  @FXML TableView reviews;
+  @FXML Button back;
   private ViewHandler viewHandler;
   private BoardGameManager clubmanager;
   private Scene scene;
-
-
   public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager)
   {
     this.viewHandler = viewHandler;

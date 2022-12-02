@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.seeReviewController">
+   <children>
+      <Text layoutX="36.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reviews of the board game:" />
+      <TextField fx:id="nameOfBoardGame" layoutX="215.0" layoutY="42.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="343.0" />
+      <TableView fx:id="reviews" layoutX="39.0" layoutY="101.0" onSort="#actionHandler" prefHeight="251.0" prefWidth="522.0">
+        <columns>
+          <TableColumn prefWidth="521.6000122070312" text="HERE IS WHAT PEOPLE THINK" />
+        </columns>
+      </TableView>
+      <Button fx:id="back" layoutX="39.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="back" />
+   </children>
+</AnchorPane>
