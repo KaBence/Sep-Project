@@ -35,6 +35,6 @@ public class ReturnGameController
   }
 
   public void actionHandler(ActionEvent e){
-    if (e.getSource()==back) viewHandler.openView("Menu");
+    if (e.getSource()==cancel) viewHandler.openView("Menu");
   }
 }
