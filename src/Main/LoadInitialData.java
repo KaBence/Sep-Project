@@ -1,11 +1,11 @@
 package Main;
 
-import Model.Member;
-import Model.MemberList;
+import Model.*;
 import Util.MyFileHandler;
-
+import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import Model.MyDate;
 
 import Model.BoardGame;
 import Model.BoardGameList;
@@ -17,18 +17,33 @@ import java.io.IOException;
 
 public class LoadInitialData
 {
+  public static MyDate stringToDate(String date, String time){
+    String[] temp = date.split("/");
+    int tempDate = Integer.valueOf(temp[0]);
+    int tempMonth = Integer.valueOf(temp[1]);
+    int tempyear = Integer.valueOf(temp[2]);
+    String[] timetemp = time.split(":");
+    int tempHour = Integer.valueOf(timetemp[0]);
+    int tempMin = Integer.valueOf(timetemp[1]);
+    return new MyDate(tempDate,tempMonth,tempyear,tempHour,tempMin);
+  }
   public static void main(String[] args)
   {
     BoardGameList boardgames=new BoardGameList();
     MemberList members=new MemberList();
     String[] boardgamesarray=null;
     String[] memberArray = null;
+    EventList events = new EventList();
+    String[] eventsArray = null;
 
     // reading the dummydata for members
 
     try
     {
       memberArray = MyFileHandler.readArrayFromTextFile("dummyDataMembers.txt");
+      eventsArray = MyFileHandler.readArrayFromTextFile("dummyDataEvents.txt");
+
+      String lsda = "";
 
       for(int i = 0; i<memberArray.length; i++)
       {
@@ -41,6 +56,18 @@ public class LoadInitialData
 
         members.addMember(new Member(firstName, lastName, phoneNumber, email));
       }
+      for(int i = 0; i<eventsArray.length; i++)
+      {
+        String temp = eventsArray[i];
+        String[] tempArr = temp.split("-");
+        String date = tempArr[0];
+        String timeTemp = tempArr[1];
+        String location = tempArr[2];
+        String name = tempArr[3];
+        String guestsString = tempArr[4];
+        events.addEvent(new Event(stringToDate(date,timeTemp), location, name,tempArr[4]));
+      }
+
     }
     catch (FileNotFoundException e)
     {
@@ -73,6 +100,7 @@ public class LoadInitialData
     try
     {
       MyFileHandler.writeToBinaryFile("members.bin", members);
+      MyFileHandler.writeToBinaryFile("events.bin", events);
     }
     catch (FileNotFoundException e)
     {

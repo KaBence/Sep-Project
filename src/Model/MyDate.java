@@ -16,7 +16,7 @@ public class MyDate implements Serializable
    this.month=month;
    this.year=year;
  }
- public MyDate(int day, int month, int year, int min, int hour){
+ public MyDate(int day, int month, int year, int hour, int min){
    this.day=day;
    this.month=month;
    this.year=year;
@@ -89,8 +89,8 @@ public class MyDate implements Serializable
 
   public String toString()
   {
-    return "DATE:" + day +"/"+ month + "/"+ year;
-  } //what about the min and hour
+    return day +"/"+ month + "/"+ year +" "+hour+":"+min;
+  }
 
 
   public static MyDate today()
