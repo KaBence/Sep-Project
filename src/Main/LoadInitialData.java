@@ -7,6 +7,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import Model.MyDate;
 
+import Model.BoardGame;
+import Model.BoardGameList;
+import Model.MemberList;
+import Util.MyFileHandler;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class LoadInitialData
 {
   public static MyDate stringToDate(String date, String time){
@@ -21,10 +29,14 @@ public class LoadInitialData
   }
   public static void main(String[] args)
   {
-    MemberList members = new MemberList();
+    BoardGameList boardgames=new BoardGameList();
+    MemberList members=new MemberList();
+    String[] boardgamesarray=null;
     String[] memberArray = null;
     EventList events = new EventList();
     String[] eventsArray = null;
+
+    // reading the dummydata for members
 
     try
     {
@@ -62,6 +74,29 @@ public class LoadInitialData
       System.out.println("File was not found, or could not be opened");
     }
 
+    //reading the dummydata for the boardgames
+
+    try
+    {
+      boardgamesarray= MyFileHandler.readArrayFromTextFile("dummydataboardgames.txt");
+
+      for (String item:boardgamesarray){
+        String[] temp=item.split(",");
+        String name=temp[0];
+        String type=temp[1];
+        int minNoP=Integer.parseInt(temp[2]);
+        int maxNop=Integer.parseInt(temp[3]);
+        String owner=temp[4];
+        boolean avl= Boolean.parseBoolean(temp[5]);
+        boardgames.addBoardGame(new BoardGame(name,type,minNoP,maxNop,
+            members.getMemberByName(owner),avl));
+      }
+    }
+    catch (FileNotFoundException e){
+      System.out.println("File not found");
+    }
+
+    //Writing the bin file for members
     try
     {
       MyFileHandler.writeToBinaryFile("members.bin", members);
@@ -76,6 +111,20 @@ public class LoadInitialData
       System.out.println("IO Error writing to file ");
     }
 
-    System.out.println("Done");
+    System.out.println("Members Done");
+
+    //Writing the bin file for boardgames
+    try
+    {
+      MyFileHandler.writeToBinaryFile("Boardgames.bin",boardgames);
+    }
+    catch (FileNotFoundException e){
+      System.out.println("File not found");
+    }
+    catch (IOException e){
+      System.out.println("IO error writing to the file");
+    }
+
+    System.out.println("Board Games Done");
   }
 }

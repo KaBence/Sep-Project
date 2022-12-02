@@ -13,7 +13,7 @@ public class BoardGame implements Serializable
   private RankList rankList;
   private Voting voteList;
 
-  public BoardGame(String name,String type,boolean availability,int minNoP,int maxNoP,Member owner){
+  public BoardGame(String name,String type,int minNoP,int maxNoP,Member owner,boolean availability){
     this.name=name;
     this.availability=availability;
     this.type=type;
@@ -84,7 +84,15 @@ public class BoardGame implements Serializable
   public boolean equals(Object obj){
     if (obj==null||getClass()!=obj.getClass()) return false;
     BoardGame temp=(BoardGame) obj;
-    return type.equals(temp.type)&&name.equals(temp.name)&&availability==temp.availability&&minNoP==temp.minNoP&&maxNoP==temp.maxNoP&&owner.equals(temp.owner)&&reservationList.equals(temp.reservationList)&&borrow.equals(temp.borrow)&&rankList.equals(temp.rankList)&&voteList.equals(temp.voteList);
+    if (owner != null)
+    {
+      return type.equals(temp.type)&&name.equals(temp.name)&&availability==temp.availability&&minNoP==temp.minNoP&&maxNoP==temp.maxNoP&&owner.equals(temp.owner);
+    }
+    else{
+      return type.equals(temp.type)&&name.equals(temp.name)&&availability==temp.availability&&minNoP==temp.minNoP&&maxNoP==temp.maxNoP&&temp.owner==null;
+
+
+    }
   }
 //toString is not done because we don't know if we need it
   public String toString(){

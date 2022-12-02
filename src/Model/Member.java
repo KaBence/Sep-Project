@@ -70,7 +70,7 @@ public class Member implements Serializable {
     //The toString method
     public String toString()
     {
-        return firstName + " " + lastName + " " +phoneNumber +" " + email;
+        return firstName + " " + lastName;
     }
 
     //Comparing with equals
