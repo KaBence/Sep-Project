@@ -43,7 +43,6 @@ public class LoadInitialData
       memberArray = MyFileHandler.readArrayFromTextFile("dummyDataMembers.txt");
       eventsArray = MyFileHandler.readArrayFromTextFile("dummyDataEvents.txt");
 
-      String lsda = "";
 
       for(int i = 0; i<memberArray.length; i++)
       {

@@ -23,6 +23,7 @@ public class ShowBoardGameController
   @FXML Button remove;
   @FXML Button seeReviews;
   @FXML Button back;
+  @FXML Button borrow;
 
   private ViewHandler viewHandler;
   private BoardGameManager boardGameManager;
@@ -65,6 +66,7 @@ public class ShowBoardGameController
     if (e.getSource()==seeReviews){
       viewHandler.openView("seeReviews");
     }
-    if (e.getSource()==reserve) viewHandler.openView("");
+    if (e.getSource()==reserve) viewHandler.openView("reservation");
+    if (e.getSource()==borrow) viewHandler.openView("borrow");
   }
 }
