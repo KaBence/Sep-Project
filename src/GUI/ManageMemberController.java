@@ -25,8 +25,8 @@ public class ManageMemberController
   @FXML TableView<Member> tableView;
   @FXML Button back;
 
-  @FXML TableColumn<Member, String> TableColMemberName;
-  //@FXML TableColumn<Member,String> TableColMemberName;
+  @FXML TableColumn<Member, String> TableColMemberFirstName;
+  @FXML TableColumn<Member,String> TableColMemberLastName;
   @FXML TableColumn<Member, String> TableColMemberEmail;
   @FXML TableColumn<Member, String> TableColMemberPhone;
 
@@ -36,12 +36,14 @@ public class ManageMemberController
 
   public void initialize()
   {
-    TableColMemberName.setCellValueFactory(
+    TableColMemberFirstName.setCellValueFactory(
         new PropertyValueFactory<Member, String>("firstName"));
-    TableColMemberEmail.setCellValueFactory(
-        new PropertyValueFactory<Member, String>("email"));
+    TableColMemberLastName.setCellValueFactory(
+        new PropertyValueFactory<Member, String>("lastName"));
     TableColMemberPhone.setCellValueFactory(
         new PropertyValueFactory<Member, String>("phoneNumber"));
+    TableColMemberEmail.setCellValueFactory(
+        new PropertyValueFactory<Member, String>("email"));
 
   }
 
@@ -56,7 +58,6 @@ public class ManageMemberController
 
   public void update()
   {
-
     MemberList members = boardGameManager.getAllMembers();
     for (int i = 0; i < members.size(); i++)
     {

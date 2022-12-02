@@ -8,10 +8,12 @@ public class Event implements Serializable
     private ArrayList<String> guests;
     private MyDate date;
     private BoardGameList games;
+    private int capacity;
 
-    public Event(MyDate date, String location, String name, String guests){
+    public Event(MyDate date, String location,int capacity, String name, String guests){
 
         this.location = location;
+        this.capacity=capacity;
         this.name = name;
         this.date = date;
         ArrayList<String> a = new ArrayList<String>();
@@ -24,6 +26,14 @@ public class Event implements Serializable
 
     public String getName(){
         return name;
+    }
+
+    public int getCapacity(){
+        return capacity;
+    }
+
+    public void setCapacity(int capacity){
+        this.capacity=capacity;
     }
     public void setDate(MyDate date){
         this.date = date;
@@ -66,7 +76,7 @@ public class Event implements Serializable
         for (int i = 0; i< guests.size();i++){
             a+= guests.get(i);
         }
-        return new Event(date,location,name, a);
+        return new Event(date,location,capacity,name, a);
     }
 
     public BoardGameList getGames() {

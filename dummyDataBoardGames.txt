@@ -2,7 +2,7 @@ Treasure Hunter,Adventure,2,6,Bence,true
 Kingdomino,Building,2,4,null,false
 Schotten Totten,Card Game,2,2,Harley,true
 Sheriff of Nottingham,Bluffing,3,5,Bence,true
-Exploding Kittens,Card_Game,2,5,null,false
+Exploding Kittens,Card Game,2,5,null,false
 Bang,Card Game,4,7,Michaela,true
 Betrayal at House on the Hill,Adventure,3,6,Michaela,true
 Colt Express,Fighting,2,6,null,false

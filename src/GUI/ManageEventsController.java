@@ -29,11 +29,13 @@ public class ManageEventsController
   @FXML TableView events;
   @FXML TableColumn<Event,String>tableName;
   @FXML TableColumn<Event,String>tableLocation;
+  @FXML TableColumn<Event,String>tableCapacity;
   @FXML TableColumn<Event,String>tableDate;
 
   public void initialize(){
     tableName.setCellValueFactory(new PropertyValueFactory<Event,String>("name"));
     tableLocation.setCellValueFactory(new PropertyValueFactory<Event,String>("location"));
+    tableCapacity.setCellValueFactory(new PropertyValueFactory<Event,String>("capacity"));
     tableDate.setCellValueFactory(new PropertyValueFactory<Event,String>("date"));
   }
 

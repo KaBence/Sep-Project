@@ -28,9 +28,10 @@
       <Button fx:id="edit" layoutX="469.0" layoutY="354.0" mnemonicParsing="false" onAction="#actionHandler" text="Edit" />
       <TableView fx:id="events" layoutX="4.0" layoutY="126.0" prefHeight="216.0" prefWidth="589.0">
         <columns>
-          <TableColumn fx:id="tableName" prefWidth="307.00001525878906" text="Name" />
-          <TableColumn fx:id="tableLocation" prefWidth="67.00006103515625" text="Location" />
-            <TableColumn fx:id="tableDate" prefWidth="187.0" text="Date" />
+          <TableColumn fx:id="tableName" prefWidth="246.0" text="Name" />
+          <TableColumn fx:id="tableLocation" prefWidth="82.00001525878906" text="Location" />
+            <TableColumn fx:id="tableCapacity" prefWidth="68.00006103515625" text="Capacity" />
+            <TableColumn fx:id="tableDate" prefWidth="175.0" text="Date" />
         </columns>
       </TableView>
    </children>

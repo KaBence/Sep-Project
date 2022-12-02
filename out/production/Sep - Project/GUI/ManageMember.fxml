@@ -32,9 +32,10 @@
       <Separator layoutX="-1.0" layoutY="124.0" prefHeight="36.0" prefWidth="600.0" scaleY="2.0" />
       <TableView fx:id="tableView" layoutX="-1.0" layoutY="90.0" onMouseClicked="#tableAction" prefHeight="257.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="TableColMemberName" prefWidth="200.0" text="Member name" />
-          <TableColumn fx:id="TableColMemberEmail" prefWidth="200.0" text="Email" />
-            <TableColumn fx:id="TableColMemberPhone" prefWidth="200.0" text="Phone" />
+          <TableColumn fx:id="TableColMemberFirstName" prefWidth="111.0" text="FirstName" />
+            <TableColumn fx:id="TableColMemberLastName" prefWidth="147.0" text="LastName" />
+            <TableColumn fx:id="TableColMemberPhone" prefWidth="153.0" text="Phone" />
+          <TableColumn fx:id="TableColMemberEmail" prefWidth="170.0" text="E-mail" />
 
 
         </columns>

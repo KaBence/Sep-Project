@@ -41,7 +41,7 @@ public class LoadInitialData
     try
     {
       memberArray = MyFileHandler.readArrayFromTextFile("dummyDataMembers.txt");
-      eventsArray = MyFileHandler.readArrayFromTextFile("dummyDataEvents.txt");
+
 
 
       for(int i = 0; i<memberArray.length; i++)
@@ -50,11 +50,22 @@ public class LoadInitialData
         String[] tempArr = temp.split(",");
         String firstName = tempArr[0];
         String lastName = tempArr[1];
-        String phoneNumber = tempArr[2];
-        String email = tempArr[3];
+        String email = tempArr[2];
+        String phoneNumber = tempArr[3];
 
         members.addMember(new Member(firstName, lastName, phoneNumber, email));
       }
+
+
+    }
+    catch (FileNotFoundException e)
+    {
+      System.out.println("File was not found, or could not be opened");
+    }
+    //Reading the events from the dummydata
+    try
+    {
+      eventsArray = MyFileHandler.readArrayFromTextFile("dummyDataEvents.txt");
       for(int i = 0; i<eventsArray.length; i++)
       {
         String temp = eventsArray[i];
@@ -62,11 +73,11 @@ public class LoadInitialData
         String date = tempArr[0];
         String timeTemp = tempArr[1];
         String location = tempArr[2];
-        String name = tempArr[3];
-        String guestsString = tempArr[4];
-        events.addEvent(new Event(stringToDate(date,timeTemp), location, name,tempArr[4]));
+        int capacity = Integer.parseInt(tempArr[3]);
+        String name = tempArr[4];
+        String guestsString = tempArr[5];
+        events.addEvent(new Event(stringToDate(date,timeTemp), location,capacity, name,tempArr[5]));
       }
-
     }
     catch (FileNotFoundException e)
     {
@@ -99,7 +110,6 @@ public class LoadInitialData
     try
     {
       MyFileHandler.writeToBinaryFile("members.bin", members);
-      MyFileHandler.writeToBinaryFile("events.bin", events);
     }
     catch (FileNotFoundException e)
     {
@@ -111,6 +121,21 @@ public class LoadInitialData
     }
 
     System.out.println("Members Done");
+
+    try
+    {
+      MyFileHandler.writeToBinaryFile("events.bin", events);
+    }
+    catch (FileNotFoundException e)
+    {
+      System.out.println("Error opening file ");
+    }
+    catch (IOException e)
+    {
+      System.out.println("IO Error writing to file ");
+    }
+
+    System.out.println("Events Done");
 
     //Writing the bin file for boardgames
     try
