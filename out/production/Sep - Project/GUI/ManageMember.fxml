@@ -30,7 +30,7 @@
       <TextField fx:id="search" layoutX="43.0" layoutY="54.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="440.0" />
       <Label layoutX="43.0" layoutY="29.0" text="Search a member by" />
       <Separator layoutX="-1.0" layoutY="124.0" prefHeight="36.0" prefWidth="600.0" scaleY="2.0" />
-      <TableView fx:id="tableView" layoutX="-1.0" layoutY="90.0" onSort="#actionHandler" prefHeight="257.0" prefWidth="600.0">
+      <TableView fx:id="tableView" layoutX="-1.0" layoutY="90.0" onMouseClicked="#tableAction" prefHeight="257.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="TableColMemberName" prefWidth="200.0" text="Member name" />
           <TableColumn fx:id="TableColMemberEmail" prefWidth="200.0" text="Email" />

@@ -117,6 +117,10 @@ public class ViewHandler
   public ShowBoardGameController getShowBoardGameController(){
     return showBoardGameController;
   }
+  public AddMemberController getAddMemberController(){
+    return addMemberController;
+
+  }
 
   public MenuController getMenuController(){
     return menuController;
