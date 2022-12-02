@@ -20,6 +20,14 @@ public class EventList implements Serializable
             break;
         }
     }
+
+    public int size(){
+        return list.size();
+    }
+
+    public Event get(int index){
+        return list.get(index);
+    }
     public Event getEventByDate(MyDate date){
 
         for (int i = 0; i<list.size(); i++){
@@ -55,8 +63,7 @@ public class EventList implements Serializable
         }
         return null;
     }
-    private String filename;
-    public EventList(String filename){this.filename = filename;}
+
     public String toString(){
         String a = "";
         for(int i = 0; i< list.size();i++){
@@ -64,30 +71,7 @@ public class EventList implements Serializable
         }
         return a;
     }
-    public EventList getAllEvents(){
-        EventList list2 = new EventList();
-        try
-        {
-            list2 = (EventList)MyFileHandler.readFromBinaryFile(filename);
-        }
-        catch (FileNotFoundException e)
-        {
-            System.out.println("File not found");
-        }
-        catch (IOException e)
-        {
-            System.out.println("IO Error reading file");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Class Not Found");
-        }
-        return list2;
-    }
 
-    public static void main(String[] args) {
-        EventList eventBlea = new EventList("events.bin");
-        EventList smm = eventBlea.getAllEvents();
-        System.out.println(smm);
-    }
+
+
 }

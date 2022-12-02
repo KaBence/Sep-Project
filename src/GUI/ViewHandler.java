@@ -86,6 +86,7 @@ public class ViewHandler
       case "manageEvent":
         stage.setScene(manageEventsController.getScene());
         stage.setTitle("Manage events");
+        manageEventsController.update();
         break;
       case "borrow":
         stage.setScene(borrowGameController.getScene());
