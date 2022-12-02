@@ -2,6 +2,9 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import Util.MyFileHandler;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 public class EventList implements Serializable
 {
     private ArrayList<Event> list;
@@ -51,5 +54,40 @@ public class EventList implements Serializable
             }
         }
         return null;
+    }
+    private String filename;
+    public EventList(String filename){this.filename = filename;}
+    public String toString(){
+        String a = "";
+        for(int i = 0; i< list.size();i++){
+            a+= list.get(i) + "\n";
+        }
+        return a;
+    }
+    public EventList getAllEvents(){
+        EventList list2 = new EventList();
+        try
+        {
+            list2 = (EventList)MyFileHandler.readFromBinaryFile(filename);
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File not found");
+        }
+        catch (IOException e)
+        {
+            System.out.println("IO Error reading file");
+        }
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Class Not Found");
+        }
+        return list2;
+    }
+
+    public static void main(String[] args) {
+        EventList eventBlea = new EventList("events.bin");
+        EventList smm = eventBlea.getAllEvents();
+        System.out.println(smm);
     }
 }

@@ -3,24 +3,25 @@ import java.io.Serializable;
 import java.util.ArrayList;
 public class Event implements Serializable
 {
-    private MyDate time;
     private String location;
     private String name;
     private ArrayList<String> guests;
     private MyDate date;
     private BoardGameList games;
 
-    public Event(MyDate date,MyDate time, String location, String name, ArrayList<String> guests){
+    public Event(MyDate date, String location, String name, String guests){
 
-        this.time = time;
         this.location = location;
         this.name = name;
-        guests=new ArrayList<>();
+        this.date = date;
+        ArrayList<String> a = new ArrayList<String>();
+        String[] tempArr = guests.split(",");
+        for (int i = 0; i<tempArr.length; i++){
+            a.add(tempArr[i]);
+        }
+        this.guests = a;
     }
 
-    public MyDate getTime(){
-        return time;
-    }
     public String getName(){
         return name;
     }
@@ -29,7 +30,7 @@ public class Event implements Serializable
     }
 
     public String toString(){
-        return name + " on " +date.toString()+" "+ time + "at" + location;
+        return name + " on " +date+ " at " + location +" and having these guests: \n" + guests;
     }
     public void setLocation(String location){
         this.location = location;
@@ -39,12 +40,11 @@ public class Event implements Serializable
         this.name = name;
     }
 
-    public void setTime(MyDate time) {
-        this.time = time;
-    }
-
-    public void setGuests(ArrayList<String> guests) {
-        this.guests = guests;
+    public void setGuests(String guests) {
+        String[] tempArr = guests.split(",");
+        for (int i = 0;i<tempArr.length;i++){
+            this.guests.add(tempArr[i]);
+        }
     }
     public boolean equals(Object obj){
 
@@ -53,7 +53,7 @@ public class Event implements Serializable
             return false;
         }
         Event other = (Event)obj;
-        return time == other.time &&
+        return
                 location.equals(other.location) &&
                 name.equals(other.name);
     }
@@ -62,7 +62,11 @@ public class Event implements Serializable
         return date;
     }
     public Event copy(){
-        return new Event(date,time,location,name, guests);
+        String a = "";
+        for (int i = 0; i< guests.size();i++){
+            a+= guests.get(i);
+        }
+        return new Event(date,location,name, a);
     }
 
     public BoardGameList getGames() {
@@ -80,11 +84,9 @@ public class Event implements Serializable
         guests.add(guest);
     }
     public void RemoveGuest(String name){
-        guests.remove(name);
-
-//        for (int i = 0; i<guests.size();i++){
-//            if (name.equals(guests.get(i))) {guests.remove(i); break;}
-//        }
+        for (int i = 0; i<guests.size();i++){
+            if (name.equals(guests.get(i))) {guests.remove(i); break;}
+        }
     }
 }
 
