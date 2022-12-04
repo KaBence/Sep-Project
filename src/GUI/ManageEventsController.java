@@ -57,5 +57,7 @@ public class ManageEventsController
 
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back) viewHandler.openView("Menu");
+    if (e.getSource()==eventName) {
+      eventName.setSortType(TableColumn.SortType.ASCENDING);};
   }
 }

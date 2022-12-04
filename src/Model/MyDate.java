@@ -25,6 +25,25 @@ public class MyDate implements Serializable
  }
  public MyDate(){};
 
+    public static MyDate stringToDate(String date, String time){
+        String[] temp = date.split("/");
+        int tempDate = Integer.valueOf(temp[0]);
+        int tempMonth = Integer.valueOf(temp[1]);
+        int tempyear = Integer.valueOf(temp[2]);
+        String[] timetemp = time.split(":");
+        int tempHour = Integer.valueOf(timetemp[0]);
+        int tempMin = Integer.valueOf(timetemp[1]);
+        return new MyDate(tempDate,tempMonth,tempyear,tempHour,tempMin);
+    }
+    // Converting string date and time to MyDate objects
+
+  public static MyDate today()
+  {
+    LocalDate currentDate=LocalDate.now();
+    return new MyDate(currentDate.getDayOfMonth(),currentDate.getMonthValue(),currentDate.getYear());
+
+  }
+
   public int getDay()
   {
     return day;
@@ -75,7 +94,6 @@ public class MyDate implements Serializable
     this.min = min;
   }
 
-
   public boolean equals(Object obj)
   {
     if (obj == null || getClass() != obj.getClass())
@@ -92,13 +110,6 @@ public class MyDate implements Serializable
     return day +"/"+ month + "/"+ year +" "+hour+":"+min;
   }
 
-
-  public static MyDate today()
-  {
-    LocalDate currentDate=LocalDate.now();
-    return new MyDate(currentDate.getDayOfMonth(),currentDate.getMonthValue(),currentDate.getYear());
-
-  }
   //for setting the events (time)
 public MyDate newDate(){
     return  new MyDate(day,month,year,min,hour);
