@@ -64,6 +64,14 @@ public class EventList implements Serializable
         }
         return a;
     }
+    public Event get(int index){
+        return list.get(index);
+    }
+
+    public int size(){
+        return list.size();
+    }
+
     public EventList getAllEvents(){
         EventList list2 = new EventList();
         try

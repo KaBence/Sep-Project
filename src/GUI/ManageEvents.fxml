@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageEventsController">
    <children>
-      <Label layoutX="34.0" layoutY="38.0" text="Select a Board Game by:" />
+      <Label layoutX="34.0" layoutY="38.0" text="Select a event by:" />
       <RadioButton fx:id="rName" layoutX="256.0" layoutY="29.0" mnemonicParsing="false" onAction="#actionHandler" text="Name">
          <toggleGroup>
             <ToggleGroup fx:id="toggle" />
@@ -26,10 +26,12 @@
       <Button fx:id="back" layoutX="34.0" layoutY="354.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
       <Button fx:id="delete" layoutX="516.0" layoutY="354.0" mnemonicParsing="false" onAction="#actionHandler" text="Delete" />
       <Button fx:id="edit" layoutX="469.0" layoutY="354.0" mnemonicParsing="false" onAction="#actionHandler" text="Edit" />
-      <TableView layoutX="4.0" layoutY="126.0" prefHeight="216.0" prefWidth="589.0">
+      <TableView fx:id="events" layoutX="4.0" layoutY="126.0" onSort="#actionHandler" prefHeight="216.0" prefWidth="589.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="eventName" prefWidth="190.0" text="Event name" />
+          <TableColumn fx:id="eventDate" prefWidth="83.00001525878906" text="Date &amp; Time" />
+            <TableColumn fx:id="eventLocation" minWidth="0.0" prefWidth="62.0" text="Location" />
+            <TableColumn fx:id="eventGuests" prefWidth="257.00006103515625" text="Guests" />
         </columns>
       </TableView>
    </children>

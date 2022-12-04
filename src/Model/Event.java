@@ -6,6 +6,7 @@ public class Event implements Serializable
     private String location;
     private String name;
     private ArrayList<String> guests;
+    private String guestsString;
     private MyDate date;
     private BoardGameList games;
 
@@ -14,6 +15,7 @@ public class Event implements Serializable
         this.location = location;
         this.name = name;
         this.date = date;
+        guestsString = guests;
         ArrayList<String> a = new ArrayList<String>();
         String[] tempArr = guests.split(",");
         for (int i = 0; i<tempArr.length; i++){
@@ -30,7 +32,7 @@ public class Event implements Serializable
     }
 
     public String toString(){
-        return name + " on " +date+ " at " + location +" and having these guests: \n" + guests;
+        return name + " on " +date.toString()+ " at " + location +" and having these guests: \n" + guests;
     }
     public void setLocation(String location){
         this.location = location;
@@ -79,7 +81,9 @@ public class Event implements Serializable
     public String getLocation(){
         return location;
     }
-
+    public String getGuests(){
+        return guestsString;
+    }
     public void addGuest(String guest) {
         guests.add(guest);
     }

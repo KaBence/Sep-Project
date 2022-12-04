@@ -42,10 +42,10 @@ public class ViewHandler
     loadViewManageMember();
     loadViewVote();
     loadViewMakeReservation();
-    loadViewReturnGame();
-    loadViewBorrowGame();
-    loadViewLeaveReview();
-    loadViewShowBoardGame();
+//    loadViewReturnGame();
+//    loadViewBorrowGame();
+//    loadViewLeaveReview();
+////    loadViewShowBoardGame();
     openView("Menu");
   }
 
@@ -80,10 +80,12 @@ public class ViewHandler
       case "addEvent":
         stage.setScene(addEventController.getScene());
         stage.setTitle("Add events");
+
         break;
       case "manageEvent":
         stage.setScene(manageEventsController.getScene());
         stage.setTitle("Manage events");
+        manageEventsController.update();
         break;
       case "borrow":
         stage.setScene(manageBoardGamesController.getScene());
