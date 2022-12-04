@@ -32,7 +32,7 @@ public class Event implements Serializable
     }
 
     public String toString(){
-        return name + " on " +date.toString()+ " at " + location +" and having these guests: \n" + guests;
+        return name + " on " +date+ " at " + location +" and having these guests: \n" + guests;
     }
     public void setLocation(String location){
         this.location = location;

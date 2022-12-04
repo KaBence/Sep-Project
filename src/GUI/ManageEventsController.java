@@ -36,7 +36,7 @@ public class ManageEventsController
     eventDate.setCellValueFactory(new PropertyValueFactory<Event, MyDate>("date"));
     eventLocation.setCellValueFactory(new PropertyValueFactory<Event, String>("location"));
     eventGuests.setCellValueFactory(new PropertyValueFactory<Event, String>("guests"));
-
+    rName.setSelected(true);
   }
   public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
   {

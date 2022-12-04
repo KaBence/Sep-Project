@@ -17,6 +17,7 @@ import java.io.IOException;
 
 public class LoadInitialData
 {
+  // Converting string date and time to MyDate objects
   public static MyDate stringToDate(String date, String time){
     String[] temp = date.split("/");
     int tempDate = Integer.valueOf(temp[0]);
@@ -36,14 +37,30 @@ public class LoadInitialData
     EventList events = new EventList();
     String[] eventsArray = null;
 
+    // reading dummy data for events
+    try {
+        eventsArray = MyFileHandler.readArrayFromTextFile("dummyDataEvents.txt");
+        String lsda = "";
+        for(int i = 0; i<eventsArray.length; i++)
+        {
+          String temp = eventsArray[i];
+          String[] tempArr = temp.split("-");
+          String date = tempArr[0];
+          String timeTemp = tempArr[1];
+          String location = tempArr[2];
+          String name = tempArr[3];
+          String guestsString = tempArr[4];
+          events.addEvent(new Event(stringToDate(date,timeTemp), location, name,tempArr[4]));
+        }
+      }    catch (FileNotFoundException e)
+      {
+        System.out.println("File was not found, or could not be opened");
+      }
     // reading the dummydata for members
 
     try
     {
       memberArray = MyFileHandler.readArrayFromTextFile("dummyDataMembers.txt");
-      eventsArray = MyFileHandler.readArrayFromTextFile("dummyDataEvents.txt");
-
-      String lsda = "";
 
       for(int i = 0; i<memberArray.length; i++)
       {
@@ -56,18 +73,6 @@ public class LoadInitialData
 
         members.addMember(new Member(firstName, lastName, phoneNumber, email));
       }
-      for(int i = 0; i<eventsArray.length; i++)
-      {
-        String temp = eventsArray[i];
-        String[] tempArr = temp.split("-");
-        String date = tempArr[0];
-        String timeTemp = tempArr[1];
-        String location = tempArr[2];
-        String name = tempArr[3];
-        String guestsString = tempArr[4];
-        events.addEvent(new Event(stringToDate(date,timeTemp), location, name,tempArr[4]));
-      }
-
     }
     catch (FileNotFoundException e)
     {
@@ -96,11 +101,24 @@ public class LoadInitialData
       System.out.println("File not found");
     }
 
+    //writing bin file for events
+    try {
+      MyFileHandler.writeToBinaryFile("events.bin", events);
+      System.out.println("Events done");
+    }
+    catch (FileNotFoundException e)
+    {
+      System.out.println("Error opening file ");
+    }
+    catch (IOException e)
+    {
+      System.out.println("IO Error writing to file ");
+    }
+
     //Writing the bin file for members
     try
     {
       MyFileHandler.writeToBinaryFile("members.bin", members);
-      MyFileHandler.writeToBinaryFile("events.bin", events);
     }
     catch (FileNotFoundException e)
     {
