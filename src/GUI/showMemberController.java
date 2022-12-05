@@ -122,9 +122,9 @@ public class showMemberController
       alert1.setTitle("Good job");
       alert1.setHeaderText(null);
       alert1.showAndWait();
+      boardGameManager.saveAllMembers(memberList);
       viewHandler.getManageMemberController().update();
       viewHandler.openView("manageMember");
-      boardGameManager.saveAllMembers(memberList);
       System.out.println("editing done");
 
     }
