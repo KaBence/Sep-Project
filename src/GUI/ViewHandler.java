@@ -163,7 +163,10 @@ public showMemberController getShowMemberController(){
     return menuController;
   }
 
-
+  public ManageMemberController getManageMemberController()
+  {
+    return manageMemberController;
+  }
 
   private void loadViewMenu() {
     try
