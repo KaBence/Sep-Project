@@ -93,6 +93,7 @@ public class ManageBoardGamesController
         viewHandler.openView("borrow");
       else if (viewHandler.getMenuController().getValue() == 3)
         viewHandler.openView("returnGame");
+      //.....................................
       else
         viewHandler.openView("showBoardGame");
     }
