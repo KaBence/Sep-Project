@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageEventsController">
    <children>
-      <Label layoutX="34.0" layoutY="38.0" text="Select a Board Game by:" />
+      <Label layoutX="34.0" layoutY="38.0" text="Select an Event by:" />
       <RadioButton fx:id="rName" layoutX="256.0" layoutY="29.0" mnemonicParsing="false" onAction="#actionHandler" text="Name">
          <toggleGroup>
             <ToggleGroup fx:id="toggle" />

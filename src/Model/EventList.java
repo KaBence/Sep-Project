@@ -7,17 +7,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 public class EventList implements Serializable
 {
-    private ArrayList<Event> list;
+    private ArrayList<Event> events;
     public EventList(){
-        list = new ArrayList<Event>();
+        events = new ArrayList<Event>();
     }
     public void addEvent(Event event){
-        list.add(event);
+        events.add(event);
     }
     public void removeEvent(Event event){
-        for (int i = 0; i<list.size();i++){
-            if (event.equals(list.get(i))) {
-                list.remove(i);
+        for (int i = 0; i< events.size(); i++){
+            if (event.equals(events.get(i))) {
+                events.remove(i);
                 break;
             }
 
@@ -25,9 +25,9 @@ public class EventList implements Serializable
     }
     public Event getEventByDate(MyDate date){
 
-        for (int i = 0; i<list.size(); i++){
-            if (list.get(i).getDate().equals(date)){
-                return list.get(i);
+        for (int i = 0; i< events.size(); i++){
+            if (events.get(i).getDate().equals(date)){
+                return events.get(i);
             }
         }
         return null;
@@ -36,11 +36,11 @@ public class EventList implements Serializable
     public EventList getEventsByLocation(String location){
         EventList list1 = new EventList();
         String[] tempName;
-        for (int i = 0; i<list.size(); i++){
-            tempName = list.get(i).getLocation().split(".");
+        for (int i = 0; i< events.size(); i++){
+            tempName = events.get(i).getLocation().split(".");
             for (String a : tempName)
                 if (a.toLowerCase().equals(location)){
-                    list1.addEvent(list.get(i));
+                    list1.addEvent(events.get(i));
                 }
         }
         return list1;
@@ -48,9 +48,9 @@ public class EventList implements Serializable
         public EventList getEventsByTime(MyDate date){
             EventList list1 = new EventList();
             MyDate tempDate;
-            for (int i = 0; i<list.size(); i++){
-                tempDate = list.get(i).getDate();
-                if (tempDate.equals(date)) list1.addEvent(list.get(i));
+            for (int i = 0; i< events.size(); i++){
+                tempDate = events.get(i).getDate();
+                if (tempDate.equals(date)) list1.addEvent(events.get(i));
             }
             return list1;
     }
@@ -58,31 +58,31 @@ public class EventList implements Serializable
     public EventList getEventsByName(String name){
         EventList list1 = new EventList();
         String[] tempName;
-        for (int i = 0; i<list.size(); i++){
-            tempName = list.get(i).getName().split(" ");
+        for (int i = 0; i< events.size(); i++){
+            tempName = events.get(i).getName().split(" ");
             for (String a : tempName)
             if (a.toLowerCase().equals(name)){
-                list1.addEvent(list.get(i));
+                list1.addEvent(events.get(i));
             }
         }
         return list1;
     }
-    private String filename;
-    public EventList(String filename){this.filename = filename;}
+
+
     public String toString(){
         String a = "";
-        for(int i = 0; i< list.size();i++){
-            a+= list.get(i) + "\n";
+        for(int i = 0; i< events.size(); i++){
+            a+= events.get(i) + "\n";
         }
         return a;
     }
     public Event get(int index){
-        return list.get(index);
+        return events.get(index);
     }
     public int getIndexOf(Event event){
         int index = 0;
-        for (int i = 0; i< list.size();i++){
-            if (list.get(i).equals(event)) {
+        for (int i = 0; i< events.size(); i++){
+            if (events.get(i).equals(event)) {
                 index = i;
                 break;
             }
@@ -91,32 +91,11 @@ public class EventList implements Serializable
     }
 
     public int size(){
-        return list.size();
+        return events.size();
     }
     public void setEvent(Event event, int index){
-        list.set(index,event);
+        events.set(index,event);
     }
-
-    public EventList getAllEvents(){
-        EventList list2 = new EventList();
-        try
-        {
-            list2 = (EventList)MyFileHandler.readFromBinaryFile(filename);
-        }
-        catch (FileNotFoundException e)
-        {
-            System.out.println("File not found");
-        }
-        catch (IOException e)
-        {
-            System.out.println("IO Error reading file");
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Class Not Found");
-        }
-        return list2;
-    }
-
 
 }
+

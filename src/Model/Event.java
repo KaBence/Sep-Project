@@ -27,12 +27,7 @@ public class Event implements Serializable
         this.guests = a;
     }
 
-    public int getMaxCapacity()
-    {
-        return maxCapacity;
-    }
-
-    public void setMaxCapacity(int maxCapacity)
+        public void setCapacity(int maxCapacity)
     {
         this.maxCapacity = maxCapacity;
     }
@@ -58,12 +53,6 @@ public class Event implements Serializable
         this.name = name;
     }
 
-    public void setGuests(String guests) {
-        String[] tempArr = guests.split(",");
-        for (int i = 0;i<tempArr.length;i++){
-            this.guests.add(tempArr[i]);
-        }
-    }
     public boolean equals(Object obj){
 
         if (obj == null || getClass() != obj.getClass())

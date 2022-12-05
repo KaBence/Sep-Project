@@ -88,8 +88,6 @@ public class Member implements Serializable {
     {
         return new Member(firstName,lastName, phoneNumber, email);
 
-        //Member copyMember = new Member(name, phoneNumber, email);
-        // return copyMember;
     }
 
 

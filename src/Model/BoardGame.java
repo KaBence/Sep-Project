@@ -80,6 +80,19 @@ public class BoardGame implements Serializable
   {
     return voteList;
   }
+  public ReservationList getReservationList(){
+    return reservationList;
+  }
+
+  public RankList getRankList()
+  {
+    return rankList;
+  }
+
+  public Borrow getBorrow()
+  {
+    return borrow;
+  }
 
   public boolean equals(Object obj){
     if (obj==null||getClass()!=obj.getClass()) return false;

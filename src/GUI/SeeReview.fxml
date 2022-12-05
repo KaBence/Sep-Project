@@ -10,12 +10,15 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SeeReviewController">
    <children>
       <Text layoutX="36.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reviews of the board game:" />
-      <TextField fx:id="nameOfBoardGame" layoutX="215.0" layoutY="42.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="343.0" />
+      <TextField fx:id="nameOfBoardGame" layoutX="198.0" layoutY="41.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="183.0" />
       <TableView fx:id="reviews" layoutX="39.0" layoutY="101.0" onSort="#actionHandler" prefHeight="251.0" prefWidth="522.0">
         <columns>
           <TableColumn prefWidth="521.6000122070312" text="HERE IS WHAT PEOPLE THINK" />
         </columns>
       </TableView>
       <Button fx:id="back" layoutX="39.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="back" />
+      <Text layoutX="416.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rank" />
+      <TextField fx:id="rank" layoutX="459.0" layoutY="42.0" prefHeight="6.0" prefWidth="20.0" />
+      <Text layoutX="479.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/5" />
    </children>
 </AnchorPane>

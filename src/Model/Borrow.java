@@ -6,17 +6,20 @@ public class Borrow implements Serializable
 {
   private Member borrower;
   private MyDate returnDate;
+  private MyDate pickUpDate;
 
-  public Borrow(Member borrower, MyDate returnDate)
+  public Borrow(Member borrower, MyDate returnDate, MyDate pickUpDate)
   {
     this.borrower = borrower;
     this.returnDate = returnDate;
+    this.pickUpDate=pickUpDate;
 
   }
 
   public Borrow(){
     borrower=null;
     returnDate=null;
+    pickUpDate=null;
   }
 
   public void setReturnDate(MyDate returnDate)
@@ -37,6 +40,16 @@ public class Borrow implements Serializable
   public Member getBorrower()
   {
     return borrower;
+  }
+
+  public MyDate getPickUpDate()
+  {
+    return pickUpDate;
+  }
+
+  public void setPickUpDate(MyDate pickUpDate)
+  {
+    this.pickUpDate = pickUpDate;
   }
 
   public boolean equals(Object obj)

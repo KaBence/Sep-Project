@@ -108,8 +108,4 @@ public class MyDate implements Serializable
     return new MyDate(currentDate.getDayOfMonth(),currentDate.getMonthValue(),currentDate.getYear());
 
   }
-  //for setting the events (time)
-public MyDate newDate(){
-    return  new MyDate(day,month,year,min,hour);
-}
 }

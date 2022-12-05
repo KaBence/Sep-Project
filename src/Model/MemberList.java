@@ -4,37 +4,37 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MemberList implements Serializable {
-    private ArrayList<Member> list;
+    private ArrayList<Member> members;
 
     //Creating default Constructor
     public MemberList()
     {
-        list = new ArrayList<>();
+        members = new ArrayList<>();
     }
 
     public void addMember(Member member)
     {
-        list.add(member);
+        members.add(member);
     }
 
 
     public Member getMemberByEmail(String email)
     {
-        for(int i=0; i<list.size(); i++)
+        for(int i = 0; i< members.size(); i++)
         {
-            if(list.get(i).getEmail().equals(email))
-                return list.get(i);
+            if(members.get(i).getEmail().equals(email))
+                return members.get(i);
         }
         return null;
     }
 
     public Member getMemberByName(String firstName)
     {
-        for(int i=0; i<list.size(); i++)
+        for(int i = 0; i< members.size(); i++)
         {
-            if(list.get(i).getFirstName().equals(firstName))
+            if(members.get(i).getFirstName().equals(firstName))
             {
-                return list.get(i);
+                return members.get(i);
             }
         }
         return null;
@@ -42,16 +42,16 @@ public class MemberList implements Serializable {
 
     public void removeMember(Member member)
     {
-        list.remove(member);
+        members.remove(member);
     }
 
     public Member getMemberByPhoneNumber(String phoneNumber)
     {
 
-        for(int i=0; i<list.size(); i++)
+        for(int i = 0; i< members.size(); i++)
         {
-            if(list.get(i).getPhoneNumber().equals(phoneNumber))
-                return list.get(i);
+            if(members.get(i).getPhoneNumber().equals(phoneNumber))
+                return members.get(i);
         }
         return null;
     }
@@ -59,24 +59,23 @@ public class MemberList implements Serializable {
 
     public ArrayList<Member> getAllMembers()
     {
-        return list;
+        return members;
     }
 
 
-    @Override
     public String toString() {
 
         String temp ="";
-        for (int i = 0; i < list.size(); i++) {
-            Member member = list.get(i);
+        for (int i = 0; i < members.size(); i++) {
+            Member member = members.get(i);
             temp += member.getFirstName() +"\n";
         }
         return temp;
     }
     public int size(){
-        return list.size();
+        return members.size();
     }
     public Member get(int index){
-        return list.get(index);
+        return members.get(index);
     }
 }
