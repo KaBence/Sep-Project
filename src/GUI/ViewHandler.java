@@ -78,7 +78,9 @@ public class ViewHandler
       case "addMember":
         stage.setScene(addMemberController.getScene());
         stage.setTitle("Add member");
-        addMemberController.update();
+        if (addMemberController.isCheck()){
+          addMemberController.update();
+        }
         break;
       case "manageMember":
         stage.setScene(manageMemberController.getScene());

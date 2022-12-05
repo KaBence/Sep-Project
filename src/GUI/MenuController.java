@@ -51,7 +51,11 @@ public class MenuController
     }
     if (e.getSource()==addEvent) viewHandler.openView("addEvent");
     if (e.getSource()==manageEvent) viewHandler.openView("manageEvent");
-    if (e.getSource()==addMember) viewHandler.openView("addMember");
+    if (e.getSource()==addMember){
+      viewHandler.getAddMemberController().setCheck(false);
+      viewHandler.getAddMemberController().clear();
+      viewHandler.openView("addMember");
+    }
     if (e.getSource()==manageMember) viewHandler.openView("manageMember");
     if (e.getSource()==vote) viewHandler.openView("vote");
     if (e.getSource()==reservation) {

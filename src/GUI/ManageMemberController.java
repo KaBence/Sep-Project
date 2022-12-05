@@ -30,6 +30,7 @@ public class ManageMemberController
   @FXML TableColumn<Member, String> TableColMemberEmail;
   @FXML TableColumn<Member, String> TableColMemberPhone;
 
+
   private ViewHandler viewHandler;
   private BoardGameManager boardGameManager;
   private Scene scene;
@@ -70,6 +71,8 @@ public class ManageMemberController
     return scene;
   }
 
+
+
   public void actionHandler(ActionEvent event)
   {
 
@@ -83,6 +86,7 @@ public class ManageMemberController
   public void tableAction(MouseEvent e){
     Member row= tableView.getSelectionModel().getSelectedItem();
     if(e.getClickCount()==2 && !(row==null)){
+      viewHandler.getAddMemberController().setCheck(true);
       viewHandler.getAddMemberController().setMember(row);
       viewHandler.openView("addMember");
     }

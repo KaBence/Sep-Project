@@ -16,6 +16,7 @@ public class AddMemberController
   private BoardGameManager clubmanager;
   private Scene scene;
   private Member member;
+  private boolean check=false;
 
   @FXML TextField txtFirstName;
 
@@ -55,6 +56,22 @@ public class AddMemberController
     txtFirstName.setText(member.getFirstName());
     phone.setText(member.getPhoneNumber());
     email.setText(member.getEmail());
+  }
+  public boolean isCheck()
+  {
+    return check;
+  }
+
+  public void setCheck(boolean check)
+  {
+    this.check = check;
+  }
+
+  public void clear(){
+    txtFirstName.clear();
+    lastName.clear();
+    phone.clear();
+    email.clear();
   }
 
   public void actionHandler(ActionEvent e)

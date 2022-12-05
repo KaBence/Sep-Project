@@ -62,6 +62,6 @@ public class AddEventController
         System.out.println("IO Error writing to file ");
       }
     }
-  };
+  }
 }
 
