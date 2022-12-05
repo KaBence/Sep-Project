@@ -23,6 +23,7 @@ public class BoardGame implements Serializable
     reservationList=null;
     borrow=null;
     rankList=null;
+    voteList=new Voting();
   }
 
   public Member getOwner(){
@@ -77,6 +78,9 @@ public class BoardGame implements Serializable
   public Voting getVoteList()
   {
     return voteList;
+  }
+  public int getVote(){
+    return voteList.getVote();
   }
   public ReservationList getReservationList(){
     return reservationList;

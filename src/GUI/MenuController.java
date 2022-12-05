@@ -60,7 +60,10 @@ public class MenuController
       viewHandler.openView("addMember");
     }
     if (e.getSource()==manageMember) viewHandler.openView("manageMember");
-    if (e.getSource()==vote) viewHandler.openView("vote");
+    if (e.getSource()==vote) {
+      viewHandler.openView("vote");
+      viewHandler.getVoteController().update();
+    }
     if (e.getSource()==reservation) {
       viewHandler.openView("manageBoardGame");
       value=1;
