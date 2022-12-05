@@ -17,16 +17,7 @@ import java.io.IOException;
 
 public class LoadInitialData
 {
-  public static MyDate stringToDate(String date, String time){
-    String[] temp = date.split("/");
-    int tempDate = Integer.valueOf(temp[0]);
-    int tempMonth = Integer.valueOf(temp[1]);
-    int tempyear = Integer.valueOf(temp[2]);
-    String[] timetemp = time.split(":");
-    int tempHour = Integer.valueOf(timetemp[0]);
-    int tempMin = Integer.valueOf(timetemp[1]);
-    return new MyDate(tempDate,tempMonth,tempyear,tempHour,tempMin);
-  }
+
   public static void main(String[] args)
   {
     BoardGameList boardgames=new BoardGameList();
@@ -76,7 +67,7 @@ public class LoadInitialData
         int capacity = Integer.parseInt(tempArr[3]);
         String name = tempArr[4];
         String guestsString = tempArr[5];
-        events.addEvent(new Event(stringToDate(date,timeTemp), location,capacity, name,tempArr[5]));
+        events.addEvent(new Event(MyDate.stringToDate(date,timeTemp), location, name,tempArr[5],capacity));
       }
     }
     catch (FileNotFoundException e)
@@ -121,10 +112,11 @@ public class LoadInitialData
     }
 
     System.out.println("Members Done");
-
+//    writing bin file for events
     try
     {
       MyFileHandler.writeToBinaryFile("events.bin", events);
+      System.out.println("Events Done");
     }
     catch (FileNotFoundException e)
     {
@@ -135,7 +127,7 @@ public class LoadInitialData
       System.out.println("IO Error writing to file ");
     }
 
-    System.out.println("Events Done");
+
 
     //Writing the bin file for boardgames
     try

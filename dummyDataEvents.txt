@@ -1,10 +1,10 @@
-02/12/2022-18:00-C1.12-40-Helloween boardgame night-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
-21/12/2022-15:00-C2.13-35-Christmas boardgames event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
-14/02/2023-16:00-C3.14-45-Valentines day boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
-29/12/2022-18:00-C4.15-50-New year boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
-10/04/2023-16:00-C5.16-48-Easter boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
-29/05/2023-14:00-C6.17-42-End of school boardgame event -Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
-01/06/2023-17:00-C7.18-52-Summer start boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
-05/06/2023-12:00-C8.19-54-Kids day boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
-15/07/2023-16:00-C9.10-32-Family boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
-03/09/2023-15:00-C10.11-37-School start boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+02/12/2022-18:30-C1.12-40-Helloween boardgame night-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+21/12/2022-15:10-C2.13-35-Christmas boardgames event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+14/02/2023-16:50-C3.14-45-Valentines day boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+29/12/2022-18:40-C4.15-50-New year boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+10/04/2023-16:30-C5.16-48-Easter boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+29/05/2023-14:10-C6.17-42-End of school boardgame event -Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+01/06/2023-17:20-C7.18-52-Summer start boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+05/06/2023-12:50-C8.19-54-Kids day boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+15/07/2023-16:10-C9.10-32-Family boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska
+03/09/2023-15:30-C10.11-37-School start boardgame event-Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska

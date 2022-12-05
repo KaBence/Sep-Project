@@ -25,6 +25,7 @@ public class ViewHandler
   private ShowBoardGameController showBoardGameController;
   private LeaveReviewController leaveReviewController;
   private SeeReviewController seeReviewController;
+  private EditEventController editEventController;
 
   private Stage stage;
   public ViewHandler(Stage stage, BoardGameManager ClubManager)
@@ -45,6 +46,7 @@ public class ViewHandler
     loadViewMakeReservation();
     loadViewReturnGame();
     loadViewBorrowGame();
+    loadEditEvent();
     loadViewLeaveReview();
     loadViewSeeReview();
     loadViewShowBoardGame();
@@ -110,6 +112,9 @@ public class ViewHandler
         stage.setScene(seeReviewController.getScene());
         stage.setTitle("Reviews");
         break;
+      case "EditEvent":
+        stage.setScene(editEventController.getScene());
+        stage.setTitle("Edit event");
     }
 
     stage.setResizable(false);
@@ -118,6 +123,9 @@ public class ViewHandler
 
   public ShowBoardGameController getShowBoardGameController(){
     return showBoardGameController;
+  }
+  public EditEventController getEditEventController(){
+    return editEventController;
   }
   public AddMemberController getAddMemberController(){
     return addMemberController;
@@ -329,5 +337,18 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
-
+  private void loadEditEvent(){
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass().getResource("EditEvent.fxml"));
+    Region root = loader.load();
+    editEventController = loader.getController();
+    editEventController.init(this, new Scene(root), ClubManager);
+  }
+    catch (IOException e)
+  {
+    e.printStackTrace();
+  }
+  }
 }

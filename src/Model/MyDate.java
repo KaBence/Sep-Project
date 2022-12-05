@@ -29,7 +29,16 @@ public class MyDate implements Serializable
   {
     return day;
   }
-
+    public static MyDate stringToDate(String date, String time){
+        String[] temp = date.split("/");
+        int tempDate = Integer.valueOf(temp[0]);
+        int tempMonth = Integer.valueOf(temp[1]);
+        int tempyear = Integer.valueOf(temp[2]);
+        String[] timetemp = time.split(":");
+        int tempHour = Integer.valueOf(timetemp[0]);
+        int tempMin = Integer.valueOf(timetemp[1]);
+        return new MyDate(tempDate,tempMonth,tempyear,tempHour,tempMin);
+    }
   public void setDay(int day)
   {
     this.day = day;

@@ -6,16 +6,18 @@ public class Event implements Serializable
     private String location;
     private String name;
     private ArrayList<String> guests;
+    private String guestsString;
     private MyDate date;
     private BoardGameList games;
     private int capacity;
 
-    public Event(MyDate date, String location,int capacity, String name, String guests){
+    public Event(MyDate date, String location, String name, String guests, int capacity){
 
         this.location = location;
-        this.capacity=capacity;
         this.name = name;
+        this.capacity = capacity;
         this.date = date;
+        guestsString = guests;
         ArrayList<String> a = new ArrayList<String>();
         String[] tempArr = guests.split(",");
         for (int i = 0; i<tempArr.length; i++){
@@ -27,20 +29,15 @@ public class Event implements Serializable
     public String getName(){
         return name;
     }
-
     public int getCapacity(){
         return capacity;
-    }
-
-    public void setCapacity(int capacity){
-        this.capacity=capacity;
     }
     public void setDate(MyDate date){
         this.date = date;
     }
 
     public String toString(){
-        return name + " on " +date+ " at " + location +" and having these guests: \n" + guests;
+        return name + " on " +date+ " at " + location +" with a max capcity of "+capacity +" players and having these guests: \n" + guests;
     }
     public void setLocation(String location){
         this.location = location;
@@ -65,7 +62,8 @@ public class Event implements Serializable
         Event other = (Event)obj;
         return
                 location.equals(other.location) &&
-                name.equals(other.name);
+                        name.equals(other.name) && guests.equals(other.guests)
+                && date.equals(other.date) && capacity == other.capacity;
     }
 
     public MyDate getDate() {
@@ -76,7 +74,7 @@ public class Event implements Serializable
         for (int i = 0; i< guests.size();i++){
             a+= guests.get(i);
         }
-        return new Event(date,location,capacity,name, a);
+        return new Event(date,location,name, a,capacity);
     }
 
     public BoardGameList getGames() {
@@ -89,7 +87,9 @@ public class Event implements Serializable
     public String getLocation(){
         return location;
     }
-
+    public String getGuests(){
+        return guestsString;
+    }
     public void addGuest(String guest) {
         guests.add(guest);
     }
