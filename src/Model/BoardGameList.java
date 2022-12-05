@@ -10,6 +10,14 @@ public class BoardGameList implements Serializable
      boardGames=new ArrayList<>();
    }
 
+   public int size(){
+     return boardGames.size();
+   }
+
+   public BoardGame get(int index){
+     return boardGames.get(index);
+   }
+
    public void addBoardGame(BoardGame boardGame){
      boardGames.add(boardGame);
    }

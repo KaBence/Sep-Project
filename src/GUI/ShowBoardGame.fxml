@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ManageBoardGamesController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowBoardGameController">
    <children>
       <Text layoutX="47.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
          <font>
@@ -92,5 +92,10 @@
             <ToggleGroup fx:id="group1" />
          </toggleGroup>
       </RadioButton>
+      <Button fx:id="back" layoutX="25.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionHandler" text="Back">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -73,4 +73,10 @@ public class MemberList implements Serializable {
         }
         return temp;
     }
+    public int size(){
+        return list.size();
+    }
+    public Member get(int index){
+        return list.get(index);
+    }
 }

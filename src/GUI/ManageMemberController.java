@@ -1,7 +1,6 @@
 package GUI;
 
-import Model.BoardGameManager;
-import Model.Member;
+import Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,118 +8,83 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 
-public class ManageMemberController {
+public class ManageMemberController
+{
 
-    private ViewHandler viewHandler;
-    private BoardGameManager clubManager;
-    private Scene scene;
+  @FXML RadioButton name;
+  @FXML RadioButton phone;
 
-    @FXML
-     RadioButton name;
-    @FXML
-    RadioButton phone;
+  @FXML RadioButton email;
 
-    @FXML
-    TableColumn<Member, String> memberName;
+  @FXML TextField search;
+  @FXML Button searchButton;
+  @FXML TableView<Member> tableView;
+  @FXML Button back;
 
-    @FXML
-    TableColumn<Member, String> memberEmail;
-    @FXML
-    TableColumn<Member, String> memberPhone;
+  @FXML TableColumn<Member, String> TableColMemberFirstName;
+  @FXML TableColumn<Member,String> TableColMemberLastName;
+  @FXML TableColumn<Member, String> TableColMemberEmail;
+  @FXML TableColumn<Member, String> TableColMemberPhone;
 
+  private ViewHandler viewHandler;
+  private BoardGameManager boardGameManager;
+  private Scene scene;
 
-    @FXML
-    RadioButton email;
-    @FXML
-    TextField search;
-    @FXML
-    Button searchButton;
-    @FXML
-    TableView<Member> tableView;
-    @FXML
-    Button back;
+  public void initialize()
+  {
+    TableColMemberFirstName.setCellValueFactory(
+        new PropertyValueFactory<Member, String>("firstName"));
+    TableColMemberLastName.setCellValueFactory(
+        new PropertyValueFactory<Member, String>("lastName"));
+    TableColMemberPhone.setCellValueFactory(
+        new PropertyValueFactory<Member, String>("phoneNumber"));
+    TableColMemberEmail.setCellValueFactory(
+        new PropertyValueFactory<Member, String>("email"));
 
+  }
 
-    ObservableList<Member> searchedMember;
+  public void init(ViewHandler viewHandler, Scene scene,
+      BoardGameManager boardGameManager)
+  {
+    this.viewHandler = viewHandler;
+    this.scene = scene;
+    this.boardGameManager = boardGameManager;
 
-    public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager) {
-        this.viewHandler = viewHandler;
-        this.scene = scene;
-        this.clubManager = clubManager;
+  }
 
-        // making groups of radio buttons
-        initRadioGrp();
+  public void update()
+  {
+    MemberList members = boardGameManager.getAllMembers();
+    for (int i = 0; i < members.size(); i++)
+    {
+      tableView.getItems().add(members.get(i));
+    }
+  }
 
-        // intializing table
-        initializeTable();
+  public Scene getScene()
+  {
+    return scene;
+  }
+
+  public void actionHandler(ActionEvent event)
+  {
+
+    if (event.getSource() == back)
+    {
+      viewHandler.openView("Menu");
     }
 
-    /**
-     * > The function initializes the radio buttons by setting the toggle group and selecting the first radio button
-     */
-    private void initRadioGrp() {
-        ToggleGroup group = new ToggleGroup();
-        name.setToggleGroup(group);
-        name.setSelected(true);
-        phone.setToggleGroup(group);
-        email.setToggleGroup(group);
+  }
+
+  public void tableAction(MouseEvent e){
+    Member row= tableView.getSelectionModel().getSelectedItem();
+    if(e.getClickCount()==2 && !(row==null)){
+      viewHandler.getAddMemberController().setMember(row);
+      viewHandler.openView("addMember");
     }
-
-    public Scene getScene() {
-        return scene;
-    }
-
-    private void initializeTable() {
-        // Creating an observable list of members (this list is needed when we want to show list to gui)
-        searchedMember = FXCollections.observableArrayList();
-
-
-        // Setting the value of the table columns to the values of the member object.
-        memberName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
-        memberEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        memberPhone.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-        tableView.setItems(searchedMember);
-    }
-
-
-    public void actionHandler(ActionEvent event){
-
-        if (event.getSource() == search){
-            searchMember();
-        }
-        else if (event.getSource() ==back){
-            viewHandler.openView("Menu");
-        }
-
-    }
-
-//    @FXML
-//    private void searchClicked(){
-//        searchMember();
-//    }
-//
-//    @FXML
-//    private void backClicked()
-//    {
-//        viewHandler.openView("Menu");
-//    }
-
-
-    private void searchMember() {
-        ArrayList<Member> searchedMemberFromDb = new ArrayList<>();
-        if (name.isSelected()) {
-            searchedMemberFromDb = clubManager.searchByName(search.getText().trim());
-        } else if (phone.isSelected()) {
-            searchedMemberFromDb = clubManager.searchByPhone(search.getText().trim());
-
-        } else if (email.isSelected()) {
-            searchedMemberFromDb = clubManager.searchByEmail(search.getText().trim());
-
-        }
-
-        searchedMember.setAll(searchedMemberFromDb);
-    }
+  }
 }

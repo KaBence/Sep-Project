@@ -13,12 +13,6 @@ public class BorrowGameController
 @FXML TextField searchField;
 @FXML Button searchButton;
 @FXML TableView games;
-@FXML Button save;
-@FXML ComboBox borrower;
-@FXML DatePicker pickUpDate;
-@FXML DatePicker returnDate;
-@FXML TableView reservations;
-@FXML Button home;
 
 @FXML Button back;
 

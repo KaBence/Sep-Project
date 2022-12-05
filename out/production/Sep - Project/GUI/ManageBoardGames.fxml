@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
@@ -13,22 +14,30 @@
    <children>
       <Separator layoutX="8.0" layoutY="79.0" prefHeight="134.0" prefWidth="573.0" />
       <Button fx:id="search" layoutX="529.0" layoutY="97.0" mnemonicParsing="false" onAction="#actionHandler" text="Search" />
-      <Button fx:id="back" layoutX="34.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
-      <TableView fx:id="games" layoutX="32.0" layoutY="158.0" onSort="#actionHandler" prefHeight="203.0" prefWidth="534.0">
+      <Button fx:id="back" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
+      <Text layoutX="46.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a game by:" wrappingWidth="127.0543212890625" />
+      <RadioButton fx:id="reserved" layoutX="173.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="Reserved">
+         <toggleGroup>
+            <ToggleGroup fx:id="SecondRow" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="borrowed" layoutX="308.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="Borowed" toggleGroup="$SecondRow" />
+      <RadioButton fx:id="name" layoutX="173.0" layoutY="33.0" mnemonicParsing="false" onAction="#actionHandler" selected="true" text="Name">
+         <toggleGroup>
+            <ToggleGroup fx:id="FirstRow" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="numOfPlayers" layoutX="428.0" layoutY="33.0" mnemonicParsing="false" onAction="#actionHandler" text="Number of players" toggleGroup="$FirstRow" />
+      <RadioButton fx:id="type" layoutX="309.0" layoutY="33.0" mnemonicParsing="false" onAction="#actionHandler" text="Type" toggleGroup="$FirstRow" />
+      <RadioButton fx:id="allGames" layoutX="428.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" selected="true" text="All games" toggleGroup="$SecondRow" />
+      <RadioButton fx:id="available" layoutX="46.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="Available" toggleGroup="$SecondRow" />
+      <TextField fx:id="searchField" layoutX="34.0" layoutY="96.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="482.0" />
+      <TableView fx:id="games" layoutX="-2.0" layoutY="146.0" onMouseClicked="#tableAction" onSort="#actionHandler" prefHeight="216.0" prefWidth="594.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="tableColName" prefWidth="194.0" text="Name" />
+            <TableColumn fx:id="tableColType" prefWidth="111.0" text="Type" />
+            <TableColumn fx:id="tableColMinNoP" prefWidth="72.0" text="Min" />
+            <TableColumn fx:id="tableColMaxNoP" prefWidth="58.0" text="Max" />
+            <TableColumn fx:id="tableColOwner" prefWidth="138.0" text="Owner" />
          </columns>
       </TableView>
-      <Text layoutX="46.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a game by:" wrappingWidth="127.0543212890625" />
-      <RadioButton fx:id="reserved" layoutX="173.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="Reserved" />
-      <RadioButton fx:id="borrowed" layoutX="308.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="Borowed" />
-      <RadioButton fx:id="name" layoutX="173.0" layoutY="33.0" mnemonicParsing="false" onAction="#actionHandler" text="Name" />
-      <RadioButton fx:id="numOfPlayers" layoutX="428.0" layoutY="33.0" mnemonicParsing="false" onAction="#actionHandler" text="Number of players" />
-      <RadioButton fx:id="type" layoutX="309.0" layoutY="33.0" mnemonicParsing="false" onAction="#actionHandler" text="Type" />
-      <RadioButton fx:id="allGames" layoutX="428.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="All games" />
-      <RadioButton fx:id="available" layoutX="46.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="Available" />
-      <TextField fx:id="searchField" layoutX="34.0" layoutY="96.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="482.0" />
-      <Button fx:id="temporary" layoutX="258.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="Temporary" />
    </children>
 </AnchorPane>

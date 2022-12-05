@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 import java.io.IOException;
 
@@ -22,6 +23,10 @@ public class ViewHandler
   private VoteController voteController;
   private BorrowGameController borrowGameController;
   private ReturnGameController returnGameController;
+  private ShowBoardGameController showBoardGameController;
+  private LeaveReviewController leaveReviewController;
+  private SeeReviewController seeReviewController;
+  private EditEventController editEventController;
 
   private Stage stage;
   public ViewHandler(Stage stage, BoardGameManager ClubManager)
@@ -42,49 +47,101 @@ public class ViewHandler
     loadViewMakeReservation();
     loadViewReturnGame();
     loadViewBorrowGame();
-    loadViewBorrowGame2();
+    loadEditEvent();
+    loadViewLeaveReview();
+    loadViewSeeReview();
+    loadViewShowBoardGame();
     openView("Menu");
   }
 
   public void openView(String id){
+    stage.getIcons().add(new Image("logo3.png"));
     switch (id){
       case "Menu":
         stage.setScene(menuController.getScene());
+        stage.setTitle("Menu");
         break;
       case "addBoardGame":
         stage.setScene(addBoardGameController.getScene());
+        stage.setTitle("Add a board game");
         break;
       case "manageBoardGame":
         stage.setScene(manageBoardGamesController.getScene());
+        stage.setTitle("Manage board games");
+        manageBoardGamesController.update();
+        break;
+      case "showBoardGame":
+        stage.setScene(showBoardGameController.getScene());
+        stage.setTitle(showBoardGameController.getShowBoardGame().getName());
+        showBoardGameController.update();
         break;
       case "addMember":
         stage.setScene(addMemberController.getScene());
+        stage.setTitle("Add member");
+        addMemberController.update();
         break;
       case "manageMember":
         stage.setScene(manageMemberController.getScene());
+        stage.setTitle("Manage members");
+        manageMemberController.update();
         break;
       case "addEvent":
         stage.setScene(addEventController.getScene());
+        stage.setTitle("Add events");
+        //addEventController.update();
         break;
       case "manageEvent":
         stage.setScene(manageEventsController.getScene());
+        stage.setTitle("Manage events");
+        manageEventsController.update();
         break;
       case "borrow":
         stage.setScene(borrowGameController.getScene());
+        stage.setTitle("Borrow a game");
         break;
       case "returnGame":
         stage.setScene(returnGameController.getScene());
+        stage.setTitle("Return a game");
         break;
       case "reservation":
         stage.setScene(makeReservationController.getScene());
+        stage.setTitle("Make a reservation");
         break;
       case "vote":
         stage.setScene(voteController.getScene());
+        stage.setTitle("Vote for the next game");
         break;
+      case "seeReviews":
+        stage.setScene(seeReviewController.getScene());
+        stage.setTitle("Reviews");
+        break;
+      case "EditEvent":
+        stage.setScene(editEventController.getScene());
+        stage.setTitle("Edit event");
     }
+
     stage.setResizable(false);
-    stage.setTitle("Test");
     stage.show();
+  }
+
+  public ShowBoardGameController getShowBoardGameController(){
+    return showBoardGameController;
+  }
+  public EditEventController getEditEventController(){
+    return editEventController;
+  }
+  public AddMemberController getAddMemberController(){
+    return addMemberController;
+
+  }
+
+  public AddEventController getAddEventController()
+  {
+    return addEventController;
+  }
+
+  public MenuController getMenuController(){
+    return menuController;
   }
 
 
@@ -201,21 +258,6 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
-  private void loadViewBorrowGame2() {
-    try
-    {
-      FXMLLoader loader = new FXMLLoader();
-      loader.setLocation(getClass().getResource("BorrowGame2.fxml"));
-      Region root = loader.load();
-      borrowGameController = loader.getController();
-      borrowGameController.init(this, new Scene(root), ClubManager);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-  }
-
   private void loadViewReturnGame() {
     try
     {
@@ -259,4 +301,62 @@ public class ViewHandler
     }
   }
 
+  private void loadViewShowBoardGame() {
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource("ShowBoardGame.fxml"));
+      Region root = loader.load();
+      showBoardGameController= loader.getController();
+      showBoardGameController.init(this, new Scene(root), ClubManager);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  private void loadViewLeaveReview() {
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource("LeaveReview.fxml"));
+      Region root = loader.load();
+      leaveReviewController = loader.getController();
+      leaveReviewController.init(this, new Scene(root), ClubManager);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  private void loadViewSeeReview(){
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource("SeeReview.fxml"));
+      Region root = loader.load();
+      seeReviewController = loader.getController();
+      seeReviewController.init(this, new Scene(root), ClubManager);
+    }
+    catch (IOException e)
+    {
+      e.printStackTrace();
+    }
+  }
+  private void loadEditEvent(){
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass().getResource("EditEvent.fxml"));
+    Region root = loader.load();
+    editEventController = loader.getController();
+    editEventController.init(this, new Scene(root), ClubManager);
+  }
+    catch (IOException e)
+  {
+    e.printStackTrace();
+  }
+  }
 }

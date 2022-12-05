@@ -46,7 +46,7 @@ public class Borrow implements Serializable
       return false;
     }
     Borrow other = (Borrow) obj;
-    return borrower.equals(borrower) && returnDate.equals(other.returnDate);
+    return borrower.equals(other.borrower) && returnDate.equals(other.returnDate);
   }
 
   public String toString()
