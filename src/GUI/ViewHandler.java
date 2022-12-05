@@ -136,6 +136,9 @@ public class ViewHandler
     return addMemberController;
 
   }
+  public AddBoardGameController getAddBoardGameController() {
+    return addBoardGameController;
+  }
 
   public AddEventController getAddEventController()
   {

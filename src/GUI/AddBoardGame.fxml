@@ -15,7 +15,7 @@
       <Text layoutX="47.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
       <Text layoutX="44.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of players" />
       <Button fx:id="addForVoting" layoutX="307.0" layoutY="326.0" mnemonicParsing="false" onAction="#actionHandler" text="Add for voting" />
-      <Button fx:id="AddToTheRegistry" layoutX="440.0" layoutY="326.0" mnemonicParsing="false" onAction="#actionHandler" text="Add to the registry" />
+      <Button fx:id="addToSystem" layoutX="440.0" layoutY="326.0" mnemonicParsing="false" onAction="#actionHandler" text="Add to the System" />
       <Button fx:id="back" layoutX="44.0" layoutY="326.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
       <TextField fx:id="name" layoutX="150.0" layoutY="65.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
       <TextField fx:id="max" layoutX="440.0" layoutY="108.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="105.0" />

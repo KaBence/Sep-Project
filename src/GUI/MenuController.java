@@ -44,7 +44,10 @@ public class MenuController
   }
 
   public void actionHandler(ActionEvent e){
-    if (e.getSource()==addBoardGame) viewHandler.openView("addBoardGame");
+    if (e.getSource()==addBoardGame) {
+      viewHandler.openView("addBoardGame");
+      viewHandler.getAddBoardGameController().updateComboBox();
+    }
     if (e.getSource()==manageBoardGame){
       viewHandler.openView("manageBoardGame");
       value=0;
