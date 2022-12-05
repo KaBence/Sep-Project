@@ -1,14 +1,12 @@
 package GUI;
 
 import Model.BoardGame;
+import Model.BoardGameList;
 import Model.BoardGameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class ShowBoardGameController
 {
@@ -68,5 +66,20 @@ public class ShowBoardGameController
     }
     if (e.getSource()==reserve) viewHandler.openView("reservation");
     if (e.getSource()==borrow) viewHandler.openView("borrow");
+    if (e.getSource()==remove){
+      Alert alert = new Alert(Alert.AlertType.WARNING,
+          "Do you really want to remove this game from the system?",
+          ButtonType.YES,ButtonType.NO);
+      alert.setTitle("Warning");
+      alert.setHeaderText(null);
+
+      alert.showAndWait();
+      if (alert.getResult()==ButtonType.YES){
+        BoardGameList temp=boardGameManager.getAllBoardGames();
+        temp.removeBoardGame(showBoardGame);
+        boardGameManager.saveAllBoardGames(temp);
+        viewHandler.openView("manageBoardGame");
+      }
+    }
   }
 }

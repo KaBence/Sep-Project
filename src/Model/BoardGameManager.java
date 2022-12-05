@@ -73,6 +73,9 @@ public class BoardGameManager implements Serializable
     }
     return boardGameList;
   }
+
+
+
   public EventList getAllEvents(){
     eventList=new EventList();
     try

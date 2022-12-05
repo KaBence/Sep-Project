@@ -20,9 +20,9 @@ public class BoardGame implements Serializable
     this.maxNoP=maxNoP;
     this.minNoP=minNoP;
     this.owner=owner;
-    reservationList=new ReservationList();
-    borrow=new Borrow();
-    rankList=new RankList();
+    reservationList=null;
+    borrow=null;
+    rankList=null;
   }
 
   public Member getOwner(){
@@ -72,9 +72,7 @@ public class BoardGame implements Serializable
   public boolean isBorrowed(){
     return borrow!=null;
   }
-  public boolean isReserved(){
-    return reservationList!=null;
-  }
+  public boolean isReserved(){return reservationList!=null;}
 
   public Voting getVoteList()
   {
@@ -103,8 +101,6 @@ public class BoardGame implements Serializable
     }
     else{
       return type.equals(temp.type)&&name.equals(temp.name)&&availability==temp.availability&&minNoP==temp.minNoP&&maxNoP==temp.maxNoP&&temp.owner==null;
-
-
     }
   }
 //toString is not done because we don't know if we need it

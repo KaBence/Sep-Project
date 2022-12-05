@@ -20,10 +20,6 @@ public class ManageBoardGamesController
   @FXML Button search;
   @FXML TableView<BoardGame> games;
   @FXML Button back;
-
-  @FXML Button reserve;
-  @FXML Button borrow;
-
   @FXML TableColumn<BoardGame, String> tableColName;
   @FXML TableColumn<BoardGame, String> tableColType;
   @FXML TableColumn<BoardGame, Integer> tableColMinNoP;
@@ -56,10 +52,9 @@ public class ManageBoardGamesController
     this.boardGameManager = boardGameManager;
   }
 
-  public void update()
+  public void update(BoardGameList boardGameList)
   {
-
-    BoardGameList boardGameList = boardGameManager.getAllBoardGames();
+    games.getItems().clear();
     for (int i = 0; i < boardGameList.size(); i++)
     {
       games.getItems().add(boardGameList.get(i));
@@ -73,12 +68,41 @@ public class ManageBoardGamesController
 
   public void actionHandler(ActionEvent e)
   {
-    if (e.getSource() == back)
-      viewHandler.start();
-    if (e.getSource() == reserve)
-    {
-
+    BoardGameList boardGameList=boardGameManager.getAllBoardGames();
+    BoardGameList tempBoardGameList=new BoardGameList();
+    BoardGameList finalBoardGameList=new BoardGameList();
+    if (e.getSource() == back) viewHandler.start();
+    if (e.getSource()==search&&name.isSelected()){
+      tempBoardGameList=boardGameList.getBoardGamesByName(searchField.getText());
     }
+    if (e.getSource()==search&&type.isSelected()){
+      tempBoardGameList=boardGameList.getBoardGamesByType(searchField.getText());
+    }
+    if (e.getSource()==search&&numOfPlayers.isSelected()){
+      if (!(searchField.getText().isEmpty())){
+        tempBoardGameList=boardGameList.getBoardGamesByNoP(Integer.parseInt(searchField.getText()));
+      }
+    }
+    if (e.getSource()==search&&available.isSelected()){
+      if (searchField.getText().isEmpty()) finalBoardGameList=boardGameList.getBoardGamesByAvailability(boardGameList,true);
+      else finalBoardGameList=boardGameList.getBoardGamesByAvailability(tempBoardGameList,true);
+      update(finalBoardGameList);
+    }
+    if (e.getSource()==search&&borrowed.isSelected()){
+      if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByBorrow(boardGameList);
+      else finalBoardGameList=boardGameList.getBoardGamesByBorrow(tempBoardGameList);
+      update(finalBoardGameList);
+    }
+    if (e.getSource()==search&&reserved.isSelected()){
+      if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByReserved(boardGameList);
+      else finalBoardGameList=boardGameList.getBoardGamesByReserved(tempBoardGameList);
+      update(finalBoardGameList);
+    }
+    if (e.getSource()==search&&allGames.isSelected()){
+      if (searchField.getText().isEmpty()) update(boardGameList);
+      else update(tempBoardGameList);
+    }
+
   }
 
   public void tableAction(MouseEvent event)

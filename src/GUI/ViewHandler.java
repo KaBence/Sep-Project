@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class ViewHandler
 {
-  private BoardGameManager ClubManager;
+  private BoardGameManager boardGameManager;
   private MenuController menuController;
   private AddBoardGameController addBoardGameController;
   private AddEventController addEventController;
@@ -29,10 +29,10 @@ public class ViewHandler
   private EditEventController editEventController;
 
   private Stage stage;
-  public ViewHandler(Stage stage, BoardGameManager ClubManager)
+  public ViewHandler(Stage stage, BoardGameManager boardGameManager)
   {
     this.stage = stage;
-    this.ClubManager = ClubManager;
+    this.boardGameManager = boardGameManager;
   }
 
   public void start(){
@@ -68,7 +68,7 @@ public class ViewHandler
       case "manageBoardGame":
         stage.setScene(manageBoardGamesController.getScene());
         stage.setTitle("Manage board games");
-        manageBoardGamesController.update();
+        manageBoardGamesController.update(boardGameManager.getAllBoardGames());
         break;
       case "showBoardGame":
         stage.setScene(showBoardGameController.getScene());
@@ -158,7 +158,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("Menu.fxml"));
       Region root = loader.load();
       menuController = loader.getController();
-      menuController.init(this, new Scene(root), ClubManager);
+      menuController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -172,7 +172,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("AddBoardGame.fxml"));
       Region root = loader.load();
       addBoardGameController = loader.getController();
-      addBoardGameController.init(this, new Scene(root), ClubManager);
+      addBoardGameController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -186,7 +186,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("ManageBoardGames.fxml"));
       Region root = loader.load();
       manageBoardGamesController = loader.getController();
-      manageBoardGamesController.init(this, new Scene(root), ClubManager);
+      manageBoardGamesController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -200,7 +200,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("AddMember.fxml"));
       Region root = loader.load();
       addMemberController = loader.getController();
-      addMemberController.init(this, new Scene(root), ClubManager);
+      addMemberController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -214,7 +214,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("ManageMember.fxml"));
       Region root = loader.load();
       manageMemberController = loader.getController();
-      manageMemberController.init(this, new Scene(root), ClubManager);
+      manageMemberController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -228,7 +228,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("AddEvent.fxml"));
       Region root = loader.load();
       addEventController = loader.getController();
-      addEventController.init(this, new Scene(root), ClubManager);
+      addEventController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -242,7 +242,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("ManageEvents.fxml"));
       Region root = loader.load();
       manageEventsController = loader.getController();
-      manageEventsController.init(this, new Scene(root), ClubManager);
+      manageEventsController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -256,7 +256,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("BorrowGame.fxml"));
       Region root = loader.load();
       borrowGameController = loader.getController();
-      borrowGameController.init(this, new Scene(root), ClubManager);
+      borrowGameController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -270,7 +270,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("ReturnGame.fxml"));
       Region root = loader.load();
       returnGameController = loader.getController();
-      returnGameController.init(this, new Scene(root), ClubManager);
+      returnGameController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -284,7 +284,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("Vote.fxml"));
       Region root = loader.load();
       voteController = loader.getController();
-      voteController.init(this, new Scene(root), ClubManager);
+      voteController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -298,7 +298,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("MakeReservation.fxml"));
       Region root = loader.load();
       makeReservationController = loader.getController();
-      makeReservationController.init(this, new Scene(root), ClubManager);
+      makeReservationController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -313,7 +313,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("ShowBoardGame.fxml"));
       Region root = loader.load();
       showBoardGameController= loader.getController();
-      showBoardGameController.init(this, new Scene(root), ClubManager);
+      showBoardGameController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -328,7 +328,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("LeaveReview.fxml"));
       Region root = loader.load();
       leaveReviewController = loader.getController();
-      leaveReviewController.init(this, new Scene(root), ClubManager);
+      leaveReviewController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -343,7 +343,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource("SeeReview.fxml"));
       Region root = loader.load();
       seeReviewController = loader.getController();
-      seeReviewController.init(this, new Scene(root), ClubManager);
+      seeReviewController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {
@@ -357,7 +357,7 @@ public class ViewHandler
     loader.setLocation(getClass().getResource("EditEvent.fxml"));
     Region root = loader.load();
     editEventController = loader.getController();
-    editEventController.init(this, new Scene(root), ClubManager);
+    editEventController.init(this, new Scene(root), boardGameManager);
   }
     catch (IOException e)
   {
