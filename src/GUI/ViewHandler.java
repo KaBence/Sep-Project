@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 import java.io.IOException;
 
@@ -54,6 +55,7 @@ public class ViewHandler
   }
 
   public void openView(String id){
+    stage.getIcons().add(new Image("logo3.png"));
     switch (id){
       case "Menu":
         stage.setScene(menuController.getScene());
