@@ -3,92 +3,102 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MemberList implements Serializable {
-    private ArrayList<Member> members;
+public class MemberList implements Serializable
+{
+  private ArrayList<Member> members;
 
-    //Creating default Constructor
-    public MemberList()
+  //Creating default Constructor
+  public MemberList()
+  {
+    members = new ArrayList<>();
+  }
+
+  public void addMember(Member member)
+  {
+    members.add(member);
+  }
+
+  public MemberList getMembersByEmail(String email)
+  {
+    MemberList temp = new MemberList();
+    for (int i = 0; i < members.size(); i++)
     {
-        members = new ArrayList<>();
-    }
+      if (members.get(i).getEmail().contains(email))
+      {
+        temp.addMember(members.get(i));
+      }
 
-    public void addMember(Member member)
+    }
+    return temp;
+  }
+
+  public Member getMemberByName(String Name)
+  {
+    for (int i = 0; i < members.size(); i++)
     {
-        members.add(member);
+      if (members.get(i).getFirstName().equals(Name))
+      {
+        return members.get(i);
+      }
     }
+    return null;
+  }
 
-
-    public MemberList getMembersByEmail(String email)
-    { MemberList temp = new MemberList();
-        for(int i = 0; i< members.size(); i++)
-        {
-            if(members.get(i).contains(email)){
-                temp.addMember(members.get(i));
-            }
-
-        }
-        return temp;
-    }
-
-    public Member getMemberByName(String Name)
+  public MemberList getMembersByName(String Name)
+  {
+    MemberList temp = new MemberList();
+    for (int i = 0; i < members.size(); i++)
     {
-        for(int i = 0; i< members.size(); i++)
-        {
-            if(members.get(i).getFirstName().equals(Name))
-            {
-                return members.get(i);
-            }
-        }
-        return null;
+      if (members.get(i).contains(Name))
+      {
+        temp.addMember(members.get(i));
+      }
     }
+    return temp;
+  }
 
-    public MemberList getMembersByName(String Name){
-        MemberList temp = new MemberList();
-        for (int i = 0; i < members.size(); i++)
-        {
-            if(members.get(i).contains(Name)){
-                temp.addMember(members.get(i));
-            }
-        }
-        return temp;
-    }
+  public void removeMember(Member member)
+  {
+    members.remove(member);
+  }
 
-    public void removeMember(Member member)
+  public MemberList getMembersByPhoneNumber(String phoneNumber)
+  {
+    MemberList temp = new MemberList();
+    for (int i = 0; i < members.size(); i++)
     {
-        members.remove(member);
+      if (members.get(i).getPhoneNumber().contains(phoneNumber))
+      {
+        temp.addMember(members.get(i));
+      }
     }
+    return temp;
+  }
 
-    public MemberList getMembersByPhoneNumber(String phoneNumber)
+  public ArrayList<Member> getAllMembers()
+  {
+    return members;
+  }
+
+  public String toString()
+  {
+
+    String temp = "";
+    for (int i = 0; i < members.size(); i++)
     {
-        MemberList temp = new MemberList();
-        for(int i = 0; i< members.size(); i++)
-        {
-            if(members.get(i).contains(phoneNumber))
-               temp.addMember(members.get(i));
-        }
-        return temp;
+      Member member = members.get(i);
+      temp += member.getFirstName() + "\n";
     }
+    return temp;
+  }
 
+  public int size()
+  {
+    return members.size();
+  }
 
-    public ArrayList<Member> getAllMembers()
-    {
-        return members;
-    }
-
-
-    public String toString() {
-
-        String temp ="";
-        for (int i = 0; i < members.size(); i++) {
-            Member member = members.get(i);
-            temp += member.getFirstName() +"\n";
-        }
-        return temp;
-    }
-    public int size(){
-        return members.size();
-    }
-    public Member get(int index){
-        return members.get(index);
-    }
+  public Member get(int index)
+  {
+    return members.get(index);
+  }
 }

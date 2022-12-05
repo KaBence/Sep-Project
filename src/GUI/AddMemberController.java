@@ -86,6 +86,7 @@ public class AddMemberController
   {
     if (e.getSource() == back)
       viewHandler.openView("Menu");
+
     if (e.getSource() == btnAddTheMember)
     {
       MemberList memberList = boardGameManager.getAllMembers();
@@ -130,6 +131,15 @@ public class AddMemberController
       alert.setTitle("Good job");
       alert.setHeaderText(null);
       alert.showAndWait();
+      if(yesButton.isSelected()){
+        viewHandler.openView("addBoardGame");
+        Alert addGame = new Alert(Alert.AlertType.INFORMATION,
+            "Please add your game now", ButtonType.OK);
+        addGame.setTitle("Good job");
+        addGame.setHeaderText(null);
+        addGame.showAndWait();
+      }
+      else
       viewHandler.openView("Menu");
     }
   }

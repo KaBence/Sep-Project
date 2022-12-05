@@ -90,29 +90,49 @@ public class ManageMemberController
       viewHandler.openView("Menu");
     }
 
-   //kinda does not work ...sad
+
+    //kinda does work ...:+)..or not
     if (name.isSelected() && event.getSource() == searchButton)
     {
-      MemberList memberList1 = memberList.getMembersByName(
-          searchButton.getText());
-      updateList(memberList1);
+      if (search.getText().isEmpty())
+      {
+        updateList(memberList);
+      }
+      else
+      {
+        MemberList memberList1 = memberList.getMembersByName(search.getText());
+        updateList(memberList1);
+      }
+
     }
-   /* if (phone.isSelected() && event.getSource() == searchButton)
+    if (phone.isSelected() && event.getSource() == searchButton)
     {
-      MemberList memberList1 = memberList.getMembersByPhoneNumber(
-          searchButton.getText().toLowerCase());
-      updateList(memberList1);
+      if (search.getText().isEmpty())
+      {
+        updateList(memberList);
+      }
+      else
+      {
+        MemberList memberList2 = memberList.getMembersByPhoneNumber(search.getText());
+        updateList(memberList2);
+      }
 
     }
     if (email.isSelected() && event.getSource() == searchButton)
     {
-      MemberList memberList1 = memberList.getMembersByEmail(
-          searchButton.getText().toLowerCase());
-      updateList(memberList1);
+      if (search.getText().isEmpty())
+      {
+        updateList(memberList);
+      }
+      else
+      {
+        MemberList memberList3 = memberList.getMembersByEmail(search.getText());
+        updateList(memberList3);
 
-    }*/
+      }
+
+    }
   }
-
   public void tableAction(MouseEvent e)
   {
 
