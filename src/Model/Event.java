@@ -8,6 +8,7 @@ public class Event implements Serializable
     private ArrayList<String> guests;
     private String guestsString;
     private MyDate date;
+    private int maxCapacity;
     private BoardGameList games;
     private int capacity;
 
@@ -24,6 +25,16 @@ public class Event implements Serializable
             a.add(tempArr[i]);
         }
         this.guests = a;
+    }
+
+    public int getMaxCapacity()
+    {
+        return maxCapacity;
+    }
+
+    public void setMaxCapacity(int maxCapacity)
+    {
+        this.maxCapacity = maxCapacity;
     }
 
     public String getName(){

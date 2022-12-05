@@ -88,6 +88,7 @@ public class ViewHandler
       case "addEvent":
         stage.setScene(addEventController.getScene());
         stage.setTitle("Add events");
+        //addEventController.update();
         break;
       case "manageEvent":
         stage.setScene(manageEventsController.getScene());
@@ -132,6 +133,11 @@ public class ViewHandler
   public AddMemberController getAddMemberController(){
     return addMemberController;
 
+  }
+
+  public AddEventController getAddEventController()
+  {
+    return addEventController;
   }
 
   public MenuController getMenuController(){
