@@ -18,21 +18,23 @@ public class MemberList implements Serializable {
     }
 
 
-    public Member getMemberByEmail(String email)
-    {
+    public MemberList getMembersByEmail(String email)
+    { MemberList temp = new MemberList();
         for(int i = 0; i< members.size(); i++)
         {
-            if(members.get(i).getEmail().equals(email))
-                return members.get(i);
+            if(members.get(i).contains(email)){
+                temp.addMember(members.get(i));
+            }
+
         }
-        return null;
+        return temp;
     }
 
-    public Member getMemberByName(String firstName)
+    public Member getMemberByName(String Name)
     {
         for(int i = 0; i< members.size(); i++)
         {
-            if(members.get(i).getFirstName().equals(firstName))
+            if(members.get(i).getFirstName().equals(Name))
             {
                 return members.get(i);
             }
@@ -40,20 +42,31 @@ public class MemberList implements Serializable {
         return null;
     }
 
+    public MemberList getMembersByName(String Name){
+        MemberList temp = new MemberList();
+        for (int i = 0; i < members.size(); i++)
+        {
+            if(members.get(i).contains(Name)){
+                temp.addMember(members.get(i));
+            }
+        }
+        return temp;
+    }
+
     public void removeMember(Member member)
     {
         members.remove(member);
     }
 
-    public Member getMemberByPhoneNumber(String phoneNumber)
+    public MemberList getMembersByPhoneNumber(String phoneNumber)
     {
-
+        MemberList temp = new MemberList();
         for(int i = 0; i< members.size(); i++)
         {
-            if(members.get(i).getPhoneNumber().equals(phoneNumber))
-                return members.get(i);
+            if(members.get(i).contains(phoneNumber))
+               temp.addMember(members.get(i));
         }
-        return null;
+        return temp;
     }
 
 

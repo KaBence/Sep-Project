@@ -28,28 +28,34 @@ public class AddEventController
   private BoardGameManager boardGameManager;
   private Scene scene;
 
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
+  public void init(ViewHandler viewHandler, Scene scene,
+      BoardGameManager boardGameManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
     this.boardGameManager = boardGameManager;
   }
 
-  public Scene getScene(){
+  public Scene getScene()
+  {
     return scene;
   }
 
   public void actionHandler(ActionEvent e)
   {
-    if (e.getSource()==back) viewHandler.openView("Menu");
-    if (e.getSource()==addEvent) {
-      try {
+    if (e.getSource() == back)
+      viewHandler.openView("Menu");
+    if (e.getSource() == addEvent)
+    {
+      try
+      {
         int a = Integer.parseInt(maxCapacity.getText());
         EventList list = boardGameManager.getAllEvents();
-        Event event = new Event(new MyDate(date.getValue().getDayOfMonth(),date.getValue().getMonthValue(),date.getValue().getYear()),
-                fLocation.getText(),name.getText(), guests.getText(),a);
+        Event event = new Event(new MyDate(date.getValue().getDayOfMonth(),
+            date.getValue().getMonthValue(), date.getValue().getYear()),
+            fLocation.getText(), name.getText(), guests.getText(), a);
         list.addEvent(event);
-        MyFileHandler.writeToBinaryFile("events.bin", list );
+        MyFileHandler.writeToBinaryFile("events.bin", list);
         output.setText(event.toString());
         System.out.println("Events done");
       }
