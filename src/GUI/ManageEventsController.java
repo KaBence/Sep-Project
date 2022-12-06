@@ -32,7 +32,6 @@ public class ManageEventsController
   @FXML TextField fSearch;
   @FXML TextField time;
   @FXML DatePicker date;
-  @FXML Label output;
   @FXML TableView<Event> events;
   @FXML TableColumn<Event, String> tableName;
   @FXML TableColumn<Event, String> tableLocation;
@@ -100,7 +99,6 @@ public class ManageEventsController
                         list.removeEvent(row);
                         MyFileHandler.writeToBinaryFile("events.bin", list);
                         update();
-                        output.setText("Event deleted successfully");
 
                     } catch (FileNotFoundException ex) {
                         System.out.println("Error opening file ");

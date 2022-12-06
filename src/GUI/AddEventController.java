@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -50,6 +51,7 @@ public class AddEventController {
     private BoardGameManager boardGameManager;
     private Scene scene;
     public BoardGameList gameList = new BoardGameList();
+
     public void init(ViewHandler viewHandler, Scene scene,
                      BoardGameManager boardGameManager) {
         this.viewHandler = viewHandler;
@@ -75,13 +77,25 @@ public class AddEventController {
     public Scene getScene() {
         return scene;
     }
-public void update(){
-    BoardGameList allgameList = boardGameManager.getAllBoardGames();
-    for (int i = 0; i < allgameList.size(); i++) {
-        chooseGame.getItems().add(allgameList.get(i).getName());
+
+    public void update() {
+        BoardGameList allgameList = boardGameManager.getAllBoardGames();
+        for (int i = 0; i < allgameList.size(); i++) {
+            chooseGame.getItems().add(allgameList.get(i).getName());
+        }
+        chooseGame.getSelectionModel().selectFirst();
     }
-    chooseGame.getSelectionModel().selectFirst();
-}
+
+    public void clear() {
+        games.getItems().clear();
+        name.clear();
+        time.clear();
+        fLocation.clear();
+        maxCapacity.clear();
+        guests.clear();
+        date.setValue(null);
+    }
+
     public void actionHandler(ActionEvent e) {
         BoardGameList allgameList = boardGameManager.getAllBoardGames();
         BoardGame row = games.getSelectionModel().getSelectedItem();
@@ -109,7 +123,13 @@ public void update(){
                         fLocation.getText(), name.getText(), guests.getText(), a, gameList);
                 list.addEvent(event);
                 MyFileHandler.writeToBinaryFile("events.bin", list);
-                System.out.println("Events done");
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Event list updated");
+                alert.setHeaderText("Event added successfully!");
+                alert.setContentText(event.toString());
+                alert.showAndWait();
+//                int x = alert.getResult();
+                clear();
             } catch (FileNotFoundException ex) {
                 System.out.println("Error opening file ");
             } catch (IOException ex) {
