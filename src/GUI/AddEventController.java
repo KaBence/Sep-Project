@@ -60,7 +60,6 @@ public class AddEventController
                 fLocation.getText(),name.getText(), guests.getText(),a);
         list.addEvent(event);
         MyFileHandler.writeToBinaryFile("events.bin", list);
-        output.setText(event.toString());
         System.out.println("Events done");
       }
       catch (FileNotFoundException ex)
