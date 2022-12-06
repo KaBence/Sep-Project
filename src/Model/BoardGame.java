@@ -77,6 +77,10 @@ public class BoardGame implements Serializable
   public void createRankList(){
     rankList=new RankList();
   }
+
+  public boolean rankListExist(){
+    return rankList!=null;
+  }
   public void setAvailability(boolean availability) {
     this.availability = availability;
   }

@@ -109,6 +109,7 @@ public class ViewHandler
       case "returnGame":
         stage.setScene(returnGameController.getScene());
         stage.setTitle("Return a game");
+        returnGameController.update();
         break;
       case "reservation":
         stage.setScene(makeReservationController.getScene());
