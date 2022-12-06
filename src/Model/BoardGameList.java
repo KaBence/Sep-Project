@@ -86,6 +86,12 @@ public class BoardGameList implements Serializable
     }
     return temp;
   }
-
+    public String toString(){
+       String a = "";
+       for (int i = 0; i<boardGames.size();i++){
+           a+=boardGames.get(i).toString()+" \n";
+       }
+       return a;
+    }
 
 }

@@ -97,7 +97,7 @@ public class ViewHandler
       case "addEvent":
         stage.setScene(addEventController.getScene());
         stage.setTitle("Add events");
-        //addEventController.update();
+        addEventController.update();
         break;
       case "manageEvent":
         stage.setScene(manageEventsController.getScene());
@@ -127,6 +127,7 @@ public class ViewHandler
       case "EditEvent":
         stage.setScene(editEventController.getScene());
         stage.setTitle("Edit event");
+        editEventController.update();
     }
 
     stage.setResizable(false);

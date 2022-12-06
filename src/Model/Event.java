@@ -12,7 +12,7 @@ public class Event implements Serializable
     private BoardGameList games;
     private int capacity;
 
-    public Event(MyDate date, String location, String name, String guests, int capacity){
+    public Event(MyDate date, String location, String name, String guests, int capacity, BoardGameList games){
 
         this.location = location;
         this.name = name;
@@ -25,6 +25,7 @@ public class Event implements Serializable
             a.add(tempArr[i]);
         }
         this.guests = a;
+        this.games = games;
     }
 
         public void setCapacity(int maxCapacity)
@@ -43,7 +44,7 @@ public class Event implements Serializable
     }
 
     public String toString(){
-        return name + " on " +date+ " at " + location +" with a max capcity of "+capacity +" players and having these guests: \n" + guests;
+        return name + " on " +date+ " at " + location +" with a max capcity of "+capacity +" players, " + games.toString()+" and having these guests: \n" + guests;
     }
     public void setLocation(String location){
         this.location = location;
@@ -74,7 +75,7 @@ public class Event implements Serializable
         for (int i = 0; i< guests.size();i++){
             a+= guests.get(i);
         }
-        return new Event(date,location,name, a,capacity);
+        return new Event(date,location,name, a,capacity,games);
     }
 
     public BoardGameList getGames() {
@@ -83,6 +84,9 @@ public class Event implements Serializable
 
     public void addGames(BoardGame boardGame){
         games.addBoardGame(boardGame);
+    }
+    public void setGames(BoardGameList games){
+        this.games = games;
     }
     public String getLocation(){
         return location;

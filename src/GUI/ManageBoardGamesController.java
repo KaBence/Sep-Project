@@ -1,9 +1,6 @@
 package GUI;
 
-import Model.BoardGame;
-import Model.BoardGameList;
-import Model.BoardGameManager;
-import Model.Member;
+import Model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
