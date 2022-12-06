@@ -12,6 +12,10 @@ public class ReservationList implements Serializable
     reservations.add(reservation);
   }
 
+  public void removeReservation(Reservation reservation){
+    reservations.remove(reservation);
+  }
+
   public ArrayList<Reservation> getReservations(){
     return reservations;
   }

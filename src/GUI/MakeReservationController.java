@@ -14,7 +14,7 @@ public class MakeReservationController
   @FXML ComboBox borrower;
   @FXML DatePicker pickUpDate1;
   @FXML DatePicker returnDate1;
-  @FXML TableView reservations;
+  @FXML TableView<Reservation> reservations;
   @FXML TableColumn<Reservation,String> borrowerTable;
   @FXML TableColumn<Reservation,String> pickUpDate;
   @FXML TableColumn<Reservation,String> returnDate;
@@ -88,11 +88,44 @@ public class MakeReservationController
       }
       boardgames.addBoardGame(selectedGame);
       boardGameManager.saveAllBoardGames(boardgames);
-      Alert alert=new Alert(Alert.AlertType.INFORMATION,"Reservation was created successfullu",ButtonType.OK);
+      Alert alert=new Alert(Alert.AlertType.INFORMATION,"Reservation was created successfully",ButtonType.OK);
       alert.setHeaderText(null);
       alert.setTitle("Good Job");
       alert.showAndWait();
       update();
+    }
+    if (e.getSource()==remove){
+      Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Do you really want to delete this reservation?",ButtonType.YES,ButtonType.NO);
+      alert.setTitle("Confirmation");
+      alert.setHeaderText(null);
+      alert.showAndWait();
+      if (alert.getResult()==ButtonType.YES){
+        Reservation toBeDeleted=reservations.getSelectionModel().getSelectedItem();
+        for (int i = 0; i < selectedGame.getReservationList().size(); i++)
+        {
+          if (selectedGame.getReservationList().get(i).equals(toBeDeleted)){
+            selectedGame.getReservationList().removeReservation(selectedGame.getReservationList().get(i));
+            break;
+          }
+        }
+        BoardGameList boardgames=boardGameManager.getAllBoardGames();
+        for (int i = 0; i < boardgames.size(); i++)
+        {
+          if (boardgames.get(i).equals(selectedGame))boardgames.removeBoardGame(boardgames.get(i));
+        }
+        if (selectedGame.getReservationList().size()==0){
+          selectedGame.setReservationList(null);
+        }
+        boardgames.addBoardGame(selectedGame);
+        boardGameManager.saveAllBoardGames(boardgames);
+        Alert alert1=new Alert(Alert.AlertType.INFORMATION,"Reservation was removed successfully",ButtonType.OK);
+        alert1.setHeaderText(null);
+        alert1.setTitle("Good Job");
+        alert1.showAndWait();
+        update();
+      }
+
+
     }
   }
 }
