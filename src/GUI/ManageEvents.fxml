@@ -36,6 +36,7 @@
         </columns>
       </TableView>
       <Label fx:id="output" layoutX="212.0" layoutY="358.0" prefHeight="17.0" prefWidth="168.0" />
-      <DatePicker fx:id="date" layoutX="30.0" layoutY="84.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="402.0" />
+      <DatePicker fx:id="date" layoutX="30.0" layoutY="84.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="213.0" />
+      <TextField fx:id="time" layoutX="243.0" layoutY="85.0" onAction="#actionHandler" prefHeight="25.0" prefWidth="189.0" />
    </children>
 </AnchorPane>

@@ -35,11 +35,10 @@ public class EventList implements Serializable
 
     public EventList getEventsByLocation(String location){
         EventList list1 = new EventList();
-        String[] tempName;
+        String tempLocation;
         for (int i = 0; i< events.size(); i++){
-            tempName = events.get(i).getLocation().split(".");
-            for (String a : tempName)
-                if (a.toLowerCase().equals(location)){
+            tempLocation = events.get(i).getLocation();
+            if (tempLocation.toLowerCase().contains(location)){
                     list1.addEvent(events.get(i));
                 }
         }
@@ -57,11 +56,10 @@ public class EventList implements Serializable
 
     public EventList getEventsByName(String name){
         EventList list1 = new EventList();
-        String[] tempName;
-        for (int i = 0; i< events.size(); i++){
-            tempName = events.get(i).getName().split(" ");
-            for (String a : tempName)
-            if (a.toLowerCase().equals(name)){
+        String tempName;
+        for (int i = 0; i< events.size(); i++) {
+            tempName = events.get(i).getName();
+            if (tempName.toLowerCase().contains(name)) {
                 list1.addEvent(events.get(i));
             }
         }

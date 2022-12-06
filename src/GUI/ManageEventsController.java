@@ -19,7 +19,7 @@ public class ManageEventsController
   private BoardGameManager boardGameManager;
   private Scene scene;
   private EventList eventList;
-  //  private EditEventController editEventController;
+
   @FXML Button back;
   @FXML ToggleGroup toggle;
   @FXML Button edit;
@@ -30,6 +30,7 @@ public class ManageEventsController
   @FXML RadioButton rTime;
   @FXML RadioButton rAllEvents;
   @FXML TextField fSearch;
+  @FXML TextField time;
   @FXML DatePicker date;
   @FXML Label output;
   @FXML TableView<Event> events;
@@ -50,6 +51,7 @@ public class ManageEventsController
         new PropertyValueFactory<Event, String>("date"));
     rAllEvents.setSelected(true);
     date.setVisible(false);
+    time.setVisible(false);
   }
 
   public void init(ViewHandler viewHandler, Scene scene,
@@ -80,88 +82,73 @@ public class ManageEventsController
     return scene;
   }
 
-  public void actionHandler(ActionEvent e)
-  {
-    EventList list = boardGameManager.getAllEvents();
-    // back to the menu
-    if (e.getSource() == back)
-      viewHandler.openView("Menu");
-    //    edit selected event
-    if (e.getSource() == edit)
-    {
-      Event row = events.getSelectionModel().getSelectedItem();
-      viewHandler.getEditEventController().editEvent(row);
-      viewHandler.openView("EditEvent");
-    }
-    // delete selected event and updates the list
 
-    if (e.getSource() == delete)
-    {
-      try
-      {
+  public void actionHandler(ActionEvent e){
         Event row = events.getSelectionModel().getSelectedItem();
-        System.out.println(row);
-        list.removeEvent(row);
-        MyFileHandler.writeToBinaryFile("events.bin", list);
-        update();
-        output.setText("Event deleted successfully");
+        EventList list = boardGameManager.getAllEvents();
+        // back to the menu
+        if (e.getSource() == back) viewHandler.openView("Menu");
+//    edit selected event
+        if (e.getSource() == edit && !(row == null)) {
+            viewHandler.getEditEventController().editEvent(row);
+            viewHandler.openView("EditEvent");
+        }
+        // delete selected event and updates the list
+                if (e.getSource() == delete && !(row == null)) {
+                    try {
+                        System.out.println(row);
+                        list.removeEvent(row);
+                        MyFileHandler.writeToBinaryFile("events.bin", list);
+                        update();
+                        output.setText("Event deleted successfully");
 
-      }
-      catch (FileNotFoundException ex)
-      {
-        System.out.println("Error opening file ");
-      }
-      catch (IOException ex)
-      {
-        System.out.println("IO Error writing to file ");
-      }
-    }
-    if (rName.isSelected() || rLocation.isSelected() || rAllEvents.isSelected())
-    {
-      date.setVisible(false);
-      fSearch.setVisible(true);
-    }
-    // search by name
-    if (e.getSource() == search && rName.isSelected())
-    {
-      EventList tempList = list.getEventsByName(
-          fSearch.getText().toLowerCase());
-      updateList(tempList);
-    }
-    if (e.getSource() == search && rLocation.isSelected())
-    {
-      EventList tempList = list.getEventsByLocation(
-          fSearch.getText().toLowerCase());
-      updateList(tempList);
-    }
-    if (rAllEvents.isSelected())
-    {
-      EventList tempList = list;
-      updateList(tempList);
-    }
-    if (rTime.isSelected())
-    {
-      fSearch.setVisible(false);
-      date.setVisible(true);
-    }
-    if (e.getSource() == search && rTime.isSelected())
-    {
-      date.getValue().toString();
-      EventList tempList = list.getEventsByTime(
-          new MyDate(date.getValue().getDayOfMonth(),
-              date.getValue().getMonthValue(), date.getValue().getYear(), 18,
-              30));
-      updateList(tempList);
-    }
-  }
+                    } catch (FileNotFoundException ex) {
+                        System.out.println("Error opening file ");
+                    } catch (IOException ex) {
+                        System.out.println("IO Error writing to file ");
+                    }
+                }
+                if (rName.isSelected() || rLocation.isSelected() || rAllEvents.isSelected()) {
+                    date.setVisible(false);
+                    time.setVisible(false);
+                    fSearch.setVisible(true);
+                }
+                // search by name
+                if (e.getSource() == search && rName.isSelected()) {
+                    EventList tempList = list.getEventsByName(
+                            fSearch.getText().toLowerCase());
+                    updateList(tempList);
+                }
+                if (e.getSource() == search && rLocation.isSelected()) {
+                    EventList tempList = list.getEventsByLocation(
+                            fSearch.getText().toLowerCase());
+                    updateList(tempList);
+                }
+                if (rAllEvents.isSelected()) {
+                    EventList tempList = list;
+                    updateList(tempList);
+                }
+                if (rTime.isSelected()) {
+                    fSearch.setVisible(false);
+                    time.setVisible(true);
+                    date.setVisible(true);
+                }
 
-  public void tableAction(MouseEvent event)
-  {
-    Event row = events.getSelectionModel().getSelectedItem();
-    if (event.getClickCount() == 2 && !(row == null))
-    {
-      viewHandler.getEditEventController().editEvent(row);
-      viewHandler.openView("EditEvent");
-    }
-  }
-}
+                if (e.getSource() == search && rTime.isSelected()) {
+                    String b = Integer.toString(date.getValue().getDayOfMonth()) + "/"
+                            + Integer.toString(date.getValue().getMonthValue()) + "/" +
+                            Integer.toString(date.getValue().getYear());
+                    EventList tempList = list.getEventsByTime(MyDate.stringToDate(b, time.getText()));
+                    updateList(tempList);
+                }
+            }
+
+
+        public void tableAction(MouseEvent event){
+          Event row = events.getSelectionModel().getSelectedItem();
+          if (event.getClickCount() == 2 && !(row == null)) {
+              viewHandler.getEditEventController().editEvent(row);
+              viewHandler.openView("EditEvent");
+          }
+
+      }}
