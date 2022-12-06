@@ -16,15 +16,16 @@
       <Button fx:id="back" layoutX="29.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
       <TableView fx:id="reservations" layoutX="29.0" layoutY="161.0" onSort="#actionHandler" prefHeight="184.0" prefWidth="546.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="borrowerTable" prefWidth="164.8000545501709" text="Borrower" />
+            <TableColumn fx:id="pickUpDate" prefWidth="211.199951171875" text="Pick Up Date" />
+            <TableColumn fx:id="returnDate" prefWidth="165.60006713867188" text="Return date" />
          </columns>
       </TableView>
       <Text layoutX="80.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrower" />
       <Text layoutX="456.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return date" />
       <Text layoutX="262.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick up date" />
-      <DatePicker fx:id="pickUpDate" layoutX="202.0" layoutY="85.0" onAction="#actionHandler" />
-      <DatePicker fx:id="returnDate" layoutX="399.0" layoutY="85.0" onAction="#actionHandler" />
+      <DatePicker fx:id="pickUpDate1" layoutX="202.0" layoutY="85.0" onAction="#actionHandler" />
+      <DatePicker fx:id="returnDate1" layoutX="399.0" layoutY="85.0" onAction="#actionHandler" />
       <ComboBox fx:id="borrower" layoutX="35.0" layoutY="85.0" onAction="#actionHandler" prefWidth="150.0" />
       <Text layoutX="234.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAKE A NEW RESERVATION" />
       <Button fx:id="edit" layoutX="436.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="EDIT" />

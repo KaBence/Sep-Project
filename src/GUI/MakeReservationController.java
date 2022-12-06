@@ -14,8 +14,8 @@ public class MakeReservationController
 
   @FXML Button save;
   @FXML ComboBox borrower;
-  @FXML DatePicker pickUpDate;
-  @FXML DatePicker returnDate;
+  @FXML DatePicker pickUpDate1;
+  @FXML DatePicker returnDate1;
   @FXML TableView reservations;
   @FXML Button home;
   @FXML Button back;
@@ -23,15 +23,15 @@ public class MakeReservationController
   @FXML Button remove;
 
   private ViewHandler viewHandler;
-  private BoardGameManager clubmanager;
+  private BoardGameManager boardGameManager;
   private Scene scene;
 
 
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager)
+  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
-    this.clubmanager = clubmanager;
+    this.boardGameManager = boardGameManager;
   }
 
   public Scene getScene(){
