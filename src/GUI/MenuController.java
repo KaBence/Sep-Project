@@ -70,7 +70,9 @@ public class MenuController
     }
     if (e.getSource()==borrow) {
       viewHandler.openView("manageBoardGame");
+      viewHandler.getBorrowGameController().updateComboBox();
       value=2;
+
     }
     if (e.getSource()==returnGame) {
       viewHandler.openView("manageBoardGame");

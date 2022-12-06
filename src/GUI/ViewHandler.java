@@ -105,6 +105,8 @@ public class ViewHandler
       case "borrow":
         stage.setScene(borrowGameController.getScene());
         stage.setTitle("Borrow a game");
+        borrowGameController.setPickUpDate();
+        borrowGameController.update();
         break;
       case "returnGame":
         stage.setScene(returnGameController.getScene());
@@ -132,7 +134,13 @@ public class ViewHandler
     stage.setResizable(false);
     stage.show();
   }
-public showMemberController getShowMemberController(){
+
+  public BorrowGameController getBorrowGameController()
+  {
+    return borrowGameController;
+  }
+
+  public showMemberController getShowMemberController(){
     return showMemberController;
 }
   public ShowBoardGameController getShowBoardGameController(){

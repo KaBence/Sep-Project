@@ -17,9 +17,9 @@
       <Button fx:id="home" layoutX="108.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="Home" />
       <TableView fx:id="reservations" layoutX="6.0" layoutY="130.0" onSort="#actionHandler" prefHeight="225.0" prefWidth="600.0">
          <columns>
-            <TableColumn fx:id="borrower" prefWidth="211.99996662139893" text="Borrower" />
-            <TableColumn fx:id="pickUpDate" prefWidth="195.2000274658203" text="Pick up Date" />
-            <TableColumn fx:id="returnDate" prefWidth="192.79998779296875" text="Return date" />
+            <TableColumn fx:id="borrower1" prefWidth="211.99996662139893" text="Borrower" />
+            <TableColumn fx:id="pickUpDate1" prefWidth="195.2000274658203" text="Pick up Date" />
+            <TableColumn fx:id="returnDate1" prefWidth="192.79998779296875" text="Return date" />
          </columns>
       </TableView>
       <Text layoutX="96.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrower" />

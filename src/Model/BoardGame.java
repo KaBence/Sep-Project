@@ -81,6 +81,9 @@ public class BoardGame implements Serializable
   public void createReservationList(){
     reservationList=new ReservationList();
   }
+  public void createBorrowList(){
+    borrow=new Borrow();
+  }
 
   public boolean rankListExist(){
     return rankList!=null;
