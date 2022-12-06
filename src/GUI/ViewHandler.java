@@ -152,6 +152,11 @@ public showMemberController getShowMemberController(){
     return addBoardGameController;
   }
 
+  public SeeReviewController getSeeReviewController()
+  {
+    return seeReviewController;
+  }
+
   public VoteController getVoteController()
   {
     return voteController;

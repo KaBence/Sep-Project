@@ -23,7 +23,13 @@ public class RankList implements Serializable
     return ranks.get(index);
   }
 
+  public Rank get(int index){
+    return ranks.get(index);
+  }
 
+  public int size(){
+    return ranks.size();
+  }
 
   public int getTotal(){
     int sum=0;

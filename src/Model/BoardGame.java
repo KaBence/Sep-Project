@@ -19,7 +19,8 @@ public class BoardGame implements Serializable
     this.type=type;
     this.maxNoP=maxNoP;
     this.minNoP=minNoP;
-    this.owner=owner;
+    if (availability) this.owner=owner;
+    else this.owner=null;
     reservationList=null;
     borrow=null;
     rankList=null;

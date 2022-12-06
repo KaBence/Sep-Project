@@ -36,7 +36,7 @@ public class MemberList implements Serializable
   {
     for (int i = 0; i < members.size(); i++)
     {
-      if (members.get(i).getFirstName().equals(Name))
+      if (members.get(i).contains(Name))
       {
         return members.get(i);
       }
