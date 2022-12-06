@@ -114,6 +114,7 @@ public class ManageBoardGamesController
     if (event.getClickCount() == 2 && !(row == null))
     {
       viewHandler.getShowBoardGameController().setShowBoardGame(row);
+      viewHandler.getMakeReservationController().setSelectedGame(row);
       if (viewHandler.getMenuController().getValue() == 1)
         viewHandler.openView("reservation");
       else if (viewHandler.getMenuController().getValue() == 2)

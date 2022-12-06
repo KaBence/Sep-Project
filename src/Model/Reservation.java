@@ -1,31 +1,30 @@
 package Model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 public class Reservation implements Serializable
 {
-    private Member memberName;
-    private MyDate rentDate;
+    private Member borrower;
+    private MyDate pickUpDate;
     private MyDate returnDate;
 
     public Reservation(){
     }
-    public Reservation( Member memberName, MyDate rentDate, MyDate returnDate){
+    public Reservation( Member memberName, MyDate pickUpDate, MyDate returnDate){
 
-        this.memberName = memberName;
-        this.rentDate = rentDate;
+        this.borrower = memberName;
+        this.pickUpDate = pickUpDate;
         this.returnDate = returnDate;
     }
 
 
 
-    public Member getMemberName() {
-        return memberName;
+    public Member getBorrower() {
+        return borrower;
     }
 
-    public MyDate getRentDate() {
-        return rentDate;
+    public MyDate getPickUpDate() {
+        return pickUpDate;
     }
 
     public MyDate getReturnDate() {
@@ -33,15 +32,12 @@ public class Reservation implements Serializable
     }
 
 
-
-    public void setMemberName(Member memberName) {
-        this.memberName = memberName;
+    public void setBorrower(Member borrower) {
+        this.borrower = borrower;
     }
-
-    public void setRentDate(MyDate rentDate) {
-        this.rentDate = rentDate;
+    public void setPickUpDate(MyDate pickUpDate) {
+        this.pickUpDate = pickUpDate;
     }
-
     public void setReturnDate(MyDate returnDate) {
         this.returnDate = returnDate;
     }
@@ -49,7 +45,7 @@ public class Reservation implements Serializable
     public boolean equals(Object obj) {
         if (obj == null || getClass() != obj.getClass()) return false;
         Reservation other = (Reservation) obj;
-        return returnDate.equals(other.rentDate) && rentDate.equals(other.rentDate) && memberName.equals(other.memberName);
+        return returnDate.equals(other.pickUpDate) && pickUpDate.equals(other.pickUpDate) && borrower.equals(other.borrower);
     }
 
 //    public String toString() {

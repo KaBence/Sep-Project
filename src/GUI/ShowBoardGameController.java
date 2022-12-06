@@ -114,7 +114,10 @@ public class ShowBoardGameController
       viewHandler.getSeeReviewController().update();
       viewHandler.openView("seeReviews");
     }
-    if (e.getSource()==reserve) viewHandler.openView("reservation");
+    if (e.getSource()==reserve) {
+      viewHandler.getMakeReservationController().setSelectedGame(showBoardGame);
+      viewHandler.openView("reservation");
+    }
     if (e.getSource()==borrow) viewHandler.openView("borrow");
     if (e.getSource()==remove){
       Alert alert = new Alert(Alert.AlertType.WARNING,

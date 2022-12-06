@@ -114,6 +114,7 @@ public class ViewHandler
       case "reservation":
         stage.setScene(makeReservationController.getScene());
         stage.setTitle("Make a reservation");
+        makeReservationController.update();
         break;
       case "vote":
         stage.setScene(voteController.getScene());
@@ -149,6 +150,10 @@ public showMemberController getShowMemberController(){
   }
   public AddBoardGameController getAddBoardGameController() {
     return addBoardGameController;
+  }
+
+  public MakeReservationController getMakeReservationController() {
+    return makeReservationController;
   }
 
   public SeeReviewController getSeeReviewController()

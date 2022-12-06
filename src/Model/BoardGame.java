@@ -78,6 +78,10 @@ public class BoardGame implements Serializable
     rankList=new RankList();
   }
 
+  public void createReservationList(){
+    reservationList=new ReservationList();
+  }
+
   public boolean rankListExist(){
     return rankList!=null;
   }

@@ -111,4 +111,11 @@ public class MyDate implements Serializable
     return new MyDate(currentDate.getDayOfMonth(),currentDate.getMonthValue(),currentDate.getYear());
 
   }
+
+  public boolean isBefore(MyDate date2){
+    if ((year<date2.year) || (day<date2.day && (month<date2.month || year<date2.year)) || (day>date2.day && (month<date2.month || year<date2.year)) || (month<date2.month && year==date2.year || month>date2.month && year<date2.year) || (day < date2.day)){
+      return true;
+    }
+    else return false;
+  }
 }
