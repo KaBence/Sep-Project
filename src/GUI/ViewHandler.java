@@ -24,7 +24,6 @@ public class ViewHandler
   private BorrowGameController borrowGameController;
   private ReturnGameController returnGameController;
   private ShowBoardGameController showBoardGameController;
-  private LeaveReviewController leaveReviewController;
   private SeeReviewController seeReviewController;
   private EditEventController editEventController;
   private showMemberController showMemberController;
