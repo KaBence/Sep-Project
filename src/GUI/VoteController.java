@@ -50,9 +50,12 @@ public class VoteController
       games.getItems().add(boardGameList.get(i));
     }
   }
-public void clean(){
+
+  public void clean()
+  {
     textfield.clear();
-}
+  }
+
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
   {
@@ -79,13 +82,12 @@ public void clean(){
 
       BoardGame boardGame1 = games.getSelectionModel().getSelectedItem();
 
-
       BoardGameList boardGameList = boardGameManager.getAllBoardGames();
 
       BoardGame boardGame2 = new BoardGame(boardGame1.getName(),
           boardGame1.getType(), boardGame1.getMinNoP(), boardGame1.getMaxNoP(),
           boardGame1.getOwner(), boardGame1.isAvailable());
-      boardGame2.setVoteList(boardGame1.getVoteList());
+      boardGame2 = boardGame2.setLists(boardGame1);
       boardGameList.removeBoardGame(boardGame1);
       boardGame2.getVoteList().addVote();
       System.out.println("vote added");
@@ -103,12 +105,14 @@ public void clean(){
       BoardGame boardGame2 = new BoardGame(boardGame1.getName(),
           boardGame1.getType(), boardGame1.getMinNoP(), boardGame1.getMaxNoP(),
           boardGame1.getOwner(), boardGame1.isAvailable());
-      boardGame2.setVoteList(boardGame1.getVoteList());
+      boardGame2 = boardGame2.setLists(boardGame1);
       boardGameList.removeBoardGame(boardGame1);
-      if(boardGame2.getVote()==0){
-        Alert alert =new Alert(Alert.AlertType.WARNING,"YOU ARE A DISGRACE...don't go below zero",ButtonType.OK);
-      alert.setTitle("stupid");
-      alert.setHeaderText(null);
+      if (boardGame2.getVote() == 0)
+      {
+        Alert alert = new Alert(Alert.AlertType.WARNING,
+            "YOU ARE A DISGRACE...don't go below zero", ButtonType.OK);
+        alert.setTitle("stupid");
+        alert.setHeaderText(null);
         alert.showAndWait();
         return;
       }

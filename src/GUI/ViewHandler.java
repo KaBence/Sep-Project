@@ -49,7 +49,6 @@ public class ViewHandler
     loadViewReturnGame();
     loadViewBorrowGame();
     loadEditEvent();
-    loadViewLeaveReview();
     loadViewSeeReview();
     loadViewShowBoardGame();
     loadShowMember();
@@ -339,21 +338,6 @@ public showMemberController getShowMemberController(){
       Region root = loader.load();
       showBoardGameController= loader.getController();
       showBoardGameController.init(this, new Scene(root), boardGameManager);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-  }
-
-  private void loadViewLeaveReview() {
-    try
-    {
-      FXMLLoader loader = new FXMLLoader();
-      loader.setLocation(getClass().getResource("LeaveReview.fxml"));
-      Region root = loader.load();
-      leaveReviewController = loader.getController();
-      leaveReviewController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {

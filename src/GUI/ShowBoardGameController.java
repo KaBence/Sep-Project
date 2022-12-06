@@ -150,6 +150,7 @@ public class ShowBoardGameController
         if (available2.isSelected())radioAvl=true;
         MemberList memberList=boardGameManager.getAllMembers();
         BoardGame edited=new BoardGame(nameOfGame.getText(),typeOfBoardGame.getText(),Integer.parseInt(min.getText()),Integer.parseInt(max.getText()),memberList.getMemberByName(owner.getValue().toString()),radioAvl);
+        edited=edited.setLists(showBoardGame);
         BoardGameList boardGameList=boardGameManager.getAllBoardGames();
         for (int i = 0; i < boardGameList.size(); i++)
         {
