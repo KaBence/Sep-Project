@@ -51,23 +51,4 @@ public class RankList implements Serializable
     return true;
   }
 
-    public static RankList getAllRanks(){
-      RankList myRankList = new RankList();
-
-        try
-        {
-            myRankList = (RankList) MyFileHandler.readFromBinaryFile("rank.bin");
-        }
-        catch (FileNotFoundException e){
-            System.out.println("File not found");
-        }
-        catch (IOException e){
-            System.out.println("IO error when opening the file");
-        }
-        catch (ClassNotFoundException e){
-            System.out.println("Wrong class in file");
-        }
-        return myRankList;
-    }
-
 }

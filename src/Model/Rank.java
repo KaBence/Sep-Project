@@ -17,11 +17,10 @@ public class Rank implements Serializable
     this.gameName = gameName;
   }
 
-  public Rank(String review, int rank, String gameName)
+  public Rank(String review, int rank)
   {
     this.rank = rank;
     this.review = review;
-    this.gameName = gameName;
   }
 
   public Rank()

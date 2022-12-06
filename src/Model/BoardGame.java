@@ -20,9 +20,9 @@ public class BoardGame implements Serializable
     this.maxNoP=maxNoP;
     this.minNoP=minNoP;
     this.owner=owner;
-    reservationList=new ReservationList();
-    borrow=new Borrow();
-    rankList=new RankList();
+    reservationList=null;
+    borrow=null;
+    rankList=null;
   }
 
   public Member getOwner(){
@@ -61,6 +61,10 @@ public class BoardGame implements Serializable
   public String getType()
   {
     return type;
+  }
+
+  public void createRankList(){
+    rankList=new RankList();
   }
   public void setAvailability(boolean availability) {
     this.availability = availability;

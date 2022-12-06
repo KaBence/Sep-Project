@@ -13,7 +13,7 @@ import java.io.IOException;
 public class ReturnGameController
 {
   private ViewHandler viewHandler;
-  private BoardGameManager clubmanager;
+  private BoardGameManager boardGameManager;
   private Scene scene;
 
   @FXML Button back,returnB,search;
@@ -22,14 +22,14 @@ public class ReturnGameController
 
   @FXML Button cancel,submit;
   @FXML RadioButton RB1,RB2,RB3,RB4,RB5;
-  @FXML TextArea ratingTextArea;
+  @FXML TextArea feedbackTextArea;
   @FXML Label lblGameName;
 private String SelectedGame;
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager)
+  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
-    this.clubmanager = clubmanager;
+    this.boardGameManager = boardGameManager;
   }
 
   public Scene getScene(){
@@ -46,44 +46,60 @@ private String SelectedGame;
     lblGameName.setText(selectedGame);
   }
 
-  public void actionHandler(ActionEvent e){
-    if (e.getSource()==cancel) viewHandler.openView("Menu");
-    if(e.getSource() == submit)
+  public void actionHandler(ActionEvent e)
+  {
+    if (e.getSource() == cancel)
+      viewHandler.openView("Menu");
+    if (e.getSource() == submit)
+    {
+
+      BoardGame selectedGame = viewHandler.getShowBoardGameController().getShowBoardGame();
+      System.out.println(selectedGame.getName());
+
+      int rating = 0;
+      if (RB1.isSelected())
       {
-
-        BoardGame selctedGame = viewHandler.getShowBoardGameController().getShowBoardGame();
-        System.out.println(selctedGame.getName());
-
-        try {
-          int rating = 0;
-          if (RB1.isSelected()) {
-            rating = 1;
-          } else if (RB2.isSelected()) {
-            rating = 2;
-          } else if (RB3.isSelected()) {
-            rating = 3;
-          } else if (RB4.isSelected()) {
-            rating = 4;
-          } else if (RB5.isSelected()) {
-            rating = 5;
-          }
-
-          String remarks = ratingTextArea.getText();
-          Rank myRank = new Rank(remarks, rating, selctedGame.getName());
-          RankList oldRankList = RankList.getAllRanks();
-          oldRankList.addRank(myRank);
-          MyFileHandler.writeToBinaryFile("rank.bin", oldRankList);
-          System.out.println(oldRankList.getTotal());
-        } catch (FileNotFoundException ex) {
-          System.out.println("Error opening file ");
-        } catch (IOException ex) {
-          System.out.println("IO Error writing to file ");
-        }
-
-        viewHandler.openView("Menu");
-
+        rating = 1;
+      }
+      else if (RB2.isSelected())
+      {
+        rating = 2;
+      }
+      else if (RB3.isSelected())
+      {
+        rating = 3;
+      }
+      else if (RB4.isSelected())
+      {
+        rating = 4;
+      }
+      else if (RB5.isSelected())
+      {
+        rating = 5;
       }
 
-  }
+      String remarks = feedbackTextArea.getText();
+      if (!selectedGame.isReserved())
+      {
+        selectedGame.createRankList();
+      }
+      selectedGame.getRankList().addRank(new Rank(remarks, rating));
+      BoardGameList boardGameList=boardGameManager.getAllBoardGames();
+      for (int i = 0; i < boardGameList.size(); i++)
+      {
+        if (boardGameList.get(i).equals(selectedGame)){
+          boardGameList.removeBoardGame(boardGameList.get(i));
+          break;
+        }
+      }
+      boardGameList.addBoardGame(selectedGame);
+      boardGameManager.saveAllBoardGames(boardGameList);
+      Alert alert=new Alert(Alert.AlertType.INFORMATION,"Review added successfully",ButtonType.OK);
+      alert.setHeaderText(null);
+      alert.setTitle("Good Job");
+      alert.showAndWait();
+      viewHandler.openView("Menu");
 
+    }
+  }
 }

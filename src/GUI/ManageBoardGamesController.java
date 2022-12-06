@@ -107,9 +107,9 @@ public class ManageBoardGamesController
           viewHandler.getReturnGameController().setSelectedGame(row.getName());
           viewHandler.openView("returnGame");
         }
-        //else {
-          //viewHandler.openView("Menu");
-       // }
+        else {
+          viewHandler.openView("Menu");
+        }
 
       }
       else
