@@ -63,6 +63,10 @@ public class BoardGame implements Serializable
   {
     return type;
   }
+
+  public void createRankList(){
+    rankList=new RankList();
+  }
   public void setAvailability(boolean availability) {
     this.availability = availability;
   }
@@ -105,6 +109,8 @@ public class BoardGame implements Serializable
     }
     else{
       return type.equals(temp.type)&&name.equals(temp.name)&&availability==temp.availability&&minNoP==temp.minNoP&&maxNoP==temp.maxNoP&&temp.owner==null;
+
+
     }
   }
 //toString is not done because we don't know if we need it

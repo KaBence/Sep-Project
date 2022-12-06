@@ -138,6 +138,9 @@ public showMemberController getShowMemberController(){
   public ShowBoardGameController getShowBoardGameController(){
     return showBoardGameController;
   }
+  public ReturnGameController getReturnGameController(){
+    return returnGameController;
+  }
   public EditEventController getEditEventController(){
     return editEventController;
   }
@@ -390,6 +393,21 @@ public showMemberController getShowMemberController(){
       showMemberController.init(this,new Scene(root), boardGameManager);
     }
     catch (IOException e){
+      e.printStackTrace();
+    }
+  }
+
+  private void loadReturnGame(){
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource("ReturnGame.fxml"));
+      Region root = loader.load();
+      editEventController = loader.getController();
+      editEventController.init(this, new Scene(root), ClubManager);
+    }
+    catch (IOException e)
+    {
       e.printStackTrace();
     }
   }

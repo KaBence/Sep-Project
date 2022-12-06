@@ -1,5 +1,9 @@
 package Model;
 
+import Util.MyFileHandler;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -46,4 +50,5 @@ public class RankList implements Serializable
     }
     return true;
   }
+
 }
