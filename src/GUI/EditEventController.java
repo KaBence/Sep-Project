@@ -17,6 +17,7 @@ public class EditEventController {
     @FXML Button back;
     @FXML Button save;
     @FXML TextField name;
+    @FXML TextField time;
     @FXML TextField fLocation;
     @FXML TextField maxCapacity;
     @FXML TextField guests;
@@ -44,9 +45,12 @@ public class EditEventController {
     if (e.getSource()==save){
         try {
                 int a = Integer.parseInt(maxCapacity.getText());
+            String b = Integer.toString(date.getValue().getDayOfMonth()) + "/"
+                    +Integer.toString(date.getValue().getMonthValue())+"/"+
+                    Integer.toString(date.getValue().getYear());
                 EventList list = boardGameManager.getAllEvents();
-                Event event = new Event(new MyDate(date.getValue().getDayOfMonth(),date.getValue().getMonthValue(),date.getValue().getYear()),
-                        fLocation.getText(),name.getText(), guests.getText(),a);
+            Event event = new Event(MyDate.stringToDate(b,time.getText()),
+                    fLocation.getText(),name.getText(), guests.getText(),a);;
                 list.setEvent(event, eventIndex);
                 MyFileHandler.writeToBinaryFile("events.bin", list );
                 output.setText(event.toString());
@@ -71,6 +75,7 @@ public class EditEventController {
     guests.setText(event.getGuests());
     eventIndex = list.getIndexOf(event);
     date.setValue(LocalDate.of(event.getDate().getYear(),event.getDate().getMonth(),event.getDate().getDay()));
+    time.setText(event.getDate().getStringTime());
 //    chooseGame.setText?s
     }
 }

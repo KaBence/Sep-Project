@@ -19,6 +19,7 @@ public class AddEventController
   @FXML Button addEvent;
   @FXML TextField name;
   @FXML TextField fLocation;
+  @FXML TextField time;
   @FXML TextField maxCapacity;
   @FXML TextField guests;
   @FXML ComboBox chooseGame;
@@ -50,10 +51,13 @@ public class AddEventController
       try
       {
         int a = Integer.parseInt(maxCapacity.getText());
+        String b = Integer.toString(date.getValue().getDayOfMonth()) + "/"
+                +Integer.toString(date.getValue().getMonthValue())+"/"+
+                Integer.toString(date.getValue().getYear());
         EventList list = boardGameManager.getAllEvents();
-        Event event = new Event(new MyDate(date.getValue().getDayOfMonth(),
-            date.getValue().getMonthValue(), date.getValue().getYear()),
-            fLocation.getText(), name.getText(), guests.getText(), a);
+
+        Event event = new Event(MyDate.stringToDate(b,time.getText()),
+                fLocation.getText(),name.getText(), guests.getText(),a);
         list.addEvent(event);
         MyFileHandler.writeToBinaryFile("events.bin", list);
         output.setText(event.toString());

@@ -83,6 +83,9 @@ public class MyDate implements Serializable
   {
     this.min = min;
   }
+  public String getStringTime(){
+      return hour+":"+min;
+  }
 
 
   public boolean equals(Object obj)
