@@ -53,7 +53,7 @@ public class EditEventController {
                     fLocation.getText(),name.getText(), guests.getText(),a);;
                 list.setEvent(event, eventIndex);
                 MyFileHandler.writeToBinaryFile("events.bin", list );
-                output.setText(event.toString());
+//                output.setText(event.toString());
                 System.out.println("Events done");
             }
             catch (FileNotFoundException ex)
@@ -67,7 +67,7 @@ public class EditEventController {
         }
     }
     public void editEvent(Event event){
-        output.setText("");
+//        output.setText("");
         EventList list = boardGameManager.getAllEvents();
     name.setText(event.getName());
     fLocation.setText(event.getLocation());
