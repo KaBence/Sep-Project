@@ -116,7 +116,7 @@ public class ManageBoardGamesController
       viewHandler.getShowBoardGameController().setShowBoardGame(row);
       viewHandler.getMakeReservationController().setSelectedGame(row);
       viewHandler.getBorrowGameController().setSelectedBoardGame(row);
-      if (viewHandler.getMenuController().getValue() == 1)
+
       if (viewHandler.getMenuController().getValue() == 1) {
         if (!row.isAvailable()){
           Alert alert=new Alert(Alert.AlertType.WARNING,"You can only reserve a game if it is available",ButtonType.OK);

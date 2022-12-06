@@ -19,9 +19,7 @@ public class RankList implements Serializable
   public void removeRank(Rank rank){
     ranks.remove(rank);
   }
-  public Rank showRank(int index){
-    return ranks.get(index);
-  }
+
 
   public Rank get(int index){
     return ranks.get(index);

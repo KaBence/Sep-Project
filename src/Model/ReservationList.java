@@ -16,9 +16,7 @@ public class ReservationList implements Serializable
     reservations.remove(reservation);
   }
 
-  public ArrayList<Reservation> getReservations(){
-    return reservations;
-  }
+
 
   public Reservation get(int index){
     return reservations.get(index);

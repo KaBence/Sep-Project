@@ -48,7 +48,5 @@ public class Reservation implements Serializable
         return returnDate.equals(other.returnDate) && pickUpDate.equals(other.pickUpDate) && borrower.equals(other.borrower);
     }
 
-//    public String toString() {
-//        return "Reservation of "+boardGame.getName()+" by "+memberName.getMemberName()+" on " + rentDate.toString()+" till "+returnDate.toString();
-//    }
+
 }

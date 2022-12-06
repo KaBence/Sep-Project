@@ -7,15 +7,9 @@ public class Rank implements Serializable
   private String review;
   private int rank;
 
-  private String gameName;
 
-  public String getGameName() {
-    return gameName;
-  }
 
-  public void setGameName(String gameName) {
-    this.gameName = gameName;
-  }
+
 
   public Rank(String review, int rank)
   {

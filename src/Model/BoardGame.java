@@ -51,12 +51,7 @@ public class BoardGame implements Serializable
   {
     return minNoP;
   }
-  public void setMaxNoP(int maxNoP) {
-    this.maxNoP = maxNoP;
-  }
-  public void setMinNoP(int minNoP) {
-    this.minNoP = minNoP;
-  }
+
   public String getName()
   {
     return name;
@@ -88,9 +83,7 @@ public class BoardGame implements Serializable
   public boolean rankListExist(){
     return rankList!=null;
   }
-  public void setAvailability(boolean availability) {
-    this.availability = availability;
-  }
+
   public boolean isAvailable()
   {
     return availability;
@@ -157,8 +150,5 @@ public class BoardGame implements Serializable
 
     }
   }
-//toString is not done because we don't know if we need it
-  public String toString(){
-    return name+" "+type+" "+minNoP+"-"+maxNoP+" "+owner;
-  }
+
 }

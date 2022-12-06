@@ -75,10 +75,7 @@ public class MemberList implements Serializable
     return temp;
   }
 
-  public ArrayList<Member> getAllMembers()
-  {
-    return members;
-  }
+
 
   public String toString()
   {

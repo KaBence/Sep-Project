@@ -173,7 +173,7 @@ public class ViewHandler
   {
     return voteController;
   }
-
+//will bw maybe deleted
   public AddEventController getAddEventController()
   {
     return addEventController;

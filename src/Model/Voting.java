@@ -34,9 +34,5 @@ public class Voting implements Serializable
     return "" + vote;
   }
 
-  public Voting copy(){
-    Voting copy = new Voting();
-    copy.setVote(vote);
-    return copy;
-  }
+
 }

@@ -79,13 +79,7 @@ public class BoardGameList implements Serializable
      return temp;
   }
 
-  public BoardGameList getBoardGamesByOwner(Member owner){
-    BoardGameList temp=new BoardGameList();
-    for (BoardGame item:boardGames){
-      if (item.getOwner().equals(owner)) temp.addBoardGame(item);
-    }
-    return temp;
-  }
+
 
 
 }
