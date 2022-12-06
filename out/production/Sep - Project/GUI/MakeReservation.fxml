@@ -29,5 +29,6 @@
       <Text layoutX="234.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAKE A NEW RESERVATION" />
       <Button fx:id="edit" layoutX="436.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="EDIT" />
       <Button fx:id="remove" layoutX="514.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="REMOVE" />
+      <Button fx:id="home" layoutX="104.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionHandler" text="Home" />
    </children>
 </AnchorPane>

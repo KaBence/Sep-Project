@@ -23,15 +23,15 @@ public class MakeReservationController
   @FXML Button remove;
 
   private ViewHandler viewHandler;
-  private BoardGameManager clubmanager;
+  private BoardGameManager boardGameManager;
   private Scene scene;
 
 
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager)
+  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
-    this.clubmanager = clubmanager;
+    this.boardGameManager = boardGameManager;
   }
 
   public Scene getScene(){
@@ -39,7 +39,8 @@ public class MakeReservationController
   }
 
   public void actionHandler(ActionEvent e){
-    if (e.getSource()==back) viewHandler.openView("Menu");
+    if (e.getSource()==back) viewHandler.openView("manageBoardGame");
+    if (e.getSource()==home) viewHandler.openView("Menu");
 
   }
 }

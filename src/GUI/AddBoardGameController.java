@@ -65,6 +65,9 @@ public class AddBoardGameController
     alert.setTitle("Good Job");
     alert.setHeaderText(null);
     alert.showAndWait();
+    if (!avl){
+      temp.setOwner(null);
+    }
     boardGameList.addBoardGame(temp);
     boardGameManager.saveAllBoardGames(boardGameList);
     clear();
@@ -78,6 +81,8 @@ public class AddBoardGameController
   }
 
   public void updateComboBox(){
+    owner.getItems().clear();
+    owner.getItems().add(null);
     MemberList members=boardGameManager.getAllMembers();
     for (int i = 0; i < members.size(); i++)
     {

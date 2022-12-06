@@ -14,7 +14,7 @@ public class BorrowGameController
 @FXML Button searchButton;
 @FXML TableView games;
 
-@FXML Button back;
+@FXML Button back,home;
 
   private ViewHandler viewHandler;
   private BoardGameManager clubmanager;
@@ -33,6 +33,7 @@ public class BorrowGameController
   }
 
   public void actionHandler(ActionEvent e){
-    if (e.getSource()==back) viewHandler.openView("Menu");
+    if (e.getSource()==home) viewHandler.openView("Menu");
+    if (e.getSource()==back) viewHandler.openView("manageBoardGame");
   }
 }

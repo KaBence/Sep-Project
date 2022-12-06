@@ -3,6 +3,7 @@ package GUI;
 import Model.BoardGame;
 import Model.BoardGameList;
 import Model.BoardGameManager;
+import Model.MemberList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -51,10 +52,20 @@ public class ShowBoardGameController
   }
 
   public void update(){
+    owner.getItems().clear();
     nameOfGame.setText(showBoardGame.getName());
     typeOfBoardGame.setText(showBoardGame.getType());
     min.setText(String.valueOf(showBoardGame.getMinNoP()));
     max.setText(String.valueOf(showBoardGame.getMaxNoP()));
+    int temp=0;
+    MemberList members=boardGameManager.getAllMembers();
+    for (int i = 0; i < members.size(); i++)
+    {
+      if (showBoardGame.getOwner()!=null&&showBoardGame.getOwner().equals(members.get(i)))temp=i;
+      owner.getItems().add(members.get(i));
+    }
+    if (showBoardGame.isAvailable()) owner.getSelectionModel().select(temp);
+    else owner.getSelectionModel().select(0);
   }
 
   public void actionHandler(ActionEvent e){
