@@ -24,7 +24,6 @@ public class ViewHandler
   private BorrowGameController borrowGameController;
   private ReturnGameController returnGameController;
   private ShowBoardGameController showBoardGameController;
-  private LeaveReviewController leaveReviewController;
   private SeeReviewController seeReviewController;
   private EditEventController editEventController;
   private showMemberController showMemberController;
@@ -49,7 +48,6 @@ public class ViewHandler
     loadViewReturnGame();
     loadViewBorrowGame();
     loadEditEvent();
-    loadViewLeaveReview();
     loadViewSeeReview();
     loadViewShowBoardGame();
     loadShowMember();
@@ -107,14 +105,18 @@ public class ViewHandler
       case "borrow":
         stage.setScene(borrowGameController.getScene());
         stage.setTitle("Borrow a game");
+        borrowGameController.setPickUpDate();
+        borrowGameController.update();
         break;
       case "returnGame":
         stage.setScene(returnGameController.getScene());
         stage.setTitle("Return a game");
+        returnGameController.update();
         break;
       case "reservation":
         stage.setScene(makeReservationController.getScene());
         stage.setTitle("Make a reservation");
+        makeReservationController.update();
         break;
       case "vote":
         stage.setScene(voteController.getScene());
@@ -133,7 +135,13 @@ public class ViewHandler
     stage.setResizable(false);
     stage.show();
   }
-public showMemberController getShowMemberController(){
+
+  public BorrowGameController getBorrowGameController()
+  {
+    return borrowGameController;
+  }
+
+  public showMemberController getShowMemberController(){
     return showMemberController;
 }
   public ShowBoardGameController getShowBoardGameController(){
@@ -153,6 +161,10 @@ public showMemberController getShowMemberController(){
     return addBoardGameController;
   }
 
+  public MakeReservationController getMakeReservationController() {
+    return makeReservationController;
+  }
+
   public SeeReviewController getSeeReviewController()
   {
     return seeReviewController;
@@ -162,7 +174,7 @@ public showMemberController getShowMemberController(){
   {
     return voteController;
   }
-
+//will bw maybe deleted
   public AddEventController getAddEventController()
   {
     return addEventController;
@@ -340,21 +352,6 @@ public showMemberController getShowMemberController(){
       Region root = loader.load();
       showBoardGameController= loader.getController();
       showBoardGameController.init(this, new Scene(root), boardGameManager);
-    }
-    catch (IOException e)
-    {
-      e.printStackTrace();
-    }
-  }
-
-  private void loadViewLeaveReview() {
-    try
-    {
-      FXMLLoader loader = new FXMLLoader();
-      loader.setLocation(getClass().getResource("LeaveReview.fxml"));
-      Region root = loader.load();
-      leaveReviewController = loader.getController();
-      leaveReviewController.init(this, new Scene(root), boardGameManager);
     }
     catch (IOException e)
     {

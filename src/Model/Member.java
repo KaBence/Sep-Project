@@ -88,11 +88,7 @@ public class Member implements Serializable
         return toString().contains(name);
   }
 
-  public Member copy()
-  {
-    return new Member(firstName, lastName, phoneNumber, email);
 
-  }
 
 
 

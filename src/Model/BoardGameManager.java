@@ -25,18 +25,7 @@ public class BoardGameManager implements Serializable
     this.boardgames=boardgames;
   }
 
-  public BoardGameList getBoardGameList()
-  {
-    return boardGameList;
-  }
-  public EventList getEventList()
-  {
-    return eventList;
-  }
-  public MemberList getMemberList()
-  {
-    return memberList;
-  }
+
 
   public MemberList getAllMembers(){
     memberList=new MemberList();

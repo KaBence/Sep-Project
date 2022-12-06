@@ -111,8 +111,19 @@ public class ManageBoardGamesController
     if (event.getClickCount() == 2 && !(row == null))
     {
       viewHandler.getShowBoardGameController().setShowBoardGame(row);
-      if (viewHandler.getMenuController().getValue() == 1)
+      viewHandler.getMakeReservationController().setSelectedGame(row);
+      viewHandler.getBorrowGameController().setSelectedBoardGame(row);
+
+      if (viewHandler.getMenuController().getValue() == 1) {
+        if (!row.isAvailable()){
+          Alert alert=new Alert(Alert.AlertType.WARNING,"You can only reserve a game if it is available",ButtonType.OK);
+          alert.setTitle("Warning");
+          alert.setHeaderText(null);
+          alert.showAndWait();
+          return;
+        }
         viewHandler.openView("reservation");
+      }
       else if (viewHandler.getMenuController().getValue() == 2)
         viewHandler.openView("borrow");
       else if (viewHandler.getMenuController().getValue() == 3) {

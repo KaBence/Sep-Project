@@ -91,7 +91,6 @@ public class ManageMemberController
     }
 
 
-    //kinda does work ...:+)..or not
     if (name.isSelected() && event.getSource() == searchButton)
     {
       if (search.getText().isEmpty())

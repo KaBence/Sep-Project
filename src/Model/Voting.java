@@ -5,6 +5,9 @@ import java.io.Serializable;
 public class Voting implements Serializable
 {
   private int vote;
+  public Voting(){
+    vote=0;
+  }
 
   public int getVote()
   {
@@ -31,9 +34,5 @@ public class Voting implements Serializable
     return "" + vote;
   }
 
-  public Voting copy(){
-    Voting copy = new Voting();
-    copy.setVote(vote);
-    return copy;
-  }
+
 }

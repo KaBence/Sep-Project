@@ -27,6 +27,15 @@ public class BoardGame implements Serializable
     voteList=new Voting();
   }
 
+  public BoardGame setLists(BoardGame previous){
+    BoardGame temp=new BoardGame(previous.name,previous.type,previous.minNoP,previous.maxNoP,previous.owner,previous.availability);
+    if (previous.getRankList()!=null)temp.setRankList(previous.getRankList());
+    if (previous.getVoteList()!=null) temp.setVoteList(previous.getVoteList());
+    if (previous.getReservationList()!=null)temp.setReservationList(previous.getReservationList());
+    if (previous.getBorrow()!=null)temp.setBorrow(previous.borrow);
+    return temp;
+  }
+
   public Member getOwner(){
     return owner;
   }
@@ -42,12 +51,7 @@ public class BoardGame implements Serializable
   {
     return minNoP;
   }
-  public void setMaxNoP(int maxNoP) {
-    this.maxNoP = maxNoP;
-  }
-  public void setMinNoP(int minNoP) {
-    this.minNoP = minNoP;
-  }
+
   public String getName()
   {
     return name;
@@ -68,9 +72,18 @@ public class BoardGame implements Serializable
   public void createRankList(){
     rankList=new RankList();
   }
-  public void setAvailability(boolean availability) {
-    this.availability = availability;
+
+  public void createReservationList(){
+    reservationList=new ReservationList();
   }
+  public void createBorrowList(){
+    borrow=new Borrow();
+  }
+
+  public boolean rankListExist(){
+    return rankList!=null;
+  }
+
   public boolean isAvailable()
   {
     return availability;
@@ -80,10 +93,33 @@ public class BoardGame implements Serializable
   }
   public boolean isReserved(){return reservationList!=null;}
 
+  public boolean contains(String name){
+    return toString().contains(name);
+  }
+
+  public void setVoteList(Voting voteList)
+  {
+    this.voteList = voteList;
+  }
+
   public Voting getVoteList()
   {
     return voteList;
   }
+
+  public void setBorrow(Borrow borrow)
+  {
+    this.borrow = borrow;
+  }
+  public void setRankList(RankList rankList)
+  {
+    this.rankList = rankList;
+  }
+
+  public void setReservationList(ReservationList reservationList) {
+    this.reservationList = reservationList;
+  }
+
   public int getVote(){
     return voteList.getVote();
   }
@@ -114,8 +150,5 @@ public class BoardGame implements Serializable
 
     }
   }
-//toString is not done because we don't know if we need it
-  public String toString(){
-    return name+" "+type+" "+minNoP+"-"+maxNoP+" "+owner;
-  }
+
 }

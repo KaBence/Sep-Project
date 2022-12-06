@@ -6,13 +6,24 @@ public class ReservationList implements Serializable
   private ArrayList<Reservation> reservations;
 
   public ReservationList(){
+    reservations=new ArrayList<>();
   }
   public void addReservation(Reservation reservation){
     reservations.add(reservation);
   }
 
-  public ArrayList<Reservation> getReservations(){
-    return reservations;
+  public void removeReservation(Reservation reservation){
+    reservations.remove(reservation);
+  }
+
+
+
+  public Reservation get(int index){
+    return reservations.get(index);
+  }
+
+  public int size(){
+    return reservations.size();
   }
   public String toString(){
     String a = "";

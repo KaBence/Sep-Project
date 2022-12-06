@@ -42,7 +42,17 @@ private String SelectedGame;
    */
   public void setSelectedGame(String selectedGame){
     SelectedGame = selectedGame;
-    lblGameName.setText(selectedGame);
+  }
+
+  public void update(){
+
+    lblGameName.setText(viewHandler.getShowBoardGameController().getShowBoardGame().getName());
+    RB1.setSelected(false);
+    RB2.setSelected(false);
+    RB3.setSelected(false);
+    RB4.setSelected(false);
+    RB5.setSelected(false);
+    feedbackTextArea.clear();
   }
 
   public void actionHandler(ActionEvent e)
@@ -78,7 +88,7 @@ private String SelectedGame;
       }
 
       String remarks = feedbackTextArea.getText();
-      if (!selectedGame.isReserved())
+      if (!selectedGame.rankListExist())
       {
         selectedGame.createRankList();
       }

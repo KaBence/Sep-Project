@@ -114,7 +114,10 @@ public class ShowBoardGameController
       viewHandler.getSeeReviewController().update();
       viewHandler.openView("seeReviews");
     }
-    if (e.getSource()==reserve) viewHandler.openView("reservation");
+    if (e.getSource()==reserve) {
+      viewHandler.getMakeReservationController().setSelectedGame(showBoardGame);
+      viewHandler.openView("reservation");
+    }
     if (e.getSource()==borrow) viewHandler.openView("borrow");
     if (e.getSource()==remove){
       Alert alert = new Alert(Alert.AlertType.WARNING,
@@ -150,6 +153,7 @@ public class ShowBoardGameController
         if (available2.isSelected())radioAvl=true;
         MemberList memberList=boardGameManager.getAllMembers();
         BoardGame edited=new BoardGame(nameOfGame.getText(),typeOfBoardGame.getText(),Integer.parseInt(min.getText()),Integer.parseInt(max.getText()),memberList.getMemberByName(owner.getValue().toString()),radioAvl);
+        edited=edited.setLists(showBoardGame);
         BoardGameList boardGameList=boardGameManager.getAllBoardGames();
         for (int i = 0; i < boardGameList.size(); i++)
         {
