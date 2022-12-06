@@ -9,10 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.collections.ObservableList;
+
 import java.time.LocalDate;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Optional;
 
 public class EditEventController {
     @FXML
@@ -54,6 +56,7 @@ public class EditEventController {
     private BoardGameManager boardGameManager;
     private Scene scene;
     public int eventIndex = 0;
+
     public void initialize() {
         tableColName.setCellValueFactory(
                 new PropertyValueFactory<BoardGame, String>("name"));
@@ -68,21 +71,25 @@ public class EditEventController {
 
 
     }
+
     public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager) {
         this.viewHandler = viewHandler;
         this.scene = scene;
         this.boardGameManager = boardGameManager;
     }
-    public void update(){
+
+    public void update() {
         BoardGameList list = boardGameManager.getAllBoardGames();
         for (int i = 0; i < list.size(); i++) {
             chooseGame.getItems().add(list.get(i).getName());
         }
         chooseGame.getSelectionModel().selectFirst();
     }
+
     public Scene getScene() {
         return scene;
     }
+
     public void editEvent(Event event) {
         BoardGameList eventgames = event.getGames();
         EventList list = boardGameManager.getAllEvents();
@@ -94,17 +101,17 @@ public class EditEventController {
         date.setValue(LocalDate.of(event.getDate().getYear(), event.getDate().getMonth(), event.getDate().getDay()));
         time.setText(event.getDate().getStringTime());
         gamesTable.getItems().clear();
-        for (int i = 0; i <eventgames.size(); i++)
-        {
+        for (int i = 0; i < eventgames.size(); i++) {
             gamesTable.getItems().add(eventgames.get(i));
         }
 
     }
+
     public void actionHandler(ActionEvent e) {
         BoardGameList allgameList = boardGameManager.getAllBoardGames();
         BoardGameList gameList = new BoardGameList();
-        ObservableList<BoardGame> data =gamesTable.getItems();
-        for(BoardGame yd : data) {
+        ObservableList<BoardGame> data = gamesTable.getItems();
+        for (BoardGame yd : data) {
             gameList.addBoardGame(yd);
         }
         BoardGame row = gamesTable.getSelectionModel().getSelectedItem();
@@ -118,23 +125,35 @@ public class EditEventController {
         }
         if (e.getSource() == back) viewHandler.openView("manageEvent");
         if (e.getSource() == save) {
-            try {
-                int a = Integer.parseInt(maxCapacity.getText());
-                String b = Integer.toString(date.getValue().getDayOfMonth()) + "/"
-                        + Integer.toString(date.getValue().getMonthValue()) + "/" +
-                        Integer.toString(date.getValue().getYear());
-                EventList list = boardGameManager.getAllEvents();
-                Event event = new Event(MyDate.stringToDate(b, time.getText()),
-                        fLocation.getText(), name.getText(), guests.getText(), a, gameList);
-                ;
-                list.setEvent(event, eventIndex);
-                MyFileHandler.writeToBinaryFile("events.bin", list);
-//                output.setText(event.toString());
-                System.out.println("Events done");
-            } catch (FileNotFoundException ex) {
-                System.out.println("Error opening file ");
-            } catch (IOException ex) {
-                System.out.println("IO Error writing to file ");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Are you  sure you want to save the changes?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                try {
+                    int a = Integer.parseInt(maxCapacity.getText());
+                    String b = Integer.toString(date.getValue().getDayOfMonth()) + "/"
+                            + Integer.toString(date.getValue().getMonthValue()) + "/" +
+                            Integer.toString(date.getValue().getYear());
+                    EventList list = boardGameManager.getAllEvents();
+                    Event event = new Event(MyDate.stringToDate(b, time.getText()),
+                            fLocation.getText(), name.getText(), guests.getText(), a, gameList);
+                    ;
+                    list.setEvent(event, eventIndex);
+                    MyFileHandler.writeToBinaryFile("events.bin", list);
+                    Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                    alert1.setTitle("Event list updated");
+                    alert1.setHeaderText("Event updated successfully!");
+                    alert1.setContentText(null);
+                    alert1.showAndWait();
+                    viewHandler.openView("manageEvent");
+                } catch (FileNotFoundException ex) {
+                    System.out.println("Error opening file ");
+                } catch (IOException ex) {
+                    System.out.println("IO Error writing to file ");
+                }
+            } else {
+                // ... user chose CANCEL or closed the dialog
             }
         }
     }

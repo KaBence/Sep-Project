@@ -123,12 +123,11 @@ public class AddEventController {
                         fLocation.getText(), name.getText(), guests.getText(), a, gameList);
                 list.addEvent(event);
                 MyFileHandler.writeToBinaryFile("events.bin", list);
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Event list updated");
                 alert.setHeaderText("Event added successfully!");
                 alert.setContentText(event.toString());
                 alert.showAndWait();
-//                int x = alert.getResult();
                 clear();
             } catch (FileNotFoundException ex) {
                 System.out.println("Error opening file ");
