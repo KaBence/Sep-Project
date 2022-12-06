@@ -103,7 +103,6 @@ public class AddEventController {
         if (e.getSource() == addGame && chooseGame.getValue() != null) {
             games.getItems().add(allgameList.get(chooseGame.getSelectionModel().getSelectedIndex()));
             gameList.addBoardGame(allgameList.get(chooseGame.getSelectionModel().getSelectedIndex()));
-            System.out.println(gameList);
         }
 
         if (e.getSource() == removeGame && row != null) {
