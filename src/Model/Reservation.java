@@ -45,7 +45,7 @@ public class Reservation implements Serializable
     public boolean equals(Object obj) {
         if (obj == null || getClass() != obj.getClass()) return false;
         Reservation other = (Reservation) obj;
-        return returnDate.equals(other.pickUpDate) && pickUpDate.equals(other.pickUpDate) && borrower.equals(other.borrower);
+        return returnDate.equals(other.returnDate) && pickUpDate.equals(other.pickUpDate) && borrower.equals(other.borrower);
     }
 
 //    public String toString() {
