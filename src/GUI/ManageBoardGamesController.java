@@ -12,6 +12,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.skin.TableRowSkinBase;
 import javafx.scene.input.MouseEvent;
 
+import java.util.Optional;
+
 public class ManageBoardGamesController
 {
   @FXML RadioButton name, type, numOfPlayers;
@@ -83,6 +85,7 @@ public class ManageBoardGamesController
 
   public void tableAction(MouseEvent event)
   {
+
     BoardGame row = games.getSelectionModel().getSelectedItem();
     if (event.getClickCount() == 2 && !(row == null))
     {
@@ -91,9 +94,24 @@ public class ManageBoardGamesController
         viewHandler.openView("reservation");
       else if (viewHandler.getMenuController().getValue() == 2)
         viewHandler.openView("borrow");
-      else if (viewHandler.getMenuController().getValue() == 3)
-        viewHandler.openView("returnGame");
-      //.....................................
+      else if (viewHandler.getMenuController().getValue() == 3) {
+
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText("Board Game Review");
+        alert.setContentText("Do you want to leave a Review?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+          viewHandler.getReturnGameController().setSelectedGame(row.getName());
+          viewHandler.openView("returnGame");
+        }
+        //else {
+          //viewHandler.openView("Menu");
+       // }
+
+      }
       else
         viewHandler.openView("showBoardGame");
     }

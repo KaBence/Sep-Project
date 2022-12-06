@@ -81,6 +81,14 @@ public class BoardGame implements Serializable
     return voteList;
   }
 
+  public RankList getRankList() {
+    return rankList;
+  }
+
+  public void setRankList(RankList rankList) {
+    this.rankList = rankList;
+  }
+
   public boolean equals(Object obj){
     if (obj==null||getClass()!=obj.getClass()) return false;
     BoardGame temp=(BoardGame) obj;
