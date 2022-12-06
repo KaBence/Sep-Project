@@ -50,7 +50,7 @@ public class BoardGameList implements Serializable
     BoardGameList temp=new BoardGameList();
     for (int i = 0; i < boardGames.size(); i++)
     {
-      if (boardGames.get(i).getName().equals(name)) temp.addBoardGame(boardGames.get(i));
+      if (boardGames.get(i).getName().contains(name)) temp.addBoardGame(boardGames.get(i));
     }
     return temp;
   }

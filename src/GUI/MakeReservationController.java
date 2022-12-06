@@ -14,8 +14,8 @@ public class MakeReservationController
 
   @FXML Button save;
   @FXML ComboBox borrower;
-  @FXML DatePicker pickUpDate;
-  @FXML DatePicker returnDate;
+  @FXML DatePicker pickUpDate1;
+  @FXML DatePicker returnDate1;
   @FXML TableView reservations;
   @FXML Button home;
   @FXML Button back;

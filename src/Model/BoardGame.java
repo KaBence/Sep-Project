@@ -27,6 +27,10 @@ public class BoardGame implements Serializable
     voteList=new Voting();
   }
 
+
+
+
+
   public Member getOwner(){
     return owner;
   }
@@ -84,6 +88,15 @@ public class BoardGame implements Serializable
   {
     return voteList;
   }
+  public boolean contains(String name){
+    return toString().contains(name);
+  }
+
+  public void setVoteList(Voting voteList)
+  {
+    this.voteList = voteList;
+  }
+
   public int getVote(){
     return voteList.getVote();
   }
