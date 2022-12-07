@@ -30,13 +30,12 @@ public class RankList implements Serializable
     return ranks.size();
   }
 
-  public int getTotal(){
+  public double getTotal(){
     int sum=0;
     for(int i=0; i<ranks.size();i++){
      sum+= ranks.get(i).getRank();
-
     }
- return sum;
+    return sum;
   }
   public double getAverage(){
     return getTotal()/ranks.size();
