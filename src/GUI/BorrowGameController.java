@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
 
@@ -38,9 +39,21 @@ public class BorrowGameController
     return scene;
   }
 
+  public void initialize(){
+    borrower1.setCellValueFactory(new PropertyValueFactory<Reservation, String>("borrower"));
+    pickUpDate1.setCellValueFactory(new PropertyValueFactory<Reservation, String>("pickUpDate"));
+    returnDate1.setCellValueFactory(new PropertyValueFactory<Reservation, String>("returnDate"));
+  }
+
   public void update()
   {
-
+    reservations.getItems().clear();
+    if (selectedBoardGame.isReserved()){
+      for (int i = 0; i < selectedBoardGame.getReservationList().size(); i++)
+      {
+        reservations.getItems().add(selectedBoardGame.getReservationList().get(i));
+      }
+    }
     clean();
     updateComboBox();
   }
@@ -111,7 +124,7 @@ public class BorrowGameController
         boardgames.addBoardGame(selectedBoardGame);
         boardGameManager.saveAllBoardGames(boardgames);
         Alert alert = new Alert(Alert.AlertType.INFORMATION,
-            "Borrowing was created successfullu", ButtonType.OK);
+            "Borrowing was created successfully", ButtonType.OK);
         alert.setHeaderText(null);
         alert.setTitle("Good Job");
         alert.showAndWait();

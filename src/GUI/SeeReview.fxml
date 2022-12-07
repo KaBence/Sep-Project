@@ -20,5 +20,6 @@
       <Text layoutX="394.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rank" />
       <TextField fx:id="rank" layoutX="438.0" layoutY="42.0" prefHeight="25.0" prefWidth="41.0" />
       <Text layoutX="479.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/5" />
+      <Button fx:id="remove" layoutX="502.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="Remove" />
    </children>
 </AnchorPane>

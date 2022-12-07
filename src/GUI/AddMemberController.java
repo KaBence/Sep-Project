@@ -92,7 +92,7 @@ public class AddMemberController
       MemberList memberList = boardGameManager.getAllMembers();
       Member member1 = new Member(txtFirstName.getText(), lastName.getText(),
           phone.getText(), email.getText());
-      if (!(phone.getText().length() == 6))
+      if (!(phone.getText().length() == 8))
       {
         Alert wrongPhoneFormat = new Alert(Alert.AlertType.ERROR,
             "This phone number is not legit", ButtonType.OK);

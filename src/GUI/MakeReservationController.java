@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.time.LocalDate;
+
 public class MakeReservationController
 {
 
@@ -74,6 +76,27 @@ public class MakeReservationController
       MyDate rd=new MyDate(returnDate1.getValue().getDayOfMonth(),returnDate1.getValue().getMonthValue(),returnDate1.getValue().getYear());
       if (rd.isBefore(pd)){
         Alert alert=new Alert(Alert.AlertType.ERROR,"PickupDate cannot be after ReturnDate",ButtonType.OK);
+        alert.setTitle("Warning");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+        return;
+      }
+      if (rd.isBefore(MyDate.today())||pd.isBefore(MyDate.today())){
+        Alert alert=new Alert(Alert.AlertType.ERROR,"PickupDate or ReturnDate cannot be before today",ButtonType.OK);
+        alert.setTitle("Warning");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+        return;
+      }
+      if (pd.equals(MyDate.today())){
+        Alert alert=new Alert(Alert.AlertType.ERROR,"If the pickup date is today, make a borrow instead",ButtonType.OK);
+        alert.setTitle("Warning");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+        return;
+      }
+      if (borrower.getValue()==null){
+        Alert alert=new Alert(Alert.AlertType.ERROR,"Select a Borrower first",ButtonType.OK);
         alert.setTitle("Warning");
         alert.setHeaderText(null);
         alert.showAndWait();

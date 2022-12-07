@@ -100,7 +100,7 @@ public class showMemberController
           phone.getText(), email.getText());
       memberList.addMember(member1);
 
-      if (!(phone.getText().length() == 6))
+      if (!(phone.getText().length() == 8))
       {
         Alert wrongPhoneFormat = new Alert(Alert.AlertType.ERROR,
             "This phone number is not legit", ButtonType.OK);

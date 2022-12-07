@@ -107,9 +107,18 @@ public class ShowBoardGameController
 
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back){
+      initialize();
+      clear();
       viewHandler.openView("manageBoardGame");
     }
     if (e.getSource()==seeReviews){
+      if (!showBoardGame.isAvailable()){
+        Alert alert=new Alert(Alert.AlertType.ERROR,"You can see reviews of an available Game",ButtonType.OK);
+        alert.setHeaderText(null);
+        alert.setTitle("Warning");
+        alert.showAndWait();
+        return;
+      }
       viewHandler.getSeeReviewController().setSelectedBoardGame(showBoardGame);
       viewHandler.getSeeReviewController().update();
       viewHandler.openView("seeReviews");
@@ -190,6 +199,15 @@ public class ShowBoardGameController
           error.setTitle("Warning");
           error.setHeaderText(null);
           error.showAndWait();
+          return;
+        }
+        if (Integer.parseInt(min.getText())<0||Integer.parseInt(max.getText())<0){
+          Alert alert = new Alert(Alert.AlertType.WARNING,
+              "Number of Players cannot be under zero",
+              ButtonType.OK);
+          alert.setTitle("Warning");
+          alert.setHeaderText(null);
+          alert.showAndWait();
           return;
         }
         if (Integer.parseInt(min.getText())>Integer.parseInt(max.getText())){

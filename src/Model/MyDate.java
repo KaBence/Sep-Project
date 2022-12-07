@@ -104,7 +104,10 @@ public class MyDate implements Serializable
     return day +"/"+ month + "/"+ year +" "+hour+":"+min;
   }
 
-
+  public static MyDate today(){
+    LocalDate current=LocalDate.now();
+    return new MyDate(current.getDayOfMonth(),current.getMonthValue(), current.getYear());
+  }
 
 
   public boolean isBefore(MyDate date2){

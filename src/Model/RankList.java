@@ -21,6 +21,7 @@ public class RankList implements Serializable
   }
 
 
+
   public Rank get(int index){
     return ranks.get(index);
   }

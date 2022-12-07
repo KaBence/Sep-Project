@@ -65,43 +65,63 @@ public class ManageBoardGamesController
     return scene;
   }
 
-  public void actionHandler(ActionEvent e)
-  {
+  public void sorting(){
     BoardGameList boardGameList=boardGameManager.getAllBoardGames();
     BoardGameList tempBoardGameList=new BoardGameList();
     BoardGameList finalBoardGameList=new BoardGameList();
-    if (e.getSource() == back) viewHandler.start();
-    if (e.getSource()==search&&name.isSelected()){
+    if (name.isSelected()){
       tempBoardGameList=boardGameList.getBoardGamesByName(searchField.getText());
     }
-    if (e.getSource()==search&&type.isSelected()){
+    if (type.isSelected()){
       tempBoardGameList=boardGameList.getBoardGamesByType(searchField.getText());
     }
-    if (e.getSource()==search&&numOfPlayers.isSelected()){
+    if (numOfPlayers.isSelected()){
       if (!(searchField.getText().isEmpty())){
         tempBoardGameList=boardGameList.getBoardGamesByNoP(Integer.parseInt(searchField.getText()));
       }
     }
-    if (e.getSource()==search&&available.isSelected()){
+    if (available.isSelected()){
       if (searchField.getText().isEmpty()) finalBoardGameList=boardGameList.getBoardGamesByAvailability(boardGameList,true);
       else finalBoardGameList=boardGameList.getBoardGamesByAvailability(tempBoardGameList,true);
+      BoardGameList temp=boardGameList.getBoardGamesByBorrow(boardGameList);
+      for (int i = 0; i < finalBoardGameList.size(); i++)
+      {
+        for (int j = 0; j < temp.size(); j++)
+        {
+          if (finalBoardGameList.get(i).equals(temp.get(j)))finalBoardGameList.removeBoardGame(finalBoardGameList.get(i));
+        }
+      }
       update(finalBoardGameList);
     }
-    if (e.getSource()==search&&borrowed.isSelected()){
+    if (borrowed.isSelected()){
       if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByBorrow(boardGameList);
       else finalBoardGameList=boardGameList.getBoardGamesByBorrow(tempBoardGameList);
       update(finalBoardGameList);
     }
-    if (e.getSource()==search&&reserved.isSelected()){
+    if (reserved.isSelected()){
       if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByReserved(boardGameList);
       else finalBoardGameList=boardGameList.getBoardGamesByReserved(tempBoardGameList);
       update(finalBoardGameList);
     }
-    if (e.getSource()==search&&allGames.isSelected()){
+    if (allGames.isSelected()){
       if (searchField.getText().isEmpty()) update(boardGameList);
       else update(tempBoardGameList);
     }
+  }
 
+  public void setBorrowed(boolean borrowed)
+  {
+    this.borrowed.setSelected(borrowed);
+  }
+
+  public void setAvailable(boolean avl){
+    this.available.setSelected(avl);
+  }
+
+  public void actionHandler(ActionEvent e)
+  {
+    if (e.getSource() == back) viewHandler.start();
+    if (e.getSource()==search) sorting();
   }
 
   public void ReturnGame(BoardGame boardGame){
@@ -115,7 +135,6 @@ public class ManageBoardGamesController
 
   public void tableAction(MouseEvent event)
   {
-
     BoardGame row = games.getSelectionModel().getSelectedItem();
     if (event.getClickCount() == 2 && !(row == null))
     {

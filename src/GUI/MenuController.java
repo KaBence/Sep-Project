@@ -67,16 +67,22 @@ public class MenuController
     if (e.getSource()==reservation) {
       viewHandler.openView("manageBoardGame");
       value=1;
+      viewHandler.getManageBoardGamesController().setAvailable(true);
+      viewHandler.getManageBoardGamesController().sorting();
     }
     if (e.getSource()==borrow) {
       viewHandler.openView("manageBoardGame");
       viewHandler.getBorrowGameController().updateComboBox();
       value=2;
+      viewHandler.getManageBoardGamesController().setAvailable(true);
+      viewHandler.getManageBoardGamesController().sorting();
 
     }
     if (e.getSource()==returnGame) {
       viewHandler.openView("manageBoardGame");
       value=3;
+      viewHandler.getManageBoardGamesController().setBorrowed(true);
+      viewHandler.getManageBoardGamesController().sorting();
     }
   }
 }
