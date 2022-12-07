@@ -47,6 +47,7 @@ public class BorrowGameController
 
   public void update()
   {
+    returnDate.getEditor().clear();
     reservations.getItems().clear();
     if (selectedBoardGame.isReserved()){
       for (int i = 0; i < selectedBoardGame.getReservationList().size(); i++)

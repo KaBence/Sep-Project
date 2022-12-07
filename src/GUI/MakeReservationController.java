@@ -52,6 +52,8 @@ public class MakeReservationController
   }
 
   public void update(){
+    pickUpDate1.getEditor().clear();
+    returnDate1.getEditor().clear();
     reservations.getItems().clear();
     if (selectedGame.isReserved()){
       for (int i = 0; i < selectedGame.getReservationList().size(); i++)

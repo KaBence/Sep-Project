@@ -19,7 +19,7 @@
          <columns>
             <TableColumn fx:id="borrower1" prefWidth="211.99996662139893" text="Borrower" />
             <TableColumn fx:id="pickUpDate1" prefWidth="195.2000274658203" text="Pick up Date" />
-            <TableColumn fx:id="returnDate1" prefWidth="192.79998779296875" text="Return date" />
+            <TableColumn fx:id="returnDate1" prefWidth="181.0" text="Return date" />
          </columns>
       </TableView>
       <Text layoutX="96.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrower" />
