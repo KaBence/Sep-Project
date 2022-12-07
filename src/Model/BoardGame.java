@@ -134,6 +134,9 @@ public class BoardGame implements Serializable
   {
     return borrow;
   }
+  public Member getBorrower(){
+    return borrow.getBorrower();
+  }
 
   public boolean equals(Object obj){
     if (obj==null||getClass()!=obj.getClass()) return false;

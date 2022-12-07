@@ -96,6 +96,9 @@ public class ManageBoardGamesController
     if (borrowed.isSelected()){
       if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByBorrow(boardGameList);
       else finalBoardGameList=boardGameList.getBoardGamesByBorrow(tempBoardGameList);
+      tableColOwner.setText("Borrower");
+      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("borrower"));
+
       update(finalBoardGameList);
     }
     if (reserved.isSelected()){
