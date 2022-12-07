@@ -87,7 +87,7 @@ public class VoteController
       BoardGame boardGame2 = new BoardGame(boardGame1.getName(),
           boardGame1.getType(), boardGame1.getMinNoP(), boardGame1.getMaxNoP(),
           boardGame1.getOwner(), boardGame1.isAvailable());
-      boardGame2 = boardGame2.setLists(boardGame1);
+      boardGame2.setLists(boardGame1);
       boardGameList.removeBoardGame(boardGame1);
       boardGame2.getVoteList().addVote();
       System.out.println("vote added");
@@ -105,7 +105,7 @@ public class VoteController
       BoardGame boardGame2 = new BoardGame(boardGame1.getName(),
           boardGame1.getType(), boardGame1.getMinNoP(), boardGame1.getMaxNoP(),
           boardGame1.getOwner(), boardGame1.isAvailable());
-      boardGame2 = boardGame2.setLists(boardGame1);
+      boardGame2.setLists(boardGame1);
       boardGameList.removeBoardGame(boardGame1);
       if (boardGame2.getVote() == 0)
       {

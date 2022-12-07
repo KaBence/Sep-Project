@@ -138,6 +138,8 @@ public class AddMemberController
         addGame.setTitle("Good job");
         addGame.setHeaderText(null);
         addGame.showAndWait();
+        viewHandler.getAddBoardGameController().updateComboBox();
+        viewHandler.getAddBoardGameController().setOwner(member1);
       }
       else
       viewHandler.openView("Menu");

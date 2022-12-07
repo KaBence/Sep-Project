@@ -27,13 +27,11 @@ public class BoardGame implements Serializable
     voteList=new Voting();
   }
 
-  public BoardGame setLists(BoardGame previous){
-    BoardGame temp=new BoardGame(previous.name,previous.type,previous.minNoP,previous.maxNoP,previous.owner,previous.availability);
-    if (previous.getRankList()!=null)temp.setRankList(previous.getRankList());
-    if (previous.getVoteList()!=null) temp.setVoteList(previous.getVoteList());
-    if (previous.getReservationList()!=null)temp.setReservationList(previous.getReservationList());
-    if (previous.getBorrow()!=null)temp.setBorrow(previous.borrow);
-    return temp;
+  public void setLists(BoardGame previous){
+    if (previous.getRankList()!=null)setRankList(previous.getRankList());
+    if (previous.getVoteList()!=null) setVoteList(previous.getVoteList());
+    if (previous.getReservationList()!=null)setReservationList(previous.getReservationList());
+    if (previous.getBorrow()!=null)setBorrow(previous.borrow);
   }
 
   public Member getOwner(){

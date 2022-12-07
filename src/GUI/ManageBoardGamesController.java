@@ -104,6 +104,15 @@ public class ManageBoardGamesController
 
   }
 
+  public void ReturnGame(BoardGame boardGame){
+    BoardGameList boardGameList=boardGameManager.getAllBoardGames();
+    for (int i = 0; i < boardGameList.size(); i++)
+    {
+      if (boardGameList.get(i).equals(boardGame))boardGameList.get(i).setBorrow(null);
+    }
+    boardGameManager.saveAllBoardGames(boardGameList);
+  }
+
   public void tableAction(MouseEvent event)
   {
 
@@ -124,22 +133,35 @@ public class ManageBoardGamesController
         }
         viewHandler.openView("reservation");
       }
-      else if (viewHandler.getMenuController().getValue() == 2)
+      else if (viewHandler.getMenuController().getValue() == 2){
+        if (!row.isAvailable()){
+          Alert alert=new Alert(Alert.AlertType.ERROR,"You can only borrow an available Game",ButtonType.OK);
+          alert.setHeaderText(null);
+          alert.setTitle("Warning");
+          alert.showAndWait();
+          return;
+        }
         viewHandler.openView("borrow");
+      }
       else if (viewHandler.getMenuController().getValue() == 3) {
 
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+      if (!row.isBorrowed()){
+        Alert alert=new Alert(Alert.AlertType.ERROR,"You can only return a borrowed game",ButtonType.OK);
+        alert.setHeaderText(null);
+        alert.setTitle("Warning");
+        alert.showAndWait();
+        return;
+      }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Would you like to leave a review?",ButtonType.YES,ButtonType.NO);
         alert.setTitle("Confirmation Dialog");
-        alert.setHeaderText("Board Game Review");
-        alert.setContentText("Do you want to leave a Review?");
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
+        alert.setHeaderText(null);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.YES){
           viewHandler.getReturnGameController().setSelectedGame(row.getName());
           viewHandler.openView("returnGame");
         }
         else {
+          ReturnGame(row);
           viewHandler.openView("Menu");
         }
 

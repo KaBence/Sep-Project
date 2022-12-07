@@ -34,6 +34,13 @@ public class AddBoardGameController
   }
 
   public void addBoardGame(boolean avl){
+    if (name.getText().isEmpty()||type.getText().isEmpty()||min.getText().isEmpty()||max.getText().isEmpty()){
+      Alert alert=new Alert(Alert.AlertType.WARNING,"Fill every field before adding a boardGame",ButtonType.OK);
+      alert.setTitle("Warning");
+      alert.setHeaderText(null);
+      alert.showAndWait();
+      return;
+    }
     BoardGame temp=new BoardGame(name.getText(),type.getText(), Integer.parseInt(min.getText()),Integer.parseInt(max.getText()),owner.getValue(),avl);
     BoardGameList boardGameList=boardGameManager.getAllBoardGames();
     for (int i = 0; i < boardGameList.size(); i++)
@@ -78,6 +85,7 @@ public class AddBoardGameController
     type.clear();
     min.clear();
     max.clear();
+    owner.getSelectionModel().selectFirst();
   }
 
   public void updateComboBox(){
@@ -88,12 +96,26 @@ public class AddBoardGameController
     {
       owner.getItems().add(members.get(i));
     }
+
+  }
+
+  public void setOwner(Member temp){
+    owner.getSelectionModel().select(temp);
   }
 
   public void actionHandler(ActionEvent e)
   {
     if (e.getSource()==back) viewHandler.openView("Menu");
     if (e.getSource()==addToSystem) addBoardGame(true);
-    if (e.getSource()==addForVoting) addBoardGame(false);
+    if (e.getSource()==addForVoting){
+      if (owner.getValue()!=null){
+        Alert alert=new Alert(Alert.AlertType.ERROR,"No owner is allowed when adding for voting",ButtonType.OK);
+        alert.setHeaderText(null);
+        alert.setTitle("Warning");
+        alert.showAndWait();
+        return;
+      }
+      addBoardGame(false);
+    }
   }
 }

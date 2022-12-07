@@ -17,8 +17,8 @@
       <Button fx:id="removeVote" layoutX="490.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionHandler" text="Remove vote" />
       <TableView fx:id="games" layoutX="24.0" layoutY="109.0" prefHeight="246.0" prefWidth="555.0">
          <columns>
-            <TableColumn fx:id="TName" prefWidth="483.0" text="Name" />
-            <TableColumn fx:id="TVote" minWidth="0.0" prefWidth="79.20000000000005" text="Vote" />
+            <TableColumn fx:id="TName" prefWidth="462.0" text="Name" />
+            <TableColumn fx:id="TVote" minWidth="0.0" prefWidth="91.0" text="Vote" />
          </columns>
       </TableView>
       <Text layoutX="63.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a game by Name:" wrappingWidth="177.45428466796875" />

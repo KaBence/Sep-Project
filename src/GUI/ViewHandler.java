@@ -165,6 +165,10 @@ public class ViewHandler
     return makeReservationController;
   }
 
+  public ManageBoardGamesController getManageBoardGamesController() {
+    return manageBoardGamesController;
+  }
+
   public SeeReviewController getSeeReviewController()
   {
     return seeReviewController;

@@ -118,7 +118,16 @@ public class ShowBoardGameController
       viewHandler.getMakeReservationController().setSelectedGame(showBoardGame);
       viewHandler.openView("reservation");
     }
-    if (e.getSource()==borrow) viewHandler.openView("borrow");
+    if (e.getSource()==borrow) {
+      if (!showBoardGame.isAvailable()){
+        Alert alert=new Alert(Alert.AlertType.ERROR,"You can only borrow an available Game",ButtonType.OK);
+        alert.setHeaderText(null);
+        alert.setTitle("Warning");
+        alert.showAndWait();
+        return;
+      }
+      viewHandler.openView("borrow");
+    }
     if (e.getSource()==remove){
       Alert alert = new Alert(Alert.AlertType.WARNING,
           "Do you really want to remove this game from the system?",
@@ -153,7 +162,7 @@ public class ShowBoardGameController
         if (available2.isSelected())radioAvl=true;
         MemberList memberList=boardGameManager.getAllMembers();
         BoardGame edited=new BoardGame(nameOfGame.getText(),typeOfBoardGame.getText(),Integer.parseInt(min.getText()),Integer.parseInt(max.getText()),memberList.getMemberByName(owner.getValue().toString()),radioAvl);
-        edited=edited.setLists(showBoardGame);
+        edited.setLists(showBoardGame);
         BoardGameList boardGameList=boardGameManager.getAllBoardGames();
         for (int i = 0; i < boardGameList.size(); i++)
         {
@@ -164,6 +173,13 @@ public class ShowBoardGameController
         }
         if (available2.isSelected()&&owner.getValue().toString().equals("Nobody")){
           Alert error=new Alert(Alert.AlertType.ERROR,"If the game should be available, It has to have an owner",ButtonType.OK);
+          error.setTitle("Warning");
+          error.setHeaderText(null);
+          error.showAndWait();
+          return;
+        }
+        if (nonAvailable2.isSelected()&&!owner.getValue().toString().equals("Nobody")){
+          Alert error=new Alert(Alert.AlertType.ERROR,"If the game should be non-available, The owner has to be Nobody",ButtonType.OK);
           error.setTitle("Warning");
           error.setHeaderText(null);
           error.showAndWait();
@@ -180,13 +196,16 @@ public class ShowBoardGameController
         }
         boardGameList.addBoardGame(edited);
         boardGameManager.saveAllBoardGames(boardGameList);
+        viewHandler.getManageBoardGamesController().update(boardGameList);
         Alert alert=new Alert(Alert.AlertType.INFORMATION,"Edit Successful",ButtonType.OK);
         alert.setTitle("Good Job");
         alert.setHeaderText(null);
         alert.showAndWait();
         initialize();
         edit.setText("Edit");
+
         viewHandler.openView("manageBoardGame");
+
       }
     }
 

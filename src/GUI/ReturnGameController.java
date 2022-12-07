@@ -93,6 +93,7 @@ private String SelectedGame;
         selectedGame.createRankList();
       }
       selectedGame.getRankList().addRank(new Rank(remarks, rating));
+      selectedGame.setBorrow(null);
       BoardGameList boardGameList=boardGameManager.getAllBoardGames();
       for (int i = 0; i < boardGameList.size(); i++)
       {
