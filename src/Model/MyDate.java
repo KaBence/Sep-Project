@@ -110,10 +110,31 @@ public class MyDate implements Serializable
   }
 
 
-  public boolean isBefore(MyDate date2){
+  /*public boolean isBefore(MyDate date2){
     if ((year<date2.year) || (day<date2.day && (month<date2.month || year<date2.year)) || (day>date2.day && (month<date2.month || year<date2.year)) || (month<date2.month && year==date2.year || month>date2.month && year<date2.year) || (day < date2.day)){
       return true;
     }
-    else return false;
+    else return false;*/
+
+  public boolean isBefore(MyDate date2)
+  {
+    if (year < date2.year)
+    {
+      return true;
+    }
+    else if (year == date2.year && month < date2.month)
+    {
+      return true;
+    }
+    else if (year == date2.year && month == date2.month && day < date2.day)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+
   }
+
 }
