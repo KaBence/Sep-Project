@@ -149,4 +149,8 @@ public class BoardGame implements Serializable
     }
   }
 
+  public String toString(){
+    return name;
+  }
+
 }
