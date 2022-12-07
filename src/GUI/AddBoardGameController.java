@@ -56,6 +56,15 @@ public class AddBoardGameController
         return;
       }
     }
+    if (Integer.parseInt(min.getText())<0||Integer.parseInt(max.getText())<0){
+      Alert alert = new Alert(Alert.AlertType.WARNING,
+          "Number of Players cannot be under zero",
+          ButtonType.OK);
+      alert.setTitle("Warning");
+      alert.setHeaderText(null);
+      alert.showAndWait();
+      return;
+    }
     if (Integer.parseInt(min.getText())>Integer.parseInt(max.getText())){
       Alert alert = new Alert(Alert.AlertType.WARNING,
           "Minimum number of players cannot be bigger than the maximum number of players",

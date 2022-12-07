@@ -115,6 +115,13 @@ public class ShowBoardGameController
       viewHandler.openView("seeReviews");
     }
     if (e.getSource()==reserve) {
+      if (!showBoardGame.isAvailable()){
+        Alert alert=new Alert(Alert.AlertType.ERROR,"You can only reserve an available Game",ButtonType.OK);
+        alert.setHeaderText(null);
+        alert.setTitle("Warning");
+        alert.showAndWait();
+        return;
+      }
       viewHandler.getMakeReservationController().setSelectedGame(showBoardGame);
       viewHandler.openView("reservation");
     }
