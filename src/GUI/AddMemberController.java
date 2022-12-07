@@ -89,6 +89,13 @@ public class AddMemberController
 
     if (e.getSource() == btnAddTheMember)
     {
+      if (txtFirstName.getText().isEmpty()||lastName.getText().isEmpty()||email.getText().isEmpty()||phone.getText().isEmpty()){
+        Alert alert=new Alert(Alert.AlertType.WARNING,"Fill every field before adding a Member",ButtonType.OK);
+        alert.setTitle("Warning");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+        return;
+      }
       MemberList memberList = boardGameManager.getAllMembers();
       Member member1 = new Member(txtFirstName.getText(), lastName.getText(),
           phone.getText(), email.getText());
