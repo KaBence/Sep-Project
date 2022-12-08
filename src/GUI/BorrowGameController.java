@@ -98,15 +98,18 @@ public class BorrowGameController
     {
       borrower.getItems().add(members.get(i));
     }
-    for (int i = 0; i < selectedBoardGame.getReservationList().size(); i++)
-    {
-      if (selectedBoardGame.getReservationList().get(i).getPickUpDate().equals(MyDate.today())){
-        returnDate.setValue(selectedBoardGame.getReservationList().get(i).getReturnDate()
-            .convertToLocalDate());
-        returnDate.getEditor().setText(selectedBoardGame.getReservationList().get(i).getReturnDate().toString());
-        break;
+    if (selectedBoardGame.isReserved()){
+      for (int i = 0; i < selectedBoardGame.getReservationList().size(); i++)
+      {
+        if (selectedBoardGame.getReservationList().get(i).getPickUpDate().equals(MyDate.today())){
+          returnDate.setValue(selectedBoardGame.getReservationList().get(i).getReturnDate()
+              .convertToLocalDate());
+          returnDate.getEditor().setText(selectedBoardGame.getReservationList().get(i).getReturnDate().toString());
+          break;
+        }
       }
     }
+
   }
 
   /**
