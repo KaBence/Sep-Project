@@ -64,11 +64,11 @@ footer{
     /*Margin is needed because of bootstrap. The container class puts a 15px margin and the the row class negates it. Here I didn't use the row class, that's why I did it manually*/
 }
 
-.gamesTable{
+.XmlTable{
     color: white;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.2);
-    width: 40%;
+    width: 60%;
     margin: auto;
     margin-bottom: 40px;
     border: 1px solid wheat;
@@ -77,11 +77,15 @@ footer{
 }
 
 
-.gamesTable td{
+.XmlTable td{
     padding: 1%;
     border: 1px solid wheat;
     box-sizing: border-box;
-    width: 150px;
+    width: 20%;
+}
+
+#tableEvents td{
+    width: 10%;
 }
 
 @media screen and (max-width: 768px) {

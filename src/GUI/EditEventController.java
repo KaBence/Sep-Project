@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
@@ -93,7 +92,7 @@ public class EditEventController {
     public void editEvent(Event event) {
         BoardGameList eventgames = event.getGames();
         EventList list = boardGameManager.getAllEvents();
-        name.setText(event.getName());
+        name.setText(event.getEventName());
         fLocation.setText(event.getLocation());
         maxCapacity.setText(Integer.toString(event.getCapacity()));
         guests.setText(event.getGuests());

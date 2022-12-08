@@ -2,9 +2,7 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import Util.MyFileHandler;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
 public class EventList implements Serializable
 {
     private ArrayList<Event> events;
@@ -60,7 +58,7 @@ public class EventList implements Serializable
         EventList list1 = new EventList();
         String tempName;
         for (int i = 0; i< events.size(); i++) {
-            tempName = events.get(i).getName();
+            tempName = events.get(i).getEventName();
             if (tempName.toLowerCase().contains(name)) {
                 list1.addEvent(events.get(i));
             }
