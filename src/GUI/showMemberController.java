@@ -11,6 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
+/**
+ * class for showing information about selected member
+ * @Michaela Veselovska
+ */
 public class showMemberController
 {
 
@@ -26,6 +30,12 @@ public class showMemberController
   private BoardGameManager boardGameManager;
   private Scene scene;
 
+  /**
+   * method to be ablo to connect with other classes
+   * @param viewHandler
+   * @param scene
+   * @param boardGameManager
+   */
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
   {
@@ -34,21 +44,36 @@ public class showMemberController
     this.boardGameManager = boardGameManager;
   }
 
+  /**
+   * method for setting the scene
+   * @return
+   */
   public Scene getScene()
   {
     return scene;
   }
 
+  /**
+   * method for getting the member
+   * @return member
+   */
   public Member getMember()
   {
     return member;
   }
 
+  /**
+   * method for setting the member
+   * @param member
+   */
   public void setMember(Member member)
   {
     this.member = member;
   }
 
+  /**
+   * method for getting the information from text fields
+   */
   public void update()
   {
     firstName.setText(member.getFirstName());
@@ -57,6 +82,9 @@ public class showMemberController
     email.setText(member.getEmail());
   }
 
+  /**
+   * method for clearing the text fields
+   */
   public void clear()
   {
     firstName.clear();
@@ -65,12 +93,18 @@ public class showMemberController
     email.clear();
   }
 
+  /**
+   * methods for button functionality
+   * @param e is called when an action happens
+   */
   public void actionHandler(ActionEvent e)
   {
+    //goin back to the menu
     if (e.getSource() == back)
     {
       viewHandler.openView("Menu");
     }
+    //delete and alert for it
     if (e.getSource() == delete)
     {
       Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
@@ -78,8 +112,11 @@ public class showMemberController
       alert.setTitle("You are killing someone");
       alert.setHeaderText(null);
       alert.showAndWait();
+      //you say ...YES please do delete me
       if (alert.getResult() == ButtonType.YES)
       {
+        //getting all members from file
+        //removing member from a file
         MemberList memberList = boardGameManager.getAllMembers();
         memberList.removeMember(member);
         System.out.println("removing done");
@@ -88,18 +125,26 @@ public class showMemberController
         alert1.setTitle("You ruined someone but whatever");
         alert1.setHeaderText(null);
         alert1.showAndWait();
+        //updating of file after deleting
         boardGameManager.saveAllMembers(memberList);
         viewHandler.openView("manageMember");
       }
     }
+    //after editing ..button save
     if (e.getSource() == save)
     {
+
+      //getting all members
+      //removing selected member
+      //creating new member with the edited values
+      //adding new member to member list and saving
+
       MemberList memberList = boardGameManager.getAllMembers();
       memberList.removeMember(member);
       Member member1 = new Member(firstName.getText(), lastName.getText(),
           phone.getText(), email.getText());
       memberList.addMember(member1);
-
+//alert for incorrect number
       if (!(phone.getText().length() == 8))
       {
         Alert wrongPhoneFormat = new Alert(Alert.AlertType.ERROR,
@@ -109,6 +154,7 @@ public class showMemberController
         wrongPhoneFormat.showAndWait();
         return;
       }
+      //alert for incorect email format
       if(!(email.getText().contains("@"))){
         Alert wrongEmailFormat = new Alert(Alert.AlertType.ERROR,
             "This email should look like: name@example.domain", ButtonType.OK);
@@ -117,11 +163,13 @@ public class showMemberController
         wrongEmailFormat.showAndWait();
         return;
       }
+      //alert for successful edit
       Alert alert1 = new Alert(Alert.AlertType.INFORMATION,
           "Member edited successfully", ButtonType.OK);
       alert1.setTitle("Good job");
       alert1.setHeaderText(null);
       alert1.showAndWait();
+      //saving to file and updating
       boardGameManager.saveAllMembers(memberList);
       viewHandler.getManageMemberController().update();
       viewHandler.openView("manageMember");

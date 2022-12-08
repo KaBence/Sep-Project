@@ -12,6 +12,10 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 
+/**
+ * a class for editing the existing members
+ * @Michaela Veselovska
+ */
 public class ManageMemberController
 {
 
@@ -35,8 +39,12 @@ public class ManageMemberController
   private MemberList memberList;
   private Scene scene;
 
+  /**
+   * method that is automatically call when loading
+   */
   public void initialize()
   {
+    //setting the table
     TableColMemberFirstName.setCellValueFactory(
         new PropertyValueFactory<Member, String>("firstName"));
     TableColMemberLastName.setCellValueFactory(
@@ -48,6 +56,13 @@ public class ManageMemberController
 
   }
 
+  /**
+   * method for setting the scene
+   *
+   * @param viewHandler
+   * @param scene
+   * @param boardGameManager
+   */
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
   {
@@ -57,6 +72,9 @@ public class ManageMemberController
 
   }
 
+  /**
+   * method for adding member into list
+   */
   public void update()
   {
     tableView.getItems().clear();
@@ -67,6 +85,11 @@ public class ManageMemberController
     }
   }
 
+  /**
+   * method for adding a member with the given parameter
+   *
+   * @param list of members
+   */
   public void updateList(MemberList list)
   {
     tableView.getItems().clear();
@@ -77,20 +100,33 @@ public class ManageMemberController
     }
   }
 
+  /**
+   * setting the scene
+   *
+   * @return scene
+   */
   public Scene getScene()
   {
     return scene;
   }
 
+  /**
+   * methods for functionality of the buttons
+   *
+   * @param event is called when something happens
+   *              radioButtons for selection
+   */
   public void actionHandler(ActionEvent event)
   {
+    //create a list of all games
     MemberList memberList = boardGameManager.getAllMembers();
+    //return to menu
     if (event.getSource() == back)
     {
       viewHandler.openView("Menu");
     }
 
-
+    //if nothing is selected all games should show
     if (name.isSelected() && event.getSource() == searchButton)
     {
       if (search.getText().isEmpty())
@@ -99,11 +135,13 @@ public class ManageMemberController
       }
       else
       {
+        //searching by name
         MemberList memberList1 = memberList.getMembersByName(search.getText());
         updateList(memberList1);
       }
 
     }
+    //searching by phone
     if (phone.isSelected() && event.getSource() == searchButton)
     {
       if (search.getText().isEmpty())
@@ -112,11 +150,13 @@ public class ManageMemberController
       }
       else
       {
-        MemberList memberList2 = memberList.getMembersByPhoneNumber(search.getText());
+        MemberList memberList2 = memberList.getMembersByPhoneNumber(
+            search.getText());
         updateList(memberList2);
       }
 
     }
+    //searching by email
     if (email.isSelected() && event.getSource() == searchButton)
     {
       if (search.getText().isEmpty())
@@ -132,9 +172,15 @@ public class ManageMemberController
 
     }
   }
+
+  /**
+   * method for changing the scenes on double click
+   *
+   * @param e is called when an action happens
+   */
   public void tableAction(MouseEvent e)
   {
-
+    //selecting a row and opening show member
     Member row = tableView.getSelectionModel().getSelectedItem();
     if (e.getClickCount() == 2 && !(row == null))
     {
