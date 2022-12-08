@@ -97,60 +97,61 @@ public class ManageBoardGamesController
    */
 
   public void sorting(){
-    BoardGameList boardGameList=boardGameManager.getAllBoardGames();
-    BoardGameList tempBoardGameList=new BoardGameList();
-    BoardGameList finalBoardGameList=new BoardGameList();
+    BoardGameList boardGameList=boardGameManager.getAllBoardGames(); //
+    BoardGameList tempBoardGameList=new BoardGameList();//O(1) creates an empty boardGameList
+    BoardGameList finalBoardGameList=new BoardGameList();//O(1) creates an empty boardGameList
 
-    if (name.isSelected()){
-      tempBoardGameList=boardGameList.getBoardGamesByName(searchField.getText());
+    if (name.isSelected()){// O(1)
+      tempBoardGameList=boardGameList.getBoardGamesByName(searchField.getText()); //O(n) this method has a for loop inside that takes O(n) time
     }
-    if (type.isSelected()){
-      tempBoardGameList=boardGameList.getBoardGamesByType(searchField.getText());
+    if (type.isSelected()){// O(1)
+      tempBoardGameList=boardGameList.getBoardGamesByType(searchField.getText());//O(n) this method has a for loop inside that takes O(n) time
     }
-    if (numOfPlayers.isSelected()){
-      if (!(searchField.getText().isEmpty())){
-        tempBoardGameList=boardGameList.getBoardGamesByNoP(Integer.parseInt(searchField.getText()));
+    if (numOfPlayers.isSelected()){// O(1)
+      if (!(searchField.getText().isEmpty())){// O(1)
+        tempBoardGameList=boardGameList.getBoardGamesByNoP(Integer.parseInt(searchField.getText()));//O(n) this method has a for loop inside that takes O(n) time
       }
     }
     //if available is selected it shows all available games minus the borrowed games
-    if (available.isSelected()){
-      tableColOwner.setText("owner");
-      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));
-      if (searchField.getText().isEmpty()) finalBoardGameList=boardGameList.getBoardGamesByAvailability(boardGameList,true);
+    if (available.isSelected()){// O(1)
+      tableColOwner.setText("owner");// O(1)
+      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));// O(1)
+      if (searchField.getText().isEmpty()) finalBoardGameList=boardGameList.getBoardGamesByAvailability(boardGameList,true);// If is O(1) and //O(n) this method has a for loop inside that takes O(n) time
       else finalBoardGameList=boardGameList.getBoardGamesByAvailability(tempBoardGameList,true);
-      BoardGameList temp=boardGameList.getBoardGamesByBorrow(boardGameList);
-      for (int i = 0; i < finalBoardGameList.size(); i++)
+      BoardGameList temp=boardGameList.getBoardGamesByBorrow(boardGameList); //O(n) this method has a for loop inside that takes O(n) time
+      for (int i = 0; i < finalBoardGameList.size(); i++)//The for loop takes 2n+2
       {
-        for (int j = 0; j < temp.size(); j++)
+        for (int j = 0; j < temp.size(); j++) //the for loop takes 2n+2 at every object of the first loop
         {
-          if (finalBoardGameList.get(i).equals(temp.get(j)))finalBoardGameList.removeBoardGame(finalBoardGameList.get(i));
+          if (finalBoardGameList.get(i).equals(temp.get(j)))finalBoardGameList.removeBoardGame(finalBoardGameList.get(i));//if takes O(1) time and the removing takes o(1) time as well
         }
       }
-      update(finalBoardGameList);
+      //the nested for loop takes O(n^2)
+      update(finalBoardGameList); //O(n) this method has a for loop inside that takes O(n) time
     }
     //Shows the borrowed games and changes the owner column to borrower
-    if (borrowed.isSelected()){
-      if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByBorrow(boardGameList);
+    if (borrowed.isSelected()){// O(1)
+      if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByBorrow(boardGameList); // If is O(1) and //O(n) this method has a for loop inside that takes O(n) time
       else finalBoardGameList=boardGameList.getBoardGamesByBorrow(tempBoardGameList);
-      tableColOwner.setText("Borrower");
-      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("borrower"));
+      tableColOwner.setText("Borrower");// O(1)
+      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("borrower"));// O(1)
 
-      update(finalBoardGameList);
+      update(finalBoardGameList); //O(n) this method has a for loop inside that takes O(n) time
     }
     //Shows the reserved games
-    if (reserved.isSelected()){
-      tableColOwner.setText("owner");
+    if (reserved.isSelected()){// O(1)
+      tableColOwner.setText("owner");// O(1)
       tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));
-      if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByReserved(boardGameList);
+      if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByReserved(boardGameList); // If is O(1) and //O(n) this method has a for loop inside that takes O(n) time
       else finalBoardGameList=boardGameList.getBoardGamesByReserved(tempBoardGameList);
-      update(finalBoardGameList);
+      update(finalBoardGameList);//O(n) this method has a for loop inside that takes O(n) time
     }
     //shows every game
-    if (allGames.isSelected()){
-      tableColOwner.setText("owner");
-      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));
-      if (searchField.getText().isEmpty()) update(boardGameList);
-      else update(tempBoardGameList);
+    if (allGames.isSelected()){// O(1)
+      tableColOwner.setText("owner");// O(1)
+      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));// O(1)
+      if (searchField.getText().isEmpty()) update(boardGameList); // If is O(1) and //O(n) this method has a for loop inside that takes O(n) time
+      else update(tempBoardGameList);//O(n) this method has a for loop inside that takes O(n) time
     }
   }
 
