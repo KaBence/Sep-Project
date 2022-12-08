@@ -11,8 +11,9 @@ public class Event implements Serializable
     private int maxCapacity;
     private BoardGameList games;
     private int capacity;
+    private MemberList members;
 
-    public Event(MyDate date, String location, String name, String guests, int capacity, BoardGameList games){
+    public Event(MyDate date, String location, String name, String guests, int capacity, BoardGameList games, MemberList members){
 
         this.location = location;
         this.name = name;
@@ -26,6 +27,7 @@ public class Event implements Serializable
         }
         this.guests = a;
         this.games = games;
+        this.members = members;
     }
 
         public void setCapacity(int maxCapacity)
@@ -44,7 +46,7 @@ public class Event implements Serializable
     }
 
     public String toString(){
-        return name + " on " +date+ " at " + location +" with a max capcity of "+capacity +" players, " + games.toString()+" and having these guests: \n" + guests;
+        return name + " on " +date+ " at " + location +" with a max capcity of "+capacity +" players, playing these games" + games.toString()+"with these members: " +members+" and having these guests: \n" + guests;
     }
     public void setLocation(String location){
         this.location = location;
@@ -75,11 +77,17 @@ public class Event implements Serializable
         for (int i = 0; i< guests.size();i++){
             a+= guests.get(i);
         }
-        return new Event(date,location,name, a,capacity,games);
+        return new Event(date,location,name, a,capacity,games, members);
     }
 
     public BoardGameList getGames() {
         return games;
+    }
+    public MemberList getMembers(){
+        return members;
+    }
+    public void setMembers(MemberList list){
+        members = list;
     }
 
     public void addGames(BoardGame boardGame){
@@ -93,6 +101,9 @@ public class Event implements Serializable
     }
     public String getGuests(){
         return guestsString;
+    }
+    public ArrayList<String> getGuestsArr(){
+        return guests;
     }
     public void addGuest(String guest) {
         guests.add(guest);
