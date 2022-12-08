@@ -159,47 +159,49 @@ public class BorrowGameController
           alert.showAndWait();
           return;
         }
-        for (int i = 0; i < selectedBoardGame.getReservationList().size(); i++)
-        {
-          //the dates are outside of a reservation
-          if (pd.isBefore(selectedBoardGame.getReservationList().get(i).getPickUpDate())&&selectedBoardGame.getReservationList().get(i).getReturnDate().isBefore(rd)){
-            Alert alert=new Alert(Alert.AlertType.ERROR,"1There is a collision in reservations, please select another date",ButtonType.OK);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.showAndWait();
-            return;
-          }
-          //the pickup date and return date is the same with a reservation
-          if (pd.equals(selectedBoardGame.getReservationList().get(i).getPickUpDate())&&rd.equals(selectedBoardGame.getReservationList().get(i).getReturnDate())){
-            Alert alert=new Alert(Alert.AlertType.ERROR,"Reservation for these days already exists",ButtonType.OK);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.showAndWait();
-            return;
-          }
-          //pickup date in between and return date is after
-          if (selectedBoardGame.getReservationList().get(i).getPickUpDate().isBefore(pd)&&selectedBoardGame.getReservationList().get(i).getReturnDate().isBefore(rd)&&pd.isBefore(selectedBoardGame.getReservationList().get(i).getReturnDate())){
-            Alert alert=new Alert(Alert.AlertType.ERROR,"2There is a collision in reservations, please select another date",ButtonType.OK);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.showAndWait();
-            return;
-          }
-          //Both are in between
-          if (selectedBoardGame.getReservationList().get(i).getPickUpDate().isBefore(pd)&& rd.isBefore(selectedBoardGame.getReservationList().get(i).getReturnDate())){
-            Alert alert=new Alert(Alert.AlertType.ERROR,"3There is a collision in reservations, please select another date",ButtonType.OK);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.showAndWait();
-            return;
-          }
-          //pickupdate is before a reservation and return date is in between
-          if (pd.isBefore(selectedBoardGame.getReservationList().get(i).getPickUpDate())&& rd.isBefore(selectedBoardGame.getReservationList().get(i).getReturnDate())&& !rd.isBefore(selectedBoardGame.getReservationList().get(i).getPickUpDate())){
-            Alert alert=new Alert(Alert.AlertType.ERROR,"4There is a collision in reservations, please select another date",ButtonType.OK);
-            alert.setTitle("Warning");
-            alert.setHeaderText(null);
-            alert.showAndWait();
-            return;
+        if (selectedBoardGame.isReserved()){
+          for (int i = 0; i < selectedBoardGame.getReservationList().size(); i++)
+          {
+            //the dates are outside of a reservation
+            if (pd.isBefore(selectedBoardGame.getReservationList().get(i).getPickUpDate())&&selectedBoardGame.getReservationList().get(i).getReturnDate().isBefore(rd)){
+              Alert alert=new Alert(Alert.AlertType.ERROR,"1There is a collision in reservations, please select another date",ButtonType.OK);
+              alert.setTitle("Warning");
+              alert.setHeaderText(null);
+              alert.showAndWait();
+              return;
+            }
+            //the pickup date and return date is the same with a reservation
+            if (pd.equals(selectedBoardGame.getReservationList().get(i).getPickUpDate())&&rd.equals(selectedBoardGame.getReservationList().get(i).getReturnDate())){
+              Alert alert=new Alert(Alert.AlertType.ERROR,"Reservation for these days already exists",ButtonType.OK);
+              alert.setTitle("Warning");
+              alert.setHeaderText(null);
+              alert.showAndWait();
+              return;
+            }
+            //pickup date in between and return date is after
+            if (selectedBoardGame.getReservationList().get(i).getPickUpDate().isBefore(pd)&&selectedBoardGame.getReservationList().get(i).getReturnDate().isBefore(rd)&&pd.isBefore(selectedBoardGame.getReservationList().get(i).getReturnDate())){
+              Alert alert=new Alert(Alert.AlertType.ERROR,"2There is a collision in reservations, please select another date",ButtonType.OK);
+              alert.setTitle("Warning");
+              alert.setHeaderText(null);
+              alert.showAndWait();
+              return;
+            }
+            //Both are in between
+            if (selectedBoardGame.getReservationList().get(i).getPickUpDate().isBefore(pd)&& rd.isBefore(selectedBoardGame.getReservationList().get(i).getReturnDate())){
+              Alert alert=new Alert(Alert.AlertType.ERROR,"3There is a collision in reservations, please select another date",ButtonType.OK);
+              alert.setTitle("Warning");
+              alert.setHeaderText(null);
+              alert.showAndWait();
+              return;
+            }
+            //pickupdate is before a reservation and return date is in between
+            if (pd.isBefore(selectedBoardGame.getReservationList().get(i).getPickUpDate())&& rd.isBefore(selectedBoardGame.getReservationList().get(i).getReturnDate())&& !rd.isBefore(selectedBoardGame.getReservationList().get(i).getPickUpDate())){
+              Alert alert=new Alert(Alert.AlertType.ERROR,"4There is a collision in reservations, please select another date",ButtonType.OK);
+              alert.setTitle("Warning");
+              alert.setHeaderText(null);
+              alert.showAndWait();
+              return;
+            }
           }
         }
 
