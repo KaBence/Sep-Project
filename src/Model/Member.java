@@ -18,7 +18,6 @@ public class Member implements Serializable
     this.lastName = lastName;
     this.phoneNumber = phoneNumber;
     this.email = email;
-
   }
 
   //Getting and setting names
@@ -42,7 +41,9 @@ public class Member implements Serializable
   {
     this.lastName = lastName;
   }
-
+public String getFullName(){
+    return firstName + " " + lastName;
+}
   public void setPhoneNumber(String phoneNumber)
   {
     this.phoneNumber = phoneNumber;
