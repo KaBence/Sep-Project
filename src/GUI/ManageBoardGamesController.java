@@ -175,6 +175,7 @@ public class ManageBoardGamesController
           alert.showAndWait();
           return;
         }
+        viewHandler.getBorrowGameController().updateUpperPart();
         viewHandler.openView("borrow");
       }
       else if (viewHandler.getMenuController().getValue() == 3) {

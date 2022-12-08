@@ -56,7 +56,7 @@ public class BorrowGameController
       }
     }
     clean();
-    updateComboBox();
+    updateUpperPart();
   }
 
   public void clean()
@@ -64,7 +64,7 @@ public class BorrowGameController
     borrower.getItems().clear();
   }
 
-  public void updateComboBox()
+  public void updateUpperPart()
   {
     borrower.getItems().clear();
     borrower.getItems().add(null);
@@ -72,6 +72,15 @@ public class BorrowGameController
     for (int i = 0; i < members.size(); i++)
     {
       borrower.getItems().add(members.get(i));
+    }
+    for (int i = 0; i < selectedBoardGame.getReservationList().size(); i++)
+    {
+      if (selectedBoardGame.getReservationList().get(i).getPickUpDate().equals(MyDate.today())){
+        returnDate.setValue(selectedBoardGame.getReservationList().get(i).getReturnDate()
+            .convertToLocalDate());
+        returnDate.getEditor().setText(selectedBoardGame.getReservationList().get(i).getReturnDate().toString());
+        break;
+      }
     }
   }
 

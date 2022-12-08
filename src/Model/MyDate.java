@@ -97,6 +97,7 @@ public class MyDate implements Serializable
       return false;
     }
     MyDate other =(MyDate) obj;
+    if (hour==-1&&min==-1)return day== other.day && month== other.month && year== other.year;
     return day== other.day && month== other.month && year== other.year && min== other.min && hour== other.hour;
 
   }
@@ -110,6 +111,11 @@ public class MyDate implements Serializable
   public static MyDate today(){
     LocalDate current=LocalDate.now();
     return new MyDate(current.getDayOfMonth(),current.getMonthValue(), current.getYear());
+  }
+
+  public  LocalDate convertToLocalDate(){
+    LocalDate temp=LocalDate.of(year,month,day);
+    return temp;
   }
 
 
