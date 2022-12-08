@@ -41,6 +41,7 @@ public class ManageBoardGamesController
         new PropertyValueFactory<BoardGame, Integer>("maxNoP"));
     tableColOwner.setCellValueFactory(
         new PropertyValueFactory<BoardGame, Member>("owner"));
+    tableColOwner.setText("Owner");
   }
 
   public void init(ViewHandler viewHandler, Scene scene,
@@ -53,6 +54,7 @@ public class ManageBoardGamesController
 
   public void update(BoardGameList boardGameList)
   {
+
     games.getItems().clear();
     for (int i = 0; i < boardGameList.size(); i++)
     {
@@ -69,6 +71,7 @@ public class ManageBoardGamesController
     BoardGameList boardGameList=boardGameManager.getAllBoardGames();
     BoardGameList tempBoardGameList=new BoardGameList();
     BoardGameList finalBoardGameList=new BoardGameList();
+
     if (name.isSelected()){
       tempBoardGameList=boardGameList.getBoardGamesByName(searchField.getText());
     }
@@ -81,6 +84,8 @@ public class ManageBoardGamesController
       }
     }
     if (available.isSelected()){
+      tableColOwner.setText("owner");
+      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));
       if (searchField.getText().isEmpty()) finalBoardGameList=boardGameList.getBoardGamesByAvailability(boardGameList,true);
       else finalBoardGameList=boardGameList.getBoardGamesByAvailability(tempBoardGameList,true);
       BoardGameList temp=boardGameList.getBoardGamesByBorrow(boardGameList);
@@ -102,11 +107,15 @@ public class ManageBoardGamesController
       update(finalBoardGameList);
     }
     if (reserved.isSelected()){
+      tableColOwner.setText("owner");
+      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));
       if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByReserved(boardGameList);
       else finalBoardGameList=boardGameList.getBoardGamesByReserved(tempBoardGameList);
       update(finalBoardGameList);
     }
     if (allGames.isSelected()){
+      tableColOwner.setText("owner");
+      tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));
       if (searchField.getText().isEmpty()) update(boardGameList);
       else update(tempBoardGameList);
     }
@@ -115,6 +124,9 @@ public class ManageBoardGamesController
   public void setBorrowed(boolean borrowed)
   {
     this.borrowed.setSelected(borrowed);
+  }
+  public  void setAllGames(boolean allGames){
+    this.allGames.setSelected(allGames);
   }
 
   public void setAvailable(boolean avl){

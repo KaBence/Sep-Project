@@ -62,7 +62,6 @@ public class SeeReviewController
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back) viewHandler.openView("manageBoardGame");
     if (e.getSource()==remove){
-      //remove doesn't work yet no idea whats his problem.....
       if (reviews.getSelectionModel().getSelectedItem()==null){
         Alert alert=new Alert(Alert.AlertType.ERROR,"Select a Rank first",ButtonType.OK);
         alert.setTitle("Warning");
@@ -71,16 +70,16 @@ public class SeeReviewController
         return;
       }
       Rank selected=reviews.getSelectionModel().getSelectedItem();
+      selectedBoardGame.getRankList().removeRank(selected);
       BoardGameList boardGameList=boardGameManager.getAllBoardGames();
       for (int i = 0; i < boardGameList.size(); i++)
       {
         if (boardGameList.get(i).equals(selectedBoardGame)){
-          boardGameList.get(i).getRankList().removeRank(selected);
-          selectedBoardGame=boardGameList.get(i);
-          System.out.println("test");
+          boardGameList.removeBoardGame(boardGameList.get(i));
           break;
         }
       }
+      boardGameList.addBoardGame(selectedBoardGame);
       boardGameManager.saveAllBoardGames(boardGameList);
 
       Alert alert=new Alert(Alert.AlertType.INFORMATION,"Remove Successful",ButtonType.OK);

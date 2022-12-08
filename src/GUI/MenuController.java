@@ -49,6 +49,8 @@ public class MenuController
       viewHandler.getAddBoardGameController().updateComboBox();
     }
     if (e.getSource()==manageBoardGame){
+      viewHandler.getManageBoardGamesController().initialize();
+      viewHandler.getManageBoardGamesController().setAllGames(true);
       viewHandler.openView("manageBoardGame");
       value=0;
     }

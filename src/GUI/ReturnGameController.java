@@ -51,7 +51,7 @@ private String SelectedGame;
     RB2.setSelected(false);
     RB3.setSelected(false);
     RB4.setSelected(false);
-    RB5.setSelected(false);
+    RB5.setSelected(true);
     feedbackTextArea.clear();
   }
 
@@ -61,6 +61,13 @@ private String SelectedGame;
       viewHandler.openView("Menu");
     if (e.getSource() == submit)
     {
+      if (feedbackTextArea.getText().isEmpty()){
+        Alert alert=new Alert(Alert.AlertType.WARNING,"Please fill every field before submitting",ButtonType.OK);
+        alert.setHeaderText(null);
+        alert.setTitle("Good Job");
+        alert.showAndWait();
+        return;
+      }
 
       BoardGame selectedGame = viewHandler.getShowBoardGameController().getShowBoardGame();
       System.out.println(selectedGame.getName());
