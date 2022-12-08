@@ -1,0 +1,139 @@
+/*Bence*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: Demarus;
+    src: url("font/De");
+}
+
+h1{
+    font-family: Demarus;
+    color: rgb(250, 235, 215);
+    animation-name: fade;
+    animation-duration: 2s;
+    font-weight: bold;
+}
+
+.welc{
+    
+    padding-top: 5%;
+}
+@keyframes fade {
+    0% {
+      color: rgba(250, 235, 215, 0);
+    }
+    100% {
+      color: rgb(250, 235, 215);
+    }
+}
+
+body{
+    background-image: url(../images/original2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+
+
+#brief{
+    text-align: justify;
+    color: rgba(250, 235, 215,0);
+    width: 30%;
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+#logo{
+    width: 90px;
+}
+
+.pawn{
+    width: 50px;
+}
+
+
+footer{
+    margin-right: -15px;
+    margin-left: -15px;
+    /*Margin is needed because of bootstrap. The container class puts a 15px margin and the the row class negates it. Here I didn't use the row class, that's why I did it manually*/
+}
+
+.gamesTable{
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 40%;
+    margin: auto;
+    margin-bottom: 40px;
+    border: 1px solid wheat;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+
+.gamesTable td{
+    padding: 1%;
+    border: 1px solid wheat;
+    box-sizing: border-box;
+    width: 150px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .pawn{
+        width:  25px;
+    }
+
+    .names{
+        font-size: 10px;
+    }
+
+    #brief{
+        width: 80%;
+    }
+
+    .welc{
+        padding-top: 35%;
+    }
+}
+/*Bence*/
+
+
+/*rohit*/
+.card-body{
+    color: black;
+}
+/*rohit*/
+
+/*Michaela*/
+.carousel-indicators{
+    bottom: 50px;
+}
+
+.snorlaxx{
+    text-decoration: none;
+}
+
+@media screen and (min-width: 768px){
+    .pikachu{
+        position: absolute;
+        bottom: 0;
+    }
+}
+/*Michaela*/
+
+/*Igor*/
+.games{
+    height: 200px;
+}
+/*Igor*/
