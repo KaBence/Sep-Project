@@ -19,7 +19,7 @@ import java.util.Optional;
 public class EditEventController {
     @FXML
     Button back;
-    Button addMember;
+    @FXML Button addMember;
     @FXML
     Button addGuest;
     @FXML
@@ -72,8 +72,8 @@ public class EditEventController {
     private BoardGameManager boardGameManager;
     private Scene scene;
     public int eventIndex = 0;
-    public MemberList memberList = new MemberList();
     public ArrayList<String> tempGuests = new ArrayList<String>();
+    public MemberList memberList = new MemberList();
 
     public void initialize() {
         tableColName.setCellValueFactory(
@@ -84,7 +84,6 @@ public class EditEventController {
                 new PropertyValueFactory<BoardGame, Integer>("minNoP"));
         tableColMaxNoP.setCellValueFactory(
                 new PropertyValueFactory<BoardGame, Integer>("maxNoP"));
-
         guestsCol.setCellValueFactory(new PropertyValueFactory<guestClass1, String>("str1"));
         membersCol.setCellValueFactory(new PropertyValueFactory<Member, String>("fullName"));
 
@@ -113,24 +112,29 @@ public class EditEventController {
     public Scene getScene() {
         return scene;
     }
+
     public class guestClass1 {
         public String str1 = "";
 
         public guestClass1(String str1) {
             this.str1 = str1;
         }
+
         public String getStr1() {
             return str1;
         }
+
         public String toString() {
             return str1;
         }
     }
+
     public void editEvent(Event event) {
         BoardGameList eventgames = event.getGames();
         EventList list = boardGameManager.getAllEvents();
         ArrayList<String> tempGuest = event.getGuestsArr();
         MemberList tempMem = event.getMembers();
+        memberList =tempMem;
         name.setText(event.getName());
         fLocation.setText(event.getLocation());
         maxCapacity.setText(Integer.toString(event.getCapacity()));
@@ -142,25 +146,46 @@ public class EditEventController {
             gamesTable.getItems().add(eventgames.get(i));
         }
         guestTable1.getItems().clear();
-        for (int i = 0; i<tempGuest.size();i++){
+        for (int i = 0; i < tempGuest.size(); i++) {
             guestClass1 ska = new guestClass1(tempGuest.get(i).toString());
             guestTable1.getItems().add(ska);
         }
         memberTable.getItems().clear();
-        System.out.println(tempMem.toString());
-        for (int i = 0; i<tempMem.size();i++){
+        for (int i = 0; i < tempMem.size(); i++) {
             memberTable.getItems().add(tempMem.get(i));
         }
 
     }
 
-
     public void actionHandler(ActionEvent e) {
         BoardGameList allgameList = boardGameManager.getAllBoardGames();
         BoardGameList gameList = new BoardGameList();
+        MemberList allmember = boardGameManager.getAllMembers();
+        Member row1 = memberTable.getSelectionModel().getSelectedItem();
+        guestClass1 guest = guestTable1.getSelectionModel().getSelectedItem();
         ObservableList<BoardGame> data = gamesTable.getItems();
         for (BoardGame yd : data) {
             gameList.addBoardGame(yd);
+        }
+        if (e.getSource() == addMember && chooseMember.getValue() != null) {
+            memberTable.getItems().add(allmember.get(chooseMember.getSelectionModel().getSelectedIndex()));
+            memberList.addMember(allmember.get(chooseMember.getSelectionModel().getSelectedIndex()));
+        }
+        if (e.getSource() == removeMember && row1 != null) {
+            memberTable.getItems().remove(row1);
+            memberList.removeMember(row1);
+        }
+        if (e.getSource() == addGuest && guests.getText() != null) {
+            String[] tempArr = guests.getText().split(",");
+            for (String i : tempArr) {
+                guestClass1 ska = new guestClass1(i);
+                guestTable1.getItems().add(ska);
+                tempGuests.add(i);
+            }
+        }
+        if (e.getSource() == removeGuest && guest != null) {
+            guestTable1.getItems().remove(guest);
+            tempGuests.remove(guest);
         }
         BoardGame row = gamesTable.getSelectionModel().getSelectedItem();
         if (e.getSource() == addGame && chooseGame.getValue() != null) {
@@ -185,7 +210,7 @@ public class EditEventController {
                             Integer.toString(date.getValue().getYear());
                     EventList list = boardGameManager.getAllEvents();
                     Event event = new Event(MyDate.stringToDate(b, time.getText()),
-                            fLocation.getText(), name.getText(), guests.getText(), a, gameList , new MemberList());
+                            fLocation.getText(), name.getText(), guests.getText(), a, gameList, memberList);
                     ;
                     list.setEvent(event, eventIndex);
                     MyFileHandler.writeToBinaryFile("events.bin", list);

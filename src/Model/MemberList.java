@@ -84,7 +84,7 @@ public class MemberList implements Serializable
     for (int i = 0; i < members.size(); i++)
     {
       Member member = members.get(i);
-      temp += member.getFirstName() + "\n";
+      temp += member.getFullName() + "\n";
     }
     return temp;
   }
