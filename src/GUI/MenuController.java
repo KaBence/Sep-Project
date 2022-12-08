@@ -90,7 +90,6 @@ public class MenuController
     if (e.getSource()==addEvent) viewHandler.openView("addEvent");
     if (e.getSource()==manageEvent) viewHandler.openView("manageEvent");
     if (e.getSource()==addMember){
-      viewHandler.getAddMemberController().setCheck(false);
       viewHandler.getAddMemberController().clear();
       viewHandler.openView("addMember");
     }

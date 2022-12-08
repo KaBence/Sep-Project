@@ -9,6 +9,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
 
+/**
+ * class for setting the board game status to borrowed for a set time period
+ * @Author Michaela Veselovska
+ */
 public class BorrowGameController
 {
 
@@ -26,6 +30,12 @@ public class BorrowGameController
   private Scene scene;
   private BoardGame selectedBoardGame;
 
+  /**
+   * method for connecting with other classes
+   * @param viewHandler
+   * @param scene
+   * @param boardGameManager
+   */
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
   {
@@ -34,17 +44,26 @@ public class BorrowGameController
     this.boardGameManager = boardGameManager;
   }
 
+  /**
+   * setting the scene
+   * @return scene
+   */
   public Scene getScene()
   {
     return scene;
   }
 
+  /**
+   * method that is automatically call when loading
+   */
   public void initialize(){
     borrower1.setCellValueFactory(new PropertyValueFactory<Reservation, String>("borrower"));
     pickUpDate1.setCellValueFactory(new PropertyValueFactory<Reservation, String>("pickUpDate"));
     returnDate1.setCellValueFactory(new PropertyValueFactory<Reservation, String>("returnDate"));
   }
-
+/**
+ * showing the reservations in the table view
+ */
   public void update()
   {
     returnDate.getEditor().clear();
@@ -59,11 +78,17 @@ public class BorrowGameController
     updateUpperPart();
   }
 
+  /**
+   * method for clearing the fields
+   */
   public void clean()
   {
     borrower.getItems().clear();
   }
 
+  /**
+   * method for updating the burrow return date if there is a match with reservation starting from current date
+   */
   public void updateUpperPart()
   {
     borrower.getItems().clear();
@@ -84,16 +109,27 @@ public class BorrowGameController
     }
   }
 
+  /**
+   * method for setting the date to current date
+   */
   public void setPickUpDate()
   {
     pickUpDate.setValue(LocalDate.now());
   }
 
+  /**
+   * method that sets the board game object that is selected in this window
+   * @param selectedBoardGame
+   */
   public void setSelectedBoardGame(BoardGame selectedBoardGame)
   {
     this.selectedBoardGame = selectedBoardGame;
   }
 
+  /**
+   * methods for the button functionality
+   * @param e is called when an event occurs
+   */
   public void actionHandler(ActionEvent e)
   {
     if (e.getSource() == home)
@@ -163,6 +199,7 @@ public class BorrowGameController
             return;
           }
         }
+
         MemberList members = boardGameManager.getAllMembers();
          Member borrowerT =members.getMemberByName(borrower.getValue().toString());
         selectedBoardGame.getBorrow().setBorrower(borrowerT);

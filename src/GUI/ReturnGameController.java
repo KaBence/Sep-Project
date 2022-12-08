@@ -9,29 +9,49 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+/**
+ * class for returning of the game, setting the game from borrowed to available
+ *
+ * @Author Michaela Veselovska
+ */
 public class ReturnGameController
 {
   private ViewHandler viewHandler;
   private BoardGameManager boardGameManager;
   private Scene scene;
 
-  @FXML Button back,returnB,search;
+  @FXML Button back, returnB, search;
   @FXML TextField textField;
-  @FXML RadioButton RBName,RBType,RBNoP,RBBorrowed,RBAvl,RBReserved,RBAllGames;
+  @FXML RadioButton RBName, RBType, RBNoP, RBBorrowed, RBAvl, RBReserved, RBAllGames;
 
-  @FXML Button cancel,submit;
-  @FXML RadioButton RB1,RB2,RB3,RB4,RB5;
+  @FXML Button cancel, submit;
+  @FXML RadioButton RB1, RB2, RB3, RB4, RB5;
   @FXML TextArea feedbackTextArea;
   @FXML Label lblGameName;
-private String SelectedGame;
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
+  private String SelectedGame;
+
+  /**
+   * method to be ablo to connect with other classes
+   *
+   * @param viewHandler
+   * @param scene
+   * @param boardGameManager
+   */
+  public void init(ViewHandler viewHandler, Scene scene,
+      BoardGameManager boardGameManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
     this.boardGameManager = boardGameManager;
   }
 
-  public Scene getScene(){
+  /**
+   * method for setting the scene
+   *
+   * @return scene
+   */
+  public Scene getScene()
+  {
     return scene;
   }
 
@@ -40,13 +60,19 @@ private String SelectedGame;
    *
    * @param selectedGame The name of the game that was selected.
    */
-  public void setSelectedGame(String selectedGame){
+  public void setSelectedGame(String selectedGame)
+  {
     SelectedGame = selectedGame;
   }
 
-  public void update(){
+  /**
+   * method for setting the name of removed board game and rank set on 5 at the beginning
+   */
+  public void update()
+  {
 
-    lblGameName.setText(viewHandler.getShowBoardGameController().getShowBoardGame().getName());
+    lblGameName.setText(
+        viewHandler.getShowBoardGameController().getShowBoardGame().getName());
     RB1.setSelected(false);
     RB2.setSelected(false);
     RB3.setSelected(false);
@@ -55,23 +81,34 @@ private String SelectedGame;
     feedbackTextArea.clear();
   }
 
+  /**
+   * methods for button functionality
+   *
+   * @param e is called when and action occurs
+   */
   public void actionHandler(ActionEvent e)
   {
+    //cancel brings you to menu
     if (e.getSource() == cancel)
       viewHandler.openView("Menu");
+    //submit
     if (e.getSource() == submit)
     {
-      if (feedbackTextArea.getText().isEmpty()){
-        Alert alert=new Alert(Alert.AlertType.WARNING,"Please fill every field before submitting",ButtonType.OK);
+      //if there is no review  alert
+      if (feedbackTextArea.getText().isEmpty())
+      {
+        Alert alert = new Alert(Alert.AlertType.WARNING,
+            "Please fill every field before submitting", ButtonType.OK);
         alert.setHeaderText(null);
         alert.setTitle("Good Job");
         alert.showAndWait();
         return;
       }
-
-      BoardGame selectedGame = viewHandler.getShowBoardGameController().getShowBoardGame();
+      // setting the selected game
+      BoardGame selectedGame = viewHandler.getShowBoardGameController()
+          .getShowBoardGame();
       System.out.println(selectedGame.getName());
-
+      // rating selection
       int rating = 0;
       if (RB1.isSelected())
       {
@@ -93,25 +130,34 @@ private String SelectedGame;
       {
         rating = 5;
       }
-
+      // getting the review
       String remarks = feedbackTextArea.getText();
+      //creating the rank list
       if (!selectedGame.rankListExist())
       {
         selectedGame.createRankList();
       }
+      //adding new rank
       selectedGame.getRankList().addRank(new Rank(remarks, rating));
+      //return the game
       selectedGame.setBorrow(null);
-      BoardGameList boardGameList=boardGameManager.getAllBoardGames();
+      //removing the same game from file
+      BoardGameList boardGameList = boardGameManager.getAllBoardGames();
       for (int i = 0; i < boardGameList.size(); i++)
       {
-        if (boardGameList.get(i).equals(selectedGame)){
+        if (boardGameList.get(i).equals(selectedGame))
+        {
           boardGameList.removeBoardGame(boardGameList.get(i));
           break;
         }
       }
+      //adding the edited one
       boardGameList.addBoardGame(selectedGame);
+      //saving
       boardGameManager.saveAllBoardGames(boardGameList);
-      Alert alert=new Alert(Alert.AlertType.INFORMATION,"Review added successfully",ButtonType.OK);
+      //alert
+      Alert alert = new Alert(Alert.AlertType.INFORMATION,
+          "Review added successfully", ButtonType.OK);
       alert.setHeaderText(null);
       alert.setTitle("Good Job");
       alert.showAndWait();
