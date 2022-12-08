@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Event implements Serializable
 {
     private String location;
-    private String name;
+    private String eventName;
     private ArrayList<String> guests;
     private String guestsString;
     private MyDate date;
@@ -15,7 +15,7 @@ public class Event implements Serializable
     public Event(MyDate date, String location, String name, String guests, int capacity, BoardGameList games){
 
         this.location = location;
-        this.name = name;
+        this.eventName = name;
         this.capacity = capacity;
         this.date = date;
         guestsString = guests;
@@ -33,8 +33,8 @@ public class Event implements Serializable
         this.maxCapacity = maxCapacity;
     }
 
-    public String getName(){
-        return name;
+    public String getEventName(){
+        return eventName;
     }
     public int getCapacity(){
         return capacity;
@@ -44,14 +44,14 @@ public class Event implements Serializable
     }
 
     public String toString(){
-        return name + " on " +date+ " at " + location +" with a max capcity of "+capacity +" players, " + games.toString()+" and having these guests: \n" + guests;
+        return eventName + " on " +date+ " at " + location +" with a max capcity of "+capacity +" players, " + games.toString()+" and having these guests: \n" + guests;
     }
     public void setLocation(String location){
         this.location = location;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
     public boolean equals(Object obj){
@@ -63,7 +63,7 @@ public class Event implements Serializable
         Event other = (Event)obj;
         return
                 location.equals(other.location) &&
-                        name.equals(other.name) && guests.equals(other.guests)
+                        eventName.equals(other.eventName) && guests.equals(other.guests)
                 && date.equals(other.date) && capacity == other.capacity;
     }
 
@@ -75,7 +75,7 @@ public class Event implements Serializable
         for (int i = 0; i< guests.size();i++){
             a+= guests.get(i);
         }
-        return new Event(date,location,name, a,capacity,games);
+        return new Event(date,location, eventName, a,capacity,games);
     }
 
     public BoardGameList getGames() {

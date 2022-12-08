@@ -73,7 +73,7 @@ public class MenuController
   /**
    * A method for handling the actions with the buttons
    *
-   * @param e  the event that is called then something happened
+   * @param e  the event that is called when something happens
    */
 
   public void actionHandler(ActionEvent e){
