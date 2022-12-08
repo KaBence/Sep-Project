@@ -101,7 +101,7 @@ public class MakeReservationController
       {
         //the dates are outside of a reservation
         if (pd.isBefore(selectedGame.getReservationList().get(i).getPickUpDate())&&selectedGame.getReservationList().get(i).getReturnDate().isBefore(rd)){
-          Alert alert=new Alert(Alert.AlertType.ERROR,"There is a collision in reservations, please select another date",ButtonType.OK);
+          Alert alert=new Alert(Alert.AlertType.ERROR,"1There is a collision in reservations, please select another date",ButtonType.OK);
           alert.setTitle("Warning");
           alert.setHeaderText(null);
           alert.showAndWait();
@@ -116,8 +116,8 @@ public class MakeReservationController
           return;
         }
         //pickup date in between and return date is after
-        if (selectedGame.getReservationList().get(i).getPickUpDate().isBefore(pd)&&selectedGame.getReservationList().get(i).getReturnDate().isBefore(rd)){
-          Alert alert=new Alert(Alert.AlertType.ERROR,"There is a collision in reservations, please select another date",ButtonType.OK);
+        if (selectedGame.getReservationList().get(i).getPickUpDate().isBefore(pd)&&selectedGame.getReservationList().get(i).getReturnDate().isBefore(rd)&&pd.isBefore(selectedGame.getReservationList().get(i).getReturnDate())){
+          Alert alert=new Alert(Alert.AlertType.ERROR,"2There is a collision in reservations, please select another date",ButtonType.OK);
           alert.setTitle("Warning");
           alert.setHeaderText(null);
           alert.showAndWait();
@@ -125,15 +125,15 @@ public class MakeReservationController
         }
         //Both are in between
         if (selectedGame.getReservationList().get(i).getPickUpDate().isBefore(pd)&& rd.isBefore(selectedGame.getReservationList().get(i).getReturnDate())){
-          Alert alert=new Alert(Alert.AlertType.ERROR,"There is a collision in reservations, please select another date",ButtonType.OK);
+          Alert alert=new Alert(Alert.AlertType.ERROR,"3There is a collision in reservations, please select another date",ButtonType.OK);
           alert.setTitle("Warning");
           alert.setHeaderText(null);
           alert.showAndWait();
           return;
         }
         //pickupdate is before a reservation and return date is in between
-        if (pd.isBefore(selectedGame.getReservationList().get(i).getPickUpDate())&& rd.isBefore(selectedGame.getReservationList().get(i).getReturnDate())){
-          Alert alert=new Alert(Alert.AlertType.ERROR,"There is a collision in reservations, please select another date",ButtonType.OK);
+        if (pd.isBefore(selectedGame.getReservationList().get(i).getPickUpDate())&& rd.isBefore(selectedGame.getReservationList().get(i).getReturnDate())&& !rd.isBefore(selectedGame.getReservationList().get(i).getPickUpDate())){
+          Alert alert=new Alert(Alert.AlertType.ERROR,"4There is a collision in reservations, please select another date",ButtonType.OK);
           alert.setTitle("Warning");
           alert.setHeaderText(null);
           alert.showAndWait();
