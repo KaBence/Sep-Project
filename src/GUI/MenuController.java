@@ -63,7 +63,7 @@ public class MenuController
 
   /**
    * Sets the value that is used to differentiate which scene should the program go after this scene
-   * @param value
+   * @param value This value is going to be set
    */
   public void setValue(int value)
   {
@@ -72,7 +72,6 @@ public class MenuController
 
   /**
    * A method for handling the actions with the buttons
-   *
    * @param e  the event that is called when something happens
    */
 

@@ -9,6 +9,10 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+/**
+ * A controller class for the showBoardGame fxml file
+ * @author Bence Kabaly
+ */
 public class ShowBoardGameController
 {
   @FXML TextField nameOfGame;
@@ -31,6 +35,13 @@ public class ShowBoardGameController
   private Scene scene;
   private BoardGame showBoardGame;
 
+  /**
+   * A method for setting the parameters
+   * @param viewHandler sets the viewHandler
+   * @param scene sets The scene
+   * @param boardGameManager sets the BoardGameManager
+   */
+
 
   public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
   {
@@ -39,19 +50,37 @@ public class ShowBoardGameController
     this.boardGameManager = boardGameManager;
   }
 
+  /**
+   * Returns the controllers scene
+   * @return scene
+   */
+
   public Scene getScene(){
     return scene;
   }
+
+  /**
+   * Returns the BoardGame object that is shown in this window
+   * @return BoardGame object
+   */
 
   public BoardGame getShowBoardGame()
   {
     return showBoardGame;
   }
 
+  /**
+   * sets the BoardGame object that is shown in this window
+   * @param showBoardGame This object gets set
+   */
   public void setShowBoardGame(BoardGame showBoardGame)
   {
     this.showBoardGame = showBoardGame;
   }
+
+  /**
+   * After everything is loaded properlu this method is automaticallu called and sets the field to not editable
+   */
 
   public void initialize(){
     nameOfGame.setEditable(false);
@@ -65,6 +94,10 @@ public class ShowBoardGameController
     ownerField.setEditable(false);
     ownerField.setVisible(true);
   }
+
+  /**
+   * Sets the textfield's values from the selectedBoardGame object
+   */
 
   public void update(){
     clear();
@@ -96,6 +129,10 @@ public class ShowBoardGameController
     }
   }
 
+  /**
+   * Clears the textField's values
+   */
+
   public void clear(){
     owner.getItems().clear();
     nameOfGame.clear();
@@ -105,12 +142,18 @@ public class ShowBoardGameController
     ownerField.clear();
   }
 
+  /**
+   * A method for handling the actions with the buttons
+   * @param e  the event that is called when something happens
+   */
+
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back){
       initialize();
       clear();
       viewHandler.openView("manageBoardGame");
     }
+    //Shows the selected boardGame reviews if the game is available
     if (e.getSource()==seeReviews){
       if (!showBoardGame.isAvailable()){
         Alert alert=new Alert(Alert.AlertType.ERROR,"You can see reviews of an available Game",ButtonType.OK);
@@ -123,6 +166,7 @@ public class ShowBoardGameController
       viewHandler.getSeeReviewController().update();
       viewHandler.openView("seeReviews");
     }
+    //Shows the reserve window if the game is available
     if (e.getSource()==reserve) {
       if (!showBoardGame.isAvailable()){
         Alert alert=new Alert(Alert.AlertType.ERROR,"You can only reserve an available Game",ButtonType.OK);
@@ -134,6 +178,7 @@ public class ShowBoardGameController
       viewHandler.getMakeReservationController().setSelectedGame(showBoardGame);
       viewHandler.openView("reservation");
     }
+    //Shows the Borrow windos if the game is available
     if (e.getSource()==borrow) {
       if (!showBoardGame.isAvailable()){
         Alert alert=new Alert(Alert.AlertType.ERROR,"You can only borrow an available Game",ButtonType.OK);
@@ -159,6 +204,7 @@ public class ShowBoardGameController
         viewHandler.openView("manageBoardGame");
       }
     }
+    //if the edit button's text is edit it sets all textField to editable and when the text is save it actuallu save's the changes to file
     if (e.getSource()==edit){
       boolean temp=false;
       if (edit.getText().equals("Save"))temp=true;

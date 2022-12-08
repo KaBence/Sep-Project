@@ -6,6 +6,11 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+/**
+ * The controller for the addBoardGame fxl file
+ * @author Bence Kabaly
+ */
+
 public class AddBoardGameController
 {
   @FXML TextField name;
@@ -20,6 +25,13 @@ public class AddBoardGameController
   private BoardGameManager boardGameManager;
   private Scene scene;
 
+  /**
+   * A method for setting the parameters
+   * @param viewHandler sets the viewHandler
+   * @param scene sets The scene
+   * @param boardGameManager sets the BoardGameManager
+   */
+
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
   {
@@ -28,11 +40,20 @@ public class AddBoardGameController
     this.boardGameManager = boardGameManager;
   }
 
+  /**
+   * Returns the addBoardgame scene
+   * @return addBoardgame scene
+   */
+
   public Scene getScene()
   {
     return scene;
   }
 
+  /**
+   * A method for adding a boardgame to the file with the given parameter
+   * @param avl sets the boardGame either available or not available
+   */
   public void addBoardGame(boolean avl){
     if (name.getText().isEmpty()||type.getText().isEmpty()||min.getText().isEmpty()||max.getText().isEmpty()||owner.getValue()==null){
       Alert alert=new Alert(Alert.AlertType.WARNING,"Fill every field before adding a boardGame",ButtonType.OK);
@@ -89,6 +110,10 @@ public class AddBoardGameController
     clear();
   }
 
+  /**
+   * Method for clearing the textFields after adding the boardGame
+   */
+
   public void clear(){
     name.clear();
     type.clear();
@@ -96,6 +121,10 @@ public class AddBoardGameController
     max.clear();
     owner.getSelectionModel().selectFirst();
   }
+
+  /**
+   * Method for updating the combobox with the members
+   */
 
   public void updateComboBox(){
     owner.getItems().clear();
@@ -108,9 +137,19 @@ public class AddBoardGameController
 
   }
 
+  /**
+   * Method for selecting an exact owner from the comboBox
+   * @param temp this member gets selected from the comboBox
+   */
+
   public void setOwner(Member temp){
     owner.getSelectionModel().select(temp);
   }
+
+  /**
+   * A method for handling the button clicking
+   * @param e the event that is called when something happens
+   */
 
   public void actionHandler(ActionEvent e)
   {

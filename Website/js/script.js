@@ -26,8 +26,14 @@ $.get("xml/BoardgamesNonAvl.xml",function(xml,status){
 $.get("xml/Events.xml",function(xml,status){
     var txt="<table class='Events'><tr><th>Name</th><th>Location</th><th>Capacity</th><th>Date</th><th>BoardGames</th><th>Who is coming?</th></tr>";
     $(xml).find("events").each(function(){
-        txt+="<tr><td>"+$(this).find("eventName").text()+"</td><td>"+$(this).find("location").text()+"</td><td>"+$(this).find("capacity").text()+"</td><td>"+$(this).find("date").find("day").text()+"/"+$(this).find("date").find("month").text()+"/"+$(this).find("date").find("year").text()+" "+$(this).find("date").find("hour").text()+":"+$(this).find("date").find("min").text()+"</td><td>"+$(this).find("games").find("boardGames").find("name").text()+"</td>";
-        txt+="<td>"+$(this).find("guests").text()+"</td></tr>"
+        txt+="<tr><td>"+$(this).find("eventName").text()+"</td><td>"+$(this).find("location").text()+"</td><td>"+$(this).find("capacity").text()+"</td><td>"+$(this).find("date").find("day").text()+"/"+$(this).find("date").find("month").text()+"/"+$(this).find("date").find("year").text()+" "+$(this).find("date").find("hour").text()+":"+$(this).find("date").find("min").text()+"</td><td>";
+        $(this).find("boardGames").each(function(){
+            txt+=$(this).find("name").text()+"<br>";
+        })
+        txt+="</td><td>"
+        $(this).find("guests").each(function(){
+            txt+=$(this).text()+"<br>"
+        })+"</td></tr>"
     })
     txt+="</table>";
     $("#tableEvents").html(txt);
