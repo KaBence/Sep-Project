@@ -6,11 +6,17 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
+/**
+ * A controller class for the menu of the GUI
+ * @author Bence Kabaly
+ * @version 1.0
+ */
+
 public class MenuController
 {
   private int value;
   private ViewHandler viewHandler;
-  private BoardGameManager clubManager;
+  private BoardGameManager boardGameManager;
   private Scene scene;
 
   @FXML Button addBoardGame;
@@ -23,27 +29,55 @@ public class MenuController
   @FXML Button reservation;
   @FXML Button borrow;
   @FXML Button returnGame;
-  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager clubManager)
+
+  /**
+   * A method for setting the parameters
+   * @param viewHandler sets the viewHandler
+   * @param scene sets The scene
+   * @param boardGameManager sets the BoardGameManager
+   */
+  public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
-    this.clubManager = clubManager;
+    this.boardGameManager = boardGameManager;
   }
 
+  /**
+   * Returns the scene
+   * @return Scene
+   */
   public Scene getScene(){
     return scene;
   }
+
+  /**
+   * Returns the value that is used to differentiate which scene should the program go after this scene
+   * @return value
+   */
 
   public int getValue()
   {
     return value;
   }
+
+  /**
+   * Sets the value that is used to differentiate which scene should the program go after this scene
+   * @param value
+   */
   public void setValue(int value)
   {
     this.value = value;
   }
 
+  /**
+   * A method for handling the actions with the buttons
+   *
+   * @param e  the event that is called then something happened
+   */
+
   public void actionHandler(ActionEvent e){
+
     if (e.getSource()==addBoardGame) {
       viewHandler.openView("addBoardGame");
       viewHandler.getAddBoardGameController().updateComboBox();

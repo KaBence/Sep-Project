@@ -9,6 +9,12 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 
+/**
+ * A class that handles what scene is the program using.
+ * @author Bence Kabaly
+ * @version 1.0
+ */
+
 public class ViewHandler
 {
   private BoardGameManager boardGameManager;
@@ -29,12 +35,21 @@ public class ViewHandler
   private showMemberController showMemberController;
 
   private Stage stage;
+
+  /**
+   * Constructor with 2 arguments initializing the viewHandler
+   * @param stage
+   * @param boardGameManager
+   */
   public ViewHandler(Stage stage, BoardGameManager boardGameManager)
   {
     this.stage = stage;
     this.boardGameManager = boardGameManager;
   }
 
+  /**
+   * Start void that loads all the fxml files
+   */
   public void start(){
     loadViewMenu();
     loadViewAddBoardGame();
@@ -54,6 +69,10 @@ public class ViewHandler
     openView("Menu");
   }
 
+  /**
+   * This method changes the scenes for the stage
+   * @param id sets which scene should the viewHandle load
+   */
   public void openView(String id){
     stage.getIcons().add(new Image("logo3.png"));
     switch (id){
@@ -78,9 +97,6 @@ public class ViewHandler
       case "addMember":
         stage.setScene(addMemberController.getScene());
         stage.setTitle("Add member");
-        if (addMemberController.isCheck()){
-          addMemberController.update();
-        }
         break;
       case "manageMember":
         stage.setScene(manageMemberController.getScene());
@@ -136,44 +152,94 @@ public class ViewHandler
     stage.show();
   }
 
+  /**
+   * Returns the borrowGameController
+   * @return borrowGameController
+   */
   public BorrowGameController getBorrowGameController()
   {
     return borrowGameController;
   }
 
+  /**
+   * Returns the showMemberController
+   * @return showMemberController
+   */
   public showMemberController getShowMemberController(){
     return showMemberController;
 }
+
+  /**
+   * Returns the showBoardGameController
+   * @return showBoardGameController
+   */
   public ShowBoardGameController getShowBoardGameController(){
     return showBoardGameController;
   }
+
+  /**
+   * Returns the ReturnGameController
+   * @return ReturnGameController
+   */
   public ReturnGameController getReturnGameController(){
     return returnGameController;
   }
+
+  /**
+   * returns the ReturnGameController
+   * @return ReturnGameController
+   */
   public EditEventController getEditEventController(){
     return editEventController;
   }
+
+  /**
+   * Returns the addMemberController
+   * @return addMemberController
+   */
   public AddMemberController getAddMemberController(){
     return addMemberController;
 
   }
+
+  /**
+   * returns the addBoardGameController
+   * @return addBoardGameController
+   */
   public AddBoardGameController getAddBoardGameController() {
     return addBoardGameController;
   }
 
+  /**
+   * Returns the MakeReservationController
+   * @return MakeReservationController
+   */
   public MakeReservationController getMakeReservationController() {
     return makeReservationController;
   }
 
+  /**
+   * Returns the ManageBoardGamesController
+   * @return ManageBoardGamesController
+   */
   public ManageBoardGamesController getManageBoardGamesController() {
     return manageBoardGamesController;
   }
+
+  /**
+   * Returns the SeeReviewController
+   * @return SeeReviewController
+   */
 
   public SeeReviewController getSeeReviewController()
   {
     return seeReviewController;
   }
 
+  /**
+   * Returns the VoteController
+   * @return VoteController
+   */
   public VoteController getVoteController()
   {
     return voteController;
@@ -184,14 +250,27 @@ public class ViewHandler
     return addEventController;
   }
 
+  /**
+   * Returns the MenuController
+   * @return MenuController
+   */
+
   public MenuController getMenuController(){
     return menuController;
   }
 
+  /**
+   * Returns the ManageMemberController
+   * @return ManageMemberController
+   */
   public ManageMemberController getManageMemberController()
   {
     return manageMemberController;
   }
+
+  /**
+   * Method to load the menu
+   */
 
   private void loadViewMenu() {
     try
@@ -207,6 +286,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the AddBoardGame
+   */
   private void loadViewAddBoardGame() {
     try
     {
@@ -221,6 +304,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the ManageBoardGame
+   */
   private void loadViewManageBoardGame() {
     try
     {
@@ -235,6 +322,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the AddMember
+   */
   private void loadViewAddMember() {
     try
     {
@@ -249,6 +340,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the ManageMember
+   */
   private void loadViewManageMember() {
     try
     {
@@ -263,6 +358,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the AddEvent
+   */
   private void loadViewAddEvent() {
     try
     {
@@ -277,6 +376,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the ManageEvent
+   */
   private void loadViewManageEvent() {
     try
     {
@@ -291,6 +394,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the BorrowGame
+   */
   private void loadViewBorrowGame() {
     try
     {
@@ -305,6 +412,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the ReturnGame
+   */
   private void loadViewReturnGame() {
     try
     {
@@ -319,6 +430,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the Vote
+   */
   private void loadViewVote() {
     try
     {
@@ -333,6 +448,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the MakeReservation
+   */
   private void loadViewMakeReservation() {
     try
     {
@@ -348,6 +467,9 @@ public class ViewHandler
     }
   }
 
+  /**
+   * Method to load the ShowBoardGame
+   */
   private void loadViewShowBoardGame() {
     try
     {
@@ -363,6 +485,9 @@ public class ViewHandler
     }
   }
 
+  /**
+   * Method to load the SeeReview
+   */
   private void loadViewSeeReview(){
     try
     {
@@ -377,6 +502,10 @@ public class ViewHandler
       e.printStackTrace();
     }
   }
+
+  /**
+   * Method to load the EditEvent
+   */
   private void loadEditEvent(){
     try
     {
@@ -391,6 +520,10 @@ public class ViewHandler
     e.printStackTrace();
   }
   }
+
+  /**
+   * Method to load the ShowMember
+   */
   private void loadShowMember(){
     try{
        FXMLLoader loader=new FXMLLoader();

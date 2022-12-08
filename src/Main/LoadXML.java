@@ -2,6 +2,7 @@ package Main;
 
 import Model.BoardGameList;
 import Model.BoardGameManager;
+import Model.EventList;
 import parser.ParserException;
 import parser.XmlJsonParser;
 
@@ -31,6 +32,14 @@ public class LoadXML
     }
     catch (ParserException e){
       System.out.println("Parser Exception");
+    }
+    EventList eventList=boardGameManager.getAllEvents();
+    try
+    {
+      File file=parser.toXml(eventList,"Website/Xml/Events.xml");
+    }
+    catch (ParserException e){
+      System.out.println("Parser exception");
     }
   }
 }
