@@ -4,22 +4,39 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * class for writing and reading binary and text files
+ */
 public class MyFileHandler
 {
-  // Writes the given string to a file with the given file name
+  /**
+   * Writes the given string to a file with the given file name
+    */
+
   public static void writeToTextFile(String fileName, String str) throws FileNotFoundException
   {
     writeText(fileName, str, false);
   }
 
-  // Appends the given string to a file with the given file name
+  /**
+   *  Appends the given string to a file with the given file name
+   * @param fileName
+   * @param str
+   * @throws FileNotFoundException
+   */
   public static void appendToTextFile(String fileName, String str) throws FileNotFoundException
   {
     writeText(fileName, str, true);
   }
 
-  // writeToTextFile and appendToTextFile are almost identical - only the boolean in the constructor
-  // of the FileOutputStream differs. So I made this private method that both methods call
+  /**
+   *  writeToTextFile and appendToTextFile are almost identical - only the boolean in the constructor
+   *  of the FileOutputStream differs. So I made this private method that both methods call
+   * @param fileName
+   * @param str
+   * @param append
+   * @throws FileNotFoundException
+   */
   private static void writeText(String fileName, String str, boolean append) throws FileNotFoundException
   {
     PrintWriter writeToFile = null;
@@ -39,7 +56,12 @@ public class MyFileHandler
     }
   }
 
-  // Writes the strings in the given array to a file with the given file name
+  /**
+   * Writes the strings in the given array to a file with the given file name
+   * @param fileName
+   * @param strs
+   * @throws FileNotFoundException
+   */
   public static void writeArrayToTextFile(String fileName, String[] strs) throws FileNotFoundException
   {
     writeText(fileName, strs, false);
@@ -51,8 +73,14 @@ public class MyFileHandler
     writeText(fileName, strs, true);
   }
 
-  // Again, the writeArrayToTextFile and appendArrayToTextFile methods are almost identical.
-  // So I made this private method that both methods call
+  /**
+   * Again, the writeArrayToTextFile and appendArrayToTextFile methods are almost identical.
+   * So I made this private method that both methods call
+   * @param fileName
+   * @param strs
+   * @param append
+   * @throws FileNotFoundException
+   */
   private static void writeText(String fileName, String[] strs, boolean append) throws FileNotFoundException
   {
     PrintWriter writeToFile = null;
@@ -76,7 +104,12 @@ public class MyFileHandler
     }
   }
 
-  // Reads the first line from the file with the given file name and returns it as a String
+  /**
+   * Reads the first line from the file with the given file name and returns it as a String
+   * @param fileName
+   * @return
+   * @throws FileNotFoundException
+   */
   public String readFromTextFile(String fileName) throws FileNotFoundException
   {
     Scanner readFromFile = null;
@@ -98,7 +131,12 @@ public class MyFileHandler
     return str;
   }
 
-  // Reads all lines from the file with the given file name and returns it as a String[]
+  /**
+   * Reads all lines from the file with the given file name and returns it as a String[]
+   * @param fileName
+   * @return
+   * @throws FileNotFoundException
+   */
   public static String[] readArrayFromTextFile(String fileName) throws FileNotFoundException
   {
     Scanner readFromFile = null;
@@ -126,8 +164,13 @@ public class MyFileHandler
     return strs.toArray(strsArray);
   }
 
-
-  // Writes the given object to a file with the given file name
+  /**
+   * Writes the given object to a file with the given file name
+   * @param fileName
+   * @param obj
+   * @throws FileNotFoundException
+   * @throws IOException
+   */
   public static void writeToBinaryFile(String fileName, Object obj) throws FileNotFoundException, IOException
   {
     ObjectOutputStream writeToFile = null;
@@ -155,7 +198,13 @@ public class MyFileHandler
     }
   }
 
-  // Writes the objects in the given array to a file with the given file name
+  /**
+   * Writes the objects in the given array to a file with the given file name
+   * @param fileName
+   * @param objs
+   * @throws FileNotFoundException
+   * @throws IOException
+   */
   public static void writeArrayToBinaryFile(String fileName, Object[] objs) throws FileNotFoundException, IOException
   {
     ObjectOutputStream writeToFile = null;
@@ -186,8 +235,15 @@ public class MyFileHandler
     }
   }
 
-  // Reads the first object from the file with the given file name and returns it.
-  // Whoever calls the method will need to cast it from type Object to its actual type
+  /**
+   *  Reads the first object from the file with the given file name and returns it.
+   *  Whoever calls the method will need to cast it from type Object to its actual type
+   * @param fileName
+   * @return
+   * @throws FileNotFoundException
+   * @throws IOException
+   * @throws ClassNotFoundException
+   */
   public static Object readFromBinaryFile(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException
   {
     Object obj = null;
@@ -223,8 +279,15 @@ public class MyFileHandler
     return obj;
   }
 
-  // Reads all objects from the file with the given file name and returns it as an Object[].
-  // Whoever calls the method will need to cast the Objects to their actual type
+  /**
+   * Reads all objects from the file with the given file name and returns it as an Object[].
+   * Whoever calls the method will need to cast the Objects to their actual type
+   * @param fileName
+   * @return
+   * @throws FileNotFoundException
+   * @throws IOException
+   * @throws ClassNotFoundException
+   */
   public static Object[] readArrayFromBinaryFile(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException
   {
     ArrayList<Object> objs = new ArrayList<Object>();
