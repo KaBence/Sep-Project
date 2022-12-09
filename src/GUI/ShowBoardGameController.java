@@ -24,11 +24,9 @@ public class ShowBoardGameController
   @FXML ComboBox owner;
   @FXML RadioButton available2, nonAvailable2;
   @FXML Button edit;
-  @FXML Button reserve;
   @FXML Button remove;
   @FXML Button seeReviews;
   @FXML Button back;
-  @FXML Button borrow;
 
   private ViewHandler viewHandler;
   private BoardGameManager boardGameManager;
@@ -93,6 +91,7 @@ public class ShowBoardGameController
     nonAvailable2.setVisible(false);
     ownerField.setEditable(false);
     ownerField.setVisible(true);
+    edit.setText("Edit");
   }
 
   /**
@@ -165,29 +164,6 @@ public class ShowBoardGameController
       viewHandler.getSeeReviewController().setSelectedBoardGame(showBoardGame);
       viewHandler.getSeeReviewController().update();
       viewHandler.openView("seeReviews");
-    }
-    //Shows the reserve window if the game is available
-    if (e.getSource()==reserve) {
-      if (!showBoardGame.isAvailable()){
-        Alert alert=new Alert(Alert.AlertType.ERROR,"You can only reserve an available Game",ButtonType.OK);
-        alert.setHeaderText(null);
-        alert.setTitle("Warning");
-        alert.showAndWait();
-        return;
-      }
-      viewHandler.getMakeReservationController().setSelectedGame(showBoardGame);
-      viewHandler.openView("reservation");
-    }
-    //Shows the Borrow windos if the game is available
-    if (e.getSource()==borrow) {
-      if (!showBoardGame.isAvailable()){
-        Alert alert=new Alert(Alert.AlertType.ERROR,"You can only borrow an available Game",ButtonType.OK);
-        alert.setHeaderText(null);
-        alert.setTitle("Warning");
-        alert.showAndWait();
-        return;
-      }
-      viewHandler.openView("borrow");
     }
     if (e.getSource()==remove){
       Alert alert = new Alert(Alert.AlertType.WARNING,

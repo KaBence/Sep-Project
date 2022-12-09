@@ -41,17 +41,7 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Text>
-      <Button fx:id="reserve" layoutX="391.0" layoutY="359.0" mnemonicParsing="false" onAction="#actionHandler" text="RESERVE">
-         <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="borrow" layoutX="505.0" layoutY="359.0" mnemonicParsing="false" onAction="#actionHandler" text="BORROW">
-         <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="edit" layoutX="52.0" layoutY="359.0" mnemonicParsing="false" onAction="#actionHandler" text="EDIT">
+      <Button fx:id="edit" layoutX="414.0" layoutY="348.0" mnemonicParsing="false" onAction="#actionHandler" text="EDIT">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
@@ -61,12 +51,12 @@
       <TextField fx:id="min" layoutX="198.0" layoutY="85.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="80.0" />
       <TextField fx:id="typeOfBoardGame" layoutX="153.0" layoutY="123.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
       <ComboBox fx:id="owner" layoutX="153.0" layoutY="163.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="398.0" />
-      <Button fx:id="remove" layoutX="145.0" layoutY="359.0" mnemonicParsing="false" onAction="#actionHandler" text="REMOVE">
+      <Button fx:id="remove" layoutX="488.0" layoutY="348.0" mnemonicParsing="false" onAction="#actionHandler" text="REMOVE">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="seeReviews" layoutX="252.0" layoutY="359.0" mnemonicParsing="false" onAction="#actionHandler" text="SEE REVIEWS">
+      <Button fx:id="seeReviews" layoutX="276.0" layoutY="348.0" mnemonicParsing="false" onAction="#actionHandler" text="SEE REVIEWS">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
@@ -78,7 +68,7 @@
          </toggleGroup>
       </RadioButton>
       <RadioButton fx:id="available2" layoutX="159.0" layoutY="261.0" mnemonicParsing="false" onAction="#actionHandler" selected="true" text="Available" toggleGroup="$buttons" />
-      <Button fx:id="back" layoutX="25.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionHandler" text="Back">
+      <Button fx:id="back" layoutX="34.0" layoutY="348.0" mnemonicParsing="false" onAction="#actionHandler" text="Back">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
