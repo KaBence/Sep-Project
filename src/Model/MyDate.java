@@ -3,35 +3,39 @@ package Model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MyDate implements Serializable
-{
- private int day;
- private int month;
- private int year;
- private int min;
- private int hour;
+public class MyDate implements Serializable {
+    private int day;
+    private int month;
+    private int year;
+    private int min;
+    private int hour;
 
- public MyDate(int day, int month, int year){
-   this.day=day;
-   this.month=month;
-   this.year=year;
-   min=-1;
-   hour=-1;
- }
- public MyDate(int day, int month, int year, int hour, int min){
-   this.day=day;
-   this.month=month;
-   this.year=year;
-   this.min=min;
-   this.hour=hour;
- }
- public MyDate(){};
+    public MyDate(int day, int month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        min = -1;
+        hour = -1;
+    }
 
-  public int getDay()
-  {
-    return day;
-  }
-    public static MyDate stringToDate(String date, String time){
+    public MyDate(int day, int month, int year, int hour, int min) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.min = min;
+        this.hour = hour;
+    }
+
+    public MyDate() {
+    }
+
+    ;
+
+    public int getDay() {
+        return day;
+    }
+
+    public static MyDate stringToDate(String date, String time) {
         String[] temp = date.split("/");
         int tempDate = Integer.valueOf(temp[0]);
         int tempMonth = Integer.valueOf(temp[1]);
@@ -39,55 +43,62 @@ public class MyDate implements Serializable
         String[] timetemp = time.split(":");
         int tempHour = Integer.valueOf(timetemp[0]);
         int tempMin = Integer.valueOf(timetemp[1]);
-        return new MyDate(tempDate,tempMonth,tempyear,tempHour,tempMin);
+        return new MyDate(tempDate, tempMonth, tempyear, tempHour, tempMin);
     }
-  public void setDay(int day)
-  {
-    this.day = day;
-  }
+    public static boolean timeFormat(String time) {
+        boolean a = false;
+        String[] timetemp = time.split(":");
+        if (timetemp.length == 2) {
+            try {
+                int tempHour = Integer.valueOf(timetemp[0]);
+                int tempMin = Integer.valueOf(timetemp[1]);
+                a = true;
+            } catch (NumberFormatException e) {
+                return a;
+            }
+        }
+        return a;
+    }
 
-  public int getMonth()
-  {
-    return month;
-  }
+    public void setDay(int day) {
+        this.day = day;
+    }
 
-  public void setMonth(int month)
-  {
-    this.month = month;
-  }
+    public int getMonth() {
+        return month;
+    }
 
-  public int getYear()
-  {
-    return year;
-  }
+    public void setMonth(int month) {
+        this.month = month;
+    }
 
-  public void setYear(int year)
-  {
-    this.year = year;
-  }
+    public int getYear() {
+        return year;
+    }
 
-  public int getHour()
-  {
-    return hour;
-  }
+    public void setYear(int year) {
+        this.year = year;
+    }
 
-  public void setHour(int hour)
-  {
-    this.hour = hour;
-  }
+    public int getHour() {
+        return hour;
+    }
 
-  public int getMin()
-  {
-    return min;
-  }
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
 
-  public void setMin(int min)
-  {
-    this.min = min;
-  }
-  public String getStringTime(){
-      return hour+":"+min;
-  }
+    public int getMin() {
+        return min;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    public String getStringTime() {
+        return hour + ":" + min;
+    }
 
 
   public boolean equals(Object obj)
@@ -100,18 +111,17 @@ public class MyDate implements Serializable
     if (hour==-1&&min==-1)return day== other.day && month== other.month && year== other.year;
     return day== other.day && month== other.month && year== other.year && min== other.min && hour== other.hour;
 
-  }
+    }
 
-  public String toString()
-  {
-    if (hour==-1&&min==-1)return day +"/"+ month + "/"+ year;
-    return day +"/"+ month + "/"+ year +" "+hour+":"+min;
-  }
+    public String toString() {
+        if (hour == -1 && min == -1) return day + "/" + month + "/" + year;
+        return day + "/" + month + "/" + year + " " + hour + ":" + min;
+    }
 
-  public static MyDate today(){
-    LocalDate current=LocalDate.now();
-    return new MyDate(current.getDayOfMonth(),current.getMonthValue(), current.getYear());
-  }
+    public static MyDate today() {
+        LocalDate current = LocalDate.now();
+        return new MyDate(current.getDayOfMonth(), current.getMonthValue(), current.getYear());
+    }
 
   public  LocalDate convertToLocalDate(){
     LocalDate temp=LocalDate.of(year,month,day);
@@ -125,25 +135,15 @@ public class MyDate implements Serializable
     }
     else return false;*/
 
-  public boolean isBefore(MyDate date2)
-  {
-    if (year < date2.year)
-    {
-      return true;
+    public boolean isBefore(MyDate date2) {
+        if (year < date2.year) {
+            return true;
+        } else if (year == date2.year && month < date2.month) {
+            return true;
+        } else if (year == date2.year && month == date2.month && day < date2.day) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    else if (year == date2.year && month < date2.month)
-    {
-      return true;
-    }
-    else if (year == date2.year && month == date2.month && day < date2.day)
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-
-  }
-
 }

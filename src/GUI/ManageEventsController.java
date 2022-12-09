@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+
 import java.util.Optional;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -77,6 +78,8 @@ public class ManageEventsController {
 
     public void update() {
         updateList(boardGameManager.getAllEvents());
+        date.setValue(null);
+        time.clear();
     }
 
     public void updateList(EventList list) {
@@ -90,7 +93,6 @@ public class ManageEventsController {
     public Scene getScene() {
         return scene;
     }
-
 
     public void actionHandler(ActionEvent e) {
         Event row = events.getSelectionModel().getSelectedItem();
@@ -109,7 +111,7 @@ public class ManageEventsController {
             alert.setHeaderText("Are you  sure you want to delete this event?");
             alert.setContentText(row.toString());
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK){
+            if (result.get() == ButtonType.OK) {
                 try {
                     list.removeEvent(row);
                     MyFileHandler.writeToBinaryFile("events.bin", list);
@@ -130,21 +132,42 @@ public class ManageEventsController {
 
         }
         if (rName.isSelected() || rLocation.isSelected() || rAllEvents.isSelected()) {
+            date.setValue(null);
+            time.clear();
             date.setVisible(false);
             time.setVisible(false);
             fSearch.setVisible(true);
         }
         // search by name
         if (e.getSource() == search && rName.isSelected()) {
-            EventList tempList = list.getEventsByName(
-                    fSearch.getText().toLowerCase());
-            updateList(tempList);
+
+            if (!fSearch.getText().isBlank()) {
+                EventList tempList = list.getEventsByName(
+                        fSearch.getText().toLowerCase());
+                updateList(tempList);
+
+            } else {
+                Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                alert1.setTitle("Error");
+                alert1.setHeaderText("The search bar has to be filled in order to search");
+                alert1.setContentText(null);
+                alert1.showAndWait();
+            }
         }
         if (e.getSource() == search && rLocation.isSelected()) {
-            EventList tempList = list.getEventsByLocation(
-                    fSearch.getText().toLowerCase());
-            updateList(tempList);
+            if (!fSearch.getText().isBlank()) {
+                EventList tempList = list.getEventsByLocation(fSearch.getText().toLowerCase());
+                updateList(tempList);
+
+            } else {
+                Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                alert1.setTitle("Error");
+                alert1.setHeaderText("The search bar has to be filled in order to search");
+                alert1.setContentText(null);
+                alert1.showAndWait();
+            }
         }
+
         if (rAllEvents.isSelected()) {
             EventList tempList = list;
             updateList(tempList);
@@ -156,14 +179,53 @@ public class ManageEventsController {
         }
 
         if (e.getSource() == search && rTime.isSelected()) {
-            String b = Integer.toString(date.getValue().getDayOfMonth()) + "/"
-                    + Integer.toString(date.getValue().getMonthValue()) + "/" +
-                    Integer.toString(date.getValue().getYear());
-            EventList tempList = list.getEventsByTime(MyDate.stringToDate(b, time.getText()));
-            updateList(tempList);
+            if (!(date.getValue() == null)) {
+                if (!time.getText().isEmpty()) {
+                    EventList tempList;
+                    if (MyDate.timeFormat(time.getText())){
+                        String b = Integer.toString(date.getValue().getDayOfMonth()) + "/"
+                                + Integer.toString(date.getValue().getMonthValue()) + "/" +
+                                Integer.toString(date.getValue().getYear());
+                        MyDate s = MyDate.stringToDate(b, time.getText());
+                        if(s.getHour() <00 || s.getHour() > 24 || s.getMin() < 0 || s.getMin() > 59){
+                            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                            alert1.setTitle("Error");
+                            alert1.setHeaderText("Hours can't be bigger than 24 or smaller than 00\nMinutes can't be bigger than 59 or smaller than 00");
+                            alert1.setContentText("Correct time format is hour:minutes");
+                            alert1.showAndWait();
+                            time.clear();
+                        } else {
+
+                            tempList = list.getEventsByTime(MyDate.stringToDate(b, time.getText()));
+                            updateList(tempList);
+                        }
+
+                    }else {
+                        Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                        System.out.println(time.getText());
+                        alert1.setTitle("Error");
+                        alert1.setHeaderText("Invalid time format");
+                        alert1.setContentText("Correct time format is hour:minutes");
+                        alert1.showAndWait();
+                    }
+                } else {
+                    EventList tempList;
+                    tempList = list.getEventsByDate(new MyDate(date.getValue().getDayOfMonth(),
+                            date.getValue().getMonthValue(),
+                            date.getValue().getYear()));
+                    updateList(tempList);
+                }
+
+            } else {
+                Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                alert1.setTitle("Error");
+                alert1.setHeaderText("There is has to be at least a date in order to search by it");
+                alert1.setContentText(null);
+                alert1.showAndWait();
+            }
+
         }
     }
-
 
     public void tableAction(MouseEvent event) {
         Event row = events.getSelectionModel().getSelectedItem();

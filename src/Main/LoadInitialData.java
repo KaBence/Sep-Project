@@ -69,7 +69,7 @@ public class LoadInitialData {
                     boardgamesEvents.addBoardGame(new BoardGame(nameGame, type, minNoP, maxNop,
                             members.getMemberByName(owner), avl));
                 }
-                events.addEvent(new Event(MyDate.stringToDate(date, timeTemp), location, name, tempArr[5], capacity, boardgamesEvents));
+                events.addEvent(new Event(MyDate.stringToDate(date, timeTemp), location, name, tempArr[5], capacity, boardgamesEvents, new MemberList()));
             }
         } catch (FileNotFoundException e) {
             System.out.println("File was not found, or could not be opened");

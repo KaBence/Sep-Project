@@ -42,6 +42,15 @@ public class EventList implements Serializable
             }
             return list1;
     }
+    public EventList getEventsByDate(MyDate date){
+        EventList list1 = new EventList();
+        MyDate tempDate;
+        for (int i = 0; i< events.size(); i++){
+            tempDate = events.get(i).getDateNoTime();
+            if (tempDate.equals(new MyDate(date.getDay(), date.getMonth(), date.getYear()))) list1.addEvent(events.get(i));
+        }
+        return list1;
+    }
     public EventList getEventsByGame(BoardGame game){
         EventList list1 = new EventList();
         BoardGameList tempGames;
@@ -94,7 +103,12 @@ public class EventList implements Serializable
     public void setEvent(Event event, int index){
         events.set(index,event);
     }
-
+    public void replace(int x, int y){
+        Event a = get(x);
+        Event b = get(y);
+        setEvent(a,y);
+        setEvent(b,x);
+    }
 
 }
 
