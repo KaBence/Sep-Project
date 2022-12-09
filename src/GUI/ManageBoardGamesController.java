@@ -29,6 +29,7 @@ public class ManageBoardGamesController
   @FXML TableColumn<BoardGame, Integer> tableColMinNoP;
   @FXML TableColumn<BoardGame, Integer> tableColMaxNoP;
   @FXML TableColumn<BoardGame, Member> tableColOwner;
+  @FXML TableColumn<BoardGame,String> tableColRank;
 
   private ViewHandler viewHandler;
   private BoardGameManager boardGameManager;
@@ -51,6 +52,8 @@ public class ManageBoardGamesController
     tableColOwner.setCellValueFactory(
         new PropertyValueFactory<BoardGame, Member>("owner"));
     tableColOwner.setText("Owner");
+    tableColRank.setCellValueFactory(
+        new PropertyValueFactory<BoardGame, String>("rankValue"));
   }
 
   /**

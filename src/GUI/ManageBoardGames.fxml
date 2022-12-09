@@ -30,13 +30,14 @@
       <RadioButton fx:id="allGames" layoutX="428.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" selected="true" text="All games" toggleGroup="$SecondRow" />
       <RadioButton fx:id="available" layoutX="46.0" layoutY="70.0" mnemonicParsing="false" onAction="#actionHandler" text="Available" toggleGroup="$SecondRow" />
       <TextField fx:id="searchField" layoutX="34.0" layoutY="96.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="482.0" />
-      <TableView fx:id="games" layoutX="-2.0" layoutY="146.0" onMouseClicked="#tableAction" onSort="#actionHandler" prefHeight="216.0" prefWidth="594.0">
+      <TableView fx:id="games" layoutX="-2.0" layoutY="146.0" onMouseClicked="#tableAction" prefHeight="216.0" prefWidth="594.0">
          <columns>
-            <TableColumn fx:id="tableColName" prefWidth="194.0" text="Name" />
-            <TableColumn fx:id="tableColType" prefWidth="111.0" text="Type" />
-            <TableColumn fx:id="tableColMinNoP" prefWidth="72.0" text="Min" />
-            <TableColumn fx:id="tableColMaxNoP" prefWidth="58.0" text="Max" />
-            <TableColumn fx:id="tableColOwner" prefWidth="138.0" text="Owner" />
+            <TableColumn fx:id="tableColName" prefWidth="155.0" text="Name" />
+            <TableColumn fx:id="tableColType" prefWidth="106.0" text="Type" />
+            <TableColumn fx:id="tableColMinNoP" prefWidth="68.0" text="Min" />
+            <TableColumn fx:id="tableColMaxNoP" prefWidth="68.0" text="Max" />
+            <TableColumn fx:id="tableColOwner" prefWidth="124.0" text="Owner" />
+            <TableColumn fx:id="tableColRank" prefWidth="60.0" text="Rank" />
          </columns>
       </TableView>
    </children>

@@ -157,6 +157,7 @@ public class BorrowGameController
           alert.setTitle("Warning");
           alert.setHeaderText(null);
           alert.showAndWait();
+          selectedBoardGame.setBorrow(null);
           return;
         }
         if (selectedBoardGame.isReserved()){
@@ -168,6 +169,7 @@ public class BorrowGameController
               alert.setTitle("Warning");
               alert.setHeaderText(null);
               alert.showAndWait();
+              selectedBoardGame.setBorrow(null);
               return;
             }
             //the pickup date and return date is the same with a reservation
@@ -176,6 +178,15 @@ public class BorrowGameController
               alert.setTitle("Warning");
               alert.setHeaderText(null);
               alert.showAndWait();
+              selectedBoardGame.setBorrow(null);
+              return;
+            }
+            if (pd.equals(selectedBoardGame.getReservationList().get(i).getPickUpDate())){
+              Alert alert=new Alert(Alert.AlertType.ERROR,"2Reservation for these days already exists",ButtonType.OK);
+              alert.setTitle("Warning");
+              alert.setHeaderText(null);
+              alert.showAndWait();
+              selectedBoardGame.setBorrow(null);
               return;
             }
             //pickup date in between and return date is after
@@ -184,6 +195,7 @@ public class BorrowGameController
               alert.setTitle("Warning");
               alert.setHeaderText(null);
               alert.showAndWait();
+              selectedBoardGame.setBorrow(null);
               return;
             }
             //Both are in between
@@ -192,6 +204,7 @@ public class BorrowGameController
               alert.setTitle("Warning");
               alert.setHeaderText(null);
               alert.showAndWait();
+              selectedBoardGame.setBorrow(null);
               return;
             }
             //pickupdate is before a reservation and return date is in between
@@ -200,6 +213,7 @@ public class BorrowGameController
               alert.setTitle("Warning");
               alert.setHeaderText(null);
               alert.showAndWait();
+              selectedBoardGame.setBorrow(null);
               return;
             }
           }

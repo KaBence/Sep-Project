@@ -97,8 +97,8 @@ public class MyDate implements Serializable
       return false;
     }
     MyDate other =(MyDate) obj;
-    if (hour==-1&&min==-1)return day== other.day && month== other.month && year== other.year;
-    return day== other.day && month== other.month && year== other.year && min== other.min && hour== other.hour;
+    if (hour==-1&&min==-1)return day== other.getDay() && month== other.getMonth() && year== other.getYear();
+    return day== other.getDay() && month== other.getMonth() && year== other.getYear() && min== other.getMin() && hour== other.getHour();
 
   }
 

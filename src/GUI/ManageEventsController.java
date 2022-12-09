@@ -56,7 +56,7 @@ public class ManageEventsController {
 
     public void initialize() {
         tableName.setCellValueFactory(
-                new PropertyValueFactory<Event, String>("name"));
+                new PropertyValueFactory<Event, String>("eventName"));
         tableLocation.setCellValueFactory(
                 new PropertyValueFactory<Event, String>("location"));
         tableCapacity.setCellValueFactory(
