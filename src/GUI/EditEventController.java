@@ -138,7 +138,7 @@ public class EditEventController {
         EventList list = boardGameManager.getAllEvents();
         name.setText(event.getEventName());
         ArrayList<String> tempGuest = event.getGuestsArr();
-        MemberList tempMem = event.getMembers();
+        MemberList tempMem = event.getMemberList();
         memberList = tempMem;
         name.setText(event.getEventName());
         fLocation.setText(event.getLocation());

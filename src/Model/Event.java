@@ -11,7 +11,7 @@ public class Event implements Serializable {
     private int maxCapacity;
     private BoardGameList games;
     private int capacity;
-    private MemberList members;
+    private MemberList memberList;
 
     public Event(MyDate date, String location, String name, String guests, int capacity, BoardGameList games, MemberList members) {
 
@@ -27,7 +27,7 @@ public class Event implements Serializable {
         }
         this.guests = a;
         this.games = games;
-        this.members = members;
+        this.memberList = members;
     }
 
     public void setCapacity(int maxCapacity) {
@@ -45,7 +45,8 @@ public class Event implements Serializable {
     }
 
     public String toString() {
-        return eventName + " on " + date + " at " + location + " with a max capcity of " + capacity + " players, playing these games" + games.toString() + "with these members: " + members + " and having these guests: \n" + guests.toString().replace("[", "").replace("]", "");
+        return eventName + " on " + date + " at " + location + " with a max capacity of " + capacity + " players, playing these games" + games.toString() + "with these members: " + memberList
+            + " and having these guests: \n" + guests.toString().replace("[", "").replace("]", "");
     }
 
     public void setLocation(String location) {
@@ -66,7 +67,7 @@ public class Event implements Serializable {
                 location.equals(other.location) &&
                         eventName.equals(other.eventName) && guests.equals(other.guests)
                         && date.equals(other.date) && capacity == other.capacity &&
-                        games.equals(other.games) && members.equals(other.members);
+                        games.equals(other.games) && memberList.equals(other.memberList);
     }
 
     public MyDate getDate() {
@@ -81,19 +82,20 @@ public class Event implements Serializable {
         for (int i = 0; i < guests.size(); i++) {
             a += guests.get(i);
         }
-        return new Event(date, location, eventName, a, capacity, games, members);
+        return new Event(date, location, eventName, a, capacity, games,
+            memberList);
     }
 
     public BoardGameList getGames() {
         return games;
     }
 
-    public MemberList getMembers() {
-        return members;
+    public MemberList getMemberList() {
+        return memberList;
     }
 
-    public void setMembers(MemberList list) {
-        members = list;
+    public void setMemberList(MemberList list) {
+        memberList = list;
     }
 
     public void addGames(BoardGame boardGame) {

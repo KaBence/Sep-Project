@@ -31,6 +31,9 @@ $.get("xml/Events.xml",function(xml,status){
             txt+=$(this).find("name").text()+"<br>";
         })
         txt+="</td><td>"
+        $(this).find("members").each(function(){
+            txt+=$(this).find("firstName").text()+" "+$(this).find("lastName").text()+"<br>";
+        })
         $(this).find("guests").each(function(){
             txt+=$(this).text()+"<br>"
         })+"</td></tr>"

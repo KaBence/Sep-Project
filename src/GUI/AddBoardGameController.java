@@ -55,7 +55,7 @@ public class AddBoardGameController
    * @param avl sets the boardGame either available or not available
    */
   public void addBoardGame(boolean avl){
-    if (name.getText().isEmpty()||type.getText().isEmpty()||min.getText().isEmpty()||max.getText().isEmpty()||owner.getValue()==null){
+    if (name.getText().isEmpty()||type.getText().isEmpty()||min.getText().isEmpty()||max.getText().isEmpty()||(owner.getValue()==null&& avl)){
       Alert alert=new Alert(Alert.AlertType.WARNING,"Fill every field before adding a boardGame",ButtonType.OK);
       alert.setTitle("Warning");
       alert.setHeaderText(null);
