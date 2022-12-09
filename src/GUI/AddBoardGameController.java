@@ -62,6 +62,18 @@ public class AddBoardGameController
       alert.showAndWait();
       return;
     }
+    try
+    {
+      Integer.parseInt(min.getText());
+      Integer.parseInt(max.getText());
+    }
+    catch (NumberFormatException e){
+      Alert alert=new Alert(Alert.AlertType.WARNING,"Number of players must be numbers",ButtonType.OK);
+      alert.setTitle("Warning");
+      alert.setHeaderText(null);
+      alert.showAndWait();
+      return;
+    }
     BoardGame temp=new BoardGame(name.getText(),type.getText(), Integer.parseInt(min.getText()),Integer.parseInt(max.getText()),owner.getValue(),avl);
     BoardGameList boardGameList=boardGameManager.getAllBoardGames();
     for (int i = 0; i < boardGameList.size(); i++)
