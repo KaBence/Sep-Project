@@ -37,7 +37,7 @@
             <TableColumn fx:id="tableColMaxNoP" prefWidth="44.7999267578125" text="Max" />
          </columns>
       </TableView>
-      <TableView fx:id="guestTable1" layoutX="345.0" layoutY="184.0" onSort="#actionHandler" prefHeight="179.0" prefWidth="131.0">
+      <TableView fx:id="guestTable1" layoutX="345.0" layoutY="184.0" prefHeight="179.0" prefWidth="131.0">
          <columns>
             <TableColumn fx:id="guestsCol" prefWidth="129.599853515625" text="Guests" />
          </columns>
