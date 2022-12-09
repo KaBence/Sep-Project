@@ -121,6 +121,10 @@ public class BoardGame implements Serializable
   public int getVote(){
     return voteList.getVote();
   }
+  public String  getRankValue(){
+    if (rankListExist()) return String.valueOf(rankList.getAverage());
+    return " ";
+  }
   public ReservationList getReservationList(){
     return reservationList;
   }
