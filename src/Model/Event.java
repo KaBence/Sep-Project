@@ -65,7 +65,7 @@ public class Event implements Serializable {
         Event other = (Event) obj;
         return
                 location.equals(other.location) &&
-                        eventName.equals(other.eventName) && guests.equals(other.guests)
+                        eventName.equals(other.eventName) 
                         && date.equals(other.date) && capacity == other.capacity ;
     }
 

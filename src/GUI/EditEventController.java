@@ -124,7 +124,9 @@ public class EditEventController {
             chooseMember.getItems().add(allMember.get(i).getFirstName() + " " + allMember.get(i).getLastName());
         }
         chooseMember.getSelectionModel().selectFirst();
-        BoardGameList list = boardGameManager.getAllBoardGames();
+        BoardGameList temp= boardGameManager.getAllBoardGames();
+        BoardGameList list = temp.getBoardGamesByAvailability(temp,true);
+
         for (int i = 0; i < list.size(); i++) {
             chooseGame.getItems().add(list.get(i).getName());
         }
@@ -213,7 +215,8 @@ public class EditEventController {
      * @param e the event that is called when something happens
      */
     public void actionHandler(ActionEvent e) {
-        BoardGameList allgameList = boardGameManager.getAllBoardGames();
+        BoardGameList temp= boardGameManager.getAllBoardGames();
+        BoardGameList allgameList = temp.getBoardGamesByAvailability(temp,true);
         BoardGameList gameList = new BoardGameList();
         MemberList allmember = boardGameManager.getAllMembers();
         Member row1 = memberTable.getSelectionModel().getSelectedItem();
@@ -428,7 +431,6 @@ public class EditEventController {
                 alert.setContentText(null);
                 alert.showAndWait();
             }
-
         }
     }
 }
