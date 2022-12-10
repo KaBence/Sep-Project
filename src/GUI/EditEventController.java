@@ -124,7 +124,9 @@ public class EditEventController {
             chooseMember.getItems().add(allMember.get(i).getFirstName() + " " + allMember.get(i).getLastName());
         }
         chooseMember.getSelectionModel().selectFirst();
-        BoardGameList list = boardGameManager.getAllBoardGames();
+        BoardGameList temp= boardGameManager.getAllBoardGames();
+        BoardGameList list = temp.getBoardGamesByAvailability(temp,true);
+
         for (int i = 0; i < list.size(); i++) {
             chooseGame.getItems().add(list.get(i).getName());
         }
@@ -176,7 +178,7 @@ public class EditEventController {
         }
     }
     /**
-     * A method for accessing the event's foelds
+     * A method for accessing the event's fields
      * @param event the event that has to be edited
      */
     public void editEvent(Event event) {
@@ -213,7 +215,8 @@ public class EditEventController {
      * @param e the event that is called when something happens
      */
     public void actionHandler(ActionEvent e) {
-        BoardGameList allgameList = boardGameManager.getAllBoardGames();
+        BoardGameList temp= boardGameManager.getAllBoardGames();
+        BoardGameList allgameList = temp.getBoardGamesByAvailability(temp,true);
         BoardGameList gameList = new BoardGameList();
         MemberList allmember = boardGameManager.getAllMembers();
         Member row1 = memberTable.getSelectionModel().getSelectedItem();
@@ -350,6 +353,16 @@ public class EditEventController {
         if (e.getSource() == save) {
             int a;
             System.out.println(eventIndex);
+            for (int i = 0;i<gameList.size();i++){
+                if (!(gameList.get(i).isAvailable())){
+                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                    alert1.setTitle("Error");
+                    alert1.setHeaderText("One or more games in the list are not available at the moment");
+                    alert1.setContentText(null);
+                    alert1.showAndWait();
+                    return;
+                }
+            }
             if (date.getValue() != null && !fLocation.getText().isBlank() && !name.getText().isBlank() && !gamesTable.getItems().isEmpty()) {
                 if (!date.getValue().isBefore(LocalDate.now())) {
                     if (!maxCapacity.getText().isBlank()) {
@@ -395,7 +408,6 @@ public class EditEventController {
                             Event event = new Event(c,
                                     fLocation.getText(), name.getText(), tempGuests.toString().replace("[", "").replace("]", ""), a, gameList, memberList);
                             list.setEvent(event, eventIndex);
-
                             MyFileHandler.writeToBinaryFile("events.bin", list);
                             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                             alert1.setTitle("Event list updated");
@@ -428,7 +440,6 @@ public class EditEventController {
                 alert.setContentText(null);
                 alert.showAndWait();
             }
-
         }
     }
 }
