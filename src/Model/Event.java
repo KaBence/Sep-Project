@@ -153,7 +153,7 @@ public class Event implements Serializable {
     /**
      * This function returns the games variable.
      *
-     * @return The games variable is being returned.
+     * @return The game list variable is being returned.
      */
     public BoardGameList getGames() {
         return games;
