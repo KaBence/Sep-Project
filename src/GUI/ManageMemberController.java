@@ -59,9 +59,9 @@ public class ManageMemberController
   /**
    * method for setting the scene
    *
-   * @param viewHandler
-   * @param scene
-   * @param boardGameManager
+   * @param viewHandler sets the viewHandler
+   * @param scene sets The scene
+   * @param boardGameManager sets the BoardGameManager
    */
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
