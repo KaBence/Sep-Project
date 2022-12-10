@@ -258,7 +258,7 @@ public class AddEventController {
                     guestClass ska = new guestClass(i);
                     guestTable.getItems().add(ska);
                     tempGuests.add(i);
-                    
+
                 }
             } else {
                 for (int i = 0; i < tempGuests.size(); i++) {
