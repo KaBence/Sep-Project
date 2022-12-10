@@ -17,7 +17,16 @@ import Util.MyFileHandler;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * A class for loading the data from the txt files to the bin files
+ * @author Bence Kabaly
+ */
+
 public class LoadInitialData {
+    /**
+     *  The main method that starts when this is started
+     * @param args We can give arguments when the program starts
+     */
 
     public static void main(String[] args) {
         BoardGameList boardgames = new BoardGameList();

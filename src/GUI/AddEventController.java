@@ -71,8 +71,18 @@ public class AddEventController {
     private ViewHandler viewHandler;
     private BoardGameManager boardGameManager;
     private Scene scene;
+    /**
+     * creating new list of boardgames
+     */
     public BoardGameList gameList = new BoardGameList();
+    /**
+     * creating new list of members
+     */
     public MemberList memberList = new MemberList();
+    /**
+     * creating new Arraylist of guests
+     * @param String names of guests
+     */
     public ArrayList<String> tempGuests = new ArrayList<String>();
 
     /**
@@ -142,6 +152,9 @@ public class AddEventController {
      * A nested class for creating a guest String object
      */
     public class guestClass {
+        /**
+         * initialising the String of guests
+         */
         public String str = "";
         /**
          *  One argument constructor for initializing the guestClass object

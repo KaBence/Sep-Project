@@ -11,7 +11,10 @@ public class MyFileHandler
 {
   /**
    * Writes the given string to a file with the given file name
-    */
+   * @param fileName name of the text file
+   * @param str The string that is saved to the file
+   * @throws FileNotFoundException If the program finds a problem with the file
+   */
 
   public static void writeToTextFile(String fileName, String str) throws FileNotFoundException
   {
@@ -20,9 +23,9 @@ public class MyFileHandler
 
   /**
    *  Appends the given string to a file with the given file name
-   * @param fileName
-   * @param str
-   * @throws FileNotFoundException
+   * @param fileName name of the text file
+   * @param str The string that is saved to the file
+   * @throws FileNotFoundException If the program finds a problem with the file
    */
   public static void appendToTextFile(String fileName, String str) throws FileNotFoundException
   {
@@ -32,10 +35,10 @@ public class MyFileHandler
   /**
    *  writeToTextFile and appendToTextFile are almost identical - only the boolean in the constructor
    *  of the FileOutputStream differs. So I made this private method that both methods call
-   * @param fileName
-   * @param str
-   * @param append
-   * @throws FileNotFoundException
+   * @param fileName name of the text file
+   * @param str The string that is saved to the file
+   * @param append If it is false it overwrites the file
+   * @throws FileNotFoundException If the program finds a problem with the file
    */
   private static void writeText(String fileName, String str, boolean append) throws FileNotFoundException
   {
@@ -58,16 +61,21 @@ public class MyFileHandler
 
   /**
    * Writes the strings in the given array to a file with the given file name
-   * @param fileName
-   * @param strs
-   * @throws FileNotFoundException
+   * @param fileName name of the text file
+   * @param strs The string array that is saved to the file
+   * @throws FileNotFoundException If the program finds a problem with the file
    */
   public static void writeArrayToTextFile(String fileName, String[] strs) throws FileNotFoundException
   {
     writeText(fileName, strs, false);
   }
 
-  // Appends the strings in the given array to a file with the given file name
+  /**
+   *  Appends the strings in the given array to a file with the given file name
+   * @param fileName name of the text file
+   * @param strs The string array that is saved to the file
+   * @throws FileNotFoundException If the program finds a problem with the file
+   */
   public static void appendArrayToTextFile(String fileName, String[] strs) throws FileNotFoundException
   {
     writeText(fileName, strs, true);
@@ -76,10 +84,10 @@ public class MyFileHandler
   /**
    * Again, the writeArrayToTextFile and appendArrayToTextFile methods are almost identical.
    * So I made this private method that both methods call
-   * @param fileName
-   * @param strs
-   * @param append
-   * @throws FileNotFoundException
+   * @param fileName name of the text file
+   * @param strs The string array that is saved to the file
+   * @param append If it is false it overwrites the file
+   * @throws FileNotFoundException If the program finds a problem with the file
    */
   private static void writeText(String fileName, String[] strs, boolean append) throws FileNotFoundException
   {
@@ -106,9 +114,9 @@ public class MyFileHandler
 
   /**
    * Reads the first line from the file with the given file name and returns it as a String
-   * @param fileName
-   * @return
-   * @throws FileNotFoundException
+   * @param fileName name of the text file
+   * @return The content of the text file as a string
+   * @throws FileNotFoundException If the program finds a problem with the file
    */
   public String readFromTextFile(String fileName) throws FileNotFoundException
   {
@@ -133,9 +141,9 @@ public class MyFileHandler
 
   /**
    * Reads all lines from the file with the given file name and returns it as a String[]
-   * @param fileName
-   * @return
-   * @throws FileNotFoundException
+   * @param fileName name of the text file
+   * @return the content of the file as a string array
+   * @throws FileNotFoundException If the program finds a problem with the file
    */
   public static String[] readArrayFromTextFile(String fileName) throws FileNotFoundException
   {
@@ -166,10 +174,10 @@ public class MyFileHandler
 
   /**
    * Writes the given object to a file with the given file name
-   * @param fileName
-   * @param obj
-   * @throws FileNotFoundException
-   * @throws IOException
+   * @param fileName name of the text file
+   * @param obj This object is getting saved to the file
+   * @throws FileNotFoundException If the program finds a problem with the file
+   * @throws IOException If the program finds and IO problem with the file
    */
   public static void writeToBinaryFile(String fileName, Object obj) throws FileNotFoundException, IOException
   {
@@ -200,10 +208,10 @@ public class MyFileHandler
 
   /**
    * Writes the objects in the given array to a file with the given file name
-   * @param fileName
-   * @param objs
-   * @throws FileNotFoundException
-   * @throws IOException
+   * @param fileName name of the text file
+   * @param objs These objects are getting saved to the file
+   * @throws FileNotFoundException If the program finds a problem with the file
+   * @throws IOException If the program finds and IO problem with the file
    */
   public static void writeArrayToBinaryFile(String fileName, Object[] objs) throws FileNotFoundException, IOException
   {
@@ -238,11 +246,11 @@ public class MyFileHandler
   /**
    *  Reads the first object from the file with the given file name and returns it.
    *  Whoever calls the method will need to cast it from type Object to its actual type
-   * @param fileName
-   * @return
-   * @throws FileNotFoundException
-   * @throws IOException
-   * @throws ClassNotFoundException
+   * @param fileName name of the text file
+   * @return The object that is in the file
+   * @throws FileNotFoundException If the program finds a problem with the file
+   * @throws IOException If the program finds and IO problem with the file
+   * @throws ClassNotFoundException f cast the return object to a class, and it is not the correct one
    */
   public static Object readFromBinaryFile(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException
   {
@@ -282,11 +290,11 @@ public class MyFileHandler
   /**
    * Reads all objects from the file with the given file name and returns it as an Object[].
    * Whoever calls the method will need to cast the Objects to their actual type
-   * @param fileName
-   * @return
-   * @throws FileNotFoundException
-   * @throws IOException
-   * @throws ClassNotFoundException
+   * @param fileName name of the text file
+   * @return The object that is in the file as an Object array
+   * @throws FileNotFoundException If the program finds a problem with the file
+   * @throws IOException If the program finds and IO problem with the file
+   * @throws ClassNotFoundException If cast the return object to a class, and it is not the correct one
    */
   public static Object[] readArrayFromBinaryFile(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException
   {

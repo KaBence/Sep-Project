@@ -41,9 +41,9 @@ public class AddMemberController
   /**
    * method for setting the scene
    *
-   * @param viewHandler
-   * @param scene
-   * @param boardGameManager
+   * @param viewHandler sets the viewHandler
+   * @param scene sets the scene
+   * @param boardGameManager sets the boardGameManager
    */
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
@@ -76,7 +76,7 @@ public class AddMemberController
   /**
    * method for setting a member
    *
-   * @param member
+   * @param member object of a member class
    */
   public void setMember(Member member)
   {

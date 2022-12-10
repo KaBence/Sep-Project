@@ -114,7 +114,7 @@ public class Event implements Serializable {
         Event other = (Event) obj;
         return
                 location.equals(other.location) &&
-                        eventName.equals(other.eventName) && guests.equals(other.guests)
+                        eventName.equals(other.eventName) 
                         && date.equals(other.date) && capacity == other.capacity ;
     }
 
@@ -154,7 +154,7 @@ public class Event implements Serializable {
     /**
      * This function returns the games variable.
      *
-     * @return The games variable is being returned.
+     * @return The game list variable is being returned.
      */
     public BoardGameList getGames() {
         return games;
