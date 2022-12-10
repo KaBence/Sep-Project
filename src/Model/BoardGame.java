@@ -55,7 +55,6 @@ public class BoardGame implements Serializable
   /**
    * This function sets the owner of the current object to the owner passed in as a parameter.
    *
-   * @param owner The owner of the pet.
    */
   public void setOwner(Member owner)
   {
