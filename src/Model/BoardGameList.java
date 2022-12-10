@@ -14,7 +14,7 @@ public class BoardGameList implements Serializable
    }
 
    /**
-    * Returns the number of elements in the list.
+    * Returns the number of elements in the board game list.
     * @return The size of the boardGames arraylist.
     */
    public int size(){
@@ -23,7 +23,6 @@ public class BoardGameList implements Serializable
 
    /**
     * This function returns the board game at the given index.
-    *
     * @param index the index of the element to return
     * @return The board game at the index.
     */
@@ -33,8 +32,7 @@ public class BoardGameList implements Serializable
 
    /**
     * This function adds a board game to the list of board games
-    *
-    * @param boardGame The board game to add to the list.
+    * @param boardGame The board game to be added to the list.
     */
    public void addBoardGame(BoardGame boardGame){
      boardGames.add(boardGame);
@@ -42,7 +40,6 @@ public class BoardGameList implements Serializable
 
    /**
     * Remove the board game from the list of board games.
-    *
     * @param boardGame The board game to be removed from the list.
     */
    public void removeBoardGame(BoardGame boardGame){
@@ -50,10 +47,9 @@ public class BoardGameList implements Serializable
    }
 
   /**
-   * This function takes a string as a parameter and returns a BoardGameList object
-   *
+   * This function get the board game by its type from the board game size of the type BoardGameList.
    * @param type The type of board game you want to search for.
-   * @return A BoardGameList object.
+   * @return A BoardGameList game selected by its type.
    */
   public BoardGameList getBoardGamesByType(String type){
     BoardGameList temp=new BoardGameList();
@@ -67,10 +63,9 @@ public class BoardGameList implements Serializable
   }
 
   /**
-   * This function returns a list of board games that can be played by a certain number of players
-   *
+   * This function get the board game by the total number of players from the board game size of the type BoardGameList.
    * @param num the number of players
-   * @return A BoardGameList object.
+   * @return  BoardGameList game selected by the number of players.
    */
   public BoardGameList getBoardGamesByNoP(int num){
     BoardGameList temp=new BoardGameList();
@@ -82,10 +77,9 @@ public class BoardGameList implements Serializable
   }
 
   /**
-   * This function returns a list of board games that contain the string name in their name.
-   *
+   * This function returns a list of board games that contain the name of game of the type BoardGameList.
    * @param name The name of the board game you want to search for.
-   * @return A BoardGameList object.
+   * @return A BoardGameList selected by its name.
    */
   public BoardGameList getBoardGamesByName(String name){
     BoardGameList temp=new BoardGameList();
@@ -99,7 +93,6 @@ public class BoardGameList implements Serializable
   /**
    * > This function takes a list of board games and a boolean value and returns a list of board games that have the same
    * availability as the boolean value
-   *
    * @param previous the list of board games to filter
    * @param availability true if you want to get the available games, false if you want to get the unavailable games
    * @return A list of board games that are available or not available.
@@ -114,7 +107,6 @@ public class BoardGameList implements Serializable
 
   /**
    * > This function takes a list of board games and returns a list of board games that are borrowed
-   *
    * @param previous the list of board games to be filtered
    * @return A list of board games that are borrowed.
    */
@@ -127,8 +119,7 @@ public class BoardGameList implements Serializable
   }
 
   /**
-   * > This function takes a list of board games and returns a list of board games that are reserved
-   *
+   * This function takes a list of board games and returns a list of board games that are reserved
    * @param previous The list of board games that you want to filter.
    * @return A list of board games that are reserved.
    */
@@ -141,7 +132,7 @@ public class BoardGameList implements Serializable
   }
 
   /**
-   * This function returns a list of board games owned by a given member.
+   * This function returns a list of board games owned by the owner of the game.
    * @param owner The owner of the board games you want to get.
    * @return A BoardGameList object.
    */
