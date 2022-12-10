@@ -320,7 +320,24 @@ public class AddEventController {
             if (date.getValue() != null && !fLocation.getText().isBlank() && !name.getText().isBlank() && !games.getItems().isEmpty()) {
                 if (!date.getValue().isBefore(LocalDate.now())) {
                     if (!maxCapacity.getText().isBlank()) {
-                        a = Integer.parseInt(maxCapacity.getText());
+                        try{a = Integer.parseInt(maxCapacity.getText());
+                            if (a<0){ Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                                alert1.setTitle("Error");
+                                alert1.setHeaderText("Wrong capacity format");
+                                alert1.setContentText("Capacity can't be smaller than 0");
+                                alert1.showAndWait();
+                                time.clear();
+                                return;}
+                        }catch (NumberFormatException exception){
+                            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+                            alert1.setTitle("Error");
+                            alert1.setHeaderText("Wrong capacity format");
+                            alert1.setContentText("Use an integer");
+                            alert1.showAndWait();
+                            time.clear();
+                            return;
+                        }
+
                     } else {
                         a = 0;
                     }
