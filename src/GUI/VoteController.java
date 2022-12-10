@@ -6,7 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+/**
+ * A class for the voting system
+ * @author It's a secret
+ */
 public class VoteController
 {
 
@@ -20,7 +23,9 @@ public class VoteController
   @FXML TableView<BoardGame> games;
   @FXML TableColumn<BoardGame, String> TName;
   @FXML TableColumn<BoardGame, Integer> TVote;
-
+  /**
+   * A method for initializing the tables
+   */
   public void initialize()
   {
     TName.setCellValueFactory(
@@ -28,7 +33,9 @@ public class VoteController
     TVote.setCellValueFactory(
         new PropertyValueFactory<BoardGame, Integer>("vote"));
   }
-
+  /**
+   * A method for updating the windows and table
+   */
   public void update()
   {
     BoardGameList boardGameList = boardGameManager.getAllBoardGames();
@@ -40,7 +47,9 @@ public class VoteController
       games.getItems().add(temp.get(i));
     }
   }
-
+  /**
+   * A method for updating the list of games
+   */
   public void updateList(BoardGameList list)
   {
     games.getItems().clear();
@@ -50,12 +59,19 @@ public class VoteController
       games.getItems().add(boardGameList.get(i));
     }
   }
-
+  /**
+   * A method for clearing the text fields
+   */
   public void clean()
   {
     textfield.clear();
   }
-
+  /**
+   * A method for setting the parameters
+   * @param viewHandler sets the viewHandler
+   * @param scene sets The scene
+   * @param boardGameManager sets the BoardGameManager
+   */
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
   {
@@ -63,12 +79,18 @@ public class VoteController
     this.scene = scene;
     this.boardGameManager = boardGameManager;
   }
-
+  /**
+   * Returns the Vote scene
+   * @return Vote scene
+   */
   public Scene getScene()
   {
     return scene;
   }
-
+  /**
+   * A method for handling the button clicking
+   * @param e the event that is called when something happens
+   */
   public void actionHandler(ActionEvent e)
   {
     BoardGameList boardGameList1 = boardGameManager.getAllBoardGames();

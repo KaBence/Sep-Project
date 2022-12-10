@@ -9,7 +9,10 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+/**
+ * A class for seeing the reviews of a game
+ * @author It's a secret
+ */
 public class SeeReviewController
 {
   @FXML TextField nameOfBoardGame,rank;
@@ -20,19 +23,29 @@ public class SeeReviewController
   private BoardGameManager boardGameManager;
   private Scene scene;
   private BoardGame selectedBoardGame;
+  /**
+   * A method for setting the parameters
+   * @param viewHandler sets the viewHandler
+   * @param scene sets The scene
+   * @param boardGameManager sets the BoardGameManager
+   */
   public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
     this.boardGameManager = boardGameManager;
   }
-
+  /**
+   * A method for initializing the data
+   */
   public void initialize(){
     nameOfBoardGame.setEditable(false);
     rank.setEditable(false);
 
   }
-
+  /**
+   * A method updating the windows and fields
+   */
   public void update(){
     reviews.getItems().clear();
     if (selectedBoardGame.getRankList()==null) tableText.setCellValueFactory(null);
@@ -50,15 +63,24 @@ public class SeeReviewController
     nameOfBoardGame.setText(selectedBoardGame.getName());
   }
 
-
+  /**
+   * A method to select a game
+   * @param selectedBoardGame the selected game
+   */
   public void setSelectedBoardGame(BoardGame selectedBoardGame) {
     this.selectedBoardGame = selectedBoardGame;
   }
-
+  /**
+   * Returns the seeReview scene
+   * @return seeReview scene
+   */
   public Scene getScene(){
     return scene;
   }
-
+  /**
+   * A method for handling the button clicking
+   * @param e the event that is called when something happens
+   */
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back) viewHandler.openView("manageBoardGame");
     if (e.getSource()==remove){
