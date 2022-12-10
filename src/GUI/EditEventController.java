@@ -360,7 +360,6 @@ public class EditEventController {
 
         if (e.getSource() == save) {
             int a;
-            System.out.println(eventIndex);
             for (int i = 0;i<gameList.size();i++){
                 if (!(gameList.get(i).isAvailable())){
                     Alert alert1 = new Alert(Alert.AlertType.ERROR);
