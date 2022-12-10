@@ -3,15 +3,30 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
+/**
+ * The EventList class is a container for a list of Event objects
+ */
 public class EventList implements Serializable
 {
     private ArrayList<Event> events;
+    // This is the constructor for the EventList class. It is creating a new ArrayList of type Event.
     public EventList(){
         events = new ArrayList<Event>();
     }
+    /**
+     * This function adds an event to the list of events.
+     *
+     * @param event The event to be added to the list of events.
+     */
     public void addEvent(Event event){
         events.add(event);
     }
+    /**
+     * Remove the event from the list of events.
+     *
+     * @param event the event to be removed
+     */
     public void removeEvent(Event event){
         for (int i = 0; i< events.size(); i++){
             if (event.equals(events.get(i))) {
@@ -22,6 +37,12 @@ public class EventList implements Serializable
         }
     }
 
+    /**
+     * This function takes in a string and returns an EventList of all the events that have the string in their location
+     *
+     * @param location The location of the event.
+     * @return A list of events that contain the location.
+     */
     public EventList getEventsByLocation(String location){
         EventList list1 = new EventList();
         String tempLocation;
@@ -33,6 +54,12 @@ public class EventList implements Serializable
         }
         return list1;
     }
+        /**
+         * This function returns a list of events that occur on the same date as the date passed in as a parameter.
+         *
+         * @param date the date you want to search for
+         * @return A list of events that are on the same date as the date passed in.
+         */
         public EventList getEventsByTime(MyDate date){
             EventList list1 = new EventList();
             MyDate tempDate;
@@ -42,6 +69,12 @@ public class EventList implements Serializable
             }
             return list1;
     }
+    /**
+     * This function returns a list of events that occur on the same day as the date passed in as a parameter.
+     *
+     * @param date The date you want to search for.
+     * @return A list of events that are on the same date as the date passed in.
+     */
     public EventList getEventsByDate(MyDate date){
         EventList list1 = new EventList();
         MyDate tempDate;
@@ -51,6 +84,13 @@ public class EventList implements Serializable
         }
         return list1;
     }
+    /**
+     * This function takes a BoardGame object as a parameter and returns an EventList object that contains all the events
+     * that have the BoardGame object in their BoardGameList
+     *
+     * @param game The game you want to search for
+     * @return A list of events that contain the game.
+     */
     public EventList getEventsByGame(BoardGame game){
         EventList list1 = new EventList();
         BoardGameList tempGames;
@@ -63,6 +103,13 @@ public class EventList implements Serializable
         return list1;
     }
 
+    /**
+     * This function takes in a string and returns an EventList object that contains all the events that have the string in
+     * their name
+     *
+     * @param name The name of the event you want to search for.
+     * @return A list of events that contain the name.
+     */
     public EventList getEventsByName(String name){
         EventList list1 = new EventList();
         String tempName;
@@ -76,6 +123,11 @@ public class EventList implements Serializable
     }
 
 
+    /**
+     * This function returns a string that contains all the events in the calendar
+     *
+     * @return The toString method is returning a string of all the events in the arraylist.
+     */
     public String toString(){
         String a = "";
         for(int i = 0; i< events.size(); i++){
@@ -83,9 +135,21 @@ public class EventList implements Serializable
         }
         return a;
     }
+    /**
+     * This function returns the event at the given index.
+     *
+     * @param index The index of the event you want to get.
+     * @return The event at the given index.
+     */
     public Event get(int index){
         return events.get(index);
     }
+    /**
+     * This function returns the index of the event in the events array list.
+     *
+     * @param event the event you want to find the index of
+     * @return The index of the event in the list.
+     */
     public int getIndexOf(Event event){
         int index = 0;
         for (int i = 0; i< events.size(); i++){
@@ -97,12 +161,29 @@ public class EventList implements Serializable
         return index;
     }
 
+    /**
+     * Returns the number of events in the event list.
+     *
+     * @return The size of the events arraylist.
+     */
     public int size(){
         return events.size();
     }
+    /**
+     * This function sets the event at the given index to the given event
+     *
+     * @param event The event to be added to the list.
+     * @param index The index of the event you want to set.
+     */
     public void setEvent(Event event, int index){
         events.set(index,event);
     }
+    /**
+     * It takes two integers, x and y, and swaps the events at those indexes
+     *
+     * @param x the index of the first event
+     * @param y the index of the event you want to replace
+     */
     public void replace(int x, int y){
         Event a = get(x);
         Event b = get(y);
