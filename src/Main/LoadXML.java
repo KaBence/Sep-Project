@@ -9,8 +9,16 @@ import parser.XmlJsonParser;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * A class for creating xml files from the bin files
+ * @author Bence Kabaly
+ */
 public class LoadXML
 {
+  /**
+   *  The main method that starts when this is started
+   * @param args We can give arguments when the program starts
+   */
   public static void main(String[] args)
   {
     XmlJsonParser parser=new XmlJsonParser();
