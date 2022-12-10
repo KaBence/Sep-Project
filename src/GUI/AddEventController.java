@@ -241,7 +241,7 @@ public class AddEventController {
         if (e.getSource() == addGuest && !guests.getText().isEmpty()) {
             String[] tempArr = guests.getText().split(",");
             if (tempGuests.size() == 0) {
-                for (int i = 0; i < allmember.size(); i++) {
+                for (int i = 0; i < memberList.size(); i++) {
                     for (String j : tempArr) {
                         if (j.toLowerCase().equals(allmember.get(i).getFullName().toLowerCase())) {
                             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -258,6 +258,7 @@ public class AddEventController {
                     guestClass ska = new guestClass(i);
                     guestTable.getItems().add(ska);
                     tempGuests.add(i);
+
                 }
             } else {
                 for (int i = 0; i < tempGuests.size(); i++) {
@@ -295,7 +296,7 @@ public class AddEventController {
         }
         if (e.getSource() == removeGuest && guest != null) {
             guestTable.getItems().remove(guest);
-            tempGuests.remove(guest);
+            tempGuests.remove(guest.toString());
         }
         if (e.getSource() == back) {
             if (!time.getText().isBlank() || !fLocation.getText().isBlank() || !name.getText().isBlank() || !guests.getText().isBlank() || !guestTable.getItems().isEmpty() || !games.getItems().isEmpty() || !memberTable.getItems().isEmpty()) {

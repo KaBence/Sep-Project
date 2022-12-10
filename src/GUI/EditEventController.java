@@ -313,7 +313,7 @@ public class EditEventController {
         }
         if (e.getSource() == removeGuest && guest != null) {
             guestTable1.getItems().remove(guest);
-            tempGuests.remove(guest);
+            tempGuests.remove(guest.toString());
         }
         BoardGame row = gamesTable.getSelectionModel().getSelectedItem();
         if (e.getSource() == addGame && chooseGame.getValue() != null) {
