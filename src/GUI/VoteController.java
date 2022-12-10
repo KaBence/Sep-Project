@@ -49,6 +49,7 @@ public class VoteController
   }
   /**
    * A method for updating the list of games
+   * @param list BoardGameList
    */
   public void updateList(BoardGameList list)
   {

@@ -81,7 +81,6 @@ public class AddEventController {
     public MemberList memberList = new MemberList();
     /**
      * creating new Arraylist of guests
-     * @param String names of guests
      */
     public ArrayList<String> tempGuests = new ArrayList<String>();
 
@@ -126,7 +125,8 @@ public class AddEventController {
         }
         chooseMember.getSelectionModel().selectFirst();
 
-        BoardGameList allgameList = boardGameManager.getAllBoardGames();
+        BoardGameList temp= boardGameManager.getAllBoardGames();
+        BoardGameList allgameList = temp.getBoardGamesByAvailability(temp,true);
         for (int i = 0; i < allgameList.size(); i++) {
             chooseGame.getItems().add(allgameList.get(i).getName());
         }
@@ -184,7 +184,8 @@ public class AddEventController {
      */
     public void actionHandler(ActionEvent e) {
         EventList allevents = boardGameManager.getAllEvents();
-        BoardGameList allgameList = boardGameManager.getAllBoardGames();
+        BoardGameList temp= boardGameManager.getAllBoardGames();
+        BoardGameList allgameList = temp.getBoardGamesByAvailability(temp,true);
         BoardGame row = games.getSelectionModel().getSelectedItem();
         MemberList allmember = boardGameManager.getAllMembers();
         Member row1 = memberTable.getSelectionModel().getSelectedItem();

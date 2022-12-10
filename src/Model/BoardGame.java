@@ -19,6 +19,12 @@ public class BoardGame implements Serializable
 
   /**
    * It's a constructor that initializes the variables of the class.
+   * @param name name
+   * @param availability is or is not available
+   * @param maxNoP maximum number of players
+   * @param minNoP minimum numebr of players
+   * @param type  type of boardGame
+   * @param owner owner or borrower of the game
    */
   public BoardGame(String name,String type,int minNoP,int maxNoP,Member owner,boolean availability){
     this.name=name;
