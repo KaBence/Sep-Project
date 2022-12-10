@@ -8,7 +8,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
-
+/**
+ * A class for making reservations of games
+ * @author It's a secret
+ */
 public class MakeReservationController
 {
 
@@ -29,28 +32,43 @@ public class MakeReservationController
   private Scene scene;
   private BoardGame selectedGame;
 
-
+  /**
+   * A method for setting the parameters
+   * @param viewHandler sets the viewHandler
+   * @param scene sets The scene
+   * @param boardGameManager sets the BoardGameManager
+   */
   public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager)
   {
     this.viewHandler = viewHandler;
     this.scene = scene;
     this.boardGameManager = boardGameManager;
   }
-
+  /**
+   * Returns the makeReservation scene
+   * @return makeReservation scene
+   */
   public Scene getScene(){
     return scene;
   }
-
+  /**
+   * A method for selecting a game
+   * @param selectedGame the selected game
+   */
   public void setSelectedGame(BoardGame selectedGame) {
     this.selectedGame = selectedGame;
   }
-
+  /**
+   * A method for initializing the tables
+   */
   public void initialize(){
     borrowerTable.setCellValueFactory(new PropertyValueFactory<Reservation, String>("borrower"));
     pickUpDate.setCellValueFactory(new PropertyValueFactory<Reservation, String>("pickUpDate"));
     returnDate.setCellValueFactory(new PropertyValueFactory<Reservation, String>("returnDate"));
   }
-
+  /**
+   * A method for updating the  window and table
+   */
   public void update(){
     pickUpDate1.getEditor().clear();
     returnDate1.getEditor().clear();
@@ -68,7 +86,10 @@ public class MakeReservationController
       borrower.getItems().add(members.get(i));
     }
   }
-
+  /**
+   * A method for handling the button clicking
+   * @param e the event that is called when something happens
+   */
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back) viewHandler.openView("manageBoardGame");
     if (e.getSource()==home) viewHandler.openView("Menu");

@@ -13,7 +13,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
-
+/**
+ * A class for adding an event to the list of Events
+ * @author Igor Cretu
+ */
 public class AddEventController {
     @FXML
     Button back;
@@ -72,12 +75,20 @@ public class AddEventController {
     public MemberList memberList = new MemberList();
     public ArrayList<String> tempGuests = new ArrayList<String>();
 
+    /**
+     * A method for setting the parameters
+     * @param viewHandler sets the viewHandler
+     * @param scene sets The scene
+     * @param boardGameManager sets the BoardGameManager
+     */
     public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager) {
         this.viewHandler = viewHandler;
         this.scene = scene;
         this.boardGameManager = boardGameManager;
     }
-
+    /**
+     * A method for initializing the tables
+     */
     public void initialize() {
 
         tableColName.setCellValueFactory(new PropertyValueFactory<BoardGame, String>("name"));
@@ -88,11 +99,16 @@ public class AddEventController {
         membersCol.setCellValueFactory(new PropertyValueFactory<Member, String>("fullName"));
         chooseGame.getSelectionModel().selectFirst();
     }
-
+    /**
+     * Returns the addEvent scene
+     * @return addEvent scene
+     */
     public Scene getScene() {
         return scene;
     }
-
+    /**
+     * A method for updating the Combo boxes with members and games
+     */
     public void update() {
         MemberList allMember = boardGameManager.getAllMembers();
         for (int i = 0; i < allMember.size(); i++) {
@@ -107,7 +123,9 @@ public class AddEventController {
         chooseGame.getSelectionModel().selectFirst();
         clear();
     }
-
+    /**
+     * A method for clearing the fields
+     */
     public void clear() {
         tempGuests = new ArrayList<String>();
         games.getItems().clear();
@@ -120,23 +138,37 @@ public class AddEventController {
         guests.clear();
         date.setValue(null);
     }
-
+    /**
+     * A nested class for creating a guest String object
+     */
     public class guestClass {
         public String str = "";
-
+        /**
+         *  One argument constructor for initializing the guestClass object
+         * @param str the string to create object with
+         */
         public guestClass(String str) {
             this.str = str;
         }
-
+        /**
+         *  A method that returns the string
+         * @return  str the string used to create object with
+         */
         public String getStr() {
             return str;
         }
-
+        /**
+         *  A method that returns the string
+         * @return  str the string used to create object with
+         */
         public String toString() {
             return str;
         }
     }
-
+    /**
+     * A method for handling the button clicking
+     * @param e the event that is called when something happens
+     */
     public void actionHandler(ActionEvent e) {
         EventList allevents = boardGameManager.getAllEvents();
         BoardGameList allgameList = boardGameManager.getAllBoardGames();
@@ -163,7 +195,6 @@ public class AddEventController {
                 gameList.addBoardGame(allgameList.get(chooseGame.getSelectionModel().getSelectedIndex()));
             }
         }
-
 
         if (e.getSource() == removeGame && row != null) {
             games.getItems().remove(row);

@@ -12,7 +12,10 @@ import javafx.scene.input.MouseEvent;
 import java.util.Optional;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
+/**
+ * A class for managing the list of events
+ * @author Igor Cretu
+ */
 public class ManageEventsController {
 
     private ViewHandler viewHandler;
@@ -54,7 +57,9 @@ public class ManageEventsController {
     TableColumn<Event, String> tableCapacity;
     @FXML
     TableColumn<Event, String> tableDate;
-
+    /**
+     * A method for initializing the tables
+     */
     public void initialize() {
         tableName.setCellValueFactory(
                 new PropertyValueFactory<Event, String>("eventName"));
@@ -68,20 +73,29 @@ public class ManageEventsController {
         date.setVisible(false);
         time.setVisible(false);
     }
-
+    /**
+     * A method for setting the parameters
+     * @param viewHandler sets the viewHandler
+     * @param scene sets The scene
+     * @param boardGameManager sets the BoardGameManager
+     */
     public void init(ViewHandler viewHandler, Scene scene,
                      BoardGameManager boardGameManager) {
         this.viewHandler = viewHandler;
         this.scene = scene;
         this.boardGameManager = boardGameManager;
     }
-
+    /**
+     * A method for updating the window
+     */
     public void update() {
         updateList(boardGameManager.getAllEvents());
         date.setValue(null);
         time.clear();
     }
-
+    /**
+     * A method for updating the table with available events
+     */
     public void updateList(EventList list) {
         events.getItems().clear();
         eventList = list;
@@ -89,11 +103,17 @@ public class ManageEventsController {
             events.getItems().add(eventList.get(i));
         }
     }
-
+    /**
+     * Returns the manageEvent scene
+     * @return manageEvent scene
+     */
     public Scene getScene() {
         return scene;
     }
-
+    /**
+     * A method for handling the button clicking
+     * @param e the event that is called when something happens
+     */
     public void actionHandler(ActionEvent e) {
         Event row = events.getSelectionModel().getSelectedItem();
         EventList list = boardGameManager.getAllEvents();
@@ -102,6 +122,7 @@ public class ManageEventsController {
 //    edit selected event
         if (e.getSource() == edit && !(row == null)) {
             viewHandler.getEditEventController().editEvent(row);
+            System.out.println(list.getIndexOf(row));
             viewHandler.openView("EditEvent");
         }
         // delete selected event and updates the list
@@ -113,8 +134,10 @@ public class ManageEventsController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 try {
+                    System.out.println(row);
                     list.removeEvent(row);
                     MyFileHandler.writeToBinaryFile("events.bin", list);
+                    System.out.println(list);
                     update();
                     Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                     alert1.setTitle("Event list updated");
@@ -226,7 +249,10 @@ public class ManageEventsController {
 
         }
     }
-
+    /**
+     * A method for handling the mouse clicking
+     * @param event the event that is called when something happens
+     */
     public void tableAction(MouseEvent event) {
         Event row = events.getSelectionModel().getSelectedItem();
         if (event.getClickCount() == 2 && !(row == null)) {

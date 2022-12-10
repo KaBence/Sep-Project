@@ -66,8 +66,7 @@ public class Event implements Serializable {
         return
                 location.equals(other.location) &&
                         eventName.equals(other.eventName) && guests.equals(other.guests)
-                        && date.equals(other.date) && capacity == other.capacity &&
-                        games.equals(other.games) && memberList.equals(other.memberList);
+                        && date.equals(other.date) && capacity == other.capacity ;
     }
 
     public MyDate getDate() {

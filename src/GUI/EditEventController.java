@@ -16,6 +16,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * A class for editing an events and saving the changes
+ *
+ * @author Igor Cretu
+ */
 public class EditEventController {
     @FXML
     Button back;
@@ -75,10 +80,13 @@ public class EditEventController {
     private ViewHandler viewHandler;
     private BoardGameManager boardGameManager;
     private Scene scene;
-    public int eventIndex = 0;
+    private int eventIndex;
     public ArrayList<String> tempGuests = new ArrayList<String>();
     public MemberList memberList = new MemberList();
 
+    /**
+     * A method for initializing the tables
+     */
     public void initialize() {
         tableColName.setCellValueFactory(
                 new PropertyValueFactory<BoardGame, String>("name"));
@@ -94,12 +102,22 @@ public class EditEventController {
 
     }
 
+    /**
+     * A method for setting the parameters
+     *
+     * @param viewHandler      sets the viewHandler
+     * @param scene            sets The scene
+     * @param boardGameManager sets the BoardGameManager
+     */
     public void init(ViewHandler viewHandler, Scene scene, BoardGameManager boardGameManager) {
         this.viewHandler = viewHandler;
         this.scene = scene;
         this.boardGameManager = boardGameManager;
     }
 
+    /**
+     * A method for updating the Combo boxes with members and games
+     */
     public void update() {
         MemberList allMember = boardGameManager.getAllMembers();
         for (int i = 0; i < allMember.size(); i++) {
@@ -113,26 +131,54 @@ public class EditEventController {
         chooseGame.getSelectionModel().selectFirst();
     }
 
+    /**
+     * Returns the editEvent scene
+     *
+     * @return editEvent scene
+     */
     public Scene getScene() {
         return scene;
     }
 
+    /**
+     * A nested class for creating a guest String object
+     */
     public class guestClass1 {
+
         public String str1 = "";
 
+        /**
+         * One argument constructor for initializing the guestClass object
+         *
+         * @param str1 the string to create object with
+         */
         public guestClass1(String str1) {
             this.str1 = str1;
         }
 
+        /**
+         * A method that returns the string
+         *
+         * @return str the string used to create object with
+         */
         public String getStr1() {
             return str1;
         }
+
+        /**
+         * A method that returns the string
+         *
+         * @return str the string used to create object with
+         */
 
         public String toString() {
             return str1;
         }
     }
-
+    /**
+     * A method for accessing the event's foelds
+     * @param event the event that has to be edited
+     */
     public void editEvent(Event event) {
         BoardGameList eventgames = event.getGames();
         EventList list = boardGameManager.getAllEvents();
@@ -144,6 +190,7 @@ public class EditEventController {
         fLocation.setText(event.getLocation());
         maxCapacity.setText(Integer.toString(event.getCapacity()));
         eventIndex = list.getIndexOf(event);
+        System.out.println(eventIndex);
         date.setValue(LocalDate.of(event.getDate().getYear(), event.getDate().getMonth(), event.getDate().getDay()));
         time.setText(event.getDate().getStringTime());
         gamesTable.getItems().clear();
@@ -161,7 +208,10 @@ public class EditEventController {
         }
 
     }
-
+    /**
+     * A method for handling the button clicking
+     * @param e the event that is called when something happens
+     */
     public void actionHandler(ActionEvent e) {
         BoardGameList allgameList = boardGameManager.getAllBoardGames();
         BoardGameList gameList = new BoardGameList();
@@ -299,6 +349,7 @@ public class EditEventController {
 
         if (e.getSource() == save) {
             int a;
+            System.out.println(eventIndex);
             if (date.getValue() != null && !fLocation.getText().isBlank() && !name.getText().isBlank() && !gamesTable.getItems().isEmpty()) {
                 if (!date.getValue().isBefore(LocalDate.now())) {
                     if (!maxCapacity.getText().isBlank()) {
@@ -331,8 +382,9 @@ public class EditEventController {
                             alert1.showAndWait();
                             return;
                         }
-                    } else{
-                        c = new MyDate(date.getValue().getDayOfMonth(), date.getValue().getMonthValue(), date.getValue().getYear());}
+                    } else {
+                        c = new MyDate(date.getValue().getDayOfMonth(), date.getValue().getMonthValue(), date.getValue().getYear());
+                    }
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("Confirmation Dialog");
                     alert.setHeaderText("Are you  sure you want to save the changes?");
@@ -342,7 +394,8 @@ public class EditEventController {
                             EventList list = boardGameManager.getAllEvents();
                             Event event = new Event(c,
                                     fLocation.getText(), name.getText(), tempGuests.toString().replace("[", "").replace("]", ""), a, gameList, memberList);
-                            list.addEvent(event);
+                            list.setEvent(event, eventIndex);
+
                             MyFileHandler.writeToBinaryFile("events.bin", list);
                             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                             alert1.setTitle("Event list updated");
