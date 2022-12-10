@@ -38,8 +38,8 @@ public class ViewHandler
 
   /**
    * Constructor with 2 arguments initializing the viewHandler
-   * @param stage
-   * @param boardGameManager
+   * @param stage sets the stage
+   * @param boardGameManager set the boardGameManager
    */
   public ViewHandler(Stage stage, BoardGameManager boardGameManager)
   {
@@ -244,7 +244,11 @@ public class ViewHandler
   {
     return voteController;
   }
-//will bw maybe deleted
+
+  /**
+   * method for getting the AddEventController
+   * @return addEventController
+   */
   public AddEventController getAddEventController()
   {
     return addEventController;

@@ -95,6 +95,7 @@ public class ManageEventsController {
     }
     /**
      * A method for updating the table with available events
+     * @param list EventList
      */
     public void updateList(EventList list) {
         events.getItems().clear();
