@@ -36,7 +36,7 @@ public class BoardGame implements Serializable
 
   /**
    * This function is used to set the lists of a board game to the lists of another board game
-   * @param previous the previous version of the board game
+   * @param previous editing the BoardGame.
    */
   public void setLists(BoardGame previous){
     if (previous.getRankList()!=null)setRankList(previous.getRankList());
@@ -47,7 +47,7 @@ public class BoardGame implements Serializable
 
   /**
    * This function returns the owner of the current object.
-   * @return The owner of the group.
+   * @return The owner being returned.
    */
 
   public Member getOwner(){
@@ -78,8 +78,8 @@ public class BoardGame implements Serializable
   }
 
   /**
-   * This function returns the name of the person.
-   * @return The name of the person.
+   * This function returns the minimum name of the players to be participating.
+   * @return The minNop is being returned.
    */
 
   public String getName()
@@ -87,25 +87,22 @@ public class BoardGame implements Serializable
     return name;
   }
   /**
-   * This function sets the name of the object to the value of the parameter.
-   * @param name The name of the parameter.
+   * This function gets the Name.
+   * @param name returns the name.
    */
   public void setName(String name)
   {
     this.name = name;
   }
   /**
-   * This function sets the type of the object to the type passed in.
-   *
-   * @param type The type of the object.
+   * This function sets the name of the game.
    */
   public void setType(String type)
   {
     this.type = type;
   }
   /**
-   * This function returns the type of the current object.
-   *
+   * This function returns the type of the BoardGame.
    * @return The type of the object.
    */
   public String getType()
@@ -129,45 +126,44 @@ public class BoardGame implements Serializable
   /**
    * It creates a new instance of the Borrow class.
    */
+
   public void createBorrowList(){
     borrow=new Borrow();
   }
 
   /**
    * It checks if the rankList is null or not.
-   *
    * @return The method is returning a boolean value.
    */
   public boolean rankListExist(){
     return rankList!=null;
   }
 
+  /**
+   * This checks if the game is available or not.
+   * @return The availability of the game.
+   */
   public boolean isAvailable()
   {
     return availability;
   }
   /**
-   * If the borrow is not null, then the book is borrowed.
-   *
-   * @return The method isBorrowed returns a boolean value.
+   * This checks if the game is available or not.
+   * @return The availability of the game.
    */
   public boolean isBorrowed(){
     return borrow!=null;
   }
   /**
-   * If the reservation list is not null, then the room is reserved.
-   *
-   * @return The method isReserved() returns a boolean value.
+   * This checks if the game is reserved for next period of time.
+   * @return the reserved status.
    */
   public boolean isReserved(){return reservationList!=null;}
 
+
   /**
-   * // Java
-   * public boolean contains(String name){
-   *     return toString().contains(name);
-   *   }
-   *
-   * @param name The name of the item you want to check for.
+   * This checks whether game exists.
+   * @param name The name of the game you want to check for.
    * @return A boolean value.
    */
   public boolean contains(String name){
@@ -176,7 +172,6 @@ public class BoardGame implements Serializable
 
   /**
    * This function sets the voteList variable to the voteList parameter
-   *
    * @param voteList This is the list of votes that will be displayed in the list.
    */
   public void setVoteList(Voting voteList)
@@ -186,7 +181,6 @@ public class BoardGame implements Serializable
 
   /**
    * This function returns the voteList variable
-   *
    * @return The voteList is being returned.
    */
   public Voting getVoteList()
@@ -195,17 +189,16 @@ public class BoardGame implements Serializable
   }
 
   /**
-   * > This function sets the borrow variable to the borrow object passed in
-   *
+   *  This function sets the borrowing of a game.
    * @param borrow The Borrow object that is being created.
    */
+
   public void setBorrow(Borrow borrow)
   {
     this.borrow = borrow;
   }
   /**
    * This function sets the rankList variable to the rankList parameter
-   *
    * @param rankList The list of ranks to be displayed.
    */
   public void setRankList(RankList rankList)
@@ -214,8 +207,7 @@ public class BoardGame implements Serializable
   }
 
   /**
-   * This function sets the value of the reservationList variable to the value of the reservationList parameter
-   *
+   * This function sets the reservationList
    * @param reservationList The list of reservations that will be displayed in the table.
    */
   public void setReservationList(ReservationList reservationList) {
@@ -224,15 +216,13 @@ public class BoardGame implements Serializable
 
   /**
    * This function returns the vote of the voter
-   *
-   * @return The number of votes for the candidate.
+   * @return The number of votes
    */
   public int getVote(){
     return voteList.getVote();
   }
   /**
-   * If the rankList exists, return the average of the rankList, otherwise return a blank space
-   *
+   * If the rankList exists, return the average of the rankList
    * @return The average of the rankList.
    */
   public String  getRankValue(){
@@ -241,7 +231,6 @@ public class BoardGame implements Serializable
   }
   /**
    * This function returns the reservationList
-   *
    * @return The reservationList is being returned.
    */
   public ReservationList getReservationList(){
@@ -249,8 +238,7 @@ public class BoardGame implements Serializable
   }
 
   /**
-   * This function returns the rankList variable.
-   *
+   * Getting the rankList from the RankList.
    * @return The rankList is being returned.
    */
   public RankList getRankList()
@@ -260,17 +248,16 @@ public class BoardGame implements Serializable
 
   /**
    * This function returns the borrow object.
-   *
    * @return The borrow object.
    */
   public Borrow getBorrow()
   {
     return borrow;
   }
+
   /**
-   * It returns the borrower of the borrow object.
-   *
-   * @return The borrower of the book.
+   * It returns the borrower of type Member.
+   * @return The borrower is being returned.
    */
   public Member getBorrower(){
     return borrow.getBorrower();
@@ -284,7 +271,6 @@ public class BoardGame implements Serializable
    * availability, minNoP, and maxNoP are equal to the current object's type, name, availability, minNoP, and maxNoP, and
    * if the other object's owner is equal to the current object's owner, if they are, then return true, if not, then return
    * false
-   *
    * @param obj the object to compare to
    * @return The method returns a boolean value.
    */
@@ -298,13 +284,11 @@ public class BoardGame implements Serializable
     else{
       return type.equals(temp.type)&&name.equals(temp.name)&&availability==temp.availability&&minNoP==temp.minNoP&&maxNoP==temp.maxNoP&&temp.owner==null;
 
-
     }
   }
 
   /**
    * The toString() method returns a string representation of the object
-   *
    * @return The name of the object.
    */
   public String toString(){
