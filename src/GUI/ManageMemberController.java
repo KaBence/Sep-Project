@@ -53,7 +53,7 @@ public class ManageMemberController
         new PropertyValueFactory<Member, String>("phoneNumber"));
     TableColMemberEmail.setCellValueFactory(
         new PropertyValueFactory<Member, String>("email"));
-
+    search.clear();
   }
 
   /**

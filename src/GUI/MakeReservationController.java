@@ -128,6 +128,13 @@ public class MakeReservationController
           alert.showAndWait();
           return;
         }
+        if (rd.equals(selectedGame.getReservationList().get(i).getReturnDate())){
+          Alert alert=new Alert(Alert.AlertType.ERROR,"Return date cannot be the same with another reservation",ButtonType.OK);
+          alert.setTitle("Warning");
+          alert.setHeaderText(null);
+          alert.showAndWait();
+          return;
+        }
         //the pickup date and return date is the same with a reservation
         if (pd.equals(selectedGame.getReservationList().get(i).getPickUpDate())&&rd.equals(selectedGame.getReservationList().get(i).getReturnDate())){
           Alert alert=new Alert(Alert.AlertType.ERROR,"Reservation for these days already exists",ButtonType.OK);

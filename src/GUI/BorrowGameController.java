@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.time.LocalDate;
 
@@ -80,8 +81,7 @@ public class BorrowGameController
     {
       for (int i = 0; i < selectedBoardGame.getReservationList().size(); i++)
       {
-        reservations.getItems()
-            .add(selectedBoardGame.getReservationList().get(i));
+        reservations.getItems().add(selectedBoardGame.getReservationList().get(i));
       }
     }
     clean();
@@ -267,6 +267,14 @@ public class BorrowGameController
               return;
             }
           }
+        }
+        if (borrower.getValue()==null){
+          Alert alert=new Alert(Alert.AlertType.ERROR,"Select a Borrower first",ButtonType.OK);
+          alert.setTitle("Warning");
+          alert.setHeaderText(null);
+          alert.showAndWait();
+          selectedBoardGame.setBorrow(null);
+          return;
         }
 
         MemberList members = boardGameManager.getAllMembers();

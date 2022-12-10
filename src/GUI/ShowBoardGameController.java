@@ -121,7 +121,7 @@ public class ShowBoardGameController
       avlField.setText("Reserved");
     }
     if (showBoardGame.isBorrowed()){
-      avlField.setText("Borrowed");
+      avlField.setText("Borrowed until "+showBoardGame.getBorrow().getReturnDate()+" in possession of "+showBoardGame.getBorrow().getBorrower());
     }
     if (!showBoardGame.isAvailable()){
       avlField.setText("Not Available");
@@ -148,6 +148,7 @@ public class ShowBoardGameController
 
   public void actionHandler(ActionEvent e){
     if (e.getSource()==back){
+      viewHandler.getManageBoardGamesController().initialize();
       initialize();
       clear();
       viewHandler.openView("manageBoardGame");
@@ -166,17 +167,24 @@ public class ShowBoardGameController
       viewHandler.openView("seeReviews");
     }
     if (e.getSource()==remove){
-      Alert alert = new Alert(Alert.AlertType.WARNING,
-          "Do you really want to remove this game from the system?",
-          ButtonType.YES,ButtonType.NO);
-      alert.setTitle("Warning");
-      alert.setHeaderText(null);
-
-      alert.showAndWait();
+      Alert alert;
+      if (showBoardGame.isBorrowed()){
+        alert = new Alert(Alert.AlertType.WARNING, "Do you really want to remove this game from the system even though the game is borrowed?", ButtonType.YES,ButtonType.NO);
+        alert.setTitle("Warning");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+      }
+      else {
+        alert = new Alert(Alert.AlertType.WARNING, "Do you really want to remove this game from the system?", ButtonType.YES,ButtonType.NO);
+        alert.setTitle("Warning");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+      }
       if (alert.getResult()==ButtonType.YES){
         BoardGameList temp=boardGameManager.getAllBoardGames();
         temp.removeBoardGame(showBoardGame);
         boardGameManager.saveAllBoardGames(temp);
+        viewHandler.getManageBoardGamesController().initialize();
         viewHandler.openView("manageBoardGame");
       }
     }
@@ -196,6 +204,18 @@ public class ShowBoardGameController
         edit.setText("Save");
       }
       if (temp){
+        try
+        {
+          Integer.parseInt(min.getText());
+          Integer.parseInt(max.getText());
+        }
+        catch (NumberFormatException d){
+          Alert alert=new Alert(Alert.AlertType.WARNING,"Number of players must be numbers",ButtonType.OK);
+          alert.setTitle("Warning");
+          alert.setHeaderText(null);
+          alert.showAndWait();
+          return;
+        }
         boolean radioAvl=false;
         if (available2.isSelected())radioAvl=true;
         MemberList memberList=boardGameManager.getAllMembers();
@@ -223,6 +243,7 @@ public class ShowBoardGameController
           error.showAndWait();
           return;
         }
+
         if (Integer.parseInt(min.getText())<0||Integer.parseInt(max.getText())<0){
           Alert alert = new Alert(Alert.AlertType.WARNING,
               "Number of Players cannot be under zero",

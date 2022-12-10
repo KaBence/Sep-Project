@@ -1,5 +1,6 @@
 package GUI;
 
+import Model.BoardGameList;
 import Model.BoardGameManager;
 import Model.Member;
 import Model.MemberList;
@@ -107,11 +108,28 @@ public class showMemberController
     //delete and alert for it
     if (e.getSource() == delete)
     {
-      Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-          "Are you sure you want to do this?", ButtonType.YES, ButtonType.NO);
-      alert.setTitle("You are killing someone");
-      alert.setHeaderText(null);
-      alert.showAndWait();
+      Alert alert=null;
+      BoardGameList boardGameList=boardGameManager.getAllBoardGames();
+      boolean borr=false;
+      for (int i = 0; i < boardGameList.size(); i++)
+      {
+        if (boardGameList.get(i).isBorrowed()&&boardGameList.get(i).getBorrow().getBorrower().equals(member)){
+          alert = new Alert(Alert.AlertType.CONFIRMATION,
+              "Do you really want to remove this member even though he/she has a game rented?", ButtonType.YES, ButtonType.NO);
+          alert.setTitle("Confirmation");
+          alert.setHeaderText(null);
+          alert.showAndWait();
+          borr=true;
+          break;
+        }
+      }
+      if (!borr){
+        alert = new Alert(Alert.AlertType.CONFIRMATION,
+            "Are you sure you want to do this?", ButtonType.YES, ButtonType.NO);
+        alert.setTitle("You are killing someone");
+        alert.setHeaderText(null);
+        alert.showAndWait();
+      }
       //you say ...YES please do delete me
       if (alert.getResult() == ButtonType.YES)
       {
@@ -153,6 +171,17 @@ public class showMemberController
         wrongPhoneFormat.setHeaderText(null);
         wrongPhoneFormat.showAndWait();
         return;
+      }
+      for (int i = 0; i < memberList.size(); i++)
+      {
+        if (phone.getText().equals(memberList.get(i).getPhoneNumber())){
+          Alert wrongPhone = new Alert(Alert.AlertType.ERROR,
+              "This phone number is already in the system", ButtonType.OK);
+          wrongPhone.setTitle("stupid");
+          wrongPhone.setHeaderText(null);
+          wrongPhone.showAndWait();
+          return;
+        }
       }
       //alert for incorect email format
       if(!(email.getText().contains("@"))){

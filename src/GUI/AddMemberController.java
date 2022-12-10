@@ -147,6 +147,17 @@ public class AddMemberController
         wrongPhoneFormat.showAndWait();
         return;
       }
+      for (int i = 0; i < memberList.size(); i++)
+      {
+        if (phone.getText().equals(memberList.get(i).getPhoneNumber())){
+          Alert wrongPhone = new Alert(Alert.AlertType.ERROR,
+              "This phone number is already in the system", ButtonType.OK);
+          wrongPhone.setTitle("stupid");
+          wrongPhone.setHeaderText(null);
+          wrongPhone.showAndWait();
+          return;
+        }
+      }
       //checking email
 
       if (!(email.getText().contains("@")))

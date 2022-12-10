@@ -54,6 +54,7 @@ public class ManageBoardGamesController
     tableColOwner.setText("Owner");
     tableColRank.setCellValueFactory(
         new PropertyValueFactory<BoardGame, String>("rankValue"));
+    allGames.setSelected(true);
   }
 
   /**
@@ -255,6 +256,13 @@ public class ManageBoardGamesController
         alert.setTitle("Warning");
         alert.showAndWait();
         return;
+      }
+      if (!row.getBorrow().getReturnDate().equals(MyDate.today())){
+        Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"The return date for this game is: "+row.getBorrow().getReturnDate()+" Do you really want to return this game?",ButtonType.YES,ButtonType.NO);
+        alert.setHeaderText(null);
+        alert.setTitle("Warning");
+        alert.showAndWait();
+        if (alert.getResult()==ButtonType.NO) return;
       }
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Would you like to leave a review?",ButtonType.YES,ButtonType.NO);
         alert.setTitle("Confirmation Dialog");
