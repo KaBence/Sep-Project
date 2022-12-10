@@ -11,7 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * A class for seeing the reviews of a game
- * @author It's a secret
+ * @author Bence Kabaly
  */
 public class SeeReviewController
 {

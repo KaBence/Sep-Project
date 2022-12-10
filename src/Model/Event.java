@@ -20,6 +20,13 @@ public class Event implements Serializable {
 
     /**
      * This is the constructor for the Event class. It is initializing the variables of the class.
+     * @param date the date of the event
+     * @param location the location of the event
+     * @param name the name of the event
+     * @param guests the guests at the event
+     * @param capacity the maximum capacity of guests and members
+     * @param games the games at the event
+     * @param members the members of the club at the event
      */
     public Event(MyDate date, String location, String name, String guests, int capacity, BoardGameList games, MemberList members) {
 

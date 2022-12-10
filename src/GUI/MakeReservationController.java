@@ -10,7 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.time.LocalDate;
 /**
  * A class for making reservations of games
- * @author It's a secret
+ * @author Bence Kabaly
  */
 public class MakeReservationController
 {

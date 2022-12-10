@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 /**
  * A class for the voting system
- * @author It's a secret
+ * @author Michaela Veselovska
  */
 public class VoteController
 {

@@ -12,7 +12,7 @@ public class EventList implements Serializable
     private ArrayList<Event> events;
 
     /**
-     * This is the constructor for the EventList class. It is creating a new ArrayList of type Event.
+     * A non-argument constructor for the EventList class. It is creating a new ArrayList of type Event.
      */
     public EventList(){
         events = new ArrayList<Event>();
