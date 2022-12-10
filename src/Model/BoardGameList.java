@@ -15,7 +15,6 @@ public class BoardGameList implements Serializable
 
    /**
     * Returns the number of elements in the list.
-    *
     * @return The size of the boardGames arraylist.
     */
    public int size(){
@@ -143,7 +142,6 @@ public class BoardGameList implements Serializable
 
   /**
    * This function returns a list of board games owned by a given member.
-   *
    * @param owner The owner of the board games you want to get.
    * @return A BoardGameList object.
    */
@@ -156,7 +154,6 @@ public class BoardGameList implements Serializable
   }
     /**
      * This function returns a string that contains all the board games in the collection
-     *
      * @return The toString method is returning a string of all the board games in the collection.
      */
     public String toString(){

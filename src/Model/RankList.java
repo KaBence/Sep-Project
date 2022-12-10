@@ -14,7 +14,10 @@ import java.util.ArrayList;
 public class RankList implements Serializable
 {
   private ArrayList<Rank> ranks;
-  // A constructor.
+
+  /**
+   * A constructor.
+   */
   public RankList(){
     ranks =new ArrayList<>();
   };

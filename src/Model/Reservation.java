@@ -14,7 +14,10 @@ public class Reservation implements Serializable
 
     public Reservation(){
     }
-    // This is a constructor. It is a method that is called when an object is created. It is used to initialize the object.
+
+    /**
+     * This is a constructor. It is a method that is called when an object is created. It is used to initialize the object.
+     */
     public Reservation( Member memberName, MyDate pickUpDate, MyDate returnDate){
 
         this.borrower = memberName;

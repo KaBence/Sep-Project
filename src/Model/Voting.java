@@ -9,7 +9,10 @@ import java.io.Serializable;
 public class Voting implements Serializable
 {
   private int vote;
-  // This is a constructor. It is called when a new Voting object is created.
+
+  /**
+   * This is a constructor. It is called when a new Voting object is created.
+   */
   public Voting(){
     vote=0;
   }

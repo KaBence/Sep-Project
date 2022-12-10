@@ -12,18 +12,19 @@ public class Rank implements Serializable
   private int rank;
 
 
+  /**
+   * A constructor that takes in a review and a rank and sets the rank and review of the object to the given rank and review.
+   */
 
-
-
-  // A constructor that takes in a review and a rank and sets the rank and review of the object to the given
-  // rank and review.
   public Rank(String review, int rank)
   {
     this.rank = rank;
     this.review = review;
   }
 
-  // A default constructor.
+  /**
+   * A default constructor.
+   */
   public Rank()
   {
   }

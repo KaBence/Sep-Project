@@ -14,7 +14,9 @@ public class Member implements Serializable
   private String phoneNumber;
   private String email;
 
-  // This is a constructor. It is used to create an object of the class.
+  /**
+   * This is a constructor. It is used to create an object of the class.
+   */
   public Member(String firstName, String lastName, String phoneNumber,
       String email)
   {

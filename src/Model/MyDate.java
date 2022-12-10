@@ -14,7 +14,9 @@ public class MyDate implements Serializable {
     private int min;
     private int hour;
 
-    // This is a constructor that takes 3 parameters and sets the day, month and year of the MyDate object.
+    /**
+     * This is a constructor that takes 3 parameters and sets the day, month and year of the MyDate object.
+     */
     public MyDate(int day, int month, int year) {
         this.day = day;
         this.month = month;
@@ -23,7 +25,9 @@ public class MyDate implements Serializable {
         hour = -1;
     }
 
-    // A constructor that takes 5 parameters and sets the day, month, year, hour and minute of the MyDate object.
+    /**
+     * A constructor that takes 5 parameters and sets the day, month, year, hour and minute of the MyDate object.
+     */
     public MyDate(int day, int month, int year, int hour, int min) {
         this.day = day;
         this.month = month;
@@ -32,7 +36,9 @@ public class MyDate implements Serializable {
         this.hour = hour;
     }
 
-    // A constructor that takes no parameters.
+    /**
+     * A constructor that takes no parameters.
+     */
     public MyDate() {
     }
 
@@ -40,7 +46,6 @@ public class MyDate implements Serializable {
 
     /**
      * This function returns the day of the month.
-     *
      * @return The day of the month.
      */
     public int getDay() {
@@ -49,7 +54,6 @@ public class MyDate implements Serializable {
 
     /**
      * It takes a date and time in the form of a string, and returns a MyDate object
-     *
      * @param date The date in the format dd/mm/yyyy
      * @param time The time of the event
      * @return A new MyDate object with the given parameters.
@@ -66,7 +70,6 @@ public class MyDate implements Serializable {
     }
     /**
      * It takes a string and checks if it's a valid time format
-     *
      * @param time The time you want to check.
      * @return A boolean value.
      */

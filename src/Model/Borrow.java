@@ -11,7 +11,9 @@ public class Borrow implements Serializable
   private MyDate returnDate;
   private MyDate pickUpDate;
 
-  // A constructor that takes in a member, a return date and a pickup date and sets the instance variables to those values.
+  /**
+   * A constructor that takes in a member, a return date and a pickup date and sets the instance variables to those values.
+   */
   public Borrow(Member borrower, MyDate returnDate, MyDate pickUpDate)
   {
     this.borrower = borrower;
@@ -20,7 +22,9 @@ public class Borrow implements Serializable
 
   }
 
-  // A constructor that sets the instance variables to null.
+  /**
+   * A constructor that sets the instance variables to null.
+   */
   public Borrow(){
     borrower=null;
     returnDate=null;

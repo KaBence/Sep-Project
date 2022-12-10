@@ -22,7 +22,9 @@ public class BoardGameManager implements Serializable
   private BoardGameList boardGameList;
   private EventList eventList;
 
-  // A constructor that takes in three strings and sets them to the variables in the class.
+  /**
+   * A constructor that takes in three strings and sets them to the variables in the class.
+   */
   public BoardGameManager(String boardgames,String members,String events)
   {
     this.events=events;

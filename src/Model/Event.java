@@ -18,7 +18,9 @@ public class Event implements Serializable {
     private int capacity;
     private MemberList memberList;
 
-    // This is the constructor for the Event class. It is initializing the variables of the class.
+    /**
+     * This is the constructor for the Event class. It is initializing the variables of the class.
+     */
     public Event(MyDate date, String location, String name, String guests, int capacity, BoardGameList games, MemberList members) {
 
         this.location = location;
@@ -38,7 +40,6 @@ public class Event implements Serializable {
 
     /**
      * This function sets the maximum capacity of the cache.
-     *
      * @param maxCapacity The maximum number of items that can be stored in the cache.
      */
     public void setCapacity(int maxCapacity) {

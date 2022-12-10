@@ -16,7 +16,10 @@ public class BoardGame implements Serializable
   private RankList rankList;
   private Voting voteList;
 
-  // It's a constructor that creates a new board game.
+
+  /**
+   * It's a constructor that initializes the variables of the class.
+   */
   public BoardGame(String name,String type,int minNoP,int maxNoP,Member owner,boolean availability){
     this.name=name;
     this.availability=availability;
@@ -33,7 +36,6 @@ public class BoardGame implements Serializable
 
   /**
    * This function is used to set the lists of a board game to the lists of another board game
-   *
    * @param previous the previous version of the board game
    */
   public void setLists(BoardGame previous){
@@ -45,7 +47,6 @@ public class BoardGame implements Serializable
 
   /**
    * This function returns the owner of the current object.
-   *
    * @return The owner of the group.
    */
 
@@ -54,7 +55,6 @@ public class BoardGame implements Serializable
   }
   /**
    * This function sets the owner of the current object to the owner passed in as a parameter.
-   *
    */
   public void setOwner(Member owner)
   {
@@ -62,7 +62,6 @@ public class BoardGame implements Serializable
   }
   /**
    * This function returns the maximum number of players allowed in the game
-   *
    * @return The maxNoP is being returned.
    */
   public int getMaxNoP()
@@ -71,7 +70,6 @@ public class BoardGame implements Serializable
   }
   /**
    * This function returns the minimum number of players for the game
-   *
    * @return The minimum number of players.
    */
   public int getMinNoP()
@@ -81,21 +79,15 @@ public class BoardGame implements Serializable
 
   /**
    * This function returns the name of the person.
-   *
    * @return The name of the person.
    */
-  /**
-   * This function returns the name of the person.
-   *
-   * @return The name of the person.
-   */
+
   public String getName()
   {
     return name;
   }
   /**
    * This function sets the name of the object to the value of the parameter.
-   *
    * @param name The name of the parameter.
    */
   public void setName(String name)

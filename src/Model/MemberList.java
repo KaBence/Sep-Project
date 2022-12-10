@@ -10,7 +10,9 @@ public class MemberList implements Serializable
 {
   private ArrayList<Member> members;
 
-  //Creating default Constructor
+  /**
+   * Creating default Constructor
+   */
   public MemberList()
   {
     members = new ArrayList<>();
@@ -18,7 +20,6 @@ public class MemberList implements Serializable
 
   /**
    * This function adds a member to the members list.
-   *
    * @param member The member to add to the list.
    */
   public void addMember(Member member)
@@ -112,8 +113,6 @@ public class MemberList implements Serializable
     }
     return temp;
   }
-
-
 
   /**
    * The function returns a string that contains the full name of each member in the members array list

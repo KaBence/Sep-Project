@@ -9,7 +9,9 @@ public class ReservationList implements Serializable
 {
   private ArrayList<Reservation> reservations;
 
-  // Creating a new arraylist of reservations.
+  /**
+   * Creating a new arraylist of reservations.
+   */
   public ReservationList(){
     reservations=new ArrayList<>();
   }
