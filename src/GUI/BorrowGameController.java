@@ -12,7 +12,7 @@ import java.time.LocalDate;
 /**
  * class for setting the board game status to borrowed for a set time period
  *
- * @Author Michaela Veselovska
+ * @author Michaela Veselovska
  */
 public class BorrowGameController
 {
@@ -34,9 +34,9 @@ public class BorrowGameController
   /**
    * method for connecting with other classes
    *
-   * @param viewHandler
-   * @param scene
-   * @param boardGameManager
+   * @param viewHandler sets the viewHandler
+   * @param scene sets the scene
+   * @param boardGameManager sets the boardGameManager
    */
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
@@ -139,7 +139,7 @@ public class BorrowGameController
   /**
    * method that sets the board game object that is selected in this window
    *
-   * @param selectedBoardGame
+   * @param selectedBoardGame is object of a BoardGame type
    */
   public void setSelectedBoardGame(BoardGame selectedBoardGame)
   {

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  * a class for editing the existing members
- * @Michaela Veselovska
+ * @author Michaela Veselovska
  */
 public class ManageMemberController
 {

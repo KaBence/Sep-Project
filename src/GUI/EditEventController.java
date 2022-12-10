@@ -81,7 +81,13 @@ public class EditEventController {
     private BoardGameManager boardGameManager;
     private Scene scene;
     private int eventIndex;
+    /**
+     * creating a new Arraylist of guests of type String
+     */
     public ArrayList<String> tempGuests = new ArrayList<String>();
+    /**
+     * creating new list of type Member
+     */
     public MemberList memberList = new MemberList();
 
     /**
@@ -144,7 +150,9 @@ public class EditEventController {
      * A nested class for creating a guest String object
      */
     public class guestClass1 {
-
+        /**
+         * initialising a String type
+         */
         public String str1 = "";
 
         /**

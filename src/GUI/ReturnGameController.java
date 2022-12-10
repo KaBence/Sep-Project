@@ -12,7 +12,7 @@ import javafx.scene.control.*;
 /**
  * class for returning of the game, setting the game from borrowed to available
  *
- * @Author Michaela Veselovska
+ * @author Michaela Veselovska
  */
 public class ReturnGameController
 {

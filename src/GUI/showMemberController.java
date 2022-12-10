@@ -13,7 +13,7 @@ import javafx.scene.control.TextField;
 
 /**
  * class for showing information about selected member
- * @Michaela Veselovska
+ * @author Michaela Veselovska
  */
 public class showMemberController
 {
@@ -46,7 +46,7 @@ public class showMemberController
 
   /**
    * method for setting the scene
-   * @return
+   * @return scene
    */
   public Scene getScene()
   {
