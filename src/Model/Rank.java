@@ -30,9 +30,8 @@ public class Rank implements Serializable
   }
 
   /**
-   * This function sets the rank of the card to the given rank.
-   *
-   * @param rank The rank of the card.
+   * This function sets the rank to the given rank.
+   * @param rank The rank of the game.
    */
   public void setRank(int rank)
   {
@@ -40,9 +39,8 @@ public class Rank implements Serializable
   }
 
   /**
-   * This function returns the rank of the card.
-   *
-   * @return The rank of the card.
+   * This function returns the rank of the game.
+   * @return The rank of the game.
    */
   public int getRank()
   {
@@ -50,9 +48,8 @@ public class Rank implements Serializable
   }
 
   /**
-   * This function sets the review of the book
-   *
-   * @param review The review text
+   * This function sets the review of the game.
+   * @param review The review of the game.
    */
   public void setReview(String review)
   {
@@ -60,8 +57,7 @@ public class Rank implements Serializable
   }
 
   /**
-   * This function returns the review of the book
-   *
+   * This function returns the review of the game.
    * @return The review is being returned.
    */
   public String getReview()
@@ -71,8 +67,7 @@ public class Rank implements Serializable
 
   /**
    * The toString() function returns a string representation of the object
-   *
-   * @return The rank and review of the movie.
+   * @return The rank and review of the game.
    */
   public String toString()
   {
@@ -80,11 +75,9 @@ public class Rank implements Serializable
   }
 
   /**
-   * If the object is not of the same class or is null, return false. Otherwise, return true if the rank and review are
-   * equal
-   *
+   * This method checks whether provided parameter is equals to rank or not.
    * @param obj The object to compare with.
-   * @return The hashcode of the object.
+   * @return true if obj is equals to the current rank otherwise false.
    */
   public boolean equals(Object obj)
   {
