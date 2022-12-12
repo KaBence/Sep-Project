@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<EventList>
+  <events>
+    <date>
+      <min>30</min>
+      <month>12</month>
+      <hour>18</hour>
+      <year>2022</year>
+      <day>2</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>Helloween boardgame night</eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C1.12</location>
+    <capacity>40</capacity>
+  </events>
+  <events>
+    <date>
+      <min>10</min>
+      <month>12</month>
+      <hour>15</hour>
+      <year>2022</year>
+      <day>21</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+      <boardGames>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Colt Express</name>
+        <availability>false</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Fighting</type>
+      </boardGames>
+    </games>
+    <eventName>Christmas boardgames event</eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C2.13</location>
+    <capacity>35</capacity>
+  </events>
+  <events>
+    <date>
+      <min>50</min>
+      <month>2</month>
+      <hour>16</hour>
+      <year>2023</year>
+      <day>14</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>Valentines day boardgame event</eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C3.14</location>
+    <capacity>45</capacity>
+  </events>
+  <events>
+    <date>
+      <min>40</min>
+      <month>12</month>
+      <hour>18</hour>
+      <year>2022</year>
+      <day>29</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>New year boardgame event</eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C4.15</location>
+    <capacity>50</capacity>
+  </events>
+  <events>
+    <date>
+      <min>30</min>
+      <month>4</month>
+      <hour>16</hour>
+      <year>2023</year>
+      <day>10</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>Easter boardgame event</eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C5.16</location>
+    <capacity>48</capacity>
+  </events>
+  <events>
+    <date>
+      <min>10</min>
+      <month>5</month>
+      <hour>14</hour>
+      <year>2023</year>
+      <day>29</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>End of school boardgame event </eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C6.17</location>
+    <capacity>42</capacity>
+  </events>
+  <events>
+    <date>
+      <min>20</min>
+      <month>6</month>
+      <hour>17</hour>
+      <year>2023</year>
+      <day>1</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>Summer start boardgame event</eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C7.18</location>
+    <capacity>52</capacity>
+  </events>
+  <events>
+    <date>
+      <min>50</min>
+      <month>6</month>
+      <hour>12</hour>
+      <year>2023</year>
+      <day>5</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>Kids day boardgame event</eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C8.19</location>
+    <capacity>54</capacity>
+  </events>
+  <events>
+    <date>
+      <min>10</min>
+      <month>7</month>
+      <hour>16</hour>
+      <year>2023</year>
+      <day>15</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>Family boardgame event</eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C9.10</location>
+    <capacity>32</capacity>
+  </events>
+  <events>
+    <date>
+      <min>30</min>
+      <month>9</month>
+      <hour>15</hour>
+      <year>2023</year>
+      <day>3</day>
+    </date>
+    <memberList/>
+    <guests>Cretu Igor</guests>
+    <guests> Bence Kabaly</guests>
+    <guests> Rohit Pandey</guests>
+    <guests> Michaela Veselovska</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>School start boardgame event</eventName>
+    <guestsString>Cretu Igor, Bence Kabaly, Rohit Pandey, Michaela Veselovska</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C10.11</location>
+    <capacity>37</capacity>
+  </events>
+  <events>
+    <date>
+      <min>-1</min>
+      <month>12</month>
+      <hour>-1</hour>
+      <year>2022</year>
+      <day>23</day>
+    </date>
+    <memberList>
+      <members>
+        <firstName>Michaela</firstName>
+        <lastName>Veselovska</lastName>
+        <phoneNumber>92456475</phoneNumber>
+        <email>veselovskamichaela202@gmail.com</email>
+      </members>
+    </memberList>
+    <guests/>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Bence</firstName>
+          <lastName>Kabaly</lastName>
+          <phoneNumber>80124578</phoneNumber>
+          <email>bk@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Treasure Hunter</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Adventure</type>
+      </boardGames>
+    </games>
+    <eventName>hgjhg</eventName>
+    <guestsString/>
+    <maxCapacity>0</maxCapacity>
+    <location>trdert</location>
+    <capacity>0</capacity>
+  </events>
+</EventList>

@@ -27,8 +27,12 @@ public class Member implements Serializable
     this.email = email;
   }
 
-  //Getting and setting names
 
+
+  /**
+   * This function returns the first name of the person.
+   * @return The first name of the person.
+   */
   public String getFirstName()
   {
     return firstName;
@@ -36,7 +40,6 @@ public class Member implements Serializable
 
   /**
    * This function returns the last name of the person.
-   *
    * @return The last name of the person.
    */
   public String getLastName()
@@ -45,8 +48,7 @@ public class Member implements Serializable
   }
 
   /**
-   * This function sets the firstName variable to the value of the firstName parameter.
-   *
+   * This function sets the firstName of the Member.
    * @param firstName The first name of the user.
    */
   public void setFirstName(String firstName)
@@ -55,8 +57,7 @@ public class Member implements Serializable
   }
 
   /**
-   * This function sets the last name of the person.
-   *
+   * This function sets the last name of the Member.
    * @param lastName The last name of the user.
    */
   public void setLastName(String lastName)
@@ -64,17 +65,15 @@ public class Member implements Serializable
     this.lastName = lastName;
   }
 /**
- * This function returns the first name and last name of the person.
- *
+ * This function returns the first name and last name of the Member
  * @return The firstName and lastName variables are being returned.
  */
 public String getFullName(){
     return firstName + " " + lastName;
 }
   /**
-   * This function sets the phone number of the person
-   *
-   * @param phoneNumber The phone number to send the message to.
+   * This function sets the phone number of the Member.
+   * @param phoneNumber The phone number to set to.
    */
   public void setPhoneNumber(String phoneNumber)
   {
@@ -82,22 +81,29 @@ public String getFullName(){
   }
 
   /**
-   * This function sets the email of the user.
-   *
-   * @param email The email address of the user.
+   * This function sets the email of the Member.
+   * @param email The email address of the Member.
    */
   public void setEmail(String email)
   {
     this.email = email;
   }
 
-  //Getting and setting phoneNumber
+
+  /**
+   * This function returns the phone number of the Member.
+   * @return The phone number of the Member.
+   */
   public String getPhoneNumber()
   {
     return phoneNumber;
   }
 
-  //Getting and setting emails
+
+  /**
+   * This function returns the email of the Member.
+   * @return The email address of the Member.
+   */
   public String getEmail()
   {
     return email;
@@ -105,8 +111,7 @@ public String getFullName(){
 
 
   /**
-   * The toString() function returns a string representation of the object
-   *
+   * The toString() function returns the firstName and lastName of the Member.
    * @return The firstName and lastName variables are being returned.
    */
   public String toString()
@@ -114,13 +119,12 @@ public String getFullName(){
     return firstName + " " + lastName;
   }
 
-  //Comparing with equals
+
   /**
    * If the object is not null and is of the same class as this object, then return true if the first name, last name,
    * phone number, and email are equal
-   *
    * @param obj The object to compare to.
-   * @return The hashcode of the object.
+   * @return true if obj is equals to the current member otherwise false.
    */
   public boolean equals(Object obj)
   {
@@ -134,9 +138,7 @@ public String getFullName(){
   }
 
   /**
-   * This function returns true if the string passed in as a parameter is contained in the string that is returned by the
-   * toString() function
-   *
+   * This function returns true if parameter name contains in the toString value of the Member.
    * @param name The name of the parameter to check for.
    * @return A boolean value.
    */

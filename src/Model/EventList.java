@@ -19,7 +19,6 @@ public class EventList implements Serializable
     }
     /**
      * This function adds an event to the list of events.
-     *
      * @param event The event to be added to the list of events.
      */
     public void addEvent(Event event){
@@ -27,7 +26,6 @@ public class EventList implements Serializable
     }
     /**
      * Remove the event from the list of events.
-     *
      * @param event the event to be removed
      */
     public void removeEvent(Event event){
@@ -41,8 +39,7 @@ public class EventList implements Serializable
     }
 
     /**
-     * This function takes in a string and returns an EventList of all the events that have the string in their location
-     *
+     * This method checks the events by its location as its parameters in the EvenList class.
      * @param location The location of the event.
      * @return A list of events that contain the location.
      */
@@ -58,8 +55,7 @@ public class EventList implements Serializable
         return list1;
     }
         /**
-         * This function returns a list of events that occur on the same date as the date passed in as a parameter.
-         *
+         * This method checks the events by time as its parameters in the EvenList class.
          * @param date the date you want to search for
          * @return A list of events that are on the same date as the date passed in.
          */
@@ -73,8 +69,7 @@ public class EventList implements Serializable
             return list1;
     }
     /**
-     * This function returns a list of events that occur on the same day as the date passed in as a parameter.
-     *
+     * This method checks the events by date as its parameters in the EvenList class.
      * @param date The date you want to search for.
      * @return A list of events that are on the same date as the date passed in.
      */
@@ -90,7 +85,6 @@ public class EventList implements Serializable
     /**
      * This function takes a BoardGame object as a parameter and returns an EventList object that contains all the events
      * that have the BoardGame object in their BoardGameList
-     *
      * @param game The game you want to search for
      * @return A list of events that contain the game.
      */
@@ -109,7 +103,6 @@ public class EventList implements Serializable
     /**
      * This function takes in a string and returns an EventList object that contains all the events that have the string in
      * their name
-     *
      * @param name The name of the event you want to search for.
      * @return A list of events that contain the name.
      */
@@ -128,7 +121,6 @@ public class EventList implements Serializable
 
     /**
      * This function returns a string that contains all the events in the calendar
-     *
      * @return The toString method is returning a string of all the events in the arraylist.
      */
     public String toString(){
@@ -140,7 +132,6 @@ public class EventList implements Serializable
     }
     /**
      * This function returns the event at the given index.
-     *
      * @param index The index of the event you want to get.
      * @return The event at the given index.
      */
@@ -149,7 +140,6 @@ public class EventList implements Serializable
     }
     /**
      * This function returns the index of the event in the events array list.
-     *
      * @param event the event you want to find the index of
      * @return The index of the event in the list.
      */
@@ -166,7 +156,6 @@ public class EventList implements Serializable
 
     /**
      * Returns the number of events in the event list.
-     *
      * @return The size of the events arraylist.
      */
     public int size(){
@@ -174,7 +163,6 @@ public class EventList implements Serializable
     }
     /**
      * This function sets the event at the given index to the given event
-     *
      * @param event The event to be added to the list.
      * @param index The index of the event you want to set.
      */
@@ -182,8 +170,7 @@ public class EventList implements Serializable
         events.set(index,event);
     }
     /**
-     * It takes two integers, x and y, and swaps the events at those indexes
-     *
+     * This function swaps the events
      * @param x the index of the first event
      * @param y the index of the event you want to replace
      */

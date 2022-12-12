@@ -28,10 +28,9 @@ public class MemberList implements Serializable
   }
 
   /**
-   * This function takes a string as a parameter and returns a MemberList object
-   *
+   * This function takes email String as a parameter and returns a MemberList object.
    * @param email The email address of the member you want to find.
-   * @return A list of members that have the email address that is being searched for.
+   * @return A list of members which contains passed parameter.
    */
   public MemberList getMembersByEmail(String email)
   {
@@ -49,7 +48,6 @@ public class MemberList implements Serializable
 
   /**
    * This function returns the member with the given name, or null if no member with that name exists.
-   *
    * @param Name The name of the member you want to get.
    * @return The member object that contains the name.
    */
@@ -67,7 +65,6 @@ public class MemberList implements Serializable
 
   /**
    * This function takes a string as a parameter and returns a MemberList object
-   *
    * @param Name The name of the member you want to search for.
    * @return A MemberList object
    */
@@ -86,7 +83,6 @@ public class MemberList implements Serializable
 
   /**
    * Remove a member from the list of members.
-   *
    * @param member The member to remove from the group.
    */
   public void removeMember(Member member)
@@ -97,7 +93,6 @@ public class MemberList implements Serializable
   /**
    * This function returns a MemberList object that contains all the members in the current MemberList object that have a
    * phone number that contains the given phone number.
-   *
    * @param phoneNumber The phone number of the member you want to find.
    * @return A MemberList object.
    */
@@ -115,8 +110,7 @@ public class MemberList implements Serializable
   }
 
   /**
-   * The function returns a string that contains the full name of each member in the members array list
-   *
+   * The function returns a string of all the members fullName.
    * @return The full name of each member in the members array list.
    */
   public String toString()
@@ -132,8 +126,7 @@ public class MemberList implements Serializable
   }
 
   /**
-   * This function returns the number of members in the group.
-   *
+   * This function returns the number of members in the memberList.
    * @return The size of the members arraylist.
    */
   public int size()
@@ -141,7 +134,11 @@ public class MemberList implements Serializable
     return members.size();
   }
 
-  // Returning the member at the index.
+
+  /** This is a getter method that returns the member at the given index.
+   * @param index the index of the memberList that you want to get.
+   * @return a member of the provided index.
+   */
   public Member get(int index)
   {
     return members.get(index);

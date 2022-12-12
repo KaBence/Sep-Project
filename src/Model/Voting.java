@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 
 /**
- * The class Voting is a serializable class that contains a single integer variable named vote.
+ * The class Voting is a serializable class for vote.
  */
 public class Voting implements Serializable
 {
   private int vote;
 
   /**
-   * This is a constructor. It is called when a new Voting object is created.
+   * This is a default constructor.
    */
   public Voting(){
     vote=0;
@@ -19,7 +19,6 @@ public class Voting implements Serializable
 
   /**
    * This function returns the value of the vote variable.
-   *
    * @return The value of the variable vote.
    */
   public int getVote()
@@ -29,8 +28,7 @@ public class Voting implements Serializable
 
   /**
    * This function sets the vote variable to the value of the vote parameter.
-   *
-   * @param vote The number of votes the user has.
+   * @param vote The number of votes the member has.
    */
   public void setVote(int vote)
   {
@@ -55,7 +53,6 @@ public class Voting implements Serializable
 
   /**
    * This function returns a string representation of the vote.
-   *
    * @return The vote.
    */
   public String toString()

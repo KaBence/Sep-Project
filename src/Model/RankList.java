@@ -9,21 +9,20 @@ import java.util.ArrayList;
 
 
 /**
- * The RankList class is a container for Rank objects
+ * The RankList class is a arrayList for Rank objects
  */
 public class RankList implements Serializable
 {
   private ArrayList<Rank> ranks;
 
   /**
-   * A constructor.
+   * A no-argument constructor.
    */
   public RankList(){
     ranks =new ArrayList<>();
   };
   /**
    * This function adds a rank to the ranks array
-   *
    * @param rank The rank to add to the list of ranks.
    */
   public void addRank(Rank rank){
@@ -31,7 +30,6 @@ public class RankList implements Serializable
   }
   /**
    * Remove the rank from the ranks list.
-   *
    * @param rank The rank to remove.
    */
   public void removeRank(Rank rank){
@@ -42,7 +40,6 @@ public class RankList implements Serializable
 
   /**
    * This function returns the rank at the given index.
-   *
    * @param index The index of the rank you want to get.
    * @return The rank at the given index.
    */
@@ -52,7 +49,6 @@ public class RankList implements Serializable
 
   /**
    * Return the number of elements in the ranks array.
-   *
    * @return The size of the ranks arraylist.
    */
   public int size(){
@@ -61,7 +57,6 @@ public class RankList implements Serializable
 
   /**
    * This function returns the sum of all the ranks in the ranks array
-   *
    * @return The sum of all the ranks in the ranks arraylist.
    */
   public double getTotal(){
@@ -73,17 +68,15 @@ public class RankList implements Serializable
   }
   /**
    * It returns the average of the ranks
-   *
    * @return The average of the ranks.
    */
   public double getAverage(){
     return getTotal()/ranks.size();
   }
   /**
-   * It checks if the two objects are equal.
-   *
+   * This method checks whether provided parameter is equals to in the given rankList or not.
    * @param obj The object to compare against.
-   * @return The return value is a boolean.
+   * @return true if obj is equals to the rank that contains in rankList otherwise false.
    */
   public boolean equals(Object obj)
   {

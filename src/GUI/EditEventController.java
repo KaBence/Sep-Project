@@ -200,7 +200,6 @@ public class EditEventController {
         fLocation.setText(event.getLocation());
         maxCapacity.setText(Integer.toString(event.getCapacity()));
         eventIndex = list.getIndexOf(event);
-        System.out.println(eventIndex);
         date.setValue(LocalDate.of(event.getDate().getYear(), event.getDate().getMonth(), event.getDate().getDay()));
         time.setText(event.getDate().getStringTime());
         gamesTable.getItems().clear();
