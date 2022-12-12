@@ -17,6 +17,9 @@ public class RunBoardGameManagerFXML
   {
     Application.launch(StartGUI.class);
     Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+      /**
+       *  Method to save changes to xml on program exit
+       */
       public void run() {
         LoadXML.main(new String[]{"123"});
       }

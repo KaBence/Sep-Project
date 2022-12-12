@@ -122,7 +122,6 @@ public class ManageEventsController {
 //    edit selected event
         if (e.getSource() == edit && !(row == null)) {
             viewHandler.getEditEventController().editEvent(row);
-            System.out.println(list.getIndexOf(row));
             viewHandler.openView("EditEvent");
         }
         // delete selected event and updates the list
@@ -134,10 +133,8 @@ public class ManageEventsController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 try {
-                    System.out.println(row);
                     list.removeEvent(row);
                     MyFileHandler.writeToBinaryFile("events.bin", list);
-                    System.out.println(list);
                     update();
                     Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                     alert1.setTitle("Event list updated");
@@ -225,7 +222,6 @@ public class ManageEventsController {
 
                     }else {
                         Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                        System.out.println(time.getText());
                         alert1.setTitle("Error");
                         alert1.setHeaderText("Invalid time format");
                         alert1.setContentText("Correct time format is hour:minutes");
