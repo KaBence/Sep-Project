@@ -16,6 +16,9 @@ public class MyDate implements Serializable {
 
     /**
      * This is a constructor that takes 3 parameters and sets the day, month and year of the MyDate object.
+     * @param day int
+     * @param month int
+     * @param year int
      */
     public MyDate(int day, int month, int year) {
         this.day = day;
@@ -27,6 +30,11 @@ public class MyDate implements Serializable {
 
     /**
      * A constructor that takes 5 parameters and sets the day, month, year, hour and minute of the MyDate object.
+     * @param month int
+     * @param year int
+     * @param day int
+     * @param hour int
+     * @param min int
      */
     public MyDate(int day, int month, int year, int hour, int min) {
         this.day = day;

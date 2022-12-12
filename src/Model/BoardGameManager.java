@@ -24,6 +24,9 @@ public class BoardGameManager implements Serializable
 
   /**
    * A constructor that takes in three strings and sets them to the variables in the class.
+   * @param boardgames String
+   * @param events String
+   * @param members String
    */
   public BoardGameManager(String boardgames,String members,String events)
   {

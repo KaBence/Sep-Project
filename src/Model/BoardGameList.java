@@ -9,7 +9,11 @@ import java.util.ArrayList;
 public class BoardGameList implements Serializable
 {
    private ArrayList<BoardGame> boardGames;
-   public BoardGameList(){
+
+  /**
+   * method for creating new array list of type board game
+   */
+  public BoardGameList(){
      boardGames=new ArrayList<>();
    }
 

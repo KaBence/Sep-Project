@@ -19,6 +19,9 @@ public class Reservation implements Serializable
 
     /**
      * This is a constructor with parameters memberName, pickUpDate and returnDate.
+     * @param returnDate MyDate
+     * @param pickUpDate MyDate
+     * @param memberName Member
      */
     public Reservation( Member memberName, MyDate pickUpDate, MyDate returnDate){
 

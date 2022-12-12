@@ -14,6 +14,8 @@ public class Rank implements Serializable
 
   /**
    * A constructor that takes in a review and a rank and sets the rank and review of the object to the given rank and review.
+   * @param rank int
+   * @param review String
    */
 
   public Rank(String review, int rank)

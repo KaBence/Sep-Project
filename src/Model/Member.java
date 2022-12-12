@@ -16,6 +16,10 @@ public class Member implements Serializable
 
   /**
    * This is a constructor. It is used to create an object of the class.
+   * @param email String
+   * @param firstName String
+   * @param lastName String
+   * @param phoneNumber String
    */
   public Member(String firstName, String lastName, String phoneNumber,
       String email)

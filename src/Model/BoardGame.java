@@ -61,6 +61,7 @@ public class BoardGame implements Serializable
   }
   /**
    * This function sets the owner of the current object to the owner passed in as a parameter.
+   * @param owner Member
    */
   public void setOwner(Member owner)
   {
@@ -102,6 +103,7 @@ public class BoardGame implements Serializable
   }
   /**
    * This function sets the name of the game.
+   * @param type String
    */
   public void setType(String type)
   {
