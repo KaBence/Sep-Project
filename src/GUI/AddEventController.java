@@ -81,7 +81,6 @@ public class AddEventController {
     public MemberList memberList = new MemberList();
     /**
      * creating new Arraylist of guests
-     * @param String names of guests
      */
     public ArrayList<String> tempGuests = new ArrayList<String>();
 

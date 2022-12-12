@@ -33,9 +33,9 @@ public class showMemberController
 
   /**
    * method to be ablo to connect with other classes
-   * @param viewHandler
-   * @param scene
-   * @param boardGameManager
+   * @param viewHandler seta the viewHandler
+   * @param scene sets the scene
+   * @param boardGameManager sets the boardGameManager
    */
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)
@@ -65,7 +65,7 @@ public class showMemberController
 
   /**
    * method for setting the member
-   * @param member
+   * @param member Member
    */
   public void setMember(Member member)
   {

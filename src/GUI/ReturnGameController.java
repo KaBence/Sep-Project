@@ -33,9 +33,9 @@ public class ReturnGameController
   /**
    * method to be ablo to connect with other classes
    *
-   * @param viewHandler
-   * @param scene
-   * @param boardGameManager
+   * @param viewHandler sets the viewHandler
+   * @param scene sets the scene
+   * @param boardGameManager sets the boardGameManager
    */
   public void init(ViewHandler viewHandler, Scene scene,
       BoardGameManager boardGameManager)

@@ -23,7 +23,7 @@ public class Borrow implements Serializable
   }
 
   /**
-   * A constructor that sets the instance variables to null.
+   * A no-argument constructor that sets the instance variables to null.
    */
   public Borrow(){
     borrower=null;
@@ -32,9 +32,8 @@ public class Borrow implements Serializable
   }
 
   /**
-   * This function sets the return date of the rental to the given date.
-   *
-   * @param returnDate The date the book is due back.
+   * This function sets the return date from the MyDate class.
+   * @param returnDate The date to return the borrowed game.
    */
   public void setReturnDate(MyDate returnDate)
   {
@@ -42,9 +41,8 @@ public class Borrow implements Serializable
   }
 
   /**
-   * This function sets the borrower of the book to the borrower passed in.
-   *
-   * @param borrower The member who borrowed the book.
+   * This function sets the borrower of the game from the Member class.
+   * @param borrower The member who borrowed the game.
    */
   public void setBorrower(Member borrower)
   {
@@ -52,8 +50,7 @@ public class Borrow implements Serializable
   }
 
   /**
-   * This function returns the returnDate variable.
-   *
+   * This function checks the date to return the borrowed game from the MyDate class.
    * @return The returnDate variable is being returned.
    */
   public MyDate getReturnDate()
@@ -62,9 +59,8 @@ public class Borrow implements Serializable
   }
 
   /**
-   * This function returns the borrower of the book.
-   *
-   * @return The borrower of the book.
+   * This function returns the borrower of the game from the Member class.
+   * @return The borrower of the game.
    */
   public Member getBorrower()
   {
@@ -72,8 +68,7 @@ public class Borrow implements Serializable
   }
 
   /**
-   * This function returns the pickUpDate.
-   *
+   * This function returns the pickUpDate from the MyDate class for the borrowing.
    * @return The pickUpDate variable is being returned.
    */
   public MyDate getPickUpDate()
@@ -83,8 +78,7 @@ public class Borrow implements Serializable
 
   /**
    * This function sets the pickUpDate variable to the value of the pickUpDate parameter.
-   *
-   * @param pickUpDate The date the item was picked up.
+   * @param pickUpDate The date the game was picked up.
    */
   public void setPickUpDate(MyDate pickUpDate)
   {
@@ -94,9 +88,8 @@ public class Borrow implements Serializable
   /**
    * If the object is not null and is of the same class as the object being compared, then return true if the borrower and
    * return date are the same
-   *
    * @param obj The object to compare this Borrow to.
-   * @return The hashCode of the object.
+   * @return it returns a boolean.
    */
   public boolean equals(Object obj)
   {
@@ -110,7 +103,6 @@ public class Borrow implements Serializable
 
   /**
    * The toString() function returns a string that contains the borrower's name, the return date, and the pickup date
-   *
    * @return The borrower and the pickup and return dates.
    */
   public String toString()

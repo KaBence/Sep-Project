@@ -46,7 +46,7 @@ public class Event implements Serializable {
     }
 
     /**
-     * This function sets the maximum capacity of the cache.
+     * This function sets the maximum capacity of players.
      * @param maxCapacity The maximum number of items that can be stored in the cache.
      */
     public void setCapacity(int maxCapacity) {
@@ -55,23 +55,20 @@ public class Event implements Serializable {
 
     /**
      * This function returns the name of the event
-     *
      * @return The event name.
      */
     public String getEventName(){
         return eventName;
     }
     /**
-     * This function returns the capacity of the array.
-     *
-     * @return The capacity of the array.
+     * This function returns the total number of players.
+     * @return The capacity of the players.
      */
     public int getCapacity(){
         return capacity;
     }
     /**
-     * This function sets the date of the object to the date passed in as a parameter.
-     *
+     * This function sets the date from MyDate class.
      * @param date The date of the event.
      */
     public void setDate(MyDate date){
@@ -80,7 +77,6 @@ public class Event implements Serializable {
 
     /**
      * This function returns a string that contains the event name, date, location, capacity, games, members, and guests
-     *
      * @return The event name, date, location, capacity, games, memberList, and guests.
      */
     public String toString() {
@@ -90,7 +86,6 @@ public class Event implements Serializable {
 
     /**
      * This function sets the location of the object.
-     *
      * @param location The location of the file.
      */
     public void setLocation(String location) {
@@ -99,7 +94,6 @@ public class Event implements Serializable {
 
     /**
      * This function sets the event name
-     *
      * @param eventName The name of the event you want to track.
      */
     public void setEventName(String eventName) {
@@ -109,7 +103,6 @@ public class Event implements Serializable {
     /**
      * If the object is null or not of the same class, return false. Otherwise, return true if the location, event name,
      * guests, date, capacity, games, and member list are equal
-     *
      * @param obj the object to compare to
      * @return The method is returning a boolean value.
      */
@@ -127,7 +120,6 @@ public class Event implements Serializable {
 
     /**
      * Returns the date of the event.
-     *
      * @return The date of the event.
      */
     public MyDate getDate() {
@@ -136,7 +128,6 @@ public class Event implements Serializable {
     /**
      * Return a new MyDate object with the same day, month and year as the current object, but with the time set to
      * 00:00:00.
-     *
      * @return A new MyDate object with the same day, month and year as the original object.
      */
     public MyDate getDateNoTime(){
@@ -145,7 +136,6 @@ public class Event implements Serializable {
 
     /**
      * This function copies the event and returns a new event with the same information.
-     *
      * @return A copy of the event.
      */
 
@@ -160,7 +150,6 @@ public class Event implements Serializable {
 
     /**
      * This function returns the games variable.
-     *
      * @return The game list variable is being returned.
      */
     public BoardGameList getGames() {
@@ -169,16 +158,14 @@ public class Event implements Serializable {
 
     /**
      * > This function returns the memberList
-     *
-     * @return The memberList object.
+     * @return The memberList object from the MemberList class.
      */
     public MemberList getMemberList() {
         return memberList;
     }
 
     /**
-     * This function sets the memberList variable to the list parameter.
-     *
+     * This function sets the memberList from the MemberList class.
      * @param list The list of members to be displayed.
      */
     public void setMemberList(MemberList list) {
@@ -187,7 +174,6 @@ public class Event implements Serializable {
 
     /**
      * This function adds a board game to the list of games
-     *
      * @param boardGame The board game to be added to the list of games.
      */
     public void addGames(BoardGame boardGame) {
@@ -196,7 +182,6 @@ public class Event implements Serializable {
 
     /**
      * This function sets the games variable to the games parameter.
-     *
      * @param games The list of games to be displayed.
      */
     public void setGames(BoardGameList games) {
@@ -204,8 +189,7 @@ public class Event implements Serializable {
     }
 
     /**
-     * This function returns the location of the current object.
-     *
+     * This function returns the location of the event.
      * @return The location of the event.
      */
     public String getLocation() {
@@ -213,8 +197,7 @@ public class Event implements Serializable {
     }
 
     /**
-     * This function returns a string of the guests.
-     *
+     * This function returns guest of the event.
      * @return The guestsString is being returned.
      */
     public String getGuests() {
@@ -223,7 +206,6 @@ public class Event implements Serializable {
 
     /**
      * This function returns an ArrayList of Strings that contains the names of the guests.
-     *
      * @return An ArrayList of Strings
      */
     public ArrayList<String> getGuestsArr() {
@@ -232,7 +214,6 @@ public class Event implements Serializable {
 
     /**
      * Adds a guest to the list of guests.
-     *
      * @param guest The name of the guest to add.
      */
     public void addGuest(String guest) {
@@ -241,7 +222,6 @@ public class Event implements Serializable {
 
     /**
      * Remove the guest with the given name from the list of guests.
-     *
      * @param name The name of the guest to remove.
      */
     public void RemoveGuest(String name) {

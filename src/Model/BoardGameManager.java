@@ -36,7 +36,6 @@ public class BoardGameManager implements Serializable
 
   /**
    * It reads the memberList from the file and returns it
-   *
    * @return A list of all members.
    */
   public MemberList getAllMembers(){
@@ -58,8 +57,7 @@ public class BoardGameManager implements Serializable
   }
 
   /**
-   * It reads the boardgame list from a binary file and returns it
-   *
+   * It gets all the boardGames from the boardGameList.
    * @return The method returns a BoardGameList object.
    */
   public BoardGameList getAllBoardGames(){
@@ -83,8 +81,7 @@ public class BoardGameManager implements Serializable
 
 
   /**
-   * This function reads the binary file and returns the eventList object
-   *
+   * It gets all the events from the EventList.
    * @return The method returns the eventList.
    */
 
@@ -107,9 +104,9 @@ public class BoardGameManager implements Serializable
   }
 
   /**
+   * It saves all the members from the MemberList.
    * It tries to write the memberList to a binary file called "members.bin"
-   *
-   * @param memberList The MemberList object that you want to save to the file.
+   * @param memberList the variable to MemberList.
    */
   public void saveAllMembers(MemberList memberList){
     try
@@ -125,9 +122,9 @@ public class BoardGameManager implements Serializable
   }
 
   /**
-   * The function takes a BoardGameList object as a parameter and saves it to a binary file called "Boardgames.bin"
-   *
-   * @param boardGameList The list of board games to be saved
+   * It saves all the board games from the BoardGameList.
+   * The function takes a BoardGameList object which is boardGameList as a parameter and saves it to a binary file called "Boardgames.bin"
+   * @param boardGameList the variable to BoardGameList.
    */
   public void saveAllBoardGames(BoardGameList boardGameList){
     try
@@ -143,9 +140,9 @@ public class BoardGameManager implements Serializable
   }
 
   /**
-   * This function takes an EventList object as a parameter and saves it to a binary file called events.bin
-   *
-   * @param eventList The list of events to be saved
+   * It saves all the events from the EventList.
+   * This function takes an EventList object which is eventList as a parameter and saves it to a binary file called events.bin
+   * @param eventList the variable to EventList.
    */
   public void saveAllEvents(EventList eventList){
     try

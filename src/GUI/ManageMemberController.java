@@ -60,6 +60,9 @@ public class ManageMemberController
    * method for setting the scene
    *
    * @param viewHandler sets the viewHandler
+   * @param scene sets the scene
+   * @param boardGameManager sets the boardGameManager
+   * @param viewHandler sets the viewHandler
    * @param scene sets The scene
    * @param boardGameManager sets the BoardGameManager
    */
