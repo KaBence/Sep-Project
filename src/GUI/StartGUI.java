@@ -11,8 +11,8 @@ public class StartGUI extends Application
 {
   public void start(Stage window)
   {
-    BoardGameManager ClubManager = new BoardGameManager("Boardgames.bin","members.bin","events.bin");
-    ViewHandler viewHandler = new ViewHandler(window, ClubManager);
+    BoardGameManager boardGameManager = new BoardGameManager("Boardgames.bin","members.bin","events.bin");
+    ViewHandler viewHandler = new ViewHandler(window, boardGameManager);
     viewHandler.start();
   }
 }
