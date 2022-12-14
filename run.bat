@@ -1,1 +1,1 @@
-java -jar SepProject.jar
+java -jar BoardGamesManager.jar

@@ -80,7 +80,7 @@ public class Event implements Serializable {
      * @return The event name, date, location, capacity, games, memberList, and guests.
      */
     public String toString() {
-        return eventName + " on " + date + " at " + location + " with a max capacity of " + capacity + " players, playing these games" + games.toString() + "with these members: " + memberList
+        return eventName + " on " + date + " at " + location + " with a max capacity of " + capacity + " players, playing these games: \n" + games.toString() + "with these members: " + memberList
             + " and having these guests: \n" + guests.toString().replace("[", "").replace("]", "");
     }
 
