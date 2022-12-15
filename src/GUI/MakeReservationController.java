@@ -167,6 +167,14 @@ public class MakeReservationController
           alert.showAndWait();
           return;
         }
+        if (pd.isBefore(selectedGame.getReservationList().get(i).getPickUpDate())&&rd.equals(selectedGame.getReservationList().get(i).getReturnDate())){
+          Alert alert=new Alert(Alert.AlertType.ERROR,"2Reservation for these days already exists",ButtonType.OK);
+          alert.setTitle("Warning");
+          alert.setHeaderText(null);
+          alert.showAndWait();
+          selectedGame.setBorrow(null);
+          return;
+        }
         //pickupdate is before a reservation and return date is in between
         if (pd.isBefore(selectedGame.getReservationList().get(i).getPickUpDate())&& rd.isBefore(selectedGame.getReservationList().get(i).getReturnDate())&& !rd.isBefore(selectedGame.getReservationList().get(i).getPickUpDate())){
           Alert alert=new Alert(Alert.AlertType.ERROR,"4There is a collision in reservations, please select another date",ButtonType.OK);

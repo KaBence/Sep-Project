@@ -1,9 +1,6 @@
 package GUI;
 
-import Model.BoardGameList;
-import Model.BoardGameManager;
-import Model.Member;
-import Model.MemberList;
+import Model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -111,6 +108,7 @@ public class showMemberController
       Alert alert=null;
       BoardGameList boardGameList=boardGameManager.getAllBoardGames();
       boolean borr=false;
+      BoardGame temp=null;
       for (int i = 0; i < boardGameList.size(); i++)
       {
         if (boardGameList.get(i).isBorrowed()&&boardGameList.get(i).getBorrow().getBorrower().equals(member)){
@@ -120,6 +118,7 @@ public class showMemberController
           alert.setHeaderText(null);
           alert.showAndWait();
           borr=true;
+          temp=boardGameList.get(i);
           break;
         }
       }
@@ -145,6 +144,17 @@ public class showMemberController
         alert1.showAndWait();
         //updating of file after deleting
         boardGameManager.saveAllMembers(memberList);
+        if (temp!=null){
+          temp.setBorrow(null);
+          for (int i = 0; i < boardGameList.size(); i++)
+          {
+            if (boardGameList.get(i).equals(temp)){
+              boardGameList.removeBoardGame(boardGameList.get(i));
+            }
+          }
+          boardGameList.addBoardGame(temp);
+          boardGameManager.saveAllBoardGames(boardGameList);
+        }
         viewHandler.openView("manageMember");
       }
     }
@@ -161,7 +171,6 @@ public class showMemberController
       memberList.removeMember(member);
       Member member1 = new Member(firstName.getText(), lastName.getText(),
           phone.getText(), email.getText());
-      memberList.addMember(member1);
 //alert for incorrect number
       if (!(phone.getText().length() == 8))
       {
@@ -174,16 +183,15 @@ public class showMemberController
       }
       for (int i = 0; i < memberList.size(); i++)
       {
-        if (phone.getText().equals(memberList.get(i).getPhoneNumber())){
-          Alert wrongPhone = new Alert(Alert.AlertType.ERROR,
-              "This phone number is already in the system", ButtonType.OK);
+        if (memberList.get(i).getPhoneNumber().equals(phone.getText())){
+          Alert wrongPhone = new Alert(Alert.AlertType.ERROR, "This phone number is already in the system", ButtonType.OK);
           wrongPhone.setTitle("stupid");
           wrongPhone.setHeaderText(null);
           wrongPhone.showAndWait();
           return;
         }
       }
-      //alert for incorect email format
+      //alert for incorrect email format
       if(!(email.getText().contains("@"))){
         Alert wrongEmailFormat = new Alert(Alert.AlertType.ERROR,
             "This email should look like: name@example.domain", ButtonType.OK);
@@ -199,6 +207,7 @@ public class showMemberController
       alert1.setHeaderText(null);
       alert1.showAndWait();
       //saving to file and updating
+      memberList.addMember(member1);
       boardGameManager.saveAllMembers(memberList);
       viewHandler.getManageMemberController().update();
       viewHandler.openView("manageMember");

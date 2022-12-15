@@ -55,71 +55,72 @@ public class AddBoardGameController
    * @param avl sets the boardGame either available or not available
    */
   public void addBoardGame(boolean avl){
-    if (name.getText().isEmpty()||type.getText().isEmpty()||min.getText().isEmpty()||max.getText().isEmpty()||(owner.getValue()==null&& avl)){
-      Alert alert=new Alert(Alert.AlertType.WARNING,"Fill every field before adding a boardGame",ButtonType.OK);
-      alert.setTitle("Warning");
-      alert.setHeaderText(null);
-      alert.showAndWait();
+    if (name.getText().isEmpty()||type.getText().isEmpty()||min.getText().isEmpty()||max.getText().isEmpty()||(owner.getValue()==null&& avl)){//5 checks in the if still O(1)
+      Alert alert=new Alert(Alert.AlertType.WARNING,"Fill every field before adding a boardGame",ButtonType.OK);//O(1)
+      alert.setTitle("Warning");//O(1)
+      alert.setHeaderText(null);//O(1)
+      alert.showAndWait();//O(1)
       return;
     }
     try
     {
-      Integer.parseInt(min.getText());
-      Integer.parseInt(max.getText());
+      Integer.parseInt(min.getText());//O(1)
+      Integer.parseInt(max.getText());//O(1)
     }
     catch (NumberFormatException e){
-      Alert alert=new Alert(Alert.AlertType.WARNING,"Number of players must be numbers",ButtonType.OK);
-      alert.setTitle("Warning");
-      alert.setHeaderText(null);
-      alert.showAndWait();
+      Alert alert=new Alert(Alert.AlertType.WARNING,"Number of players must be numbers",ButtonType.OK);//O(1)
+      alert.setTitle("Warning");//O(1)
+      alert.setHeaderText(null);//O(1)
+      alert.showAndWait();//O(1)
       return;
     }
-    BoardGame temp=new BoardGame(name.getText(),type.getText(), Integer.parseInt(min.getText()),Integer.parseInt(max.getText()),owner.getValue(),avl);
+    BoardGame temp=new BoardGame(name.getText(),type.getText(), Integer.parseInt(min.getText()),Integer.parseInt(max.getText()),owner.getValue(),avl);//5 checks still O(1)
     BoardGameList boardGameList=boardGameManager.getAllBoardGames();
-    for (int i = 0; i < boardGameList.size(); i++)
+    for (int i = 0; i < boardGameList.size(); i++)//2n+2
     {
-      if (temp.equals(boardGameList.get(i))){
+      if (temp.equals(boardGameList.get(i))){//n checks
         Alert alert = new Alert(Alert.AlertType.WARNING,
             "Game already exists in the system",
-            ButtonType.OK);
-        alert.setTitle("Warning");
-        alert.setHeaderText(null);
-
-        alert.showAndWait();
+            ButtonType.OK);//O(1)
+        alert.setTitle("Warning");//O(1)
+        alert.setHeaderText(null);//O(1)
+        alert.showAndWait();//O(1)
         return;
       }
+      //If the loop finds a boardgame that is identical with the current one it will show an error ending the loop there,but if the loop doesn't find anything it will run n times.
     }
-    if (Integer.parseInt(min.getText())<0||Integer.parseInt(max.getText())<0){
+    if (Integer.parseInt(min.getText())<0||Integer.parseInt(max.getText())<0){// 2 checks
       Alert alert = new Alert(Alert.AlertType.WARNING,
           "Number of Players cannot be under zero",
-          ButtonType.OK);
-      alert.setTitle("Warning");
-      alert.setHeaderText(null);
-      alert.showAndWait();
+          ButtonType.OK);//O(1) initialization
+      alert.setTitle("Warning");//O(1)
+      alert.setHeaderText(null);//O(1)
+      alert.showAndWait();//O(1)
       return;
     }
-    if (Integer.parseInt(min.getText())>Integer.parseInt(max.getText())){
+    if (Integer.parseInt(min.getText())>Integer.parseInt(max.getText())){//1 check
       Alert alert = new Alert(Alert.AlertType.WARNING,
           "Minimum number of players cannot be bigger than the maximum number of players",
-          ButtonType.OK);
-      alert.setTitle("Warning");
-      alert.setHeaderText(null);
-
-      alert.showAndWait();
+          ButtonType.OK);// O(1) initialization
+      alert.setTitle("Warning");//O(1)
+      alert.setHeaderText(null);//O(1)
+      alert.showAndWait();//O(1)
       return;
     }
     Alert alert = new Alert(Alert.AlertType.INFORMATION,
         "Game added Successfully",
-        ButtonType.OK);
-    alert.setTitle("Good Job");
-    alert.setHeaderText(null);
-    alert.showAndWait();
-    if (!avl){
-      temp.setOwner(null);
+        ButtonType.OK);//1 initialization
+    alert.setTitle("Good Job");//O(1)
+    alert.setHeaderText(null);//O(1)
+    alert.showAndWait();//O(1)
+    if (!avl){//1 check
+      temp.setOwner(null);//O(1)
     }
-    boardGameList.addBoardGame(temp);
+    boardGameList.addBoardGame(temp);//O(1)
     boardGameManager.saveAllBoardGames(boardGameList);
-    clear();
+    clear();//O(1)
+    //This method has a lot of setting and inicializing that takes O(1), The most complex part of this method is checking if the game already exists in the system. It is checked by a for loop
+    //that takes O(n). This whole method because of this takes O(n)
   }
 
   /**

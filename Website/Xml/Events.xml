@@ -396,45 +396,4 @@
     <location>C10.11</location>
     <capacity>37</capacity>
   </events>
-  <events>
-    <date>
-      <min>-1</min>
-      <month>12</month>
-      <hour>-1</hour>
-      <year>2022</year>
-      <day>23</day>
-    </date>
-    <memberList>
-      <members>
-        <firstName>Michaela</firstName>
-        <lastName>Veselovska</lastName>
-        <phoneNumber>92456475</phoneNumber>
-        <email>veselovskamichaela202@gmail.com</email>
-      </members>
-    </memberList>
-    <guests/>
-    <games>
-      <boardGames>
-        <owner>
-          <firstName>Bence</firstName>
-          <lastName>Kabaly</lastName>
-          <phoneNumber>80124578</phoneNumber>
-          <email>bk@gmail.com</email>
-        </owner>
-        <maxNoP>6</maxNoP>
-        <minNoP>2</minNoP>
-        <name>Treasure Hunter</name>
-        <availability>true</availability>
-        <voteList>
-          <vote>0</vote>
-        </voteList>
-        <type>Adventure</type>
-      </boardGames>
-    </games>
-    <eventName>hgjhg</eventName>
-    <guestsString/>
-    <maxCapacity>0</maxCapacity>
-    <location>trdert</location>
-    <capacity>0</capacity>
-  </events>
 </EventList>

@@ -11,16 +11,6 @@
     <type>Building</type>
   </boardGames>
   <boardGames>
-    <maxNoP>5</maxNoP>
-    <minNoP>2</minNoP>
-    <name>Exploding Kittens</name>
-    <availability>false</availability>
-    <voteList>
-      <vote>0</vote>
-    </voteList>
-    <type>Card Game</type>
-  </boardGames>
-  <boardGames>
     <maxNoP>6</maxNoP>
     <minNoP>2</minNoP>
     <name>Colt Express</name>
@@ -29,5 +19,15 @@
       <vote>0</vote>
     </voteList>
     <type>Fighting</type>
+  </boardGames>
+  <boardGames>
+    <maxNoP>5</maxNoP>
+    <minNoP>2</minNoP>
+    <name>Exploding Kittens</name>
+    <availability>false</availability>
+    <voteList>
+      <vote>1</vote>
+    </voteList>
+    <type>Card Game</type>
   </boardGames>
 </BoardGameList>

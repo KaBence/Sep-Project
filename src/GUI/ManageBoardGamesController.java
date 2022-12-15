@@ -120,7 +120,8 @@ public class ManageBoardGamesController
     if (available.isSelected()){// O(1)
       tableColOwner.setText("Owner");// O(1)
       tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));// O(1)
-      if (searchField.getText().isEmpty()) finalBoardGameList=boardGameList.getBoardGamesByAvailability(boardGameList,true);// If is O(1) and //O(n) this method has a for loop inside that takes O(n) time
+      if (searchField.getText().isEmpty()) finalBoardGameList=boardGameList.getBoardGamesByAvailability(boardGameList,true);// If is O(1) and //O(n) this method has a
+        // for loop inside that takes O(n) time
       else finalBoardGameList=boardGameList.getBoardGamesByAvailability(tempBoardGameList,true);
       BoardGameList temp=boardGameList.getBoardGamesByBorrow(boardGameList); //O(n) this method has a for loop inside that takes O(n) time
       for (int i = 0; i < finalBoardGameList.size(); i++)//The for loop takes 2n+2
@@ -146,7 +147,7 @@ public class ManageBoardGamesController
     if (reserved.isSelected()){// O(1)
       tableColOwner.setText("Owner");// O(1)
       tableColOwner.setCellValueFactory(new PropertyValueFactory<BoardGame,Member>("owner"));
-      if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByReserved(boardGameList); // If is O(1) and //O(n) this method has a for loop inside that takes O(n) time
+      if (searchField.getText().isEmpty())finalBoardGameList=boardGameList.getBoardGamesByReserved(boardGameList);//If is O(1) and //O(n) this method has a for loop inside that takes O(n) time
       else finalBoardGameList=boardGameList.getBoardGamesByReserved(tempBoardGameList);
       update(finalBoardGameList);//O(n) this method has a for loop inside that takes O(n) time
     }
@@ -157,6 +158,9 @@ public class ManageBoardGamesController
       if (searchField.getText().isEmpty()) update(boardGameList); // If is O(1) and //O(n) this method has a for loop inside that takes O(n) time
       else update(tempBoardGameList);//O(n) this method has a for loop inside that takes O(n) time
     }
+    //In this method a there is a lot of checking and setting and initializing that takes O(1). Getting the boardGameLists takes O(n) because it has to go through
+    //all the boardgames and selecting the correct ones. The most complex part is the nested loop that compares two boardGameLists and this takes O(n^2)
+    //Because of the nested loop this method takes O(n^2)
   }
 
   /**

@@ -7,38 +7,6 @@
       <phoneNumber>80124578</phoneNumber>
       <email>bk@gmail.com</email>
     </owner>
-    <maxNoP>6</maxNoP>
-    <minNoP>2</minNoP>
-    <name>Treasure Hunter</name>
-    <availability>true</availability>
-    <voteList>
-      <vote>0</vote>
-    </voteList>
-    <type>Adventure</type>
-  </boardGames>
-  <boardGames>
-    <owner>
-      <firstName>Harley</firstName>
-      <lastName>Queen</lastName>
-      <phoneNumber>55625358</phoneNumber>
-      <email>hq@hotmail.com</email>
-    </owner>
-    <maxNoP>2</maxNoP>
-    <minNoP>2</minNoP>
-    <name>Schotten Totten</name>
-    <availability>true</availability>
-    <voteList>
-      <vote>0</vote>
-    </voteList>
-    <type>Card Game</type>
-  </boardGames>
-  <boardGames>
-    <owner>
-      <firstName>Bence</firstName>
-      <lastName>Kabaly</lastName>
-      <phoneNumber>80124578</phoneNumber>
-      <email>bk@gmail.com</email>
-    </owner>
     <maxNoP>5</maxNoP>
     <minNoP>3</minNoP>
     <name>Sheriff of Nottingham</name>
@@ -47,54 +15,6 @@
       <vote>0</vote>
     </voteList>
     <type>Bluffing</type>
-  </boardGames>
-  <boardGames>
-    <owner>
-      <firstName>Michaela</firstName>
-      <lastName>Veselovska</lastName>
-      <phoneNumber>92456475</phoneNumber>
-      <email>veselovskamichaela202@gmail.com</email>
-    </owner>
-    <maxNoP>7</maxNoP>
-    <minNoP>4</minNoP>
-    <name>Bang</name>
-    <availability>true</availability>
-    <voteList>
-      <vote>0</vote>
-    </voteList>
-    <type>Card Game</type>
-  </boardGames>
-  <boardGames>
-    <owner>
-      <firstName>Michaela</firstName>
-      <lastName>Veselovska</lastName>
-      <phoneNumber>92456475</phoneNumber>
-      <email>veselovskamichaela202@gmail.com</email>
-    </owner>
-    <maxNoP>6</maxNoP>
-    <minNoP>3</minNoP>
-    <name>Betrayal at House on the Hill</name>
-    <availability>true</availability>
-    <voteList>
-      <vote>0</vote>
-    </voteList>
-    <type>Adventure</type>
-  </boardGames>
-  <boardGames>
-    <owner>
-      <firstName>Rohit</firstName>
-      <lastName>Pandey</lastName>
-      <phoneNumber>89123564</phoneNumber>
-      <email>rp@gmail.com</email>
-    </owner>
-    <maxNoP>6</maxNoP>
-    <minNoP>2</minNoP>
-    <name>Here to Slay</name>
-    <availability>true</availability>
-    <voteList>
-      <vote>0</vote>
-    </voteList>
-    <type>Card Game</type>
   </boardGames>
   <boardGames>
     <owner>
@@ -114,22 +34,6 @@
   </boardGames>
   <boardGames>
     <owner>
-      <firstName>Vlad</firstName>
-      <lastName>Dracula</lastName>
-      <phoneNumber>44126585</phoneNumber>
-      <email>drac@yahoo.com</email>
-    </owner>
-    <maxNoP>12</maxNoP>
-    <minNoP>4</minNoP>
-    <name>Concept</name>
-    <availability>true</availability>
-    <voteList>
-      <vote>0</vote>
-    </voteList>
-    <type>Deduction</type>
-  </boardGames>
-  <boardGames>
-    <owner>
       <firstName>Ludovit</firstName>
       <lastName>Stur</lastName>
       <phoneNumber>12754623</phoneNumber>
@@ -146,6 +50,68 @@
   </boardGames>
   <boardGames>
     <owner>
+      <firstName>Vlad</firstName>
+      <lastName>Dracula</lastName>
+      <phoneNumber>44126585</phoneNumber>
+      <email>drac@yahoo.com</email>
+    </owner>
+    <reservationList>
+      <reservations>
+        <pickUpDate>
+          <min>-1</min>
+          <month>12</month>
+          <hour>-1</hour>
+          <year>2022</year>
+          <day>13</day>
+        </pickUpDate>
+        <returnDate>
+          <min>-1</min>
+          <month>12</month>
+          <hour>-1</hour>
+          <year>2022</year>
+          <day>15</day>
+        </returnDate>
+        <borrower>
+          <firstName>Rohit</firstName>
+          <lastName>Pandey</lastName>
+          <phoneNumber>89123564</phoneNumber>
+          <email>rp@gmail.com</email>
+        </borrower>
+      </reservations>
+      <reservations>
+        <pickUpDate>
+          <min>-1</min>
+          <month>12</month>
+          <hour>-1</hour>
+          <year>2022</year>
+          <day>15</day>
+        </pickUpDate>
+        <returnDate>
+          <min>-1</min>
+          <month>12</month>
+          <hour>-1</hour>
+          <year>2022</year>
+          <day>19</day>
+        </returnDate>
+        <borrower>
+          <firstName>Ludovit</firstName>
+          <lastName>Stur</lastName>
+          <phoneNumber>12754623</phoneNumber>
+          <email>ls@gmail.com</email>
+        </borrower>
+      </reservations>
+    </reservationList>
+    <maxNoP>12</maxNoP>
+    <minNoP>4</minNoP>
+    <name>Concept</name>
+    <availability>true</availability>
+    <voteList>
+      <vote>0</vote>
+    </voteList>
+    <type>Deduction</type>
+  </boardGames>
+  <boardGames>
+    <owner>
       <firstName>Natasha</firstName>
       <lastName>Romanovova</lastName>
       <phoneNumber>50020103</phoneNumber>
@@ -154,10 +120,54 @@
     <maxNoP>4</maxNoP>
     <minNoP>2</minNoP>
     <name>Imhotep</name>
+    <borrow>
+      <returnDate>
+        <min>-1</min>
+        <month>12</month>
+        <hour>-1</hour>
+        <year>2022</year>
+        <day>13</day>
+      </returnDate>
+      <pickUpDate>
+        <min>-1</min>
+        <month>12</month>
+        <hour>-1</hour>
+        <year>344</year>
+        <day>10</day>
+      </pickUpDate>
+      <borrower>
+        <firstName>Adela</firstName>
+        <lastName>Ostrovicka</lastName>
+        <phoneNumber>82157645</phoneNumber>
+        <email>ao@gmail.com</email>
+      </borrower>
+    </borrow>
     <availability>true</availability>
     <voteList>
       <vote>0</vote>
     </voteList>
     <type>Family</type>
+  </boardGames>
+  <boardGames>
+    <owner>
+      <firstName>Michaela</firstName>
+      <lastName>Veselovska</lastName>
+      <phoneNumber>92456475</phoneNumber>
+      <email>veselovskamichaela202@gmail.com</email>
+    </owner>
+    <maxNoP>6</maxNoP>
+    <rankList>
+      <ranks>
+        <review>trs</review>
+        <rank>5</rank>
+      </ranks>
+    </rankList>
+    <minNoP>3</minNoP>
+    <name>Betrayal at House on the Hill</name>
+    <availability>true</availability>
+    <voteList>
+      <vote>0</vote>
+    </voteList>
+    <type>Adventure</type>
   </boardGames>
 </BoardGameList>

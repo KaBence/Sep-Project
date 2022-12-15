@@ -61,7 +61,8 @@ body{
 footer{
     margin-right: -15px;
     margin-left: -15px;
-    /*Margin is needed because of bootstrap. The container class puts a 15px margin and the the row class negates it. Here I didn't use the row class, that's why I did it manually*/
+    /*Margin is needed because of bootstrap. The container class puts a 15px margin
+     and the the row class negates it. Here I didn't use the row class, that's why I did it manually*/
 }
 
 .boardGames{
@@ -107,6 +108,14 @@ footer{
     .footer{
         flex-direction: column;
         flex-wrap: wrap;
+    }
+
+    .boardGames{
+        width: 100%;
+    }
+
+    .Events{
+        width: 100%;
     }
 
     .pawn{

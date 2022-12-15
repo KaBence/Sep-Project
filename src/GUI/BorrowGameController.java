@@ -184,10 +184,7 @@ public class BorrowGameController
                i < selectedBoardGame.getReservationList().size(); i++)
           {
             //the dates are outside of a reservation
-            if (pd.isBefore(
-                selectedBoardGame.getReservationList().get(i).getPickUpDate())
-                && selectedBoardGame.getReservationList().get(i).getReturnDate()
-                .isBefore(rd))
+            if (pd.isBefore(selectedBoardGame.getReservationList().get(i).getPickUpDate()) && selectedBoardGame.getReservationList().get(i).getReturnDate().isBefore(rd))
             {
               Alert alert = new Alert(Alert.AlertType.ERROR,
                   "1There is a collision in reservations, please select another date",
@@ -243,6 +240,14 @@ public class BorrowGameController
               Alert alert = new Alert(Alert.AlertType.ERROR,
                   "3There is a collision in reservations, please select another date",
                   ButtonType.OK);
+              alert.setTitle("Warning");
+              alert.setHeaderText(null);
+              alert.showAndWait();
+              selectedBoardGame.setBorrow(null);
+              return;
+            }
+            if (pd.isBefore(selectedBoardGame.getReservationList().get(i).getPickUpDate())&&rd.equals(selectedBoardGame.getReservationList().get(i).getReturnDate())){
+              Alert alert=new Alert(Alert.AlertType.ERROR,"2Reservation for these days already exists",ButtonType.OK);
               alert.setTitle("Warning");
               alert.setHeaderText(null);
               alert.showAndWait();
