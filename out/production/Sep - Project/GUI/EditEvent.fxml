@@ -12,15 +12,15 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditEventController">
    <children>
       <Label layoutX="291.0" layoutY="17.0" text="Location:" />
-      <Label layoutX="39.0" layoutY="18.0" text="Name" />
-      <Label layoutX="42.0" layoutY="51.0" text="Date" />
+      <Label layoutX="39.0" layoutY="18.0" text="Name *" />
+      <Label layoutX="42.0" layoutY="51.0" text="Date *" />
       <Label layoutX="313.0" layoutY="85.0" text="Guests:" />
       <TextField fx:id="name" layoutX="101.0" layoutY="14.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="171.0" />
       <TextField fx:id="guests" layoutX="361.0" layoutY="81.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="226.0" />
       <Button fx:id="back" layoutX="14.0" layoutY="364.0" mnemonicParsing="false" onAction="#actionHandler" text="Back" />
       <Button fx:id="save" layoutX="546.0" layoutY="364.0" mnemonicParsing="false" onAction="#actionHandler" text="Save" />
       <DatePicker fx:id="date" layoutX="101.0" layoutY="47.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="171.0" showWeekNumbers="true" />
-      <Label layoutX="22.0" layoutY="151.0" text="Board Game" />
+      <Label layoutX="22.0" layoutY="151.0" text="Board Game *" />
       <ComboBox fx:id="chooseGame" layoutX="101.0" layoutY="146.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="304.0" />
       <TextField fx:id="fLocation" layoutX="360.0" layoutY="13.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="225.0" />
       <TextField fx:id="maxCapacity" layoutX="483.0" layoutY="46.0" onAction="#actionHandler" prefHeight="26.0" prefWidth="103.0" />

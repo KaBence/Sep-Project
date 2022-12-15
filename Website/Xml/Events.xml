@@ -396,4 +396,61 @@
     <location>C10.11</location>
     <capacity>37</capacity>
   </events>
+  <events>
+    <date>
+      <min>-1</min>
+      <month>12</month>
+      <hour>-1</hour>
+      <year>2022</year>
+      <day>20</day>
+    </date>
+    <memberList>
+      <members>
+        <firstName>Igor</firstName>
+        <lastName>Cretu</lastName>
+        <phoneNumber>78986512</phoneNumber>
+        <email>ic@gmail.com</email>
+      </members>
+    </memberList>
+    <guests>123</guests>
+    <games>
+      <boardGames>
+        <owner>
+          <firstName>Rohit</firstName>
+          <lastName>Pandey</lastName>
+          <phoneNumber>89123564</phoneNumber>
+          <email>rp@gmail.com</email>
+        </owner>
+        <maxNoP>6</maxNoP>
+        <minNoP>2</minNoP>
+        <name>Here to Slay</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Card Game</type>
+      </boardGames>
+      <boardGames>
+        <owner>
+          <firstName>Vlad</firstName>
+          <lastName>Dracula</lastName>
+          <phoneNumber>44126585</phoneNumber>
+          <email>drac@yahoo.com</email>
+        </owner>
+        <maxNoP>12</maxNoP>
+        <minNoP>4</minNoP>
+        <name>Concept</name>
+        <availability>true</availability>
+        <voteList>
+          <vote>0</vote>
+        </voteList>
+        <type>Deduction</type>
+      </boardGames>
+    </games>
+    <eventName>Test</eventName>
+    <guestsString>123</guestsString>
+    <maxCapacity>0</maxCapacity>
+    <location>C10.04</location>
+    <capacity>2</capacity>
+  </events>
 </EventList>
