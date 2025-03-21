@@ -3,7 +3,6 @@ package Main;
 import Model.*;
 import Util.MyFileHandler;
 
-import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -12,19 +11,17 @@ import Model.MyDate;
 import Model.BoardGame;
 import Model.BoardGameList;
 import Model.MemberList;
-import Util.MyFileHandler;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /**
  * A class for loading the data from the txt files to the bin files
+ * 
  * @author Bence Kabaly
  */
 
 public class LoadInitialData {
     /**
-     *  The main method that starts when this is started
+     * The main method that starts when this is started
+     * 
      * @param args We can give arguments when the program starts
      */
 
@@ -51,7 +48,7 @@ public class LoadInitialData {
         } catch (FileNotFoundException e) {
             System.out.println("File was not found, or could not be opened");
         }
-        //Reading the events from the dummydata
+        // Reading the events from the dummydata
         try {
             eventsArray = MyFileHandler.readArrayFromTextFile("dummyDataEvents.txt");
 
@@ -67,7 +64,7 @@ public class LoadInitialData {
                 String guestsString = tempArr[5];
                 String tempGames = tempArr[6];
                 String[] tempGamesArr = tempGames.split("/");
-                for (String y:tempGamesArr) {
+                for (String y : tempGamesArr) {
                     String[] tempItems = y.split(",");
                     String nameGame = tempItems[0];
                     String type = tempItems[1];
@@ -78,13 +75,14 @@ public class LoadInitialData {
                     boardgamesEvents.addBoardGame(new BoardGame(nameGame, type, minNoP, maxNop,
                             members.getMemberByName(owner), avl));
                 }
-                events.addEvent(new Event(MyDate.stringToDate(date, timeTemp), location, name, tempArr[5], capacity, boardgamesEvents, new MemberList()));
+                events.addEvent(new Event(MyDate.stringToDate(date, timeTemp), location, name, tempArr[5], capacity,
+                        boardgamesEvents, new MemberList()));
             }
         } catch (FileNotFoundException e) {
             System.out.println("File was not found, or could not be opened");
         }
 
-        //reading the dummydata for the boardgames
+        // reading the dummydata for the boardgames
 
         try {
             boardgamesarray = MyFileHandler.readArrayFromTextFile("dummydataboardgames.txt");
@@ -104,7 +102,7 @@ public class LoadInitialData {
             System.out.println("File not found");
         }
 
-        //Writing the bin file for members
+        // Writing the bin file for members
         try {
             MyFileHandler.writeToBinaryFile("members.bin", members);
         } catch (FileNotFoundException e) {
@@ -114,7 +112,7 @@ public class LoadInitialData {
         }
 
         System.out.println("Members Done");
-//    writing bin file for events
+        // writing bin file for events
         try {
             MyFileHandler.writeToBinaryFile("events.bin", events);
             System.out.println("Events Done");
@@ -124,8 +122,7 @@ public class LoadInitialData {
             System.out.println("IO Error writing to file ");
         }
 
-
-        //Writing the bin file for boardgames
+        // Writing the bin file for boardgames
         try {
             MyFileHandler.writeToBinaryFile("Boardgames.bin", boardgames);
         } catch (FileNotFoundException e) {

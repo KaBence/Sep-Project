@@ -1,0 +1,13 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/XmlJsonParser-1.4.jar"
+    ],
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "C:/Java/jdk-17.0.4-full",
+            "default": true
+        }
+    ]
+}
+    

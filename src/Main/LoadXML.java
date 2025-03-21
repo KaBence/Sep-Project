@@ -6,9 +6,6 @@ import Model.EventList;
 import parser.ParserException;
 import parser.XmlJsonParser;
 
-import java.io.File;
-import java.io.IOException;
-
 /**
  * A class for creating xml files from the bin files
  * @author Bence Kabaly
@@ -28,7 +25,7 @@ public class LoadXML
 
     try
     {
-      File file = parser.toXml(boardGameListAvl,"Website/Xml/BoardgamesAvl.xml");
+      parser.toXml(boardGameListAvl,"Website/Xml/BoardgamesAvl.xml");
     }
     catch (ParserException e){
       System.out.println("Parser Exception");
@@ -36,7 +33,7 @@ public class LoadXML
     BoardGameList boardGameListNonAvl= boardGameList.getBoardGamesByAvailability(boardGameList,false);
     try
     {
-      File file = parser.toXml(boardGameListNonAvl,"Website/Xml/BoardgamesNonAvl.xml");
+      parser.toXml(boardGameListNonAvl,"Website/Xml/BoardgamesNonAvl.xml");
     }
     catch (ParserException e){
       System.out.println("Parser Exception");
@@ -44,7 +41,7 @@ public class LoadXML
     EventList eventList=boardGameManager.getAllEvents();
     try
     {
-      File file=parser.toXml(eventList,"Website/Xml/Events.xml");
+      parser.toXml(eventList,"Website/Xml/Events.xml");
     }
     catch (ParserException e){
       System.out.println("Parser exception");
