@@ -101,12 +101,23 @@ public class MemberList implements Serializable
     MemberList temp = new MemberList();
     for (int i = 0; i < members.size(); i++)
     {
-      if (members.get(i).getPhoneNumber().contains(phoneNumber))
+      if (phoneNumber!=null&&members.get(i).getPhoneNumber().contains(phoneNumber))
       {
         temp.addMember(members.get(i));
       }
     }
     return temp;
+  }
+
+  public Member getMemberByOwnerID(String phoneNumber){
+    for (int i = 0; i < members.size(); i++)
+    {
+      if (phoneNumber!=null&&members.get(i).getPhoneNumber().contains(phoneNumber))
+      {
+        return members.get(i);
+      }
+    }
+    return null;
   }
 
   /**
